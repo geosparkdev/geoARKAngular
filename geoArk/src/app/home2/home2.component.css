@@ -1,0 +1,93 @@
+.main_block {
+    background-image: url('../../assets/MO_graphic_MO_size_1366X374.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;
+    background-size: 100% 45%;
+    height:50vh;
+    text-align:center;
+    padding:100px 200px;
+  }
+
+
+.whitespace{
+    height:100px;
+    padding: 10px 200px;
+    margin:10px;
+}
+
+.footer{
+    background-color:#c4c4c4;
+    position:fixed;
+    left:0;
+    bottom:0;
+    width:100%;
+
+    padding: 10px 200px;
+}
+
+.title{
+    font-family:"Euphemia UCAS";
+    font-weight: bolder;
+    font-size: 5em;
+    color:black;
+}
+
+.sub_title1{
+    font-family:"Euphemia UCAS";
+    font-weight: bolder;
+    font-size: 2em;
+}
+
+.sub_title2{
+    font-family:"Euphemia UCAS";
+    font-weight: bolder;
+    font-size: 2.5em;
+}
+
+.main_button{
+
+    color: white;
+    display: inline-block;
+    border-radius:15px;
+    padding-top:2px;
+    padding-bottom:5px;
+
+
+    margin-top:20px;
+    margin-right:20x;
+    cursor:pointer;
+
+
+
+    font-family:"Euphemia UCAS";
+    font-weight: bold;
+    font-size: 2rem;
+    text-align:center;
+
+}
+
+.main_button:hover{
+    background-color:black;
+
+}
+
+.button_red {
+    background-color: #d81f20;
+    padding-left:120px;
+    padding-right:120px;
+}
+
+.button_orange {
+    background-color: #d55e00;
+    padding-left:100px;
+    padding-right:100px;
+
+}
+
+.button_blue {
+    background-color: #2872b2;
+    padding-left:100px;
+    padding-right:100px;
+
+}

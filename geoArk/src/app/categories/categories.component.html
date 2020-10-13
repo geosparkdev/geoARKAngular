@@ -1,0 +1,125 @@
+<div class='header'>
+Geo-Influence and COVID-19 in Missouri
+</div>
+
+<div class='nav_bar'>
+    <ul class='tabrow'>
+        <li> Predictions</li>
+        <li routerLink="/categories" routerLinkActive="active" class='selected'> Categories</li>
+        <li> Locations</li>
+    </ul> 
+</div>
+
+<br>
+
+<div *ngIf="map_togg">
+    <div id="map" style="height: 300px;width: 500px; margin-left:25%"></div>
+</div>
+
+
+<div class='main'>
+    Select a main category to reveal sub-categories:
+    <br>
+
+
+    <div *ngFor="let item of categories.categories; let i = index">
+        <div class='main_button button_blue' *ngIf="i % 3 == 0" class="row" >
+          <div class='main_button button_blue' [class.button_blue_selected]="item.selected" (click)="setCategory(i)">{{ item.name }}</div>
+          <div class='main_button button_blue' *ngIf="i + 1 < categories.categories.length" [class.button_blue_selected]="categories.categories[i + 1].selected" (click)="setCategory(i+1)">{{ categories.categories[i + 1].name }}</div>
+          <div class='main_button button_blue' *ngIf="i + 2 < categories.categories.length" [class.button_blue_selected]="categories.categories[i + 2].selected" (click)="setCategory(i+2)">{{ categories.categories[i + 2].name }}</div>
+        </div>
+    </div>
+
+
+    <br>
+    <br>
+    <br>
+
+    <div *ngIf='subcategories_togg'>
+        Search for a sub-category:
+        <br>
+        <input type='text' class='input_search'>
+        <br>
+
+
+        <div *ngIf='susceptiblity_togg'>
+            <div *ngFor="let item of subcategories.susceptiblity_sub; let i = index">
+                <div class='main_button button_orange' *ngIf="i % 4 == 0" class="row" >
+                  <div class='main_button button_orange' [class.button_orange_selected]="item.selected" (click)="setSubCat(i)">{{ item.name }}</div>
+                  <div class='main_button button_orange' *ngIf="i + 1 < subcategories.susceptiblity_sub.length" [class.button_orange_selected]="subcategories.susceptiblity_sub[i + 1].selected" (click)="setSubCat(i+1)">{{ subcategories.susceptiblity_sub[i + 1].name }}</div>
+                  <div class='main_button button_orange' *ngIf="i + 2 < subcategories.susceptiblity_sub.length" [class.button_orange_selected]="subcategories.susceptiblity_sub[i + 2].selected" (click)="setSubCat(i+2)">{{ subcategories.susceptiblity_sub[i + 2].name }}</div>
+                  <div class='main_button button_orange' *ngIf="i + 3 < subcategories.susceptiblity_sub.length" [class.button_orange_selected]="subcategories.susceptiblity_sub[i + 3].selected" (click)="setSubCat(i+3)">{{ subcategories.susceptiblity_sub[i + 3].name }}</div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf='transmission_togg'>
+            <div *ngFor="let item of subcategories.transmission_sub; let i = index">
+                <div class='main_button button_orange' *ngIf="i % 4 == 0" class="row" >
+                  <div class='main_button button_orange' [class.button_orange_selected]="item.selected" (click)="setSubCat(i)">{{ item.name }}</div>
+                  <div class='main_button button_orange' *ngIf="i + 1 < subcategories.transmission_sub.length" [class.button_orange_selected]="subcategories.transmission_sub[i + 1].selected" (click)="setSubCat(i+1)">{{ subcategories.transmission_sub[i + 1].name }}</div>
+                  <div class='main_button button_orange' *ngIf="i + 2 < subcategories.transmission_sub.length" [class.button_orange_selected]="subcategories.transmission_sub[i + 2].selected" (click)="setSubCat(i+2)">{{ subcategories.transmission_sub[i + 2].name }}</div>
+                  <div class='main_button button_orange' *ngIf="i + 3 < subcategories.transmission_sub.length" [class.button_orange_selected]="subcategories.transmission_sub[i + 3].selected" (click)="setSubCat(i+3)">{{ subcategories.transmission_sub[i + 3].name }}</div>
+                </div>
+            </div>
+        </div>
+        
+        <div *ngIf='exposure_togg'>
+            <div *ngFor="let item of subcategories.exposure_sub; let i = index">
+                <div class='main_button button_orange' *ngIf="i % 4 == 0" class="row" >
+                  <div class='main_button button_orange' [class.button_orange_selected]="item.selected" (click)="setSubCat(i)">{{ item.name }}</div>
+                  <div class='main_button button_orange' *ngIf="i + 1 < subcategories.exposure_sub.length" [class.button_orange_selected]="subcategories.exposure_sub[i + 1].selected" (click)="setSubCat(i+1)">{{ subcategories.exposure_sub[i + 1].name }}</div>
+                  <div class='main_button button_orange' *ngIf="i + 2 < subcategories.exposure_sub.length" [class.button_orange_selected]="subcategories.exposure_sub[i + 2].selected" (click)="setSubCat(i+2)">{{ subcategories.exposure_sub[i + 2].name }}</div>
+                  <div class='main_button button_orange' *ngIf="i + 3 < subcategories.exposure_sub.length" [class.button_orange_selected]="subcategories.exposure_sub[i + 3].selected" (click)="setSubCat(i+3)">{{ subcategories.exposure_sub[i + 3].name }}</div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf='health_togg'>
+            <div *ngFor="let item of subcategories.health_sub; let i = index">
+                <div class='main_button button_orange' *ngIf="i % 4 == 0" class="row" >
+                  <div class='main_button button_orange' [class.button_orange_selected]="item.selected" (click)="setSubCat(i)">{{ item.name }}</div>
+                  <div class='main_button button_orange' *ngIf="i + 1 < subcategories.health_sub.length" [class.button_orange_selected]="subcategories.health_sub[i + 1].selected" (click)="setSubCat(i+1)">{{ subcategories.health_sub[i + 1].name }}</div>
+                  <div class='main_button button_orange' *ngIf="i + 2 < subcategories.health_sub.length" [class.button_orange_selected]="subcategories.health_sub[i + 2].selected" (click)="setSubCat(i+2)">{{ subcategories.health_sub[i + 2].name }}</div>
+                  <div class='main_button button_orange' *ngIf="i + 3 < subcategories.health_sub.length" [class.button_orange_selected]="subcategories.health_sub[i + 3].selected" (click)="setSubCat(i+3)">{{ subcategories.health_sub[i + 3].name }}</div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf='accessibility_togg'>
+            <div *ngFor="let item of subcategories.accessibility_sub; let i = index">
+                <div class='main_button button_orange' *ngIf="i % 4 == 0" class="row" >
+                  <div class='main_button button_orange' [class.button_orange_selected]="item.selected" (click)="setSubCat(i)">{{ item.name }}</div>
+                  <div class='main_button button_orange' *ngIf="i + 1 < subcategories.accessibility_sub.length" [class.button_orange_selected]="subcategories.accessibility_sub[i + 1].selected" (click)="setSubCat(i+1)">{{ subcategories.accessibility_sub[i + 1].name }}</div>
+                  <div class='main_button button_orange' *ngIf="i + 2 < subcategories.accessibility_sub.length" [class.button_orange_selected]="subcategories.accessibility_sub[i + 2].selected" (click)="setSubCat(i+2)">{{ subcategories.accessibility_sub[i + 2].name }}</div>
+                  <div class='main_button button_orange' *ngIf="i + 3 < subcategories.accessibility_sub.length" [class.button_orange_selected]="subcategories.accessibility_sub[i + 3].selected" (click)="setSubCat(i+3)">{{ subcategories.accessibility_sub[i + 3].name }}</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div *ngIf='socioeconomic_togg'>
+            <div *ngFor="let item of subcategories.socioeconomic_sub; let i = index">
+                <div class='main_button button_orange' *ngIf="i % 4 == 0" class="row" >
+                  <div class='main_button button_orange' [class.button_orange_selected]="item.selected" (click)="setSubCat(i)">{{ item.name }}</div>
+                  <div class='main_button button_orange' *ngIf="i + 1 < subcategories.socioeconomic_sub.length" [class.button_orange_selected]="subcategories.socioeconomic_sub[i + 1].selected" (click)="setSubCat(i+1)">{{ subcategories.socioeconomic_sub[i + 1].name }}</div>
+                  <div class='main_button button_orange' *ngIf="i + 2 < subcategories.socioeconomic_sub.length" [class.button_orange_selected]="subcategories.socioeconomic_sub[i + 2].selected" (click)="setSubCat(i+2)">{{ subcategories.socioeconomic_sub[i + 2].name }}</div>
+                  <div class='main_button button_orange' *ngIf="i + 3 < subcategories.socioeconomic_sub.length" [class.button_orange_selected]="subcategories.socioeconomic_sub[i + 3].selected" (click)="setSubCat(i+3)">{{ subcategories.socioeconomic_sub[i + 3].name }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+</div>
+
+
+
+<div class='footer'>
+    How to use this dashboard
+    <br>
+    Data sources
+    <br>
+    &copy;
+</div>

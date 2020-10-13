@@ -1,0 +1,278 @@
+<div class="backgroundcolor">
+    <div class='aligncenter'>
+        <img src="../../assets/geoarkupload.png" width=350px>
+    </div>
+    
+        
+    <!-- Step 1: Select Source Originator-->
+    <div class="uploadblock" *ngIf="!originatortogg">           
+        <h2> Select Data Originator </h2>
+        <br>
+        <div class="aligncenter">
+                
+            <input class="inputsearch" type="text"  placeholder="Search..." name="search">
+            <span class="icons"><i class="mdi mdi-magnify"></i></span> 
+            &nbsp;&nbsp;
+            <input class="inputsearch" type="text"  placeholder="Add Data Originator " name="originator_name" [(ngModel)]="addoriginator.originator_name">
+            <span class="icons"><i class="mdi mdi-database-plus" (click)="addOriginator()"></i></span> 
+            
+                <div class="smallerbox">
+                    <table>
+                        <tr *ngFor="let originator of originators | paginate: { itemsPerPage: 5, currentPage: p}">
+                            <td [class.highlighted]="originator.originator_id==selected" (click)="selectOriginator(originator.originator_id, originator.originator_name)">{{originator.originator_name}} &nbsp;&nbsp;<span class='num_datasets'>{{originator.num_datasets}} dataset<span *ngIf="originator.num_datasets!=1">s</span></span></td>
+                        </tr>
+                    </table>
+                    
+                    <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
+                </div>
+    
+        </div>
+    </div>
+    
+    
+    
+    <!-- Summary Block: will update at each step-->
+    <div class="summaryblock" *ngIf="originatortogg">
+        <div class="columns">
+            <div class="column">
+                <h3> Data Source: <span class="selectedtitle">{{originator_name}}</span></h3>
+            </div>
+            <div class="column">
+                
+                <div class="startover">
+                    <span class="icons"><i class="mdi mdi-restart" (click)="testfunc()"></i></span> Start Over 
+                </div>
+            </div>
+        </div>
+       
+    
+        <div *ngIf="datasettogg2">
+            <h3> Dataset: <span class="selectedtitle">{{dataset_name}}</span></h3>
+            <br>
+        </div>
+      
+        <div *ngIf="attributetogg2">
+            <h3> Attributes Look-Up: <span class="selectedtitle">{{displayfile}}</span></h3>
+        </div>
+    
+        <div *ngIf="datatogg2">
+            <br>
+            <h3> Data: <span class="selectedtitle">{{displayDatafile}}</span></h3>
+            <br>
+            <div class="aligncenter">
+                <h3>Uploads were successful. Thank you.</h3>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    <!-- Step 2: Add or Update Dataset-->
+    
+    <!-- Prompt user: Select or Add Dataset -->
+    <div class="aligncenter" *ngIf="datasetchoicetogg">
+        <br>
+        Would you like to:
+        <br>
+        <span class="datasetmode" (click)="toggDataset()" >Add Dataset</span> 
+        <span class="datasetmode"  (click)="toggUpdateDataset()">Update Dataset</span>
+    </div>
+    
+    <!-- Step 2a: Add Dataset -->
+    <div class="uploadblock" *ngIf="datasettogg">
+        <h2>Add Dataset</h2>
+    
+        <label>Dataset name:</label>
+        <input type="text"  name="dataset_name" [(ngModel)]="adddataset.dataset_name">
+    
+        <div class="columns">
+            <div class="column">
+                <label>Use Constraints:</label>
+                <input type="text"  name="use_constraint" [(ngModel)]="adddataset.use_constraint">
+            </div>
+            <div class="column">
+                <label>Access Constraints:</label>
+                <input type="text"  name="access_constraint" [(ngModel)]="adddataset.access_constraint">
+            </div>
+            <div class="column">
+                <label>Security Class:</label>
+                <input type="text"  name="security_class" [(ngModel)]="adddataset.security_class">
+            </div>
+        </div>
+    
+        <label>Data Usage Agreement:</label>
+        <input type="text"  name="datausage_agreement" [(ngModel)]="adddataset.datausage_agreement">
+        
+        <div class="columns">
+            <div class="column is-one-fifth">
+                <label>Native Format:</label>
+                <select class="dropdown" name="native_format" [(ngModel)]="adddataset.native_format">
+                    <option value="csv">csv</option>
+                    <option value="xlsx">xlsx</option>
+                </select>
+            </div>
+            <div class="column">
+                <label>Source URL:</label>
+                <input type="text"  name="source_url" [(ngModel)]="adddataset.source_url">
+            </div>
+    
+            <div class="column is-one-third">
+                <label>Update Frequency:</label>
+    
+                <select class="dropdown" name="update_frequency" [(ngModel)]="adddataset.update_frequency">
+                    <option value="daily">daily</option>
+                    <option value="weekly">weekly</option>
+                    <option value="monthly">monthly</option>
+                    <option value="annually">anually</option>
+                    <option value="2_years">2 years</option>
+                    <option value="3_years">3 years</option>
+                    <option value="4_years">4 years</option>
+                    <option value="5_years">5 years</option>
+                </select>
+            </div>
+        </div>
+    
+        <button (click)="addDataset()">Add Dataset</button>
+    
+    </div>
+    
+    
+    
+    <!-- Step 2b: Update Dataset -->
+    <!-- User selects dataset to update -->
+    <div class="uploadblock" *ngIf="updatedatasettogg">
+        
+        <h2>Select Dataset</h2> 
+        <br>
+        <div class="smallerbox">
+            <table>
+                <tr>
+                   <th>Dataset name</th>
+                   <th>Last Updated</th>
+                </tr>
+                <tr *ngFor="let dataset of datasets | paginate: { itemsPerPage: 5, currentPage: p2}">
+                    <td [class.highlighted]="dataset.dataset_id==selected_ds" (click)="selectDataset(dataset.dataset_id, dataset.dataset_name)">{{dataset.dataset_name}}</td>
+                    <td [class.highlighted]="dataset.dataset_id==selected_ds">{{dataset.upload_date}}</td>
+                </tr>
+            </table>
+            <div class='aligncenter'>
+                <pagination-controls class="my-pagination" (pageChange)="p2 = $event"></pagination-controls>
+            </div>
+        </div>
+       
+    
+    </div>
+    
+    <div class="uploadblock" *ngIf="updatedatasettogg2">
+        
+        <h2>Update Dataset</h2> 
+        <br>
+        <div class="columns">
+            <div class="column">
+                <label>Use Constraints:</label>
+                <input type="text"  name="use_constraint" [(ngModel)]="editdataset.use_constraint">
+            </div>
+            <div class="column">
+                <label>Access Constraints:</label>
+                <input type="text"  name="access_constraint" [(ngModel)]="editdataset.access_constraint">
+            </div>
+            <div class="column">
+                <label>Security Class:</label>
+                <input type="text"  name="security_class" [(ngModel)]="editdataset.security_class">
+            </div>
+        </div>
+    
+        <label>Data Usage Agreement:</label>
+        <input type="text"  name="datausage_agreement" [(ngModel)]="editdataset.datausage_agreement">
+        
+        <div class="columns">
+            <div class="column is-one-fifth">
+                <label>Native Format:</label>
+                <select class="dropdown" name="native_format" [(ngModel)]="editdataset.native_format">
+                    <option value="csv">csv</option>
+                    <option value="xlsx">xlsx</option>
+                </select>
+            </div>
+            <div class="column">
+                <label>Source URL:</label>
+                <input type="text"  name="source_url" [(ngModel)]="editdataset.source_url">
+            </div>
+    
+            <div class="column is-one-third">
+                <label>Update Frequency:</label>
+    
+                <select class="dropdown" name="update_frequency" [(ngModel)]="editdataset.update_frequency">
+                    <option value="daily">daily</option>
+                    <option value="weekly">weekly</option>
+                    <option value="monthly">monthly</option>
+                    <option value="annually">anually</option>
+                    <option value="2_years">2 years</option>
+                    <option value="3_years">3 years</option>
+                    <option value="4_years">4 years</option>
+                    <option value="5_years">5 years</option>
+                </select>
+            </div>
+        </div>
+       
+    
+    </div>
+    
+    
+    
+    
+    
+    <!-- Step 3: Add Attribute Look-up table -->
+    <div class="uploadblock" *ngIf="attributetogg">
+        <div class="aligncenter">
+            <h2> 3. Upload Attribute Information</h2>
+            <br>
+            
+            <div class="button-wrap">
+            
+                <span class="fileselected"> {{displayfile}}</span><label class="filebutton" for="attributescsv"><i class="mdi mdi-file-upload-outline"></i> Choose csv</label>
+                <input 
+                id="attributescsv" 
+                type="file" 
+                accept=".csv"
+                [(ngModel)]="currentInput"
+        
+                (change)="getAttributesCSV($event)"> 
+            </div>
+            <button (click)="uploadAttributes()">upload Attributes</button>
+            <br>
+        </div>
+    </div>
+    
+    
+    <!-- Step 4: Add Data -->
+    <div class="uploadblock" *ngIf="datatogg">
+        <h2> 4. Upload Data </h2>
+        <div class = "aligncenter">
+    
+            <div class="button-wrap">
+            
+                <span class="fileselected"> {{displayDatafile}}</span><label class="filebutton" for="datacsv"><i class="mdi mdi-file-upload-outline"></i> Choose csv</label>
+                <input 
+                id="datacsv" 
+                type="file" 
+                accept=".csv"
+                [(ngModel)]="currentDataInput"
+        
+                (change)="getDataCSV($event)"> 
+            </div>
+            <button (click)="uploadData()">upload Data</button>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+    
+
+    
+ 
+

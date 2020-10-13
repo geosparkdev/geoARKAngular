@@ -1,0 +1,292 @@
+
+.backgroundcolor {
+  background-color: #99caff;
+  width: 100%;
+  height:100vh;
+  padding: 0px;
+  margin: 0px;
+}
+
+.uploadblock{
+    background: linear-gradient(to bottom, rgb(217, 229, 238) 50px, #f5f6f8 0%); 
+    width:60%;
+    height:auto;
+    border-width:1px;
+    border-radius:20px;
+    padding: 10px;
+    padding-top:5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:10px;
+}
+
+
+
+.summaryblock{
+  background:#f5f6f8; 
+  width:60%;
+  height:auto;
+  border-width:1px;
+  border-radius:20px;
+  padding: 10px;
+  padding-top:5px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:10px;
+}
+
+
+.num_datasets{
+  color:#317fd3;
+  font-style: italic;
+  font-family: Geneva;
+  font-size:10px;
+
+}
+
+.selectedtitle{
+  color:#317fd3;
+  font-style: italic;
+  font-family: Geneva;
+  font-size:15px;
+
+}
+
+.smallerbox{
+  width:90%;
+  margin:auto;
+}
+
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: white;
+    text-align:center;
+    margin-right:15px;
+    margin-bottom:15px;
+
+  }
+  
+  th{
+    margin-top:5px;
+    padding: 3px;
+    text-align: center;
+    font-size:12px;
+    background-color:rgb(194, 210, 223);
+    border-bottom: 1px solid #ddd;
+  }
+
+  td {
+    padding: 3px;
+    text-align: center;
+    font-size:12px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  tr:hover {background-color:#b5d9ff;}
+
+
+  button {
+    border-radius: 4px;
+    background-color: white;     
+    margin:5px;
+    padding:5px;
+    margin-top:3px;
+    margin-left:0px;
+    border: 1px solid rgb(217, 229, 238);
+    transition-duration: 0.4s;
+  }
+  button:hover {
+    background-color:  #084b93;
+    color: white;
+    font-weight:bold;
+  }
+
+
+  .highlighted{
+    background-color: #084b93;
+    color: rgb(255, 255, 255);
+    font-weight:bold;
+    }
+
+  
+  .fileselected {
+      border-radius: 4px;
+      background-color: #c8e3ff;     
+      padding:5px;
+      margin-top:3px;
+      margin-left:0px;
+      border: 1px solid rgb(217, 229, 238);
+      font-size:14px;
+      width:200px;
+  }
+
+  .filebutton {
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: white;     
+    margin:5px;
+    padding:5px;
+    margin-top:3px;
+    margin-left:0px;
+    border: 1px solid rgb(217, 229, 238);
+    font-size:14px;
+    transition-duration: 0.4s;
+  }
+
+  .filebutton:hover {
+    background-color:  #084b93;
+    color: white;
+    font-weight:bold;
+  }
+
+
+  .datasetmode {
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: white;     
+    margin:5px;
+    padding:10px;
+    border: 1px solid rgb(217, 229, 238);
+    font-size:14px;
+    width:250px;
+
+    transition-duration: 0.4s;
+  }
+
+  .datasetmode:hover {
+    background-color:  #084b93;
+    color: white;
+    font-weight:bold;
+  }
+
+
+  .startover{
+    text-align:right;
+    font-size:15px;
+  }
+
+  input{
+    width: 100%;
+    border-radius: 4px;
+    height: 30px;
+    Font-family: Tahoma, Geneva, sans-serif;
+    color: black;
+    font-size: 14px; 
+    letter-spacing: 2px;
+    border-color:rgb(153,153,153);
+}
+
+
+
+
+  input[type=file] {
+    position: absolute;
+    z-index: -1;
+    top: 6px;
+    left: 0;
+    font-size: 15px;
+    color: rgb(153,153,153);
+  }
+  .button-wrap {
+    position: relative;
+  }
+
+
+
+
+.inputsearch[type=text]{
+  width: 40%;
+  padding: 5px;
+  margin: 0px;
+  margin-bottom:15px;
+  border-radius:10px;
+  border-color: #d4d4d4;
+  font-size:12px;
+  background: #c8e3ff;
+}
+
+.magnifyingglass{
+  font-size:20px;
+  margin-left:15px;
+}
+
+
+
+
+.dropdown{
+  width: 100%;
+  border-radius: 4px;
+  height: 30px;
+}
+
+
+my-pagination /deep/ .ngx-pagination {
+  text-align: center;
+}
+
+.my-pagination /deep/ .ngx-pagination li{
+  padding: 5px;
+  margin-top:3px;
+
+}
+
+.my-pagination /deep/ .ngx-pagination .current{
+  color:black;
+  background-color:#b5d9ff;
+  border-radius:10px;
+  padding:5px;
+}
+
+.my-pagination /deep/ .ngx-pagination a{
+  color: black !important;
+  padding: 0 !important;
+  border: none;
+}
+
+.my-pagination /deep/ .ngx-pagination a:hover{
+  background-color:rgb(243, 248, 252);
+  color: black !important;
+  padding: 0 !important;
+  border: none;
+}
+
+.my-pagination /deep/ .ngx-pagination .pagination-previous{
+  color: black !important;
+  padding: 0 !important;
+  border: none;
+  margin-right: 10px;
+  font-size:12px;
+  margin-top: 10px;
+}
+
+.my-pagination /deep/ .ngx-pagination .pagination-next{
+  color: black !important;
+  padding: 0 !important;
+  border: none;
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size:12px;
+}
+
+.my-pagination /deep/ .ngx-pagination .pagination-previous .disabled{
+  color: white !important;
+  padding: 0 !important;
+  border: none;
+  margin-right: 10px;
+  margin-top: 10px;
+  font-size:12px;
+}
+
+.my-pagination /deep/ .ngx-pagination .pagination-next .disabled{
+  color: white !important;
+  padding: 0 !important;
+  border: none;
+  margin-left: 10px;
+  margin-top: 10px;
+  font-size:12px;
+}
