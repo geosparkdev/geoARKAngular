@@ -1,4 +1,4 @@
-
+/* Main structure */
 .header{
     background-color:#2872b2;
    
@@ -11,16 +11,48 @@
     font-size: 2.5rem;
     color:white;
     text-align:center;
-
-
     padding: 10px 200px;
 }
 
 
 .main{
-    
-    padding: 30px 290px;
+    padding-top:30px;
+    padding-bottom:30px;
+}
 
+
+
+.footer{
+  background-color:#c4c4c4;
+  position:fixed;
+  left:0;
+  bottom:0;
+  width:100%;
+  overflow:hidden;
+
+  margin-top:0px;
+
+  padding: 10px 200px;
+}
+
+
+
+
+
+/* Other */ 
+.divider_filter{
+  background:#3a3a3a;
+  color:white;
+  padding: 5px;
+  font-weight: bolder;
+}
+
+
+
+.map{
+  height:40vh;
+  width: 80vh;
+  margin:5px;
 }
 
 .input_search{
@@ -30,6 +62,29 @@
 }
 
 
+select{
+  width:200px;
+  border: solid 2px #c4c4c4;
+  padding:5px;
+}
+
+
+.test{
+  float: left;
+}
+
+
+.plot_placeholder{
+  height: 180px;
+  background: #c4c4c4;
+  margin:10px;
+}
+
+
+
+
+
+/* Button styling */
 .main_button{
 
     color: white;
@@ -44,7 +99,6 @@
     list-style: none;
 
 }
-
 
 .button_blue {
     background-color: #2872b2;
@@ -84,19 +138,20 @@
   background-color:  #f9934e
 }
 
-.footer{
-    background-color:#c4c4c4;
-    position:fixed;
-    left:0;
-    bottom:0;
-    width:100%;
-
-    padding: 10px 200px;
-}
 
 
+
+
+
+
+
+
+
+
+
+/* Navigation bar -- Tabs */
 .nav_bar{
-    margin-left:290px;
+    margin-left:300px;
 }
 
 

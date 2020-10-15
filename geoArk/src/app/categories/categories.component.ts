@@ -112,19 +112,74 @@ export class CategoriesComponent implements OnInit {
     }, 200)
   }
 
+
+
+
+
+
+
+
   // choropleth map
   getMap(){
-    console.log("Inside Get Map")
-    let map: L.Map;
-		let geojson: L.GeoJSON;
-		map = L.map("map").setView([37.9643, -91.8318], 6);
-		L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-			id: "mapbox.light",
-			attribution: "SOS"
+
+	
+	
+	let geojson: L.GeoJSON;
+
+	//initializing map -- map id matches HTML div id
+	// center initial map on Missouri
+	let map = L.map("map").setView([37.9643, -91.8318], 6);
+
+	//load tile layer 
+	//Can layer tiles
+	L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
+	{
+		id: "mapbox.light",
+		attribution: "SOS"
+		// can have min and max zoom here
+	}).addTo(map);
+
+	//get Data http call -- this will be moved out
+	this.http.get("http://localhost:5000/dbMap").subscribe((json: any) => {
+		
+	
+	geojson = L.geoJSON(json, {
+			style: function (feature) {
+
+				let above100 = over100(feature.properties.covid_deaths)
+
+				switch (above100) {
+					case true:
+						return {
+							color: "#800026",
+							fillColor: "#800026",
+							fillOpacity: 0.5
+						};
+					case false:
+						return {
+							color: "#BD0026",
+							fillColor: "#BD0026",
+							fillOpacity: 0.5
+						}
+				}
+			},
+
+
+			onEachFeature: function onEachFeature(feature, layer: L.Layer) {
+				layer.on({
+					mouseover: highlightFeature,
+					mouseout: resetHighlight,
+					click: zoomToFeature
+				});
+			}
 		}).addTo(map);
-		let info;
-		info = new L.Control();
-		info.onAdd = function () {
+	});
+
+
+	//informatin box--start
+	let info;
+	info = new L.Control();
+	info.onAdd = function () {
 			this._div = L.DomUtil.create("div", "info");
 			this.update();
 			return this._div;
@@ -135,28 +190,44 @@ export class CategoriesComponent implements OnInit {
 				(props ? "<b>" + props.NAME + "</b><br />" : "");
 		};
 		info.addTo(map);
-		let legend;
-		legend = new L.Control({position: 'bottomright'});
-		legend.onAdd = function () {
-			this._div = L.DomUtil.create("div", "info legend");
-			this.update();
-			return this._div;
-		};
-		legend.update = function () {
-			this._div.innerHTML += '<div style="background-color: #800026; width: 15px; height: 15px;"></div> > 100 <br/>' +
-								   '<div style="background-color: #BD0026; width: 15px; height: 15px;"></div> < 100 <br/>';
-		};
-		legend.addTo(map);
-		function over100(d) {
-			let deaths = Number(d);
-			if(deaths > 100){
-				return true;
-			}
-			else{
-				return false;
-			}
+
+
+		
+		
+	//legend -- start	
+	let legend;
+
+	legend = new L.Control({position: 'bottomright'});
+	legend.onAdd = function () {
+		this._div = L.DomUtil.create("div", "info legend");
+		this.update();
+		return this._div;
+	};
+
+	legend.update = function () {
+		this._div.innerHTML += '<div style="background-color: #800026; width: 15px; height: 15px;"></div> > 100 <br/>' +
+								'<div style="background-color: #BD0026; width: 15px; height: 15px;"></div> < 100 <br/>';
+	};
+
+	legend.addTo(map);
+	
+	
+	
+	function over100(d) 
+	{
+		let deaths = Number(d);
+		if(deaths > 100){
+			return true;
 		}
-		function perc2color(perc,min,max) {
+		else{
+			return false;
+		}
+	}
+
+
+
+		function perc2color(perc,min,max) 
+		{
             var base = (max - min);
             if (base == 0) { perc = 100; }
             else {
@@ -168,12 +239,15 @@ export class CategoriesComponent implements OnInit {
                 g = Math.round(5.1 * perc);
             }
             else {
-                g = 255;
+                b = 255;
                 r = Math.round(510 - 5.10 * perc);
             }
             var h = r * 0x10000 + g * 0x100 + b * 0x1;
             return '#' + ('000000' + h.toString(16)).slice(-6);
-        }
+		}
+		
+
+
 		function resetHighlight(e) {
 			geojson.resetStyle(e.target);
 			info.update();
@@ -181,6 +255,7 @@ export class CategoriesComponent implements OnInit {
 		function zoomToFeature(e) {
 			map.fitBounds(e.target.getBounds());
 		}
+
 		function highlightFeature(e) {
 			const layer = e.target;
 			layer.setStyle({
@@ -194,40 +269,8 @@ export class CategoriesComponent implements OnInit {
 			}
 			info.update(layer.feature.properties);
 		}
-		function test(){
-			for (var i = 0; i < 5; i++) {
-				console.log(perc2color(i, 0, 5))
-			}
-		}
-		this.http.get("http://localhost:5000/dbMap").subscribe((json: any) => {
-			geojson = L.geoJSON(json, {
-				style: function (feature) {
-					test();
-					let above100 = over100(feature.properties.covid_deaths)
-					switch (above100) {
-						case true:
-							return {
-								color: "#800026",
-								fillColor: "#800026",
-								fillOpacity: 0.5
-							};
-						case false:
-							return {
-								color: "#BD0026",
-								fillColor: "#BD0026",
-								fillOpacity: 0.5
-							}
-					}
-				},
-				onEachFeature: function onEachFeature(feature, layer: L.Layer) {
-					layer.on({
-						mouseover: highlightFeature,
-						mouseout: resetHighlight,
-						click: zoomToFeature
-					});
-				}
-			}).addTo(map);
-		});
+
+	
   }
 
 }
