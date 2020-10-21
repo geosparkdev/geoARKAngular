@@ -11,6 +11,9 @@ Geo-Influence and COVID-19 in Missouri
 </div>
 
 
+<div *ngIf="loading_togg">
+    <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-loader" [fullScreen] = "false"><p style="color: white" > Building Dashboard... </p></ngx-spinner>
+</div>
 
 <div class="columns">
 
@@ -27,7 +30,9 @@ Geo-Influence and COVID-19 in Missouri
 
             <div class="columns">
                 <div class="column">
-
+          
+                    
+           
                     <form>
                         Choose a County:
                         <select id="county drop down" name="county">
@@ -38,10 +43,28 @@ Geo-Influence and COVID-19 in Missouri
                     </form>
                 
                     <div id="map" class="map"></div>   
+                    <ng5-slider [(value)]="value" [options]="options" *ngIf="slider_togg" (userChange)="onUserChange($event)"></ng5-slider>
+        
 
                 </div>
                 <div class="column">
-                    Test
+                    <table>
+                        <tr>
+                          <th>Selected</th>
+                        </tr>
+                        <tr>
+                          <td>Selected Filter </td>
+                        </tr>
+                    </table>
+
+                    <table>
+                        <tr>
+                          <th>Filters</th>
+                        </tr>
+                        <tr>
+                          <td> Filter1 </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
 

@@ -11,7 +11,10 @@ import { HomeComponent } from './home/home.component';
 import { Home2Component } from './home2/home2.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
+import { Ng5SliderModule } from 'ng5-slider';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations"; 
+import { TooltipModule } from 'ng2-tooltip-directive';
 
 
 
@@ -28,10 +31,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     NgxPaginationModule,
+    Ng5SliderModule,
+    NgxSpinnerModule,
+    TooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -23,7 +23,10 @@
     "@types/leaflet": "^1.5.17",
     "bulma": "^0.9.0",
     "leaflet": "^1.7.1",
+    "ng2-tooltip-directive": "^2.9.22",
+    "ng5-slider": "^1.2.4",
     "ngx-pagination": "^5.0.0",
+    "ngx-spinner": "^10.0.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

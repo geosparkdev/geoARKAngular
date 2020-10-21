@@ -69,20 +69,40 @@ select{
 }
 
 
-.test{
-  float: left;
-}
-
 
 .plot_placeholder{
   height: 180px;
   background: #c4c4c4;
-  margin:10px;
+}
+
+.filter_box{
+  background:#c4c4c4;
+  height: 100%;
+  width: 100%;
 }
 
 
+table, td, th {  
+  border: 1px solid #ddd;
+  text-align: left;
+}
 
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
 
+th{
+  background: #3a3a3a;
+  color:white;
+  padding: 5px;
+  
+}
+
+td{
+  background: #eaeaea;
+  padding: 5px
+}
 
 /* Button styling */
 .main_button{
@@ -142,7 +162,58 @@ select{
 
 
 
+/* Map */
 
+::ng-deep .color{
+  width:30px;
+}
+::ng-deep #colors{
+  height:35vh;
+  float: left;
+}
+
+::ng-deep #range{
+  float:right;
+  font-size: 8px;
+  height:35vh;
+  position:relative;
+}
+
+::ng-deep .ind_range{
+  height:10%;
+}
+
+::ng-deep .range_bottom{
+  position:absolute;
+  bottom:2px;
+  left:0;
+}
+
+::ng-deep .range_center{
+}
+
+/* Map features */
+::ng-deep .info {
+  padding: 6px 8px;
+  font: 14px/16px Arial, Helvetica, sans-serif;
+  background: white;
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+}
+.info h4 {
+  margin: 0 0 5px;
+  color: #777;
+}
+
+::ng-deep .legendcontainer {
+  padding: 6px 8px;
+  font: 14px/16px Arial, Helvetica, sans-serif;
+  background: white;
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+}
 
 
 
@@ -245,5 +316,12 @@ EDIT ON
 .tabrow li.selected:after {
   box-shadow: -2px 0px 0 #2872b2;
 }
+
+
+
+
+
+
+
 
 
