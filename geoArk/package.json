@@ -27,6 +27,7 @@
     "ng5-slider": "^1.2.4",
     "ngx-pagination": "^5.0.0",
     "ngx-spinner": "^10.0.1",
+    "plotly.js-dist": "^1.57.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

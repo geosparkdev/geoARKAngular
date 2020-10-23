@@ -17,7 +17,8 @@
 
 .main{
     padding-top:30px;
-    padding-bottom:30px;
+    padding-bottom:150px;
+    height:100%
 }
 
 
@@ -71,8 +72,9 @@ select{
 
 
 .plot_placeholder{
-  height: 180px;
-  background: #c4c4c4;
+  height: 150px;
+  background: #3e3e3e;
+  margin-bottom:5px;
 }
 
 .filter_box{
@@ -80,6 +82,7 @@ select{
   height: 100%;
   width: 100%;
 }
+
 
 
 table, td, th {  
@@ -160,6 +163,32 @@ td{
 
 
 
+.animation_button{
+  width: 30x;
+  height: 30px;
+  font-size: 15px;
+  color:black;
+  padding:8px;
+  background-color:#c4c4c4;
+  border-radius: 4px;
+  margin:2px;
+}
+
+.animation_button:hover{
+  background-color:#2872b2;
+
+}
+.animation_button_selected{
+  width: 30x;
+  height: 30px;
+  font-size: 15px;
+  color:white;
+  padding:8px;
+  background-color:#2872b2;
+  border-radius: 4px;
+  margin:2px;
+
+}
 
 
 /* Map */
@@ -168,29 +197,28 @@ td{
   width:30px;
 }
 ::ng-deep #colors{
-  height:35vh;
+  height:255px;
   float: left;
 }
 
 ::ng-deep #range{
   float:right;
   font-size: 8px;
-  height:35vh;
+  height:260px;
   position:relative;
 }
 
 ::ng-deep .ind_range{
-  height:10%;
+  height:16.6%;
 }
 
 ::ng-deep .range_bottom{
-  position:absolute;
-  bottom:2px;
-  left:0;
+ float:bottom;
 }
 
-::ng-deep .range_center{
-}
+::ng-deep .range_last{
+  margin-top:-100px;
+ }
 
 /* Map features */
 ::ng-deep .info {

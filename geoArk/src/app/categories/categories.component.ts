@@ -21,15 +21,18 @@ import { NgxSpinnerService } from "ngx-spinner";
 export class CategoriesComponent implements OnInit {
 
 
+
+	// map variables
 	public geojson_obj:any;
 	public legend:any=[];
 	public map:any;
-
+	public map_togg: boolean=false;
 
 
 	//Loading map variables
 	public loading_togg:boolean=false;
 
+	
 	//Slider variables
 	public slider_togg: boolean=false;
 	public value: number=0;
@@ -47,20 +50,17 @@ export class CategoriesComponent implements OnInit {
       }
     }
 	
+	public play_selected:boolean=false;
 
 
-
+// category and subcategory variables
   public categories:categories; 
   public subcategories:subcategories;
 
-  public current_categories: any;
+	public current_categories: any;
+	
 
-  //subcategories
   public subcategories_togg: boolean=false;
-
-  public map_togg: boolean=false;
-
-
 
   public susceptiblity_togg: boolean=false;
   public transmission_togg: boolean=false;
@@ -72,10 +72,14 @@ export class CategoriesComponent implements OnInit {
   constructor(public http: HttpClient,private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+
+		//initialize categories and subcategories (buttons)
     this.subcategories=new subcategories();
 		this.categories=new categories();
 	
   }
+
+
 
 //Create Category Buttons and set current_category
   setCategory(index:number){
@@ -157,7 +161,7 @@ export class CategoriesComponent implements OnInit {
 
   
 
-	
+	//functions for loading screen 
 	startLoading(){
 		this.loading_togg=true;
 		this.spinner.show();
@@ -171,7 +175,8 @@ export class CategoriesComponent implements OnInit {
 
 
 
-	
+
+	//build geoJSON object for map 
 	buildObject(){
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
@@ -204,7 +209,7 @@ export class CategoriesComponent implements OnInit {
 
 
 
-
+// update map when slider moves
 	onUserChange(changeContext: ChangeContext): void {
 		this.map.removeLayer(L.GeoJSON);
 		this.getMap(this.legend[changeContext.value]['keys'],1)
@@ -213,13 +218,28 @@ export class CategoriesComponent implements OnInit {
 
 
 
+	//play and stop button 
+	playSlider(){
+		this.play_selected=true;
+		//for(let i=0; i<=this.legend.length-1; i++){
+			
+		this.value=0;
+			let temp=setInterval(()=>{
+				this.value+=7;
 
+				if (this.value >= this.legend.length-1){
+					clearInterval(temp);
+					this.play_selected=false;
+				}
 
+				console.log('test')
+				this.getMap(this.legend[this.value]['keys'],1)
 
-
-
-
+				
+			},500)
+	}
 	
+
 
   // choropleth map
   getMap(test:string, num:number){
@@ -251,19 +271,15 @@ export class CategoriesComponent implements OnInit {
 			};
 	
 			legend.update = function () {
-				this._div.innerHTML += ' <div> Title </div>  <div id="colors"> </div>' +
+				this._div.innerHTML += '<div id="colors"> </div>'+
 										'<div id="range">'+
-										'<div class="ind_range">Range 1</div>'+
-										'<div class="ind_range"> <span class="range_center"> Range 2 </span> </div>'+
-										'<div class="ind_range"> <span class="range_center"> Range 3 </span> </div>'+
-										'<div class="ind_range"> <span class="range_center"> Range 4 </span> </div>'+
-										'<div class="ind_range"> <span class="range_center"> Range 5 </span> </div>'+
-										'<div class="ind_range"> <span class="range_center"> Range 6 </span> </div>'+
-										'<div class="ind_range"> <span class="range_center"> Range 7 </span> </div>'+
-										'<div class="ind_range"> <span class="range_center"> Range 8 </span> </div>'+
-										'<div class="ind_range"> <span class="range_center"> Range 9 </span> </div>'+
-										'<div class="ind_range"> <span class="range_bottom"> Range </span></div>'+ 
-										'</div>';
+										('<div class="ind_range">Range 1</div>'+
+										'<div class="ind_range"> <span class="range_bottom"> Range 2 </span> </div>'+
+										'<div class="ind_range"> <span class="range_bottom"> Range 3 </span> </div>'+
+										'<div class="ind_range"> <span class="range_bottom"> Range 4 </span> </div>'+
+										'<div class="ind_range"> <span class="range_bottom"> Range 5 </span> </div>'+
+										'<div class="ind_range"> <span class="range_bottom"> Range 6 <br><br>0</span> </div>'+
+										'</div>');
 			};
 	
 			legend.addTo(this.map);

@@ -43,26 +43,42 @@ Geo-Influence and COVID-19 in Missouri
                     </form>
                 
                     <div id="map" class="map"></div>   
-                    <ng5-slider [(value)]="value" [options]="options" *ngIf="slider_togg" (userChange)="onUserChange($event)"></ng5-slider>
+
+                    <div class="columns">
+                        <div class="column is-2">
+                            <br>
+                            <span class="animation_button" [class.animation_button_selected]="play_selected" (click)='playSlider()'><i class="mdi mdi-play"></i> </span>
+                            <span class="animation_button"><i class="mdi mdi-stop"></i> </span>
+                        </div>
+                        <div class="column">
+                          
+                             <ng5-slider [(value)]="value" [options]="options" *ngIf="slider_togg" (userChange)="onUserChange($event)"></ng5-slider>
+                 
+                        </div>
+                    </div>
+              
+                    
+            
         
 
                 </div>
                 <div class="column">
-                    <table>
-                        <tr>
-                          <th>Selected</th>
-                        </tr>
-                        <tr>
-                          <td>Selected Filter </td>
-                        </tr>
-                    </table>
-
+    
                     <table>
                         <tr>
                           <th>Filters</th>
                         </tr>
                         <tr>
                           <td> Filter1 </td>
+                        </tr>
+                    </table>
+
+                    <table>
+                        <tr>
+                          <th>Parameters</th>
+                        </tr>
+                        <tr>
+                          <td> # Bins: </td>
                         </tr>
                     </table>
                 </div>
@@ -75,7 +91,7 @@ Geo-Influence and COVID-19 in Missouri
         
        
             <div class="plot_placeholder">
-                Plot(s) placeholder here
+                <div id="tester" style="width:600px;height:250px;"></div>
             
             </div>
         
