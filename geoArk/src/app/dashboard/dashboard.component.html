@@ -11,15 +11,94 @@
     </div>
     
     
-    <div class='main'>
-        Choose a county:
-
-        <br>
-        <!-- {{map}} -->
-        <iframe src="../../assets/test.html" width="500" height="500" frameborder="0"></iframe>
-
-        
+    <div *ngIf="loading_togg">
+        <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-loader" [fullScreen] = "false"><p style="color: white" > Building Dashboard... </p></ngx-spinner>
     </div>
+    
+    <div class="columns">
+    
+    
+        <div class="column is-2"> <!-- left margin column --></div>
+    
+    
+        <div class="column main">
+    
+    
+                <div class="columns">
+                    <div class="column">
+              
+                        
+               
+                        <form>
+                            Choose a County:
+                            <select id="county drop down" name="county">
+                                <option value="county1">County 1</option>
+                                <option value="county2">County 2</option>
+                    
+                            </select>
+                        </form>
+                    
+                        <div id="map" class="map"></div>   
+    
+                        <div class="columns">
+                            <div class="column is-2">
+                                <br>
+                                <span class="animation_button" [class.animation_button_selected]="play_selected" (click)='playSlider()'><i class="mdi mdi-play"></i> </span>
+                                <span class="animation_button" (click)='stopSlider()'><i class="mdi mdi-stop"></i> </span>
+                            </div>
+                            <div class="column">
+                              
+                                 <ng5-slider [(value)]="value" [options]="options" *ngIf="slider_togg" (userChange)="onUserChange($event)"></ng5-slider>
+                     
+                            </div>
+                        </div>
+    
+                    </div>
+                    <div class="column">
+        
+                        <table>
+                            <tr>
+                              <th>Filters</th>
+                            </tr>
+                            <tr>
+                              <td> Filter1 </td>
+                            </tr>
+                        </table>
+    
+                        <table>
+                            <tr>
+                              <th>Parameters</th>
+                            </tr>
+                            <tr>
+                              <td> # Bins: </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+    
+    
+    
+        
+            
+            
+           
+                <div class="plot_placeholder">
+                    <div id="tester" style="width:600px;height:250px;"></div>
+                
+                </div>
+    
+    
+    
+        </div>
+    
+    
+    
+        <div class="column is-2"> <!-- right margin column --> </div>
+    </div>
+    
+    
+        
+    
     
     
     
