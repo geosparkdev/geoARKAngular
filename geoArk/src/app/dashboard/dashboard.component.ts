@@ -72,7 +72,8 @@ export class DashboardComponent implements OnInit {
       .subscribe(params => {
         console.log(params); // { order: "popular" }
 
-        this.buildObject();
+        this.getData(params);
+        //this.buildObject();
   });
 
 
@@ -91,6 +92,21 @@ export class DashboardComponent implements OnInit {
 	}
 
 
+  getData(params:any){
+    const customheaders= new HttpHeaders()
+          .set('Content-Type', 'application/json');
+
+    this.http.post("http://localhost:5000/getDataCat",JSON.stringify(params), {headers: customheaders}).subscribe(
+      response=> {
+				console.log(response)
+
+      },
+      error => {
+        console.log(error)
+      }
+    )
+    
+  }
 
 	//build geoJSON object for map 
 	buildObject(){
@@ -173,7 +189,7 @@ export class DashboardComponent implements OnInit {
 
 		//load tile layer 
 		//Can layer tiles
-		L.tileLayer("https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png", 
+		L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
 		{
 			id: "mapbox.light",
 			attribution: "SOS"
