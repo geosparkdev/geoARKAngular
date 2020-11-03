@@ -1,6 +1,50 @@
+.header{
+  background-color:#090d25;
+ 
+  left:0;
+  top:0;
+  width:100%;
+  height:135px;
+
+  font-family:"Euphemia UCAS";
+  font-weight: bolder;
+  font-size: 2.5rem;
+  color:white;
+  text-align:center;
+}
+
+
+.navigation{
+  background-color:#cbfff5;
+  opacity:0.7;
+  color:black;
+  font-weight:bold;
+  letter-spacing:3px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align:center;
+}
+
+.nav_button{
+  margin-left:5px;
+  margin-right:5px;
+  padding:10px;
+  width:200px;
+  display:inline-block;
+  
+}
+
+.nav_button:hover{
+  background-color: white;
+  opacity:0.6;
+  
+}
+
+.nav_selected{
+  background-color: white;
+}
 
 .backgroundcolor {
-  background-color: #99caff;
+  background-color: #aaadb2;
   width: 100%;
   height:100vh;
   padding: 0px;
@@ -8,12 +52,13 @@
 }
 
 .uploadblock{
-    background: linear-gradient(to bottom, rgb(217, 229, 238) 50px, #f5f6f8 0%); 
-    width:60%;
+    background: linear-gradient(to bottom, #1a3760 50px, #f8f8f8 0%); 
+    color:black;
+    width:90%;
     height:auto;
     border-width:1px;
     border-radius:20px;
-    padding: 10px;
+    padding: 5px;
     padding-top:5px;
     margin-left: auto;
     margin-right: auto;
@@ -23,8 +68,8 @@
 
 
 .summaryblock{
-  background:#f5f6f8; 
-  width:60%;
+  background:#f8f8f8; 
+  width:90%;
   height:auto;
   border-width:1px;
   border-radius:20px;
@@ -37,7 +82,7 @@
 
 
 .num_datasets{
-  color:#317fd3;
+  color:#3fccb0;
   font-style: italic;
   font-family: Geneva;
   font-size:10px;
@@ -45,7 +90,7 @@
 }
 
 .selectedtitle{
-  color:#317fd3;
+  color:#090d25;
   font-style: italic;
   font-family: Geneva;
   font-size:15px;
@@ -85,7 +130,7 @@ table {
     border-bottom: 1px solid #ddd;
   }
   
-  tr:hover {background-color:#b5d9ff;}
+  tr:hover {background-color:#cbfff5;}
 
 
   button {
@@ -114,7 +159,7 @@ table {
   
   .fileselected {
       border-radius: 4px;
-      background-color: #c8e3ff;     
+      background-color: #cbfff5;     
       padding:5px;
       margin-top:3px;
       margin-left:0px;
@@ -207,7 +252,7 @@ table {
   border-radius:10px;
   border-color: #d4d4d4;
   font-size:12px;
-  background: #c8e3ff;
+  background: #cbfff5;
 }
 
 .magnifyingglass{
@@ -236,10 +281,11 @@ my-pagination /deep/ .ngx-pagination {
 }
 
 .my-pagination /deep/ .ngx-pagination .current{
-  color:black;
-  background-color:#b5d9ff;
+  color:#cbfff5;
+  background-color:#f8f8f8;
+  font-weight:bold;
   border-radius:10px;
-  padding:5px;
+  padding:4px;
 }
 
 .my-pagination /deep/ .ngx-pagination a{

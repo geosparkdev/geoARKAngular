@@ -15,9 +15,11 @@ import { Ng5SliderModule } from 'ng5-slider';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations"; 
 import { TooltipModule } from 'ng2-tooltip-directive';
+//import * as PlotlyJS from 'plotly.js/dist/plotly.js';
+//import { PlotlyModule } from 'angular-plotly.js';
 
 
-
+//PlotlyModule.plotlyjs=PlotlyJS;
 
 
 @NgModule({
@@ -39,6 +41,7 @@ import { TooltipModule } from 'ng2-tooltip-directive';
     Ng5SliderModule,
     NgxSpinnerModule,
     TooltipModule,
+    //PlotlyModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -14,6 +14,8 @@ import { subcategories} from '../models/subcategories';
 import * as L from 'leaflet';
 import { Options,ChangeContext } from 'ng5-slider';
 import { NgxSpinnerService } from "ngx-spinner";
+import { truncateSync } from 'fs';
+
 
 
 @Component({
@@ -24,13 +26,21 @@ import { NgxSpinnerService } from "ngx-spinner";
 export class DashboardComponent implements OnInit {
 
 
-
-
+  public demo: boolean=false;
+  public temp_togg1: boolean= this.demo;
+  public temp_togg2: boolean= this.demo;
 
 	// map variables
 	public geojson_obj:any;
 	public legend:any=[];
-	public map:any;
+  public map:any;
+  
+  public dataset1:any;
+  public data_selected:any;
+  public min:any;
+  public max:any;
+  public threshold:any;
+
 
 
 	//Loading map variables
@@ -71,9 +81,15 @@ export class DashboardComponent implements OnInit {
       .filter(params => params.tags)
       .subscribe(params => {
         console.log(params); // { order: "popular" }
-
-        this.getData(params);
-        //this.buildObject();
+      
+      if (this.temp_togg2==true){
+        this.getTestData();
+      }
+       else{
+         // this.getTestData();
+         // this.getData(params);
+         this.buildObject();
+       }
   });
 
 
@@ -91,7 +107,7 @@ export class DashboardComponent implements OnInit {
 		this.spinner.hide()
 	}
 
-
+//get data frome data based on passed parameters ***** UNDER MAINTENANCE *****
   getData(params:any){
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
@@ -108,6 +124,44 @@ export class DashboardComponent implements OnInit {
     
   }
 
+
+  //get data for building
+	getTestData(){
+    const customheaders= new HttpHeaders()
+          .set('Content-Type', 'application/json');
+
+    this.http.get("http://localhost:5000/getFakeData", {headers: customheaders}).subscribe(
+      response=> {
+        console.log(response)
+
+        this.geojson_obj=response[0];
+        this.legend=response[1];
+
+        this.min=this.legend[0].min
+        this.max=this.legend[0].max
+        this.threshold=100
+        this.data_selected=this.legend[0].attr_label
+        
+        this.map = L.map("map").setView([37.9643, -91.8318], 6.2);
+
+				this.getMap(this.data_selected,0);
+
+
+
+
+      },
+      error => {
+        console.log(error)
+      }
+    )
+  }
+
+
+
+
+
+
+
 	//build geoJSON object for map 
 	buildObject(){
     const customheaders= new HttpHeaders()
@@ -122,10 +176,13 @@ export class DashboardComponent implements OnInit {
 				this.legend=response[1];
 				console.log("TEST")
 
-				this.map = L.map("map").setView([37.9643, -91.8318], 6.2);
-				this.getMap(this.legend[this.legend.length-1]['keys'],0);
+        this.map = L.map("map").setView([37.9643, -91.8318], 6.2);
+        
+        this.min=0
+        this.max=29000
+        this.threshold=2000
 
-        console.log(this.legend.length-1)
+				this.getMap(this.legend[this.legend.length-1]['keys'],0);
 
 				this.options.ceil=this.legend.length-1;
         this.value=this.legend.length-1;
@@ -139,6 +196,20 @@ export class DashboardComponent implements OnInit {
       }
     )
   }
+
+
+  changeDataset(index:number){
+    this.map.removeLayer(L.GeoJSON);
+    this.data_selected=this.legend[index].attr_label
+    this.min=this.legend[index].min
+    this.max=this.legend[index].max
+  
+
+		this.getMap(this.data_selected,1)
+		
+  }
+
+
 
 
 
@@ -220,15 +291,15 @@ export class DashboardComponent implements OnInit {
 			};
 	
 			legend.update = function () {
-				this._div.innerHTML = '<div id="colors"> </div>'+
-										'<div id="range">'+
+				this._div.innerHTML = 'Title here<br> <div id="colors"> </div> <div id="range">Max</div>'//+
+										/*'<div id="range">'+
 										('<div class="ind_range">Range 1</div>'+
 										'<div class="ind_range"> <span class="range_bottom"> Range 2 </span> </div>'+
 										'<div class="ind_range"> <span class="range_bottom"> Range 3 </span> </div>'+
 										'<div class="ind_range"> <span class="range_bottom"> Range 4 </span> </div>'+
 										'<div class="ind_range"> <span class="range_bottom"> Range 5 </span> </div>'+
 										'<div class="ind_range"> <span class="range_bottom"> Range 6 <br><br>0</span> </div>'+
-										'</div>');
+										'</div>')*/;
 			};
 	
 			legend.addTo(this.map);
@@ -259,16 +330,16 @@ export class DashboardComponent implements OnInit {
 
 				info.update = function (props: any) {
 					this._div.innerHTML =
-						"<h4>Missouri COVID</h4>" +
+						"<h4>Hover over a county</h4>" +
 						(props ? "<b>" +props.NAME + " "+props[test] + "</b><br />" : "");
 				};
 				info.addTo(this.map);
 
 
 			
-		var min=0
-		var max=28182
-		var threshold=2000
+		var min=this.min;
+		var max=this.max;
+		var threshold=this.threshold;
 		//light to dark
 		var colorrange=getColorGradArr("#fcfed3", "#2165ab", threshold);
 		var ranges= getBin(min,max,threshold);

@@ -27,24 +27,18 @@
                 <div class="columns">
                     <div class="column">
               
-                        
-               
-                        <form>
-                            Choose a County:
-                            <select id="county drop down" name="county">
-                                <option value="county1">County 1</option>
-                                <option value="county2">County 2</option>
-                    
-                            </select>
-                        </form>
                     
                         <div id="map" class="map"></div>   
     
                         <div class="columns">
                             <div class="column is-2">
                                 <br>
-                                <span class="animation_button" [class.animation_button_selected]="play_selected" (click)='playSlider()'><i class="mdi mdi-play"></i> </span>
-                                <span class="animation_button" (click)='stopSlider()'><i class="mdi mdi-stop"></i> </span>
+                                <div *ngIf="slider_togg">
+                                    
+                                    <span class="animation_button" [class.animation_button_selected]="play_selected" (click)='playSlider()'><i class="mdi mdi-play"></i> </span>
+                                    <span class="animation_button" (click)='stopSlider()'><i class="mdi mdi-stop"></i> </span>
+
+                                </div>
                             </div>
                             <div class="column">
                               
@@ -55,13 +49,123 @@
     
                     </div>
                     <div class="column">
-        
+                
+                        <table *ngIf="!temp_togg1">
+                            <tr>
+                              <th>Category</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <form>
+                                        <select id="category_dropdown" name="category">
+                                            <option value="cat5" selected>Exposure</option>
+                                            <option value="cat1">Susceptibility</option>
+                                            <option value="cat2">Transmission</option>
+                                            <option value="cat3">Socioeconomic</option>
+                                            <option value="cat4">Transmission</option>
+                                            <option value="cat6">Accessibility</option>
+                                            <option value="cat7">Health resources</option>
+                                        </select>
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table *ngIf="!temp_togg1">
+                            <tr>
+                              <th>Sub-Category</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <form>
+                                        <select id="subcategory_dropdown" name="subcat">
+                                            <option value="subcat1" selected>COVID-19 Cases</option>
+                                            <option value="subcat2">COVID-19 Deaths</option>
+                                        </select>
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+
+
+
+
+                        <table *ngIf="temp_togg1">
+                            <tr>
+                              <th>Category</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <form>
+                                        <select id="category_dropdown" name="category">
+                                            <option value="cat5">Exposure</option>
+                                            <option value="cat1" selected>Susceptibility</option>
+                                            <option value="cat2">Transmission</option>
+                                            <option value="cat3">Socioeconomic</option>
+                                            <option value="cat4">Transmission</option>
+                                            <option value="cat6">Accessibility</option>
+                                            <option value="cat7">Health resources</option>
+                                        </select>
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table *ngIf="temp_togg1">
+                            <tr>
+                              <th>Sub-Category</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <form>
+                                        <select id="subcategory_dropdown" name="subcat">
+                                            <option value="subcat1" selected>Diabetes</option>
+                                            <option value="subcat2">Obesity</option>
+                                            <option value="subcat2">Blood pressure medication nonadherence</option>
+                                            <option value="subcat2">Insurance</option>
+                                        </select>
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+
+
+                        <table *ngIf="temp_togg1">
+                            <tr>
+                              <th>Data</th>
+                            </tr>
+                            <tr *ngFor="let data of legend;let i = index">
+                              <td [class.data_selected]="data.attr_label==data_selected" (click)="changeDataset(i)">{{data.attr_desc}}</td>
+                            </tr>
+                        </table>
+                        
+                        <table *ngIf="!temp_togg1">
+                            <tr>
+                              <th>Data</th>
+                            </tr>
+                            <tr class="data_selected">
+                              COVID 19 Cases per County
+                            </tr>
+                            <tr>
+
+                            </tr>
+                        </table>
+                        
                         <table>
                             <tr>
                               <th>Filters</th>
                             </tr>
                             <tr>
-                              <td> Filter1 </td>
+                              <td>              
+                                  <form>
+                                    <select id="county drop down" name="county">
+                                        <option value="default" selected>By County</option>
+                                        <option value="county1">County 1</option>
+                                        <option value="county2">County 2</option>
+                            
+                                    </select>
+                                </form>
+                            </td>
                             </tr>
                         </table>
     
@@ -76,16 +180,6 @@
                     </div>
                 </div>
     
-    
-    
-        
-            
-            
-           
-                <div class="plot_placeholder">
-                    <div id="tester" style="width:600px;height:250px;"></div>
-                
-                </div>
     
     
     

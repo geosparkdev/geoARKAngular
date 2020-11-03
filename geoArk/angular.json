@@ -32,7 +32,6 @@
 
             ],
             "scripts": [
-              "./node_modules/plotly.js-dist/plotly.js"
             ]
           },
           "configurations": {
