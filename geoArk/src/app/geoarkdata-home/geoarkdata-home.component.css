@@ -1,0 +1,130 @@
+.header{
+    background-color:#090d25;
+   
+    left:0;
+    top:0;
+    width:100%;
+    height:135px;
+  
+    font-family:"Euphemia UCAS";
+    font-weight: bolder;
+    font-size: 2.5rem;
+    color:white;
+    text-align:center;
+  }
+  
+  .main_container{
+      text-align:center;
+      padding: 0px 25px;
+  }
+  .navigation{
+    background-color:#cbfff5;
+    opacity:0.7;
+    color:black;
+    font-weight:bold;
+    letter-spacing:3px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align:center;
+  }
+  
+  .nav_button{
+    margin-left:5px;
+    margin-right:5px;
+    padding:10px;
+    width:200px;
+    display:inline-block;
+    
+  }
+  
+  .nav_button:hover{
+    background-color: white;
+    opacity:0.6;
+    
+  }
+  
+  .nav_selected{
+    background-color: white;
+  }
+  
+  .backgroundcolor {
+    background-color: #aaadb2;
+    width: 100%;
+    height:100vh;
+    padding: 0px;
+    margin: 0px;
+  }
+  
+  .statcard{
+      background-color:#090d25;
+      width:200px;
+      height:75;
+      color:white;
+      font-size: 12px;
+      border: 1px solid black;
+      margin:25px 15px;
+      padding: 10px;
+      display:inline-block;
+      
+
+  }
+
+  .statcard_num{
+      color:#8afae4;
+      font-size:25px;
+      font-weight:bolder;
+  }
+
+  .headers{
+      color:white;
+      font-size:25px;
+      font-weight:bolder;
+  }
+
+
+
+  .HTML CSSResult
+  EDIT ON
+
+  .fixed_header{
+      width: 300px;
+      table-layout: fixed;
+      border-collapse: collapse;
+      margin: 0 auto;
+  }
+  
+  .fixed_header tbody{
+    display:block;
+    width: 100%;
+    overflow: auto;
+    height: 300px;
+    background-color: #cbfff5;
+  }
+  
+  .fixed_header thead tr {
+     display: block;
+  }
+  
+  .fixed_header thead {
+    background: #090d25;
+    color:white;
+  }
+  
+  .fixed_header th {
+    padding: 5px;
+    text-align: left;
+    width: 300px;
+    color:#8afae4;
+    text-align:center;
+  }
+
+  .fixed_header td{
+    padding: 5px;
+    text-align: left;
+    width: 300px;
+    color:black;
+    text-align:center;
+
+  }
+
+
+  

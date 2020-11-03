@@ -15,6 +15,8 @@ import { Ng5SliderModule } from 'ng5-slider';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations"; 
 import { TooltipModule } from 'ng2-tooltip-directive';
+import { GeoarkdataHomeComponent } from './geoarkdata-home/geoarkdata-home.component';
+import { DbDesignComponent } from './db-design/db-design.component';
 //import * as PlotlyJS from 'plotly.js/dist/plotly.js';
 //import { PlotlyModule } from 'angular-plotly.js';
 
@@ -30,6 +32,8 @@ import { TooltipModule } from 'ng2-tooltip-directive';
     Home2Component,
     CategoriesComponent,
     DashboardComponent,
+    GeoarkdataHomeComponent,
+    DbDesignComponent,
   ],
   imports: [
     BrowserModule,

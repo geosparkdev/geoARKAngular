@@ -14,7 +14,6 @@ import { subcategories} from '../models/subcategories';
 import * as L from 'leaflet';
 import { Options,ChangeContext } from 'ng5-slider';
 import { NgxSpinnerService } from "ngx-spinner";
-import { truncateSync } from 'fs';
 
 
 
