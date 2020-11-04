@@ -85,13 +85,9 @@
   .HTML CSSResult
   EDIT ON
   
-  .table_container{
-    text-align: center;
-  }
-
 
   .fixed_header{
-      width: 300px;
+      width: 400px;
       table-layout: fixed;
       border-collapse: collapse;
       margin: 0 auto;
@@ -101,7 +97,7 @@
     display:block;
     width: 100%;
     overflow: auto;
-    height: 300px;
+    height: 400px;
     background-color: #cbfff5;
   }
   
@@ -117,7 +113,7 @@
   .fixed_header th {
     padding: 5px;
     text-align: left;
-    width: 300px;
+    width: 400px;
     color:#8afae4;
     text-align:center;
   }
@@ -125,7 +121,7 @@
   .fixed_header td{
     padding: 5px;
     text-align: left;
-    width: 300px;
+    width: 400px;
     color:black;
     text-align:center;
     font-size:12px;
