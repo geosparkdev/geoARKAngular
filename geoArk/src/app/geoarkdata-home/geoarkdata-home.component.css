@@ -126,5 +126,7 @@
 
   }
 
+  tr:nth-child(even) {background-color: #dffdf7;}
+
 
   
