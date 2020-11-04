@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { TooltipModule } from 'ng2-tooltip-directive';
 import { GeoarkdataHomeComponent } from './geoarkdata-home/geoarkdata-home.component';
 import { DbDesignComponent } from './db-design/db-design.component';
+import { UpcomingComponent } from './upcoming/upcoming.component';
 //import * as PlotlyJS from 'plotly.js/dist/plotly.js';
 //import { PlotlyModule } from 'angular-plotly.js';
 
@@ -34,6 +35,7 @@ import { DbDesignComponent } from './db-design/db-design.component';
     DashboardComponent,
     GeoarkdataHomeComponent,
     DbDesignComponent,
+    UpcomingComponent,
   ],
   imports: [
     BrowserModule,

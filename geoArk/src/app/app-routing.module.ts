@@ -6,6 +6,7 @@ import {DashboardComponent} from '../app/dashboard/dashboard.component';
 import { GeoarkdataHomeComponent } from './geoarkdata-home/geoarkdata-home.component';
 import { UploaddataComponent } from './uploaddata/uploaddata.component';
 import { DbDesignComponent } from './db-design/db-design.component';
+import { UpcomingComponent } from './upcoming/upcoming.component';
 
 
 
@@ -39,7 +40,11 @@ const routes: Routes = [
     path:'dbDesign',
     component:DbDesignComponent,
 
-  }
+  },
+  {
+    path:'upcomingData',
+    component: UpcomingComponent,
+  },
     
 ];
 

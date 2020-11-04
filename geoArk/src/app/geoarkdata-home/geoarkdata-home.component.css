@@ -84,6 +84,12 @@
 
   .HTML CSSResult
   EDIT ON
+  
+  .table_container{
+    text-align: center;
+    margin:5px;
+  }
+
 
   .fixed_header{
       width: 300px;
