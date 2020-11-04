@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { environment} from 'src/environments/environment';
 
 
 
@@ -32,7 +33,7 @@ export class GeoarkdataHomeComponent implements OnInit {
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
 
-    this.http.get("http://localhost:5000/geoarkdatahome", {headers: customheaders}).subscribe(
+    this.http.get(environment.base_url+"5000/geoarkdatahome", {headers: customheaders}).subscribe(
       response=> {
         console.log(response)
 

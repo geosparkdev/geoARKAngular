@@ -5,6 +5,7 @@ import { addoriginator}  from '../models/addoriginator';
 import { adddataset } from '../models/adddataset';
 import { addattributes } from '../models/addattributes';
 import { adddata } from '../models/adddata'
+import { environment} from 'src/environments/environment';
 
 @Component({
   selector: 'app-uploaddata',
@@ -84,7 +85,7 @@ export class UploaddataComponent implements OnInit {
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
 
-    this.http.get("http://localhost:5000/getoriginator", {headers: customheaders}).subscribe(
+    this.http.get(environment.base_url+"5000/getoriginator", {headers: customheaders}).subscribe(
       response=> {
         console.log(response)
         this.originators=response;
@@ -101,7 +102,7 @@ export class UploaddataComponent implements OnInit {
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
 
-    this.http.post("http://localhost:5000/addoriginator", JSON.stringify(this.addoriginator), {headers: customheaders}).subscribe(
+    this.http.post(environment.base_url+"5000/addoriginator", JSON.stringify(this.addoriginator), {headers: customheaders}).subscribe(
       response=> {
         console.log(response)
 
@@ -164,7 +165,7 @@ export class UploaddataComponent implements OnInit {
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
 
-    this.http.get("http://localhost:5000/getdatasets?orig_id=" + orig_id, {headers: customheaders}).subscribe(
+    this.http.get(environment.base_url+"5000/getdatasets?orig_id=" + orig_id, {headers: customheaders}).subscribe(
       response=> {
         console.log(response)
         this.datasets=response;
@@ -180,7 +181,7 @@ export class UploaddataComponent implements OnInit {
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
 
-    this.http.post("http://localhost:5000/adddataset", JSON.stringify(this.adddataset), {headers: customheaders}).subscribe(
+    this.http.post(environment.base_url+"5000/adddataset", JSON.stringify(this.adddataset), {headers: customheaders}).subscribe(
       response=> {
         console.log(response)
 
@@ -228,7 +229,7 @@ export class UploaddataComponent implements OnInit {
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
 
-    this.http.get("http://localhost:5000/getdatasetinfo?dataset_id=" + dataset_id, {headers: customheaders}).subscribe(
+    this.http.get(environment.base_url+"5000/getdatasetinfo?dataset_id=" + dataset_id, {headers: customheaders}).subscribe(
       response=> {
         console.log(response)
         this.datasetinfo=response;
@@ -272,10 +273,9 @@ export class UploaddataComponent implements OnInit {
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
 
-    this.http.post("http://localhost:5000/uploadattributes", JSON.stringify(this.addattributes), {headers: customheaders}).subscribe(
+    this.http.post(environment.base_url+"5000/uploadattributes", JSON.stringify(this.addattributes), {headers: customheaders}).subscribe(
       response=> {
         console.log(response)
-        console.log("TESTSETSETSETSETSETSETSETSET")
         this.attributetogg=false;
         this.datatogg=true;
         this.attributetogg2=true;
@@ -316,7 +316,7 @@ export class UploaddataComponent implements OnInit {
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
 
-    this.http.post("http://localhost:5000/uploaddata", JSON.stringify(this.adddata), {headers: customheaders}).subscribe(
+    this.http.post(environment.base_url+"5000/uploaddata", JSON.stringify(this.adddata), {headers: customheaders}).subscribe(
       response=> {
         console.log(response)
         this.datatogg=false;
