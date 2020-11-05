@@ -28,6 +28,11 @@
       text-align:center;
       padding:25px;
   }
+
+  .main_cont_h1{
+    font-size:15px;
+    font-weight:bolder;
+  }
   
   .nav_button{
     margin-left:5px;
@@ -60,11 +65,14 @@
 
   .toc_buttons{
     background-color:#cbfff5;
-    width:50px;
+    width:150px;
     color:black;
     font-size:12px;
-    padding:5px;
+    padding:10px;
     margin:5px;
+    font-weight:bolder;
+    text-align:center;
+
     
   }
 
@@ -73,35 +81,17 @@
     
   }
 
-  .HTML CSSResult
-  EDIT ON
-
-  .fixed_header{
-      width: 300px;
-      table-layout: fixed;
-      border-collapse: collapse;
-      margin: 0 auto;
-  }
-  
-  .fixed_header tbody{
-    display:block;
-    width: 100%;
-    overflow: auto;
-    height: 100px;
-  }
-  
-  .fixed_header thead tr {
-     display: block;
-  }
-  
-  .fixed_header thead {
-    background: black;
-    color:#fff;
-  }
-  
-  .fixed_header th, .fixed_header td {
-    padding: 5px;
+  table, td, th {  
+    border: 1px solid #ddd;
     text-align: left;
-    width: 200px;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 15px;
   }
   
