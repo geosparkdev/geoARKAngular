@@ -43,8 +43,8 @@
                 <table class="fixed_header">
                     <thead>
                         <tr>
-                        <th>Data Source</th>
-                        <th>Number of Datasets</th>
+                        <th>Source</th>
+                        <th>Datasets</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -65,8 +65,8 @@
                 <table class="fixed_header">
                     <thead>
                         <tr>
-                        <th>Data Source</th>
-                        <th>Dataset Name</th>
+                        <th>Source</th>
+                        <th>Dataset</th>
                         <th>Number of Attributes</th>
                         </tr>
                     </thead>
@@ -88,16 +88,18 @@
                 <table class="fixed_header">
                     <thead>
                         <tr>
-                        <th>Dataset</th>
-                        <th>Time Updated</th>
-                        <th>Status</th>
+                            <th>Source</th>
+                            <th>Dataset</th>
+                            <th>Updated</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>row 1-0</td>
-                            <td>row 1-1</td>
-                            <td>row 1-1</td>
+                        <tr *ngFor="let updates of update_obj">
+                            <td>{{updates.originator_name}}</td>
+                            <td>{{updates.dataset_name}}</td>
+                            <td>{{updates.dt_run_end}}</td>
+                            <td>{{updates.status}}</td>
                         </tr>
                     </tbody>
                 </table>

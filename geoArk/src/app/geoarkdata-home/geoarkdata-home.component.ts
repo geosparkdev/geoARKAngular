@@ -21,6 +21,8 @@ export class GeoarkdataHomeComponent implements OnInit {
 
   public total_attributes:any;
 
+  public update_obj:any;
+
 
   constructor(public http: HttpClient,private route:ActivatedRoute) { }
 
@@ -42,6 +44,7 @@ export class GeoarkdataHomeComponent implements OnInit {
         this.datasets_obj=response[2];
         this.datasets_num=response[3];
         this.total_attributes=response[4];
+        this.update_obj=response[5];
 
     
       },
