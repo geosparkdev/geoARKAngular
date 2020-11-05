@@ -58,6 +58,20 @@
   
 
 
+  .toc_buttons{
+    background-color:#cbfff5;
+    width:50px;
+    color:black;
+    font-size:12px;
+    padding:5px;
+    margin:5px;
+    
+  }
+
+  .toc_buttons:hover{
+    background-color: white;
+    
+  }
 
   .HTML CSSResult
   EDIT ON
