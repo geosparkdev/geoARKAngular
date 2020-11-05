@@ -14,39 +14,241 @@
  
 
     <div class='main_container'>
-        <div class="columns">
-            <div class="column is-2">
-               Table of Contents
+        <div class="columns ">
+            <div class="column is-3">
+                <div class="main_cont_h1">TABLE OF CONTENTS</div>
 
-               <div class='toc_buttons'>
-                    METADATA
+               <div class='toc_buttons' (click)='metadata_togg=true'>
+                    METADATA DATABASE
                </div>
                 <div class='toc_buttons'>
                     DATA TOOL
                     
                 </div>
             </div>
-            <div class="column">
-                <div class="main_cont_h1">ER DIAGRAM:</div>
-                <img src="../../assets/geoarkmetadata.png" width=600px>
-                <br>
-                <div class="main_cont_h1">DATA FLOW DIAGRAM:</div>
-                <img src="../../assets/geoarkflow.png">
+            <div class="column des_container">
 
 
-                <div class="main_cont_h1">Database Description:</div>
-                <br>
-                The metadata database consists of 3 main collections: originators, datasets, and bigdata. 
-
-                <table>
-                    <tr>
-                        <th>Field</th>
-                        <th>Description</th>
-                    </tr>
+                <div *ngIf='metadata_togg'>
+                    <span class='main_cont_h2'>METADATA DATABASE</span>
                     <br>
-                    <td>originator_prefix</td>
-                    <td>a unique UUID id used to identify a data source</td>
-                </table>
+                    <div class="main_cont_h1">DESCRIPTION</div>
+                    <br>
+                    <div class='leftalign'>The metadata database consists of 3 main collections: originators, metadata, and bigdata. </div>
+                    <br>
+                    
+                    <img src="../../assets/geoarkmetadata.png" width=650px>
+                    
+                    <br>
+                    <div class='leftalign'>
+                        The flow of the metadata database starts at the originators collection. A source must be added to "originators"  before a dataset can be added to "metadata". 
+                    When a source is added to "originators", a unique originator_id is generated.This ID will be used to create unique IDS for datasets and data attributes (refer to naming convention section below).
+                    When a  dataset is added to "metadata" it receives a dataset_id. An attribute look-up object is then added to the dataset object as the field "attributes". Data that will be added to
+                    the bigdata table will use the attributes look-up table to set attribute field names in "bigdata".
+                    </div>
+                    <br>
+                    
+                    <img src="../../assets/geoarkflow.png">
+                    <br>
+                    <br>
+                    <div class="main_cont_h1">NAMING CONVENTION</div>
+                    <div class='leftalign'>
+                        dataset id : originator id _ nth dataset _ version number
+                        <br>
+                        attribute label: originator id _ nth dataset _ version number _ mth data attribute
+
+                    </div>
+        
+                    <br>
+                    <br>
+
+                    <div class="main_cont_h1">DESCRIPTION OF FIELDS</div>
+                    <br>
+                    <span class='main_cont_h3'>originators</span>
+                    <table>
+                        <tr>
+                            <th class='col_size'>Field</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>originator_id</td>
+                            <td>Unique 8-digit UUID used to identify a data source</td>
+                        </tr>
+                        <tr>
+                            <td>originator_name</td>
+                            <td>Name of data source</td>
+                        </tr>
+                        <tr>
+                            <td>num_datasets</td>
+                            <td>Number of datasets that belong to the datasource currently in GeoARK bigdata collection</td>
+                        </tr>
+                    </table>
+                    <br>
+                    <span class='main_cont_h3'>metadata</span>
+                    <table>
+                        <tr>
+                            <th class='col_size'>Field</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>dataset_id</td>
+                            <td>Unique ID to identify dataset</td>
+                        </tr>
+                        <tr>
+                            <td>originator_id</td>
+                            <td>ID of the dataset's data source</td>
+                        </tr>
+                        <tr>
+                            <td>dataset_name</td>
+                            <td>Name of the dataset</td>
+                        </tr>
+                        <tr>
+                            <td>use_constraint</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>access_constraint</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>security_class</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>datausage_agreement</td>
+                            <td>How data source would like to be referenced</td>
+                        </tr>
+                        <tr>
+                            <td>native_format</td>
+                            <td>Format of data when downloaded from source (ex. csv file)</td>
+                        </tr>
+                        <tr>
+                            <td>date_created</td>
+                            <td>Date that dataset was added to metadata collection</td>
+                        </tr>
+                        <tr>
+                            <td>createdby</td>
+                            <td>Username of user who created dataset in system</td>
+                        </tr>
+                        <tr>
+                            <td>upload_user</td>
+                            <td>Username of user who last modified dataset information in "metadata" or data  in "bigtable" (initially this will match the createdby user, however if the dataset metadata or data is changed, this field will be updated to the user who modified the data entries</td>
+                        </tr>
+                        <tr>
+                            <td>upload_date</td>
+                            <td>Date that dataset metadata or data entries were modified/updated</td>
+                        </tr>
+                        <tr>
+                            <td>current_version</td>
+                            <td>Boolean field that indicates if current dataset is the most recent dataset</td>
+                        </tr>
+                        <tr>
+                            <td>source_url</td>
+                            <td>Link to source of data</td>
+                        </tr>
+                        <tr>
+                            <td>attributes</td>
+                            <td>Field that holds the attributes look-up table</td>
+                        </tr>
+                        <tr>
+                            <td>update_frequency</td>
+                            <td>How often data is frequently updated (ex. some datasets are updated daily)</td>
+                        </tr>
+                        <tr>
+                            <td>loc_id</td>
+                            <td>the attribute field that is used to map data to certain state/county/tract (ex. county fips ). This field is chosen after data is uploaded into the system and receives its attribute field name. </td>
+                        </tr>
+                    </table>
+                    <br>
+                    <span class='main_cont_h3'>attributes look-up object</span>
+                    <table>
+                        <tr>
+                            <th class='col_size'>Field</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>dataset_id</td>
+                            <td>ID of dataset that attribute belongs to</td>
+                        </tr>
+                        <tr>
+                            <td>attr_label</td>
+                            <td>Field name of attribute in the bigdata collection</td>
+                        </tr>
+                        <tr>
+                            <td>attr_orig</td>
+                            <td>Original column name of attribute (from dataset)</td>
+                        </tr>
+                        <tr>
+                            <td>attr_desc</td>
+                            <td>Description of attribute</td>
+                        </tr>
+                        <tr>
+                            <td>attr_id</td>
+                            <td>Flag field to indicate if attribute is a location type field such as county fips (refer to attribute look-up template tutorial)</td>
+                        </tr>
+                        <tr>
+                            <td>attr_dtype</td>
+                            <td>Flag field to indicates if a specific attribute in the dataset has a special data type that needs to processed pror to being added into the database (ex. datatime field) (refer to attribute look-up template tutorial) </td>
+                        </tr>
+                        <tr>
+                            <td>start_date</td>
+                            <td>Range of data</td>
+                        </tr>
+                        <tr>
+                            <td>end_date</td>
+                            <td>Range of data</td>
+                        </tr>
+                        <tr>
+                            <td>iso_key</td>
+                            <td>ISO category tag used to categorize data</td>
+                        </tr>
+                        <tr>
+                            <td>scale</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>positional_accuracy</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>spatial_rep</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>datum</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>coordinate_system</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>entity_type</td>
+                            <td>Geographic level of data (state, county, tract)</td>
+                        </tr>
+                        <tr>
+                            <td>tags</td>
+                            <td>Keywords used to describe attribute that can be used for filtering</td>
+                        </tr>
+                    </table>
+                    <br>
+                    <br>
+                    <span class='main_cont_h3'>bigdata</span>
+                    <table>
+                        <tr>
+                            <th class='col_size'>Field</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>dataset_id</td>
+                            <td>ID of dataset that data attribute belongs to</td>
+                        </tr>
+                        <tr>
+                            <td>attribute label</td>
+                            <td>Attribute ID/field of data attribute</td>
+                        </tr>
+                    </table>
+                </div>    
                 
                 
             </div>

@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./db-design.component.css']
 })
 export class DbDesignComponent implements OnInit {
+  public metadata_togg:boolean= true;
 
   constructor() { }
 
