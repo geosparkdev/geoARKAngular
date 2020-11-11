@@ -24,8 +24,8 @@ import { NgxSpinnerService } from "ngx-spinner";
 })
 export class PredictionsComponent implements OnInit {
 
-  public model_butt:any;
-  public cat_butt:any;
+  public model_butt:any='yes';
+  public cat_butt:any='Susceptible';
 
 	public initial_params:any=['yes','Susceptible']
 // map variables
