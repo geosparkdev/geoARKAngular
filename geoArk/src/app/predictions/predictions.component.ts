@@ -107,10 +107,10 @@ export class PredictionsComponent implements OnInit {
     
         this.map = L.map("map").setView([37.9643, -91.8318], 6.2);
         
-				this.min=0
-				this.max=994188
+				this.min=this.legend[this.legend.length-1]['min']
+				this.max=this.legend[this.legend.length-1]['max']
 				console.log(this.max)
-        this.threshold=1000
+        this.threshold=this.max/10
 
         this.getMap(this.legend[this.legend.length-1]['keys'],0);
     
@@ -538,7 +538,7 @@ export class PredictionsComponent implements OnInit {
 
 			//light to dark
 				
-			for(var i=threshold; i>=min; i--)
+			for(var i=max; i>=min; i--)
 			{
 				if(value >=ranges[i])
 				{
