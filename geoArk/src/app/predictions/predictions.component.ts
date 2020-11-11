@@ -110,7 +110,7 @@ export class PredictionsComponent implements OnInit {
 				this.min=this.legend[this.legend.length-1]['min']
 				this.max=this.legend[this.legend.length-1]['max']
 				console.log(this.max)
-        this.threshold=this.max/10
+        this.threshold=1000
 
         this.getMap(this.legend[this.legend.length-1]['keys'],0);
     
