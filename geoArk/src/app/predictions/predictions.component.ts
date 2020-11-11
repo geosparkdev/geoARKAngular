@@ -308,13 +308,12 @@ export class PredictionsComponent implements OnInit {
 
 				}
 
-			
 				this.update();
 				return this._div;
 			};
 	
 			legend.update = function () {
-				this._div.innerHTML ='<br> <div id="colors"> </div> <div id="range"></div>'//+
+				this._div.innerHTML = 'Title here<br> <div id="colors"> </div> <div id="range">Max</div>'//+
 										/*'<div id="range">'+
 										('<div class="ind_range">Range 1</div>'+
 										'<div class="ind_range"> <span class="range_bottom"> Range 2 </span> </div>'+
@@ -364,7 +363,7 @@ export class PredictionsComponent implements OnInit {
 		var max=this.max;
 		var threshold=this.threshold;
 		//light to dark
-		var colorrange=getColorGradArr("#fcfed3", "#C42706", threshold);
+		var colorrange=getColorGradArr("#fcfed3", "#2165ab", threshold);
 		var ranges= getBin(min,max,threshold);
 
 		gradientLegend(colorrange,ranges);
@@ -562,3 +561,5 @@ export class PredictionsComponent implements OnInit {
 
   
 }
+
+
