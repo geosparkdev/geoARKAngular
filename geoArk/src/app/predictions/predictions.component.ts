@@ -538,7 +538,7 @@ export class PredictionsComponent implements OnInit {
 
 			//light to dark
 				
-			for(var i=threshold; i>=min; i--)
+			for(var i=(threshold-1); i>=min; i--)
 			{
 				if(value >=ranges[i])
 				{
