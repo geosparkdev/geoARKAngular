@@ -130,13 +130,15 @@ export class PredictionsComponent implements OnInit {
 	}
 	
 	mob_click(){
-		this.cat_butt=null
 		this.map.removeLayer(L.GeoJSON);
+		this.cat_butt=null
+	
 	}
 
  	model_click(){
-		this.updateModelData([this.model_butt,this.cat_butt])
 		this.map.removeLayer(L.GeoJSON);
+		this.updateModelData([this.model_butt,this.cat_butt])
+
 	 }
 		
  
@@ -293,6 +295,7 @@ export class PredictionsComponent implements OnInit {
 
 			//legend -- start	
 			let legend;
+			let title=this.cat_butt
 
 
 			legend = new L.Control({position: 'topright'});
@@ -314,7 +317,7 @@ export class PredictionsComponent implements OnInit {
 			};
 	
 			legend.update = function () {
-				this._div.innerHTML = 'Title here<br> <div id="colors"> </div> <div id="range">Max</div>'//+
+				this._div.innerHTML = title+'<br> <div id="colors"> </div> <div id="range">Max</div>'//+
 										/*'<div id="range">'+
 										('<div class="ind_range">Range 1</div>'+
 										'<div class="ind_range"> <span class="range_bottom"> Range 2 </span> </div>'+
