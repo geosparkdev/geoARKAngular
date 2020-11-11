@@ -222,10 +222,10 @@ export class PredictionsComponent implements OnInit {
 		let value=interval(500);
 		let key=0
 		this.slider_interval=value.subscribe( () => {
+			console.log(key)
 
-			if (this.value >= this.legend.length-1){
-				this.slider_interval.unsubscribe()
-				this.play_selected=false;
+			if (key >= this.legend.length-1){
+				this.stopSlider()
 			}
 
 			this.getMap(this.legend[key]['keys'],1)
