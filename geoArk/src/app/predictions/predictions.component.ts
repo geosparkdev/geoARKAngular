@@ -55,7 +55,7 @@ export class PredictionsComponent implements OnInit {
 	showSelectionBar: true,
   selectionBarGradient: {
 	from: '#fcfed3',
-	to: '#C42706'
+	to: '#00b300'
 },
 
 	translate: (value: number): string => {
@@ -254,16 +254,16 @@ export class PredictionsComponent implements OnInit {
 			
 		this.value=0;
 			 this.slider_interval=setInterval(()=>{
-				this.value+=7;
+				
 
 				if (this.value >= this.legend.length-1){
 					clearInterval(this.slider_interval);
 					this.play_selected=false;
 				}
-
+					
 				console.log('test')
 				this.getMap(this.legend[this.value]['keys'],1)
-
+				this.value+=1;
 				
 			},500)
 	}
@@ -317,7 +317,7 @@ export class PredictionsComponent implements OnInit {
 			};
 	
 			legend.update = function () {
-				this._div.innerHTML = '<br> <div id="colors"> </div> <div id="range">'+max_title+'</div>'//+
+				this._div.innerHTML = 'Cases<br> <div id="colors"> </div> <div id="range">'+max_title+'</div>'//+
 										/*'<div id="range">'+
 										('<div class="ind_range">Range 1</div>'+
 										'<div class="ind_range"> <span class="range_bottom"> Range 2 </span> </div>'+
@@ -367,7 +367,7 @@ export class PredictionsComponent implements OnInit {
 		var max=this.max;
 		var threshold=this.threshold;
 		//light to dark
-		var colorrange=getColorGradArr("#fcfed3", "#C42706", threshold);
+		var colorrange=getColorGradArr("#fcfed3", "#00b300", threshold);
 		var ranges= getBin(min,max,threshold);
 
 		gradientLegend(colorrange,ranges);

@@ -15,6 +15,14 @@ padding: 10px 200px;
 }
 
 
+.h1_model{
+font-family:"Euphemia UCAS";
+font-weight: bolder;
+font-size: 1.5rem;
+color:#3a3a3a;
+}
+
+
 .main{
 padding-bottom:150px;
 height:100%;
