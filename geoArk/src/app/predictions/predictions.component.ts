@@ -136,6 +136,7 @@ export class PredictionsComponent implements OnInit {
 
  	model_click(){
 		this.updateModelData([this.model_butt,this.cat_butt])
+		this.map.removeLayer(L.GeoJSON);
 	 }
 		
  
@@ -147,7 +148,7 @@ export class PredictionsComponent implements OnInit {
     this.http.post(environment.base_url+"5000/getModelingData",JSON.stringify(params), {headers: customheaders}).subscribe(
       response=> {
 				console.log(response)
-				this.map.removeLayer(L.GeoJSON);
+				
 
 				this.geojson_obj=response[0];
         this.legend=response[1];
@@ -155,8 +156,8 @@ export class PredictionsComponent implements OnInit {
     
         
         this.min=this.legend[this.legend.length-1]['min']
-        this.max=this.legend[this.legend.length-1]['max']+5
-        this.threshold=this.max/10
+        this.max=this.legend[this.legend.length-1]['max']
+        this.threshold=1000
 
 				
         this.getMap(this.legend[this.legend.length-1]['keys'],1);
