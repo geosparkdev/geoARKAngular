@@ -36,7 +36,7 @@ export class PredictionsComponent implements OnInit {
   public dataset1:any;
   public data_selected:any;
   public min:any;
-  public max:any;
+  public max:any=0;
   public threshold:any;
 
 
