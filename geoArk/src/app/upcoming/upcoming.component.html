@@ -12,43 +12,66 @@
         <div class="nav_button" routerLink="/dbDesign" routerLinkActive="active">Documentation</div>
     </div>
 
-    <div class='columns'>
-        <div class='column'>
-            <table>
-                <tr>
-                    <th>Dataset Name</th>
-                    <th>Data Source</th>
-                    <th>Source URL</th>
-                    <th>Discovered</th>
-                    <th>Assigned</th>
-                    <th>Start Date</th>
-                    <th>Selection</th>
-                    <th>Metadata</th>
-                    <th>Uploaded</th>
+    <div class='main_container' *ngIf="table_togg">
+        <i class="mdi mdi-shape-polygon-plus"></i> Add Dataset
+        <i class="mdi mdi-account-plus"></i> Assign
+        <i class="mdi mdi-pencil"></i> Progress
+        <table>
+            <tr>
+                <th>Dataset</th>
+                <th>Data Source</th>
+                <th>Source URL</th>
+                <th>Discovered</th>
+                <th>Assigned</th>
+                <th>Start Date</th>
+                <th>Selection</th>
+                <th>Metadata</th>
+                <th>Uploaded</th>
+    
+            </tr>
+            <tr>
+                <td>example</td>
+                <td>example</td>
+                <td>example</td>
+                <td>example</td>
+                <td>example</td>
+                <td>example</td>
+                <td>example</td>
+                <td>example</td>
+                <td>example</td>
+            
+            </tr>
+            
+        </table>
 
-                </tr>
-                <tr>
-                    <td>example</td>
-                    <td>example</td>
-                    <td>example</td>
-                    <td>example</td>
-                    <td>example</td>
-                    <td>example</td>
-                    <td>example</td>
-                    <td>example</td>
-                    <td>example</td>
-               
-                </tr>
-              
-            </table>
+    </div>
 
-        </div>
-        <div class='column is-4'>
-            Add new dataset
+    <div class="main_container" *ngIf="!table_togg">
+        <div class="uploadblock">
+            <div class="main_cont_h2">
+                Add New Dataset Discovery
+            </div>
             <br>
-            Assign dataset
+            <div class="leftalign">Dataset</div>
+            <input type="text"   name="dataset">
             <br>
-            Update Progress
+            <div class="leftalign">Data source</div>
+            <input  type="text"   name="datasource">
+            <br>
+            <div class="leftalign">Source URL</div>
+            <input  type="text"   name="sourceurl">
+            <br>
+            <br>
+            <button>Add Entry</button>
+
+           
+
+
         </div>
     </div>
+
+      
+   
+
+
  </div>

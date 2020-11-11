@@ -1,0 +1,368 @@
+/* Main structure */
+.header{
+background-color:#2872b2;
+
+left:0;
+top:0;
+width:100%;
+
+font-family:"Euphemia UCAS";
+font-weight: bolder;
+font-size: 2.5rem;
+color:white;
+text-align:center;
+padding: 10px 200px;
+}
+
+
+.main{
+padding-bottom:150px;
+height:100%;
+margin:10px;
+}
+
+
+
+.footer{
+background-color:#c4c4c4;
+position:fixed;
+left:0;
+bottom:0;
+width:100%;
+overflow:hidden;
+
+margin-top:0px;
+
+padding: 10px 200px;
+}
+
+
+
+
+
+/* Other */ 
+.divider_filter{
+background:#3a3a3a;
+color:white;
+padding: 5px;
+font-weight: bolder;
+}
+
+
+
+.map{
+height:40vh;
+width: 80vh;
+margin:5px;
+}
+
+.input_search{
+width:370px;
+border: solid 2px #c4c4c4;
+padding:5px;
+}
+
+
+select{
+width:100%;
+border: solid 2px #c4c4c4;
+padding:5px;
+}
+
+
+
+
+table, td, th {  
+border: 1px solid #ddd;
+text-align: left;
+
+}
+
+table {
+border-collapse: collapse;
+width: 100%;
+
+}
+
+th{
+background: #3a3a3a;
+color:white;
+padding: 5px;
+text-align:center;
+font-weight:bold;
+}
+
+td{
+background: #eaeaea;
+padding: 5px;
+font-size:12px;
+}
+
+
+.highlighted{
+background-color: #8abeec;
+color:white;
+}
+.data_selected{
+background-color: #8abeec;
+color:white;
+}
+
+.cat_selected{
+background-color:#2872b2;
+color:white;
+font-weight:bold;
+}
+
+.subc_selected{
+background-color:#d55e00;
+color:white;
+font-weight:bold;
+}
+
+/* Button styling */
+.main_button{
+
+color: white;
+margin-top:17px;
+margin-right:10px;
+display: inline-block;
+border-radius:8px;
+padding-top:2px;
+padding-bottom:5px;
+cursor:pointer;
+
+list-style: none;
+
+}
+
+.button_blue {
+background-color: #2872b2;
+width: 190px;
+font-family:"Euphemia UCAS";
+font-weight: bold;
+font-size: 1rem;
+text-align:center;
+}
+.button_blue:hover{
+background-color:#033554;
+}
+.button_blue_selected{
+background-color:#033554;
+}
+
+.button_orange {
+background-color: #d55e00;
+width:190px;
+height:50px;
+font-family:"Euphemia UCAS";
+font-weight: bold;
+font-size: 0.7rem;
+text-align:center;
+padding-left:18px;
+padding-right:18px;
+padding-bottom:15px;
+padding-top:10px;
+vertical-align: middle;
+line-height: 120%;
+}
+.button_orange:hover{
+background-color:  #f9934e
+}
+
+.button_orange_selected{
+background-color:  #f9934e
+}
+
+
+
+.animation_button{
+width: 30x;
+height: 30px;
+font-size: 15px;
+color:black;
+padding:8px;
+background-color:#c4c4c4;
+border-radius: 4px;
+margin:2px;
+}
+
+.animation_button:hover{
+background-color:#2872b2;
+
+}
+.animation_button_selected{
+width: 30x;
+height: 30px;
+font-size: 15px;
+color:white;
+padding:8px;
+background-color:#2872b2;
+border-radius: 4px;
+margin:2px;
+
+}
+
+
+/* Map */
+
+::ng-deep .color{
+width:30px;
+}
+::ng-deep #colors{
+height:255px;
+float: left;
+}
+
+::ng-deep #range{
+float:right;
+font-size: 8px;
+height:260px;
+position:relative;
+}
+
+::ng-deep .ind_range{
+height:16.6%;
+}
+
+::ng-deep .range_bottom{
+float:bottom;
+}
+
+::ng-deep .range_last{
+margin-top:-100px;
+}
+
+/* Map features */
+::ng-deep .info {
+padding: 6px 8px;
+font: 14px/16px Arial, Helvetica, sans-serif;
+background: white;
+background: rgba(255,255,255,0.8);
+box-shadow: 0 0 15px rgba(0,0,0,0.2);
+border-radius: 5px;
+}
+.info h4 {
+margin: 0 0 5px;
+color: #777;
+}
+
+::ng-deep .legendcontainer {
+padding: 6px 8px;
+font: 14px/16px Arial, Helvetica, sans-serif;
+background: white;
+background: rgba(255,255,255,0.8);
+box-shadow: 0 0 15px rgba(0,0,0,0.2);
+border-radius: 5px;
+height:300px;
+}
+
+
+
+
+
+
+/* Navigation bar -- Tabs */
+.nav_bar{
+margin-left:300px;
+}
+
+
+ML CSS JSResult
+EDIT ON
+
+
+.tabrow {
+text-align: center;
+list-style: none;
+margin: 200px 0 20px;
+padding: 0;
+line-height: 35px;
+height: 37px;
+overflow: hidden;
+font-size: 12px;
+position: relative;
+
+}
+
+.tabrow li {
+border: 2px solid #2872b2;
+background:#8abeec;
+display: inline-block;
+position:relative;
+z-index: 0;
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+margin: 0 12px;
+padding: 0 30px;
+
+color: white;
+font-family:"Verdana";
+font-weight: bold;
+font-size: 1.2rem;
+}
+
+.tabrow a {
+color: #2872b2;
+text-decoration: none;
+}
+
+.tabrow li.selected {
+background: #2872b2;
+color:white;
+z-index: 2;
+border-top-color:#2872b2;
+}
+
+.tabrow:before {
+position: absolute;
+content: "";
+width: 100%;
+top: 0;
+left: 0;
+border-top: 1px solid #2872b2;
+z-index: 1;
+}
+
+.tabrow li:before,
+.tabrow li:after {
+border: 1px solid #2872b2;
+position: absolute;
+top: -1px;
+width: 6px;
+height: 6px;
+content: "";
+}
+
+.tabrow li:before {
+left: -8px;
+top:-3px;
+border-top-right-radius: 10px;
+border-width: 1px 0px 0px 0px;
+box-shadow: 2.3px 0px 0 #2872b2;
+
+}
+
+.tabrow li:after {
+right: -7.6px;
+top:-3.2px;
+border-top-left-radius: 10px;
+border-width: 1px 0px 0px 0px;
+box-shadow: -2.3px 0px 0 #2872b2;
+}
+
+.tabrow li.selected:before {
+box-shadow: 2px 0px 0 #2872b2;
+}
+
+.tabrow li.selected:after {
+box-shadow: -2px 0px 0 #2872b2;
+}
+
+
+
+
+
+
+
+

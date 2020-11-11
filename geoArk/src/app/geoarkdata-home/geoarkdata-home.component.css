@@ -19,7 +19,6 @@
   }
   .navigation{
     background-color:#cbfff5;
-    opacity:0.7;
     color:black;
     font-weight:bold;
     letter-spacing:3px;
@@ -90,7 +89,7 @@
       width: 400px;
       table-layout: fixed;
       border-collapse: collapse;
-      margin: 0 auto;
+      margin: 5px auto;
   }
   
   .fixed_header tbody{

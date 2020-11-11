@@ -18,6 +18,7 @@ import { TooltipModule } from 'ng2-tooltip-directive';
 import { GeoarkdataHomeComponent } from './geoarkdata-home/geoarkdata-home.component';
 import { DbDesignComponent } from './db-design/db-design.component';
 import { UpcomingComponent } from './upcoming/upcoming.component';
+import { PredictionsComponent } from './predictions/predictions.component';
 //import * as PlotlyJS from 'plotly.js/dist/plotly.js';
 //import { PlotlyModule } from 'angular-plotly.js';
 
@@ -36,6 +37,7 @@ import { UpcomingComponent } from './upcoming/upcoming.component';
     GeoarkdataHomeComponent,
     DbDesignComponent,
     UpcomingComponent,
+    PredictionsComponent,
   ],
   imports: [
     BrowserModule,

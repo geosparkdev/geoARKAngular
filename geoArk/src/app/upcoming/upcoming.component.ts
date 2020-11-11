@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpcomingComponent implements OnInit {
 
+  public table_togg:boolean=true;
+
   constructor() { }
 
   ngOnInit(): void {

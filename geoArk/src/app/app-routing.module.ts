@@ -7,13 +7,14 @@ import { GeoarkdataHomeComponent } from './geoarkdata-home/geoarkdata-home.compo
 import { UploaddataComponent } from './uploaddata/uploaddata.component';
 import { DbDesignComponent } from './db-design/db-design.component';
 import { UpcomingComponent } from './upcoming/upcoming.component';
+import { PredictionsComponent } from './predictions/predictions.component';
 
 
 
 const routes: Routes = [
   {
     path:"",
-    redirectTo: 'geoARKData',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
@@ -45,6 +46,11 @@ const routes: Routes = [
     path:'upcomingData',
     component: UpcomingComponent,
   },
+  {
+    path:'predictions',
+    component: PredictionsComponent
+  },
+  
     
 ];
 

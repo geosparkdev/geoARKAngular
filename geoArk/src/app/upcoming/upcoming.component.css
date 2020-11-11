@@ -16,7 +16,6 @@
   
   .navigation{
     background-color:#cbfff5;
-    opacity:0.7;
     color:black;
     font-weight:bold;
     letter-spacing:3px;
@@ -28,6 +27,7 @@
   .main_container{
       text-align:center;
       margin:25px;
+      padding-right:25px;
       margin-bottom:0px;
   }
 
@@ -116,20 +116,66 @@
   table {
     border-collapse: collapse;
     width: 100%;
+    margin:15px;
   }
   
   th {
     padding: 10px;
     font-weight:bold;
     font-size:14px;
-    background-color:#cbfff5;
+    background-color:#1a3760;
+    color:white;
   }
 
   td {
     padding: 10px;
+    background-color: white;
   }
 
   .col_size{
     width:200px;
   }
   
+
+  input{
+    width: 100%;
+    border-radius: 4px;
+    height: 30px;
+    Font-family: Tahoma, Geneva, sans-serif;
+    color: black;
+    font-size: 14px; 
+    letter-spacing: 2px;
+    border-color:rgb(153,153,153);
+}
+
+.uploadblock{
+    background: linear-gradient(to bottom, #1a3760 50px, #f8f8f8 0%); 
+    color:black;
+    width:50%;
+    height:auto;
+    border-width:1px;
+    border-radius:20px;
+    padding: 15px;
+    padding-top:5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:10px;
+}
+
+
+
+button {
+    border-radius: 4px;
+    background-color: white;     
+    margin:5px;
+    padding:5px;
+    margin-top:3px;
+    margin-left:0px;
+    border: 1px solid rgb(217, 229, 238);
+    transition-duration: 0.4s;
+  }
+  button:hover {
+    background-color:  #084b93;
+    color: white;
+    font-weight:bold;
+  }

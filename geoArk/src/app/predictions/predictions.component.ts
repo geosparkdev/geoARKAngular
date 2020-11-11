@@ -16,22 +16,20 @@ import { Options,ChangeContext } from 'ng5-slider';
 import { NgxSpinnerService } from "ngx-spinner";
 
 
-
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'app-predictions',
+  templateUrl: './predictions.component.html',
+  styleUrls: ['./predictions.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class PredictionsComponent implements OnInit {
 
+  public model_butt:any;
+  public cat_butt:any;
 
-  public demo: boolean=false;
-  public temp_togg1: boolean= this.demo;
-  public temp_togg2: boolean= this.demo;
-
-	// map variables
-	public geojson_obj:any;
-	public legend:any=[];
+	public initial_params:any=['yes','Susceptibility']
+// map variables
+  public geojson_obj:any;
+  public legend:any=[];
   public map:any;
   
   public dataset1:any;
@@ -49,20 +47,20 @@ export class DashboardComponent implements OnInit {
 	
   //Slider variables
   public slider_togg: boolean=false;
-	public value: number=0;
-	public options: Options={
-		floor: 0,
-		ceil: 0,
-		showSelectionBar: true,
-    selectionBarGradient: {
-      from: '#fcfed3',
-      to: '#2165ab'
-    },
+  public value: number=0;
+  public options: Options={
+	floor: 0,
+	ceil: 0,
+	showSelectionBar: true,
+  selectionBarGradient: {
+	from: '#fcfed3',
+	to: '#C42706'
+},
 
-		translate: (value: number): string => {
-				return this.legend[value]['keys']
-      }
-    }
+	translate: (value: number): string => {
+			return this.legend[value]['keys']
+	}
+}
   
     
   public play_selected:boolean=false;
@@ -76,20 +74,8 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
 
 
-    this.route.queryParams
-      .filter(params => params.tags)
-      .subscribe(params => {
-        console.log(params); // { order: "popular" }
-      
-      if (this.temp_togg2==true){
-        this.getTestData();
-      }
-       else{
-         // this.getTestData();
-         // this.getData(params);
-         this.buildObject();
-       }
-  });
+	//this.getTestData();
+	this.getModelData(this.initial_params);
 
 
 
@@ -106,14 +92,78 @@ export class DashboardComponent implements OnInit {
 		this.spinner.hide()
 	}
 
-//get data frome data based on passed parameters ***** UNDER MAINTENANCE *****
-  getData(params:any){
+	getModelData(params:any){
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
 
-    this.http.post("http://localhost:5000/getDataCat",JSON.stringify(params), {headers: customheaders}).subscribe(
+    this.http.post("http://localhost:5000/getModelingData",JSON.stringify(params), {headers: customheaders}).subscribe(
       response=> {
 				console.log(response)
+
+				this.geojson_obj=response[0];
+        this.legend=response[1];
+        console.log("TEST")
+    
+        this.map = L.map("map").setView([37.9643, -91.8318], 6.2);
+        
+				this.min=this.legend[this.legend.length-1]['min']
+        this.max=this.legend[this.legend.length-1]['max']
+        this.threshold=100
+
+        this.getMap(this.legend[this.legend.length-1]['keys'],0);
+    
+        this.options.ceil=this.legend.length-1;
+        this.value=this.legend.length-1;
+        
+        this.slider_togg=true;
+
+
+
+      },
+      error => {
+        console.log(error)
+      }
+    )
+    
+	}
+	
+	mob_click(){
+		this.cat_butt=null
+	}
+
+ 	model_click(){
+		this.updateModelData([this.model_butt,this.cat_butt])
+	 }
+		
+ 
+	
+	 updateModelData(params:any){
+    const customheaders= new HttpHeaders()
+          .set('Content-Type', 'application/json');
+
+    this.http.post("http://localhost:5000/getModelingData",JSON.stringify(params), {headers: customheaders}).subscribe(
+      response=> {
+				console.log(response)
+				this.map.removeLayer(L.GeoJSON);
+				
+				this.geojson_obj=response[0];
+        this.legend=response[1];
+        console.log("TEST")
+    
+        
+        this.min=this.legend[this.legend.length-1]['min']
+        this.max=this.legend[this.legend.length-1]['max']
+        this.threshold=100
+
+				
+        this.getMap(this.legend[this.legend.length-1]['keys'],1);
+    
+        this.options.ceil=this.legend.length-1;
+        this.value=this.legend.length-1;
+        
+        this.slider_togg=true;
+
+
 
       },
       error => {
@@ -122,7 +172,6 @@ export class DashboardComponent implements OnInit {
     )
     
   }
-
 
   //get data for building
 	getTestData(){
@@ -133,68 +182,39 @@ export class DashboardComponent implements OnInit {
       response=> {
         console.log(response)
 
+  
         this.geojson_obj=response[0];
         this.legend=response[1];
-
-        this.min=this.legend[0].min
-        this.max=this.legend[0].max
-        this.threshold=100
-        this.data_selected=this.legend[0].attr_label
-        
-        this.map = L.map("map").setView([37.9643, -91.8318], 6.2);
-
-		this.getMap(this.data_selected,0);
-
-
-
-
-      },
-      error => {
-        console.log(error)
-      }
-    )
-  }
-
-
-
-
-
-
-
-	//build geoJSON object for map 
-	buildObject(){
-    const customheaders= new HttpHeaders()
-          .set('Content-Type', 'application/json');
-
-    this.http.get("http://localhost:5000/buildObject", {headers: customheaders}).subscribe(
-      response=> {
-				console.log(response)
-			//	this.stopLoading();
-
-		this.geojson_obj=response[0];
-		this.legend=response[1];
-		console.log("TEST")
-
+        console.log("TEST")
+    
         this.map = L.map("map").setView([37.9643, -91.8318], 6.2);
         
         this.min=0
-        this.max=29000
-        this.threshold=2000
+        this.max=980000
+        this.threshold=100
 
-		this.getMap(this.legend[this.legend.length-1]['keys'],0);
-
-		this.options.ceil=this.legend.length-1;
+        this.getMap(this.legend[this.legend.length-1]['keys'],0);
+    
+        this.options.ceil=this.legend.length-1;
         this.value=this.legend.length-1;
         
         this.slider_togg=true;
 
 
+
+
       },
       error => {
         console.log(error)
       }
     )
   }
+
+
+	
+
+
+
 
 
   changeDataset(index:number){
@@ -340,7 +360,7 @@ export class DashboardComponent implements OnInit {
 		var max=this.max;
 		var threshold=this.threshold;
 		//light to dark
-		var colorrange=getColorGradArr("#fcfed3", "#2165ab", threshold);
+		var colorrange=getColorGradArr("#fcfed3", "#C42706", threshold);
 		var ranges= getBin(min,max,threshold);
 
 		gradientLegend(colorrange,ranges);
@@ -538,4 +558,3 @@ export class DashboardComponent implements OnInit {
 
   
 }
-

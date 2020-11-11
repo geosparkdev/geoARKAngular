@@ -1,0 +1,119 @@
+<div class='header'>
+    Geo-Influence and COVID-19 in Missouri
+</div>
+    
+<div class='nav_bar'>
+    <ul class='tabrow'>
+        <li routerLink="/predictions" routerLinkActive="active" class='selected'> Predictions</li>
+        <li routerLink="/categories" routerLinkActive="active"> Categories</li>
+        <li> Locations</li>
+    </ul> 
+</div>
+
+<div class="main">
+    <div class="columns">
+
+        <div class="column is-2"> <!-- left margin column --></div>
+    
+    
+        <div class="column main"> 
+            
+            <div class="columns">
+                <div class="column">
+                    <div id="map" class="map"></div>   
+
+
+                    <div class="columns">
+                        <div class="column is-2">
+                            <br>
+                            <div *ngIf="slider_togg">
+                                
+                                <span class="animation_button" [class.animation_button_selected]="play_selected" (click)='playSlider()'><i class="mdi mdi-play"></i> </span>
+                                <span class="animation_button" (click)='stopSlider()'><i class="mdi mdi-stop"></i> </span>
+        
+                            </div>
+                        </div>
+                        <div class="column">
+                          
+                             <ng5-slider [(value)]="value" [options]="options" *ngIf="slider_togg" (userChange)="onUserChange($event)"></ng5-slider>
+                 
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="column">
+
+                    <table>
+                        <tr>
+                          <th>Model</th>
+                        </tr>
+                        <tr>
+                            <td [class.highlighted]="'yes'==model_butt" (click)="model_butt='yes'; 	mob_click()" >
+                                Mobility
+                            </td>
+                        </tr>
+                    <tr>
+                            <td [class.highlighted]="'no'==model_butt" (click)="model_butt='no'; mob_click()">
+                                Nonmobility
+                            </td>
+                        </tr>
+                    </table>
+            
+                    <table>
+                        <tr>
+                          <th>Category</th>
+                        </tr>
+                        <tr>
+                            <td [class.highlighted]="'Susceptible'==cat_butt" (click)="cat_butt='Susceptible';model_click()" >
+                                Susceptible(S)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td [class.highlighted]="'Asymptomatic infectious'==cat_butt" (click)="cat_butt='Asymptomatic infectious';model_click()">
+                                Asymptomatic(A)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td [class.highlighted]="'Symptomatic infectious'==cat_butt" (click)="cat_butt='Symptomatic infectious';model_click()">
+                                Symptomatic(I)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td [class.highlighted]="'Recovered'==cat_butt" (click)="cat_butt='Recovered';model_click()">
+                                Recovered(R)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td [class.highlighted]="'Recovered'==cat_butt" (click)="cat_butt='Recovered';model_click()">
+                                Deceased(D)
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+            
+
+    
+           
+
+
+        </div>
+    
+    
+    
+        <div class="column is-2">
+           
+        </div>
+    </div>
+</div>
+
+
+<div class='footer'>
+    How to use this dashboard
+    <br>
+    Data sources
+    <br>
+    &copy;
+</div>
