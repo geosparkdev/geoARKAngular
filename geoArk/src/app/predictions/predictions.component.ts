@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/filter';
 import { environment} from 'src/environments/environment';
+import { interval, Subscription} from 'rxjs';
 
 
 //Models
@@ -66,7 +67,7 @@ export class PredictionsComponent implements OnInit {
   
     
   public play_selected:boolean=false;
-  public slider_interval: any;
+  public slider_interval: Subscription;
 
   tags:string;
 
@@ -183,45 +184,7 @@ export class PredictionsComponent implements OnInit {
     
   }
 
-  //get data for building
-	getTestData(){
-    const customheaders= new HttpHeaders()
-          .set('Content-Type', 'application/json');
-
-    this.http.get("http://localhost:5000/getFakeData", {headers: customheaders}).subscribe(
-      response=> {
-        console.log(response)
-
   
-        this.geojson_obj=response[0];
-        this.legend=response[1];
-        console.log("TEST")
-    
-        this.map = L.map("map").setView([37.9643, -91.8318], 6.2);
-        
-        this.min=0
-        this.max=980000
-        this.threshold=100
-
-        this.getMap(this.legend[this.legend.length-1]['keys'],0);
-    
-        this.options.ceil=this.legend.length-1;
-        this.value=this.legend.length-1;
-        
-        this.slider_togg=true;
-
-
-
-
-      },
-      error => {
-        console.log(error)
-      }
-    )
-  }
-
-
-	
 
 
 
@@ -256,25 +219,25 @@ export class PredictionsComponent implements OnInit {
     this.play_selected=true;
 		//for(let i=0; i<=this.legend.length-1; i++){
 			
-		this.value=0;
-			 this.slider_interval=setInterval(()=>{
-				
+		let value=interval(500);
+		let key=0
+		this.slider_interval=value.subscribe( () => {
 
-				if (this.value >= this.legend.length-1){
-					clearInterval(this.slider_interval);
-					this.play_selected=false;
-				}
-					
-				console.log('test')
-				this.getMap(this.legend[this.value]['keys'],1)
-				this.value+=7;
+			if (this.value >= this.legend.length-1){
+				this.slider_interval.unsubscribe()
+				this.play_selected=false;
+			}
+
+			this.getMap(this.legend[key]['keys'],1)
+			key+=7
+		})
+	
 				
-			},800)
 	}
 	
 
   stopSlider(){
-    clearInterval(this.slider_interval);
+		this.slider_interval.unsubscribe()
     this.play_selected=false;
   }
 
