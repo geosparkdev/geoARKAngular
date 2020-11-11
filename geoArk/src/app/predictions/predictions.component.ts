@@ -29,7 +29,7 @@ export class PredictionsComponent implements OnInit {
 
 	public initial_params:any=['yes','Susceptible']
 // map variables
-  public geojson_obj:any;
+  public geojson_obj:any=[];
   public legend:any=[];
   public map:any;
   
@@ -108,8 +108,8 @@ export class PredictionsComponent implements OnInit {
         this.map = L.map("map").setView([37.9643, -91.8318], 6.2);
         
 				this.min=this.legend[this.legend.length-1]['min']
-        this.max=this.legend[this.legend.length-1]['max']
-        this.threshold=100
+				this.max=this.legend[this.legend.length-1]['max']+5
+        this.threshold=this.max/10
 
         this.getMap(this.legend[this.legend.length-1]['keys'],0);
     
@@ -130,6 +130,7 @@ export class PredictionsComponent implements OnInit {
 	
 	mob_click(){
 		this.cat_butt=null
+		this.map.removeLayer(L.GeoJSON);
 	}
 
  	model_click(){
@@ -153,8 +154,8 @@ export class PredictionsComponent implements OnInit {
     
         
         this.min=this.legend[this.legend.length-1]['min']
-        this.max=this.legend[this.legend.length-1]['max']
-        this.threshold=100
+        this.max=this.legend[this.legend.length-1]['max']+5
+        this.threshold=this.max/10
 
 				
         this.getMap(this.legend[this.legend.length-1]['keys'],1);
@@ -311,7 +312,7 @@ export class PredictionsComponent implements OnInit {
 			};
 	
 			legend.update = function () {
-				this._div.innerHTML = 'Title here<br> <div id="colors"> </div> <div id="range">Max</div>'//+
+				this._div.innerHTML = this.cat_butt+'<br> <div id="colors"> </div> <div id="range">'+this.max.toString()+'</div>'//+
 										/*'<div id="range">'+
 										('<div class="ind_range">Range 1</div>'+
 										'<div class="ind_range"> <span class="range_bottom"> Range 2 </span> </div>'+
