@@ -295,7 +295,7 @@ export class PredictionsComponent implements OnInit {
 
 			//legend -- start	
 			let legend;
-			let title=this.cat_butt
+			let max_title= String(this.max)
 
 
 			legend = new L.Control({position: 'topright'});
@@ -317,7 +317,7 @@ export class PredictionsComponent implements OnInit {
 			};
 	
 			legend.update = function () {
-				this._div.innerHTML = title+'<br> <div id="colors"> </div> <div id="range">Max</div>'//+
+				this._div.innerHTML = '<br> <div id="colors"> </div> <div id="range">'+max_title+'</div>'//+
 										/*'<div id="range">'+
 										('<div class="ind_range">Range 1</div>'+
 										'<div class="ind_range"> <span class="range_bottom"> Range 2 </span> </div>'+
@@ -367,7 +367,7 @@ export class PredictionsComponent implements OnInit {
 		var max=this.max;
 		var threshold=this.threshold;
 		//light to dark
-		var colorrange=getColorGradArr("#fcfed3", "#2165ab", threshold);
+		var colorrange=getColorGradArr("#fcfed3", "#C42706", threshold);
 		var ranges= getBin(min,max,threshold);
 
 		gradientLegend(colorrange,ranges);
