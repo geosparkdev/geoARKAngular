@@ -25,7 +25,8 @@ import { NgxSpinnerService } from "ngx-spinner";
 export class PredictionsComponent implements OnInit {
 
   public model_butt:any='yes';
-  public cat_butt:any='Susceptible';
+	public cat_butt:any='Susceptible';
+	public subtitle:any=this.cat_butt;
 
 	public initial_params:any=['yes','Susceptible']
 // map variables
@@ -162,7 +163,8 @@ export class PredictionsComponent implements OnInit {
         this.threshold=1000
 
 				
-        this.getMap(this.legend[this.legend.length-1]['keys'],1);
+				this.getMap(this.legend[this.legend.length-1]['keys'],1);
+				this.subtitle=this.cat_butt;
     
         this.options.ceil=this.legend.length-1;
         this.value=this.legend.length-1;
@@ -263,7 +265,7 @@ export class PredictionsComponent implements OnInit {
 					
 				console.log('test')
 				this.getMap(this.legend[this.value]['keys'],1)
-				this.value+=1;
+				this.value+=7;
 				
 			},500)
 	}

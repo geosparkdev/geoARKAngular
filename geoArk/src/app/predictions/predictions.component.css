@@ -22,6 +22,13 @@ font-size: 1.5rem;
 color:#3a3a3a;
 }
 
+.sub_model{
+    font-family:"Euphemia UCAS";
+    font-weight: bolder;
+    font-size: 1rem;
+    color:#3a3a3a;
+    }
+
 
 .main{
 padding-bottom:150px;
