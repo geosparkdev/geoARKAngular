@@ -360,8 +360,8 @@ export class PredictionsComponent implements OnInit {
 
 				info.update = function (props: any) {
 					this._div.innerHTML =
-						"<h4>Hover over a county</h4>" +
-						(props ? "<b>" +props.NAME + " "+props[test] + "</b><br />" : "");
+						"<h4>Hover over a county</h4><br>" +
+						(props ? "<b>County: </b>" +props.NAME + "<br><b>Predicted Cases: </b>"+props[test] + "<br/>" : "");
 				};
 				info.addTo(this.map);
 
