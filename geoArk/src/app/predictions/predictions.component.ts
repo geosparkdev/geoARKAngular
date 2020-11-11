@@ -27,7 +27,7 @@ export class PredictionsComponent implements OnInit {
   public model_butt:any;
   public cat_butt:any;
 
-	public initial_params:any=['yes','Susceptibility']
+	public initial_params:any=['yes','Susceptible']
 // map variables
   public geojson_obj:any;
   public legend:any=[];
