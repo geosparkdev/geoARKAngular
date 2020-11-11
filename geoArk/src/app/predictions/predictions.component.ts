@@ -4,6 +4,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/filter';
+import { environment} from 'src/environments/environment';
 
 
 //Models
@@ -96,7 +97,7 @@ export class PredictionsComponent implements OnInit {
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
 
-    this.http.post("http://localhost:5000/getModelingData",JSON.stringify(params), {headers: customheaders}).subscribe(
+    this.http.post(environment.base_url+"5000/getModelingData",JSON.stringify(params), {headers: customheaders}).subscribe(
       response=> {
 				console.log(response)
 
@@ -141,11 +142,11 @@ export class PredictionsComponent implements OnInit {
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
 
-    this.http.post("http://localhost:5000/getModelingData",JSON.stringify(params), {headers: customheaders}).subscribe(
+    this.http.post(environment.base_url+"5000/getModelingData",JSON.stringify(params), {headers: customheaders}).subscribe(
       response=> {
 				console.log(response)
 				this.map.removeLayer(L.GeoJSON);
-				
+
 				this.geojson_obj=response[0];
         this.legend=response[1];
         console.log("TEST")
