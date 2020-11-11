@@ -269,7 +269,7 @@ export class PredictionsComponent implements OnInit {
 				this.getMap(this.legend[this.value]['keys'],1)
 				this.value+=7;
 				
-			},500)
+			},800)
 	}
 	
 
