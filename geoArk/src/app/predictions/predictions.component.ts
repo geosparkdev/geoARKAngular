@@ -308,12 +308,13 @@ export class PredictionsComponent implements OnInit {
 
 				}
 
-				this.update();
+			
+				this.update(this.max);
 				return this._div;
 			};
 	
-			legend.update = function () {
-				this._div.innerHTML = this.cat_butt+'<br> <div id="colors"> </div> <div id="range">'+this.max.toString()+'</div>'//+
+			legend.update = function (max) {
+				this._div.innerHTML ='<br> <div id="colors"> </div> <div id="range">'+max.toString()+'</div>'//+
 										/*'<div id="range">'+
 										('<div class="ind_range">Range 1</div>'+
 										'<div class="ind_range"> <span class="range_bottom"> Range 2 </span> </div>'+
