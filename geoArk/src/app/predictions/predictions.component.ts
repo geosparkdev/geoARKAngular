@@ -26,7 +26,7 @@ export class PredictionsComponent implements OnInit {
 
   public model_butt:any='yes';
 	public cat_butt:any='Susceptible';
-	public subtitle:any=this.cat_butt;
+	public subtitle:any=''
 
 	public initial_params:any=['yes','Susceptible']
 // map variables
@@ -113,7 +113,8 @@ export class PredictionsComponent implements OnInit {
 				console.log(this.max)
         this.threshold=1000
 
-        this.getMap(this.legend[this.legend.length-1]['keys'],0);
+				this.getMap(this.legend[this.legend.length-1]['keys'],0);
+				this.subtitle=this.cat_butt;
     
         this.options.ceil=this.legend.length-1;
         this.value=this.legend.length-1;
@@ -132,7 +133,8 @@ export class PredictionsComponent implements OnInit {
 	
 	mob_click(){
 		this.map.removeLayer(L.GeoJSON);
-		this.cat_butt=null
+		this.cat_butt=''
+		this.subtitle=this.cat_butt;
 	
 	}
 
