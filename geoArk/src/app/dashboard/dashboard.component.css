@@ -50,11 +50,7 @@ font-weight: bolder;
 
 
 
-.map{
-height:40vh;
-width: 80vh;
-margin:5px;
-}
+
 
 .input_search{
   width:370px;
@@ -210,6 +206,12 @@ margin:2px;
 
 
 /* Map */
+
+.map{
+  height:40vh;
+  width: 80vh;
+  margin:5px;
+  }
 
 ::ng-deep .color{
 width:30px;

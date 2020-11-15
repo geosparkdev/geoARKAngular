@@ -19,11 +19,9 @@ import { GeoarkdataHomeComponent } from './geoarkdata-home/geoarkdata-home.compo
 import { DbDesignComponent } from './db-design/db-design.component';
 import { UpcomingComponent } from './upcoming/upcoming.component';
 import { PredictionsComponent } from './predictions/predictions.component';
-//import * as PlotlyJS from 'plotly.js/dist/plotly.js';
-//import { PlotlyModule } from 'angular-plotly.js';
+import { LocationsComponent } from './locations/locations.component';
 
-
-//PlotlyModule.plotlyjs=PlotlyJS;
+import { PlotlyViaWindowModule } from 'angular-plotly.js';
 
 
 @NgModule({
@@ -38,6 +36,7 @@ import { PredictionsComponent } from './predictions/predictions.component';
     DbDesignComponent,
     UpcomingComponent,
     PredictionsComponent,
+    LocationsComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +48,7 @@ import { PredictionsComponent } from './predictions/predictions.component';
     Ng5SliderModule,
     NgxSpinnerModule,
     TooltipModule,
-    //PlotlyModule,
+    PlotlyViaWindowModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,6 +8,7 @@ import { UploaddataComponent } from './uploaddata/uploaddata.component';
 import { DbDesignComponent } from './db-design/db-design.component';
 import { UpcomingComponent } from './upcoming/upcoming.component';
 import { PredictionsComponent } from './predictions/predictions.component';
+import { LocationsComponent } from './locations/locations.component';
 
 
 
@@ -49,6 +50,10 @@ const routes: Routes = [
   {
     path:'predictions',
     component: PredictionsComponent
+  },
+  {
+    path: 'countyDetails',
+    component: LocationsComponent
   },
   
     
