@@ -5107,7 +5107,18 @@ export class LocationsComponent implements OnInit {
 
   }
   
+  getCountyData(fips:any){
+    this.county_fips=fips.target.value;
 
+    let temp=this.counties.find(e=> e['cnty_fips']===Number(this.county_fips))
+    this.county_name=temp.cnty_name
+    //this.county_fips=fips;
+
+    this.getSusFactors(this.county_fips);
+
+    
+
+  }
  
 
   getSusFactors(covid_fips:any){
