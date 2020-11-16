@@ -5114,7 +5114,7 @@ export class LocationsComponent implements OnInit {
     this.county_name=temp.cnty_name
     //this.county_fips=fips;
 
-    this.getSusFactors(this.county_fips);
+    this.getSusFactors(Number(this.county_fips));
 
     
 
