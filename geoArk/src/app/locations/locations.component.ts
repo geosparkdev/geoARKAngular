@@ -5114,8 +5114,9 @@ export class LocationsComponent implements OnInit {
     this.county_name=temp.cnty_name
     //this.county_fips=fips;
 
-    let temp1=document.getElementById('test')
-    temp1.remove();
+    // let temp1=document.getElementById('test')
+    // temp1.remove();
+    
     this.getSusFactors(Number(this.county_fips));
 
     
