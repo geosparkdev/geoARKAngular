@@ -5142,6 +5142,7 @@ export class LocationsComponent implements OnInit {
   }
 
   SusFactorsbarplot(){
+    this.susc_factors_bars = [];
 
     for(let i=0; i<this.susc_factors.length; i++){
       this.susc_factors_bars.push({
