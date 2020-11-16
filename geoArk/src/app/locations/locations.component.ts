@@ -5100,7 +5100,7 @@ export class LocationsComponent implements OnInit {
     this.getSusFactors(this.counties[0].cnty_fips);
 
     this.getCovidPlots();
-    this.SusFactorsbarplot();
+    
     this.map(this.Q5_sus);
     this.getWindrose();
 
@@ -5118,6 +5118,7 @@ export class LocationsComponent implements OnInit {
       response=> {
         console.log(response)
         this.susc_factors=response;
+        this.SusFactorsbarplot();
 
       },
       error => {
