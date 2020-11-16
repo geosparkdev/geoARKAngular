@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
+import { environment} from 'src/environments/environment';
 
 //Third Party Packages 
 import * as L from 'leaflet';
@@ -5113,7 +5114,7 @@ export class LocationsComponent implements OnInit {
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
 
-    this.http.post("http://localhost:5000/getsusdata",JSON.stringify(covid_fips), {headers: customheaders}).subscribe(
+    this.http.post(environment.base_url+"5000/getsusdata",JSON.stringify(covid_fips), {headers: customheaders}).subscribe(
       response=> {
         console.log(response)
         this.susc_factors=response;
