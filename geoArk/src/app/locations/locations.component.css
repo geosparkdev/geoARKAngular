@@ -169,7 +169,8 @@ EDIT ON
 
 .factors_container{
   border:solid 1px black;
-  margin:5px
+  margin:5px;
+  margin-left:0px;
 }
 
 .risk_map{
@@ -220,4 +221,26 @@ EDIT ON
 }
 .button_blue_selected{
   background-color:#033554;
+  margin-right:0px;
 }
+
+hr.new1 {
+  border-top: 2px solid black;
+  width:50px;
+  float:right;
+  margin-right:-40px;
+}
+
+
+select{
+  width:100%;
+  font-family:"Euphemia UCAS";
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align:center;
+  border: solid 2px #dcdada;
+  background-color: #dcdada;
+  border-radius:10px;
+  padding:5px;
+  }
+  

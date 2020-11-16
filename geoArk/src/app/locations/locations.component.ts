@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 //Third Party Packages 
 import * as L from 'leaflet';
@@ -10,6 +12,127 @@ import * as colormap from 'colormap';
   styleUrls: ['./locations.component.css']
 })
 export class LocationsComponent implements OnInit {
+
+
+  public counties:any=[{'cnty_fips': 29003, 'cnty_name': 'Andrew'},
+  {'cnty_fips': 29005, 'cnty_name': 'Atchison'},
+  {'cnty_fips': 29009, 'cnty_name': 'Barry'},
+  {'cnty_fips': 29011, 'cnty_name': 'Barton'},
+  {'cnty_fips': 29013, 'cnty_name': 'Bates'},
+  {'cnty_fips': 29021, 'cnty_name': 'Buchanan'},
+  {'cnty_fips': 29025, 'cnty_name': 'Caldwell'},
+  {'cnty_fips': 29037, 'cnty_name': 'Cass'},
+  {'cnty_fips': 29039, 'cnty_name': 'Cedar'},
+  {'cnty_fips': 29047, 'cnty_name': 'Clay'},
+  {'cnty_fips': 29049, 'cnty_name': 'Clinton'},
+  {'cnty_fips': 29057, 'cnty_name': 'Dade'},
+  {'cnty_fips': 29061, 'cnty_name': 'Daviess'},
+  {'cnty_fips': 29063, 'cnty_name': 'DeKalb'},
+  {'cnty_fips': 29075, 'cnty_name': 'Gentry'},
+  {'cnty_fips': 29081, 'cnty_name': 'Harrison'},
+  {'cnty_fips': 29083, 'cnty_name': 'Henry'},
+  {'cnty_fips': 29087, 'cnty_name': 'Holt'},
+  {'cnty_fips': 29095, 'cnty_name': 'Jackson'},
+  {'cnty_fips': 29097, 'cnty_name': 'Jasper'},
+  {'cnty_fips': 29101, 'cnty_name': 'Johnson'},
+  {'cnty_fips': 29107, 'cnty_name': 'Lafayette'},
+  {'cnty_fips': 29109, 'cnty_name': 'Lawrence'},
+  {'cnty_fips': 29119, 'cnty_name': 'McDonald'},
+  {'cnty_fips': 29145, 'cnty_name': 'Newton'},
+  {'cnty_fips': 29147, 'cnty_name': 'Nodaway'},
+  {'cnty_fips': 29165, 'cnty_name': 'Platte'},
+  {'cnty_fips': 29177, 'cnty_name': 'Ray'},
+  {'cnty_fips': 29185, 'cnty_name': 'St. Clair'},
+  {'cnty_fips': 29217, 'cnty_name': 'Vernon'},
+  {'cnty_fips': 29227, 'cnty_name': 'Worth'},
+  {'cnty_fips': 29015, 'cnty_name': 'Benton'},
+  {'cnty_fips': 29017, 'cnty_name': 'Bollinger'},
+  {'cnty_fips': 29023, 'cnty_name': 'Butler'},
+  {'cnty_fips': 29029, 'cnty_name': 'Camden'},
+  {'cnty_fips': 29031, 'cnty_name': 'Cape Girardeau'},
+  {'cnty_fips': 29035, 'cnty_name': 'Carter'},
+  {'cnty_fips': 29043, 'cnty_name': 'Christian'},
+  {'cnty_fips': 29055, 'cnty_name': 'Crawford'},
+  {'cnty_fips': 29059, 'cnty_name': 'Dallas'},
+  {'cnty_fips': 29065, 'cnty_name': 'Dent'},
+  {'cnty_fips': 29067, 'cnty_name': 'Douglas'},
+  {'cnty_fips': 29069, 'cnty_name': 'Dunklin'},
+  {'cnty_fips': 29077, 'cnty_name': 'Greene'},
+  {'cnty_fips': 29085, 'cnty_name': 'Hickory'},
+  {'cnty_fips': 29091, 'cnty_name': 'Howell'},
+  {'cnty_fips': 29093, 'cnty_name': 'Iron'},
+  {'cnty_fips': 29099, 'cnty_name': 'Jefferson'},
+  {'cnty_fips': 29105, 'cnty_name': 'Laclede'},
+  {'cnty_fips': 29123, 'cnty_name': 'Madison'},
+  {'cnty_fips': 29125, 'cnty_name': 'Maries'},
+  {'cnty_fips': 29131, 'cnty_name': 'Miller'},
+  {'cnty_fips': 29133, 'cnty_name': 'Mississippi'},
+  {'cnty_fips': 29143, 'cnty_name': 'New Madrid'},
+  {'cnty_fips': 29149, 'cnty_name': 'Oregon'},
+  {'cnty_fips': 29153, 'cnty_name': 'Ozark'},
+  {'cnty_fips': 29155, 'cnty_name': 'Pemiscot'},
+  {'cnty_fips': 29157, 'cnty_name': 'Perry'},
+  {'cnty_fips': 29161, 'cnty_name': 'Phelps'},
+  {'cnty_fips': 29167, 'cnty_name': 'Polk'},
+  {'cnty_fips': 29169, 'cnty_name': 'Pulaski'},
+  {'cnty_fips': 29179, 'cnty_name': 'Reynolds'},
+  {'cnty_fips': 29181, 'cnty_name': 'Ripley'},
+  {'cnty_fips': 29186, 'cnty_name': 'Ste. Genevieve'},
+  {'cnty_fips': 29187, 'cnty_name': 'St. Francois'},
+  {'cnty_fips': 29201, 'cnty_name': 'Scott'},
+  {'cnty_fips': 29203, 'cnty_name': 'Shannon'},
+  {'cnty_fips': 29207, 'cnty_name': 'Stoddard'},
+  {'cnty_fips': 29209, 'cnty_name': 'Stone'},
+  {'cnty_fips': 29213, 'cnty_name': 'Taney'},
+  {'cnty_fips': 29215, 'cnty_name': 'Texas'},
+  {'cnty_fips': 29221, 'cnty_name': 'Washington'},
+  {'cnty_fips': 29223, 'cnty_name': 'Wayne'},
+  {'cnty_fips': 29225, 'cnty_name': 'Webster'},
+  {'cnty_fips': 29229, 'cnty_name': 'Wright'},
+  {'cnty_fips': 29001, 'cnty_name': 'Adair'},
+  {'cnty_fips': 29007, 'cnty_name': 'Audrain'},
+  {'cnty_fips': 29019, 'cnty_name': 'Boone'},
+  {'cnty_fips': 29027, 'cnty_name': 'Callaway'},
+  {'cnty_fips': 29033, 'cnty_name': 'Carroll'},
+  {'cnty_fips': 29041, 'cnty_name': 'Chariton'},
+  {'cnty_fips': 29045, 'cnty_name': 'Clark'},
+  {'cnty_fips': 29051, 'cnty_name': 'Cole'},
+  {'cnty_fips': 29053, 'cnty_name': 'Cooper'},
+  {'cnty_fips': 29071, 'cnty_name': 'Franklin'},
+  {'cnty_fips': 29073, 'cnty_name': 'Gasconade'},
+  {'cnty_fips': 29079, 'cnty_name': 'Grundy'},
+  {'cnty_fips': 29089, 'cnty_name': 'Howard'},
+  {'cnty_fips': 29103, 'cnty_name': 'Knox'},
+  {'cnty_fips': 29111, 'cnty_name': 'Lewis'},
+  {'cnty_fips': 29113, 'cnty_name': 'Lincoln'},
+  {'cnty_fips': 29115, 'cnty_name': 'Linn'},
+  {'cnty_fips': 29117, 'cnty_name': 'Livingston'},
+  {'cnty_fips': 29121, 'cnty_name': 'Macon'},
+  {'cnty_fips': 29127, 'cnty_name': 'Marion'},
+  {'cnty_fips': 29129, 'cnty_name': 'Mercer'},
+  {'cnty_fips': 29135, 'cnty_name': 'Moniteau'},
+  {'cnty_fips': 29137, 'cnty_name': 'Monroe'},
+  {'cnty_fips': 29139, 'cnty_name': 'Montgomery'},
+  {'cnty_fips': 29141, 'cnty_name': 'Morgan'},
+  {'cnty_fips': 29151, 'cnty_name': 'Osage'},
+  {'cnty_fips': 29159, 'cnty_name': 'Pettis'},
+  {'cnty_fips': 29163, 'cnty_name': 'Pike'},
+  {'cnty_fips': 29171, 'cnty_name': 'Putnam'},
+  {'cnty_fips': 29173, 'cnty_name': 'Ralls'},
+  {'cnty_fips': 29175, 'cnty_name': 'Randolph'},
+  {'cnty_fips': 29183, 'cnty_name': 'St. Charles'},
+  {'cnty_fips': 29189, 'cnty_name': 'St. Louis County'},
+  {'cnty_fips': 29195, 'cnty_name': 'Saline'},
+  {'cnty_fips': 29197, 'cnty_name': 'Schuyler'},
+  {'cnty_fips': 29199, 'cnty_name': 'Scotland'},
+  {'cnty_fips': 29205, 'cnty_name': 'Shelby'},
+  {'cnty_fips': 29211, 'cnty_name': 'Sullivan'},
+  {'cnty_fips': 29219, 'cnty_name': 'Warren'},
+  {'cnty_fips': 29510, 'cnty_name': 'St. Louis City'}]
+
+  public county_name:string=this.counties[0].cnty_name;
+  public county_fips:string=this.counties[1].cnty_fips;
+
 
   public covid_county_cases:any={};
   public covid_county_deaths:any={};
@@ -1499,9 +1622,11 @@ export class LocationsComponent implements OnInit {
   3339,
   3088]]
   
-  public county_name:string='Boone';
 
+
+  public susc_factors_bars:any=[];
   public susc_factors:any=[];
+
   public temp=[{'cnty_fips': 29101,
   'cnty_name': 'Johnson',
   'state_abbr': 'MO',
@@ -4967,11 +5092,14 @@ export class LocationsComponent implements OnInit {
 
   public windrose:any;
 
-  constructor() { }
+  constructor(public http: HttpClient) { }
 
   ngOnInit(): void {
+
+    this.getSusFactors(this.counties[0].cnty_fips);
+
     this.getCovidPlots();
-    this.getSusFactors();
+    this.SusFactorsbarplot();
     this.map(this.Q5_sus);
     this.getWindrose();
 
@@ -4979,29 +5107,47 @@ export class LocationsComponent implements OnInit {
   }
   
 
+ 
 
-  getSusFactors(){
+  getSusFactors(covid_fips:any){
+    const customheaders= new HttpHeaders()
+          .set('Content-Type', 'application/json');
 
-    for(let i=0; i<this.temp.length; i++){
-      this.susc_factors.push({
+    this.http.post("http://localhost:5000/getsusdata",JSON.stringify(covid_fips), {headers: customheaders}).subscribe(
+      response=> {
+        console.log(response)
+        this.susc_factors=response;
+
+      },
+      error => {
+        console.log(error)
+      }
+    )
+
+  }
+
+  SusFactorsbarplot(){
+
+    for(let i=0; i<this.susc_factors.length; i++){
+      this.susc_factors_bars.push({
         data: [
           {
-            x: [this.temp[i].susc_values],
-            y: [this.temp[i].susc_factors],
+            x: [this.susc_factors[i].susc_values],
+            y: [this.susc_factors[i].susc_factors],
             orientation: 'h',
             type: 'bar',
             width:2,
             marker: {
-              color: this.temp[i].Q5_color
+              color: this.susc_factors[i].Q5_color
             },
           },
          ],
          layout: {
           plot_bgcolor: 'rgba(245,246,249,1)',
            xaxis:{
-            range: [this.temp[i].min_2, this.temp[i].max],
+            range: [this.susc_factors[i].min_2, this.susc_factors[i].max],
           // dtick: this.temp[i].max,
-          tickvals: [this.temp[i].mean.toFixed(2),this.temp[i].max.toFixed(3)],
+          tickvals: [this.susc_factors[i].mean.toFixed(2),this.susc_factors[i].max.toFixed(3)],
           
 
            },
@@ -5012,9 +5158,9 @@ export class LocationsComponent implements OnInit {
           shapes: [{
             name:'test',
             type: 'line',
-            x0: this.temp[i].mean,
+            x0: this.susc_factors[i].mean,
             y0: -1,
-            x1: this.temp[i].mean,
+            x1: this.susc_factors[i].mean,
             y1: 1,
             line: {
               color: 'black',
@@ -5293,6 +5439,7 @@ export class LocationsComponent implements OnInit {
         ],
         
         layout:{
+          plot_bgcolor: 'rgba(245,246,249,1)',
           polar:{
             barmode:"overlay",
             bargap:0,
