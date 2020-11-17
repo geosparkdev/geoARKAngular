@@ -68,8 +68,10 @@ Geo-Context and COVID-19 in Missouri
                         <plotly-plot [data]="covid_cases.data" [layout]="covid_cases.layout"></plotly-plot>
                         <plotly-plot [data]="covid_deaths.data" [layout]="covid_deaths.layout"></plotly-plot>
                     </div> 
-                    <br>
-                    <plotly-plot [data]="windrose.data" [layout]="windrose.data.layout"></plotly-plot>
+                    <div class='windrose'>
+                        <plotly-plot [data]="windrose.data" [layout]="windrose.data.layout"></plotly-plot>
+                    </div>
+                   
                 </div>
                 <div class='column'>
                     <div class='aligncenter'>
