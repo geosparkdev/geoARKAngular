@@ -5159,25 +5159,6 @@ export class LocationsComponent implements OnInit {
       response=> {
         console.log(response)
         this.covid=response;
-        this.updateCovidPlots();
-
-      },
-      error => {
-        console.log(error)
-      }
-    )
-
-  }
-
-
-  updateCovidData(covid_fips:any){
-    const customheaders= new HttpHeaders()
-          .set('Content-Type', 'application/json');
-
-    this.http.post(environment.base_url+"5000/getcovidcasesdeaths",JSON.stringify(covid_fips), {headers: customheaders}).subscribe(
-      response=> {
-        console.log(response)
-        this.covid=response;
         this.getCovidPlots();
 
       },
@@ -5187,6 +5168,9 @@ export class LocationsComponent implements OnInit {
     )
 
   }
+
+
+  
 
   SusFactorsbarplot(){
     this.susc_factors_bars = [];
