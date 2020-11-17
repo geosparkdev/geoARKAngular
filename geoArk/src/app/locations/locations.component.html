@@ -6,7 +6,7 @@ Geo-Context and COVID-19 in Missouri
     <ul class='tabrow'>
         <li> Predictions</li>
         <li routerLink="/dashboard" routerLinkActive="active"> Risk Categories</li>
-       <li class='selected'> County Details</li>
+       <li class='selected'> Counties</li>
     </ul> 
 </div> 
 <div class='main_container'>
@@ -57,11 +57,6 @@ Geo-Context and COVID-19 in Missouri
             <div class='columns'>
                 <div class='column'>
                     <br>
-                    <div class='aligncenter'>
-                        <span class='SB_2'>
-                            Total Susceptibility Risk
-                        </span>
-                    </div>
                     <div *ngIf='spinnertogg' class='loading'>
                         <ngx-spinner bdColor = "rgba(0,0,0,0)" size = "medium" color = "#ff8700" type = "ball-spin-clockwise-fade-rotating" [fullScreen] = "false">
                         </ngx-spinner>
@@ -77,6 +72,11 @@ Geo-Context and COVID-19 in Missouri
                     <plotly-plot [data]="windrose.data" [layout]="windrose.data.layout"></plotly-plot>
                 </div>
                 <div class='column'>
+                    <div class='aligncenter'>
+                        <span class='SB_2'>
+                            Total Susceptibility Risk
+                        </span>
+                    </div>
                     <div id="risk_map" class="risk_map"></div>   
                     
    
