@@ -62,12 +62,6 @@ Geo-Context and COVID-19 in Missouri
                             Total Susceptibility Risk
                         </span>
                     </div>
-                    <div id="risk_map" class="risk_map"></div>   
-                    <br>
-                    <plotly-plot [data]="windrose.data" [layout]="windrose.data.layout"></plotly-plot>
-                </div>
-                <div class='column'>
-                    
                     <div *ngIf='spinnertogg' class='loading'>
                         <ngx-spinner bdColor = "rgba(0,0,0,0)" size = "medium" color = "#ff8700" type = "ball-spin-clockwise-fade-rotating" [fullScreen] = "false">
                         </ngx-spinner>
@@ -78,7 +72,13 @@ Geo-Context and COVID-19 in Missouri
                         <plotly-plot [data]="covid_county_deaths.data" [layout]="covid_county_deaths.layout"></plotly-plot>
                         <plotly-plot [data]="covid_cases.data" [layout]="covid_cases.layout"></plotly-plot>
                         <plotly-plot [data]="covid_deaths.data" [layout]="covid_deaths.layout"></plotly-plot>
-                    </div>
+                    </div> 
+                    <br>
+                    <plotly-plot [data]="windrose.data" [layout]="windrose.data.layout"></plotly-plot>
+                </div>
+                <div class='column'>
+                    <div id="risk_map" class="risk_map"></div>   
+                    
    
                     <br>
                     <div class='alignright'>
