@@ -3842,7 +3842,7 @@ export class LocationsComponent implements OnInit {
                 l:50, 
                 r:20, 
                 t:20, 
-                b:30, 
+                b:15, 
                 pad:0
               },
 
