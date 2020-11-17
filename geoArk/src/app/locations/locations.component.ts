@@ -4138,8 +4138,7 @@ export class LocationsComponent implements OnInit {
        // console.log(props.FIPS)
        
         this._div.innerHTML =
-          "<h4>Hover over a county</h4>" +
-          (props ? "<b>County: </b>"+props.NAME+"<br><b>Total Risk: </b>"+temp1(props['fips'])+"</b><br />" : "");
+          (props ? "<b>County: </b>"+props.NAME+"<br><b>Total Risk: </b>"+temp1(props['fips'])+"</b><br />" : "<h4>Click to see details of another county.</h4>");
       };
       info.addTo(this.risk_map);
 
@@ -4156,7 +4155,7 @@ export class LocationsComponent implements OnInit {
       style: function (feature) {
         return{
           color: 'black',
-          weight: 1,
+          weight: 0.5,
           fillColor:getcolor(feature.id),
           fillOpacity:0.8,
         }
