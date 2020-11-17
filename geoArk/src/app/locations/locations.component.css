@@ -21,7 +21,10 @@
     height:100%
 }
 
-
+.loading{
+  width:400px;
+  height:400px;
+}
 
 .footer{
   background-color:#c4c4c4;
