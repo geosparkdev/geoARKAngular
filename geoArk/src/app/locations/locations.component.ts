@@ -5120,7 +5120,7 @@ export class LocationsComponent implements OnInit {
 
     this.getSusFactors(Number(this.county_fips));
     this.getCovidData(Number(this.county_fips));
-
+    
 
   }
  
@@ -5145,6 +5145,25 @@ export class LocationsComponent implements OnInit {
 
 
   getCovidData(covid_fips:any){
+    const customheaders= new HttpHeaders()
+          .set('Content-Type', 'application/json');
+
+    this.http.post(environment.base_url+"5000/getcovidcasesdeaths",JSON.stringify(covid_fips), {headers: customheaders}).subscribe(
+      response=> {
+        console.log(response)
+        this.covid=response;
+        this.updateCovidPlots();
+
+      },
+      error => {
+        console.log(error)
+      }
+    )
+
+  }
+
+
+  updateCovidData(covid_fips:any){
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
 
@@ -5434,6 +5453,120 @@ export class LocationsComponent implements OnInit {
   }
 
 
+
+
+
+
+
+  updateCovidPlots(){
+
+    //// Covid county cases plots
+    this.covid_county_cases = {
+      data: [
+          { x: this.covid[0], 
+            y: this.covid[1], 
+            type: 'scatter', 
+            mode: 'lines', 
+            name:'county cases',
+            marker: {color: 'orange'} 
+          },
+      ],
+      layout: {
+              width: 400, 
+              height: 150, 
+
+              title: {
+                text: this.county_name+' County Daily Cases',
+                font: {
+                  size: 12
+                },
+              },
+  
+              margin:{
+                l:50, 
+                r:20, 
+                t:50, 
+                b:30, 
+                pad:0
+              },
+
+              size: 6,
+              xaxis: {
+                type: 'date',
+                rangeselector: {
+                  buttons: [
+                            {
+                              count: 1,
+                              label: '1M',
+                              step: 'month',
+                              stepmode: 'backward'
+                            },
+                            {
+                              count: 6,
+                              label: '6M',
+                              step: 'month',
+                              stepmode: 'backward'
+                            },
+                            {step: 'all'}
+                  ]
+                },
+              }
+         }
+     };
+
+     this.covid_county_deaths= {
+      data: [
+          { x: this.covid[0], 
+            y: this.covid[2], 
+            type: 'scatter', 
+            mode: 'lines', 
+            name:'county deaths',
+            marker: {color: 'red'} 
+          },
+      ],
+      layout: {
+              width: 400, 
+              height: 150, 
+
+              title: {
+                text: this.county_name+' County Daily Deaths',
+                font: {
+                  size: 12
+                },
+              },
+  
+              margin:{
+                l:50, 
+                r:20, 
+                t:50, 
+                b:30, 
+                pad:0
+              },
+
+              size: 6,
+              xaxis: {
+                type: 'date',
+                rangeselector: {
+                  buttons: [
+                            {
+                              count: 1,
+                              label: '1M',
+                              step: 'month',
+                              stepmode: 'backward'
+                            },
+                            {
+                              count: 6,
+                              label: '6M',
+                              step: 'month',
+                              stepmode: 'backward'
+                            },
+                            {step: 'all'}
+                  ]
+                },
+              }
+         }
+     };
+  }
 
   getWindrose(){
     this.windrose = {
