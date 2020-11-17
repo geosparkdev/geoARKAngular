@@ -3843,8 +3843,8 @@ export class LocationsComponent implements OnInit {
               margin:{
                 l:50, 
                 r:20, 
-                t:20, 
-                b:15, 
+                t:15, 
+                b:30, 
                 pad:0
               },
 
@@ -3915,6 +3915,7 @@ export class LocationsComponent implements OnInit {
                   size: 12
                 },
                 standoff: -5
+                
               },
   
               margin:{
