@@ -52,11 +52,9 @@ Geo-Context and COVID-19 in Missouri
     
     <div class='columns'>
         <div class='column'>
-            
-
             <div class='columns'>
                 <div class='column'>
-                    <br>
+
                     <div *ngIf='spinnertogg' class='loading'>
                         <ngx-spinner bdColor = "rgba(0,0,0,0)" size = "medium" color = "#ff8700" type = "ball-spin-clockwise-fade-rotating" [fullScreen] = "false">
                         </ngx-spinner>
@@ -71,10 +69,7 @@ Geo-Context and COVID-19 in Missouri
                         <br>
                         <plotly-plot [data]="covid_deaths.data" [layout]="covid_deaths.layout"></plotly-plot>
                     </div> 
-                    <div class='windrose'>
-                        <plotly-plot [data]="windrose.data" [layout]="windrose.data.layout"></plotly-plot>
-                    </div>
-                   
+
                 </div>
                 <div class='column'>
                     <div class='aligncenter'>
@@ -83,9 +78,19 @@ Geo-Context and COVID-19 in Missouri
                         </span>
                     </div>
                     <div id="risk_map" class="risk_map"></div>   
-                    
-   
-                    <br>
+                </div>
+            </div>
+
+
+            <div class='columns'>
+                <div class='column'>
+
+                    <div class='windrose'>
+                        <plotly-plot [data]="windrose.data" [layout]="windrose.data.layout"></plotly-plot>
+                    </div>
+
+                </div>
+                <div class='column-2'>
                     <div class='alignright'>
                         <div class='main_button button_blue'>Accessibility</div>
                         <br>
@@ -97,14 +102,14 @@ Geo-Context and COVID-19 in Missouri
                         <br>
                         <div class='main_button button_blue'>Transmission</div>
                     </div>
-                    
                 </div>
             </div>
 
 
 
+
         </div>
-        <div class='column is-4'>
+        <div class='column-is-3'>
             <div class='factors_container'>
 
                 <div class='aligncenter'>
@@ -121,14 +126,17 @@ Geo-Context and COVID-19 in Missouri
                 </div>
                 <br>
                 <div class='aligncenter'>
-                    <img src="../../assets/risklegend.png" width=500px>
+                    <img src="../../assets/risklegend.png" width=450px>
                 </div>
 
             </div>
-       
-            
+
+
+
         </div>
     </div>
+
+
 
 
 
