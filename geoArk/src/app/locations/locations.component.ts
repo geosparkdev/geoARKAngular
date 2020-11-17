@@ -140,9 +140,9 @@ export class LocationsComponent implements OnInit {
   public covid_cases:any={};
   public covid_deaths:any={};
 
-  
+  public covid:any=[];
 
-  public covid:any=[['2020-01-22',
+ /* public covid:any=[['2020-01-22',
   '2020-01-23',
   '2020-01-24',
   '2020-01-25',
@@ -1621,8 +1621,9 @@ export class LocationsComponent implements OnInit {
   3299,
   3323,
   3339,
-  3088]]
+  3088]]*/
   
+
 
 
   public susc_factors_bars:any=[];
@@ -5098,8 +5099,8 @@ export class LocationsComponent implements OnInit {
   ngOnInit(): void {
 
     this.getSusFactors(this.counties[0].cnty_fips);
-
-    this.getCovidPlots();
+    this.getCovidData(this.counties[0].cnty_fips);
+    
     
     this.map(this.Q5_sus);
     this.getWindrose();
@@ -5116,10 +5117,10 @@ export class LocationsComponent implements OnInit {
 
     // let temp1=document.getElementById('test')
     // temp1.remove();
-    
-    this.getSusFactors(Number(this.county_fips));
 
-    
+    this.getSusFactors(Number(this.county_fips));
+    this.getCovidData(Number(this.county_fips));
+
 
   }
  
@@ -5133,6 +5134,25 @@ export class LocationsComponent implements OnInit {
         console.log(response)
         this.susc_factors=response;
         this.SusFactorsbarplot();
+
+      },
+      error => {
+        console.log(error)
+      }
+    )
+
+  }
+
+
+  getCovidData(covid_fips:any){
+    const customheaders= new HttpHeaders()
+          .set('Content-Type', 'application/json');
+
+    this.http.post(environment.base_url+"5000/getcovidcasesdeaths",JSON.stringify(covid_fips), {headers: customheaders}).subscribe(
+      response=> {
+        console.log(response)
+        this.covid=response;
+        this.getCovidPlots();
 
       },
       error => {
