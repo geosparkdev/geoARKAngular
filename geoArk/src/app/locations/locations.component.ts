@@ -3829,7 +3829,7 @@ export class LocationsComponent implements OnInit {
       ],
       layout: {
               width: 400, 
-              height: 150, 
+              height: 130, 
 
               title: {
                 text: this.county_name+' County Daily Deaths',
@@ -3841,7 +3841,7 @@ export class LocationsComponent implements OnInit {
               margin:{
                 l:50, 
                 r:20, 
-                t:50, 
+                t:20, 
                 b:30, 
                 pad:0
               },
