@@ -22,7 +22,7 @@
 }
 
 .loading{
-  margin-left:200px;
+  margin-left:150px;
   width:150px;
   height:500px;
   position: relative;
@@ -67,7 +67,7 @@
   .SB_2{
     font-family:"Euphemia UCAS";
     font-weight: bolder;
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
   
 
