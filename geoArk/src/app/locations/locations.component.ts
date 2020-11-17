@@ -3756,7 +3756,7 @@ export class LocationsComponent implements OnInit {
 
            },
           width: 400, 
-          height: 40, 
+          height: 45, 
           margin:{l:100, r:25, t:15, b:15, pad:1},
           size: 6,
           shapes: [{
