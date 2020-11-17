@@ -59,7 +59,7 @@ Geo-Context and COVID-19 in Missouri
                         <ngx-spinner bdColor = "rgba(0,0,0,0)" size = "medium" color = "#ff8700" type = "ball-spin-clockwise-fade-rotating" [fullScreen] = "false">
                         </ngx-spinner>
                     </div>
-                 
+                    <br>
                     <div *ngIf='!spinnertogg'>
                         <plotly-plot [data]="covid_county_cases.data" [layout]="covid_county_cases.layout"></plotly-plot>
                         <br>
@@ -90,7 +90,7 @@ Geo-Context and COVID-19 in Missouri
                     </div>
 
                 </div>
-                <div class='column-2'>
+                <div class='column-3'>
                     <div class='alignright'>
                         <div class='main_button button_blue'>Accessibility</div>
                         <br>
@@ -111,7 +111,7 @@ Geo-Context and COVID-19 in Missouri
         </div>
         <div class='column-is-3'>
             <div class='factors_container'>
-
+                <br>
                 <div class='aligncenter'>
                     <span class='SB_2'>
                         {{county_name}} County susceptibility risk factors
