@@ -3843,7 +3843,7 @@ export class LocationsComponent implements OnInit {
               margin:{
                 l:50, 
                 r:20, 
-                t:15, 
+                t:20, 
                 b:30, 
                 pad:0
               },
@@ -3872,6 +3872,7 @@ export class LocationsComponent implements OnInit {
               height: 100, 
 
               title: {
+                automargin: true,
                 text:'Missouri total daily cases',
                 font: {
                   size: 12
