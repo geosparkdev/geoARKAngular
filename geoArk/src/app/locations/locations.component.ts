@@ -5098,10 +5098,10 @@ export class LocationsComponent implements OnInit {
   constructor(public http: HttpClient,private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
-
+    
+    this.spinner.show();
     this.getSusFactors(this.counties[0].cnty_fips);
     this.getCovidData(this.counties[0].cnty_fips);
-    
     
     this.map(this.Q5_sus);
     this.getWindrose();
@@ -5110,8 +5110,8 @@ export class LocationsComponent implements OnInit {
   }
   
   getCountyData(fips:any){
+    this.spinnertogg=true;
     this.county_fips=fips.target.value;
-    this.spinner.show();
 
     let temp=this.counties.find(e=> e['cnty_fips']===Number(this.county_fips))
     this.county_name=temp.cnty_name
@@ -5159,7 +5159,6 @@ export class LocationsComponent implements OnInit {
         this.getCovidPlots();
 
         this.spinnertogg=false;
-        this.spinner.hide();
 
       },
       error => {
