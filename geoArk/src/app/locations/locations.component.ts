@@ -1625,7 +1625,7 @@ export class LocationsComponent implements OnInit {
   3088]]*/
   
 
-  public spinnertogg:boolean=false;
+  public spinnertogg:boolean=true;
 
   public susc_factors_bars:any=[];
   public susc_factors:any=[];
@@ -5111,8 +5111,6 @@ export class LocationsComponent implements OnInit {
   
   getCountyData(fips:any){
     this.county_fips=fips.target.value;
-
-    this.spinnertogg=true;
     this.spinner.show();
 
     let temp=this.counties.find(e=> e['cnty_fips']===Number(this.county_fips))
