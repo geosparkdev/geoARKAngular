@@ -3813,23 +3813,6 @@ export class LocationsComponent implements OnInit {
               size: 6,
               xaxis: {
                 type: 'date',
-                rangeselector: {
-                  buttons: [
-                            {
-                              count: 1,
-                              label: '1M',
-                              step: 'month',
-                              stepmode: 'backward'
-                            },
-                            {
-                              count: 6,
-                              label: '6M',
-                              step: 'month',
-                              stepmode: 'backward'
-                            },
-                            {step: 'all'}
-                  ]
-                },
               }
          }
      };
@@ -3866,23 +3849,7 @@ export class LocationsComponent implements OnInit {
               size: 6,
               xaxis: {
                 type: 'date',
-                rangeselector: {
-                  buttons: [
-                            {
-                              count: 1,
-                              label: '1M',
-                              step: 'month',
-                              stepmode: 'backward'
-                            },
-                            {
-                              count: 6,
-                              label: '6M',
-                              step: 'month',
-                              stepmode: 'backward'
-                            },
-                            {step: 'all'}
-                  ]
-                },
+
               }
          }
      };
@@ -3920,23 +3887,6 @@ export class LocationsComponent implements OnInit {
               size: 6,
               xaxis: {
                 type: 'date',
-                rangeselector: {
-                  buttons: [
-                            {
-                              count: 1,
-                              label: '1M',
-                              step: 'month',
-                              stepmode: 'backward'
-                            },
-                            {
-                              count: 6,
-                              label: '6M',
-                              step: 'month',
-                              stepmode: 'backward'
-                            },
-                            {step: 'all'}
-                  ]
-                },
               }
          }
      };
@@ -3974,23 +3924,7 @@ export class LocationsComponent implements OnInit {
               size: 6,
               xaxis: {
                 type: 'date',
-                rangeselector: {
-                  buttons: [
-                            {
-                              count: 1,
-                              label: '1M',
-                              step: 'month',
-                              stepmode: 'backward'
-                            },
-                            {
-                              count: 6,
-                              label: '6M',
-                              step: 'month',
-                              stepmode: 'backward'
-                            },
-                            {step: 'all'}
-                  ]
-                },
+    
               }
          }
      };
