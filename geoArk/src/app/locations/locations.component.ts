@@ -5280,8 +5280,8 @@ export class LocationsComponent implements OnInit {
       data: [
           { x: this.covid[0], 
             y: this.covid[2], 
-            type: 'scatter', 
-            mode: 'lines', 
+            type: 'bar', 
+            //mode: 'lines', 
             name:'county deaths',
             marker: {color: 'red'} 
           },
@@ -5334,8 +5334,8 @@ export class LocationsComponent implements OnInit {
       data: [
           { x: this.covid[0], 
             y: this.covid[3], 
-            type: 'scatter', 
-            mode: 'lines', 
+            type: 'bar', 
+            //mode: 'lines', 
             name:'county cases',
             marker: {color: 'orange'} 
           },
@@ -5388,8 +5388,8 @@ export class LocationsComponent implements OnInit {
       data: [
           { x: this.covid[0], 
             y: this.covid[4], 
-            type: 'scatter', 
-            mode: 'lines', 
+            type: 'bar', 
+            //mode: 'lines', 
             name:'county cases',
             marker: {color: 'red'} 
           },
