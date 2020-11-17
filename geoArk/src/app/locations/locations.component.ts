@@ -3829,13 +3829,14 @@ export class LocationsComponent implements OnInit {
       ],
       layout: {
               width: 400, 
-              height: 130, 
+              height: 100, 
 
               title: {
                 text: this.county_name+' County Daily Deaths',
                 font: {
                   size: 12
                 },
+                standoff: 5
               },
   
               margin:{
