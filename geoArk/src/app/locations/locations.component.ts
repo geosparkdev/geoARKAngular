@@ -5125,8 +5125,7 @@ export class LocationsComponent implements OnInit {
     this.getSusFactors(Number(this.county_fips));
     this.getCovidData(Number(this.county_fips));
 
-    this.spinnertogg=false;
-    this.spinner.hide();
+   
     
 
   }
@@ -5160,6 +5159,9 @@ export class LocationsComponent implements OnInit {
         console.log(response)
         this.covid=response;
         this.getCovidPlots();
+
+        this.spinnertogg=false;
+        this.spinner.hide();
 
       },
       error => {
