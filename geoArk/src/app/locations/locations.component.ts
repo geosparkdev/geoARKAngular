@@ -4157,6 +4157,8 @@ export class LocationsComponent implements OnInit {
         ],
         
         layout:{
+          width: 300, 
+          height: 200, 
           plot_bgcolor: 'rgba(245,246,249,1)',
           polar:{
             barmode:"overlay",
