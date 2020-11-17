@@ -3793,19 +3793,20 @@ export class LocationsComponent implements OnInit {
       ],
       layout: {
               width: 400, 
-              height: 150, 
+              height: 100, 
 
               title: {
                 text: this.county_name+' County Daily Cases',
                 font: {
                   size: 12
                 },
+                standoff: -5
               },
   
               margin:{
                 l:50, 
                 r:20, 
-                t:50, 
+                t:20, 
                 b:30, 
                 pad:0
               },
@@ -3836,7 +3837,7 @@ export class LocationsComponent implements OnInit {
                 font: {
                   size: 12
                 },
-                standoff: 5
+                standoff: -5
               },
   
               margin:{
@@ -3868,19 +3869,20 @@ export class LocationsComponent implements OnInit {
       ],
       layout: {
               width: 400, 
-              height: 150, 
+              height: 100, 
 
               title: {
                 text:'Missouri total daily cases',
                 font: {
                   size: 12
                 },
+                standoff: -5
               },
   
               margin:{
                 l:50, 
                 r:20, 
-                t:50, 
+                t:20, 
                 b:30, 
                 pad:0
               },
@@ -3905,19 +3907,20 @@ export class LocationsComponent implements OnInit {
       ],
       layout: {
               width: 400, 
-              height: 150, 
+              height: 100, 
 
               title: {
                 text:'Missouri total daily deaths',
                 font: {
                   size: 12
                 },
+                standoff: -5
               },
   
               margin:{
                 l:50, 
                 r:20, 
-                t:50, 
+                t:20, 
                 b:30, 
                 pad:0
               },
