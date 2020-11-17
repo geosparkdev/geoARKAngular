@@ -3877,7 +3877,7 @@ export class LocationsComponent implements OnInit {
                 font: {
                   size: 12
                 },
-                standoff: -5
+                standoff: 2
               },
   
               margin:{
