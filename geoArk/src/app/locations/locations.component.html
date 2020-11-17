@@ -67,13 +67,20 @@ Geo-Context and COVID-19 in Missouri
                     <plotly-plot [data]="windrose.data" [layout]="windrose.data.layout"></plotly-plot>
                 </div>
                 <div class='column'>
-
-
-                    <plotly-plot [data]="covid_county_cases.data" [layout]="covid_county_cases.layout"></plotly-plot>
-                    <plotly-plot [data]="covid_county_deaths.data" [layout]="covid_county_deaths.layout"></plotly-plot>
-                    <plotly-plot [data]="covid_cases.data" [layout]="covid_cases.layout"></plotly-plot>
-                    <plotly-plot [data]="covid_deaths.data" [layout]="covid_deaths.layout"></plotly-plot>
-
+                    
+                    <div *ngIf='spinnertogg'>
+                        <ngx-spinner [fullScreen]="false" type="ball-clip-rotate-multiple" size="medium">
+                            <p class="loading">Loading Awesomeness...</p>
+                        </ngx-spinner>
+                    </div>
+                 
+                    <div *ngIf='!spinnertogg'>
+                        <plotly-plot [data]="covid_county_cases.data" [layout]="covid_county_cases.layout"></plotly-plot>
+                        <plotly-plot [data]="covid_county_deaths.data" [layout]="covid_county_deaths.layout"></plotly-plot>
+                        <plotly-plot [data]="covid_cases.data" [layout]="covid_cases.layout"></plotly-plot>
+                        <plotly-plot [data]="covid_deaths.data" [layout]="covid_deaths.layout"></plotly-plot>
+                    </div>
+   
                     <br>
                     <div class='alignright'>
                         <div class='main_button button_blue'>Accessibility</div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { environment} from 'src/environments/environment';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 //Third Party Packages 
 import * as L from 'leaflet';
@@ -1624,7 +1625,7 @@ export class LocationsComponent implements OnInit {
   3088]]*/
   
 
-
+  public spinnertogg:boolean=false;
 
   public susc_factors_bars:any=[];
   public susc_factors:any=[];
@@ -5094,7 +5095,7 @@ export class LocationsComponent implements OnInit {
 
   public windrose:any;
 
-  constructor(public http: HttpClient) { }
+  constructor(public http: HttpClient,private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
 
@@ -5111,6 +5112,9 @@ export class LocationsComponent implements OnInit {
   getCountyData(fips:any){
     this.county_fips=fips.target.value;
 
+    this.spinnertogg=true;
+    this.spinner.show();
+
     let temp=this.counties.find(e=> e['cnty_fips']===Number(this.county_fips))
     this.county_name=temp.cnty_name
     //this.county_fips=fips;
@@ -5120,6 +5124,9 @@ export class LocationsComponent implements OnInit {
 
     this.getSusFactors(Number(this.county_fips));
     this.getCovidData(Number(this.county_fips));
+
+    this.spinnertogg=false;
+    this.spinner.hide();
     
 
   }
