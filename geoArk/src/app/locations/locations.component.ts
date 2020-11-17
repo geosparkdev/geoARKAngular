@@ -5227,8 +5227,8 @@ export class LocationsComponent implements OnInit {
       data: [
           { x: this.covid[0], 
             y: this.covid[1], 
-            type: 'scatter', 
-            mode: 'lines', 
+            type: 'bar', 
+            //mode: 'lines', 
             name:'county cases',
             marker: {color: 'orange'} 
           },
