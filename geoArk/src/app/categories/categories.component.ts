@@ -15459,11 +15459,6 @@ export class CategoriesComponent implements OnInit {
   }
 
 
-	onUserChange(changeContext: ChangeContext): void {
-		this.cat_map.removeLayer(L.GeoJSON);
-		this.getMap(this.legend[changeContext.value]['keys'],1)
-		
-  }
 
 
 
