@@ -15435,6 +15435,7 @@ export class CategoriesComponent implements OnInit {
     function getcolor(value){
 
       let temp=data.find(e=> e['FIPS']===Number(value))
+      console.log('HEREHERHERHE')
       let colors = colormap({
           colormap:'salinity',
           nshades: 994188,
