@@ -15437,7 +15437,7 @@ export class CategoriesComponent implements OnInit {
       let temp=data.find(e=> e['FIPS']===Number(value))
       let colors = colormap({
           colormap:'salinity',
-          nshades: max,
+          nshades: 994188,
           format: 'hex',
           alpha: 1
       })
