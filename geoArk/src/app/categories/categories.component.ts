@@ -15344,7 +15344,7 @@ export class CategoriesComponent implements OnInit {
         this.value=this.dates.length-1;
         this.slidertogg=true;
 
-        this.map(this.current_data, temp_meta2.max)
+        this.map(this.current_data, this.current_max,0)
       },
       error => {
         console.log(error)
@@ -15358,7 +15358,7 @@ export class CategoriesComponent implements OnInit {
   
 
 
-  map(data,max){
+  map(data,max,num){
     this.cat_map = L.map("cat_map").setView([38.573936, -92.603760], 6.2);
 
 
@@ -15373,7 +15373,17 @@ export class CategoriesComponent implements OnInit {
     info = new L.Control({position: 'bottomleft'});
 
     info.onAdd = function () {
-       this._div = L.DomUtil.create("div", "info");
+ 
+
+       if(num==0){
+        this._div = L.DomUtil.create("div", "info");
+      }
+      else
+      {
+
+        this._div=document.getElementsByClassName("info")[0];
+
+      }
         this.update();
         return this._div;
       };
@@ -15393,6 +15403,9 @@ export class CategoriesComponent implements OnInit {
 
     
       function temp1(fips){
+        console.log('HEEEEREEE')
+        console.log(fips)
+        console.log(data)
         let temp=data.filter(e=> e['FIPS']===fips)
         return (temp[0][date])
       }
@@ -15459,6 +15472,11 @@ export class CategoriesComponent implements OnInit {
   }
 
 
+	onUserChange(changeContext: ChangeContext): void {
+		this.cat_map.removeLayer(L.GeoJSON);
+    this.map(this.current_data, this.current_max)
+		
+  }
 
 
 
