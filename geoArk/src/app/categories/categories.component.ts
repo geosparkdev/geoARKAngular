@@ -15335,7 +15335,7 @@ export class CategoriesComponent implements OnInit {
 
         let temp_meta=this.metadata.filter(e=> e['mobility']===this.current_mob)
         let temp_meta2=temp_meta.filter(e=> e['category']===this.current_cat)
-        this.current_max=temp_meta2.max
+        this.current_max=temp_meta2[0]['max']
 
 
 
