@@ -15406,7 +15406,7 @@ export class CategoriesComponent implements OnInit {
         console.log('HEEEEREEE')
         console.log(fips)
         console.log(data)
-        let temp=data.filter(e=> e['FIPS']===fips)
+        let temp=data.filter(e=> e['FIPS']===String(fips))
         return (temp[0][date])
       }
 
@@ -15467,12 +15467,13 @@ export class CategoriesComponent implements OnInit {
           alpha: 1
       })
 
-      return colors[temp[0][date]-1]
+      return colors[temp[0][date]]
     }
   }
 
 
 	onUserChange(changeContext: ChangeContext): void {
+    this.current_date=this.dates[changeContext.value]
 		this.cat_map.removeLayer(L.GeoJSON);
     this.map(this.current_data, this.current_max,1)
 		
