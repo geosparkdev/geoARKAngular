@@ -163,6 +163,9 @@ td{
 
 
 
+
+
+
 .animation_button{
   width: 30x;
   height: 30px;
@@ -349,7 +352,11 @@ EDIT ON
 
 
 
-
+.risk_map{
+  height:45vh;
+  width: 70vh;
+  margin:5px;
+  }
 
 
 

@@ -4,15 +4,15 @@ Geo-Context and COVID-19 in Missouri
 
 <div class='nav_bar'>
     <ul class='tabrow'>
-        <li> Predictions</li>
-        <li routerLink="/dashboard" routerLinkActive="active"> Risk Categories</li>
-       <li class='selected'> Counties</li>
+        <li routerLink="/predictions" routerLinkActive="active"> Predictions</li>
+        <li routerLink="/categories" routerLinkActive="active"> Risk Categories</li>
+       <li routerLink="/counties" routerLinkActive="active" class='selected'> Counties</li>
     </ul> 
 </div> 
 <div class='main_container'>
     <div class='statsblock'>
         <div class='columns'>
-            <div class='column'>
+            <div class='column'is-6>
                 <select id="county drop down" name="county"(change)="getCountyData($event)" >
                     <option *ngFor='let county of counties' value={{county.cnty_fips}} >{{county.cnty_name}}</option>
 

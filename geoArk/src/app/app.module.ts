@@ -22,6 +22,7 @@ import { PredictionsComponent } from './predictions/predictions.component';
 import { LocationsComponent } from './locations/locations.component';
 
 import { PlotlyViaWindowModule } from 'angular-plotly.js';
+import { DataComponent } from './data/data.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { PlotlyViaWindowModule } from 'angular-plotly.js';
     UpcomingComponent,
     PredictionsComponent,
     LocationsComponent,
+    DataComponent,
   ],
   imports: [
     BrowserModule,

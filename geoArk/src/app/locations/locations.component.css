@@ -187,9 +187,7 @@ EDIT ON
 
 .risklegend{
   font-size: 12px;
-  vertical-align: center;
-  display:inline-block;
-  ;
+  margin:auto;
 }
 
 .factors_container{

@@ -52,7 +52,7 @@ const routes: Routes = [
     component: PredictionsComponent
   },
   {
-    path: 'countyDetails',
+    path: 'counties',
     component: LocationsComponent
   },
   
