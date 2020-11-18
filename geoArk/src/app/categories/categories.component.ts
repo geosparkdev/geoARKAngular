@@ -15273,7 +15273,8 @@ export class CategoriesComponent implements OnInit {
      public current_date:any='6/19/2020';
      public current_mob:any='yes';
      public current_cat:any='Susceptible';
-
+     public current_data:any;
+     public current_max:any;
 
      public slider_togg: boolean=false;
      public value: number=0;
@@ -15315,14 +15316,15 @@ export class CategoriesComponent implements OnInit {
         this.model_data=response[2]
         console.log(this.model_data)
 
-        let temp=this.model_data.find(e=> e['Mobility']===this.current_mob)
+        let temp=this.model_data.filter(e=> e['Mobility']===this.current_mob)
         console.log('HERE')
         console.log(temp)
-        let data=temp.find(e=> e['Category']===this.current_cat)
-        console.log(data)
+        this.current_data=temp.filter(e=> e['Category']===this.current_cat)
+        console.log(this.current_data)
 
-        let temp_meta=this.metadata.find(e=> e['mobility']===this.current_mob)
-        let temp_meta2=temp_meta.find(e=> e['category']===this.current_cat)
+        let temp_meta=this.metadata.filter(e=> e['mobility']===this.current_mob)
+        let temp_meta2=temp_meta.filter(e=> e['category']===this.current_cat)
+        this.current_max=temp_meta2.max
         console.log(temp_meta2)
         console.log(temp_meta2.max)
         console.log(this.dates.length-1)
@@ -15331,7 +15333,7 @@ export class CategoriesComponent implements OnInit {
         this.options.ceil=this.dates.length-1;
         this.value=this.dates.length-1;
 
-        this.map(data, temp_meta2.max)
+        this.map(this.current_data, temp_meta2.max)
       },
       error => {
         console.log(error)
