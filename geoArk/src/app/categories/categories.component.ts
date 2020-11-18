@@ -15334,10 +15334,6 @@ export class CategoriesComponent implements OnInit {
         this.value=this.dates.length-1;
         this.slidertogg=true;
 
-
-
-
- 
         this.cat_map = L.map("cat_map").setView([38.573936, -92.603760], 6.2);
 
         this.map(this.current_data, this.current_max,0)
@@ -15374,6 +15370,9 @@ export class CategoriesComponent implements OnInit {
     }).addTo(this.cat_map);
 
 
+
+    var date=this.current_date;
+
     let info;
     info = new L.Control({position: 'bottomleft'});
 
@@ -15392,10 +15391,6 @@ export class CategoriesComponent implements OnInit {
         this.update();
         return this._div;
       };
-
-      var date=this.current_date;
-      var mobility=this.current_mob;
-      var category=this.current_cat;
 
       info.update = function (props: any) {
 
