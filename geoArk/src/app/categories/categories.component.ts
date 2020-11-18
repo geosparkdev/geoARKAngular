@@ -15336,6 +15336,8 @@ export class CategoriesComponent implements OnInit {
         this.value=this.dates.length-1;
         this.slidertogg=true;
 
+
+        this.cat_map = L.map("cat_map").setView([38.573936, -92.603760], 6.2);
         this.map(this.current_data,0)
       },
       error => {
@@ -15361,7 +15363,7 @@ export class CategoriesComponent implements OnInit {
 
   map(data,num){
  
-      this.cat_map = L.map("cat_map").setView([38.573936, -92.603760], 6.2);
+  
       L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
       {
         id: "mapbox.light",
