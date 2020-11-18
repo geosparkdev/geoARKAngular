@@ -23,18 +23,7 @@ import * as colormap from 'colormap';
 })
 export class CategoriesComponent implements OnInit {
 
-  //Slider variables
-	  public value: number=0;
-	  public options: Options={
-		floor: 0,
-		ceil: 0,
-		showSelectionBar: true,
-    selectionBarGradient: {
-      from: '#fcfed3',
-      to: '#2165ab'
-    },
 
-    }
 
 
 
@@ -15278,7 +15267,7 @@ export class CategoriesComponent implements OnInit {
   
      public metadata:any;
      public dates:any;
-     public model_data:any;
+     public model_data:any; 
 
   constructor(public http: HttpClient,private spinner: NgxSpinnerService,private route:Router) { }
 
@@ -15311,7 +15300,7 @@ export class CategoriesComponent implements OnInit {
     )
   }
 
-	
+  
   
 
 
