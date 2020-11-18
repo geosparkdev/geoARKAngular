@@ -15318,9 +15318,13 @@ export class CategoriesComponent implements OnInit {
 
         let temp=this.model_data.filter(e=> e['Mobility']===this.current_mob)
         console.log('HERE')
-        console.log(temp)
         this.current_data=temp.filter(e=> e['Category']===this.current_cat)
         console.log(this.current_data)
+
+
+        let test=this.current_data.find(e=> e['FIPS']===Number(29005))
+        console.log("TEST")
+        console.log(test)
 
         let temp_meta=this.metadata.filter(e=> e['mobility']===this.current_mob)
         let temp_meta2=temp_meta.filter(e=> e['category']===this.current_cat)
