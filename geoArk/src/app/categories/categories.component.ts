@@ -15495,7 +15495,8 @@ export class CategoriesComponent implements OnInit {
 
 	 onUserChange(changeContext: ChangeContext): void {
      this.current_date=this.dates[changeContext.value]
-     this.updateMap()
+     this.cat_map.removeLayer(L.GeoJSON);
+     this.map(this.current_data,1)
 		
    }
 
