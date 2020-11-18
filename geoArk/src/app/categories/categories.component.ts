@@ -31,6 +31,7 @@ export class CategoriesComponent implements OnInit {
   public date:string='5/31/2020';
 
   public cat_map:any;
+  public actual_map:any;
   
   public test:any=[{'FIPS': 29001,
   'Mobility': 'yes',
@@ -15269,12 +15270,33 @@ export class CategoriesComponent implements OnInit {
      public dates:any;
      public model_data:any; 
 
+     public current_date:any='6/19/2020';
+     public current_mob:any='yes';
+     public current_cat:any='Susceptible';
+
+
+     public slider_togg: boolean=false;
+     public value: number=0;
+     public options: Options={
+     floor: 0,
+     ceil: 0,
+     showSelectionBar: true,
+     selectionBarGradient: {
+     from: '#fcfed3',
+     to: '#00b300'
+   },
+   
+     translate: (): string => {
+         return this.dates
+     }
+   }
+
   constructor(public http: HttpClient,private spinner: NgxSpinnerService,private route:Router) { }
 
   ngOnInit(): void {
 
 
-    this.map(this.test);
+   
 
     let temp=this.test.find(e=> e['FIPS']===29001)
     console.log(temp[this.date])
@@ -15292,7 +15314,12 @@ export class CategoriesComponent implements OnInit {
 
         this.metadata=response[0]
         this.dates=response[1]
-        this.dates=response[2]
+        this.model_data=response[2]
+
+        let temp=this.model_data.find(e=> e['Mobility']===this.current_mob)
+        let data=temp.find(e=> e['Category']===this.current_cat)
+
+        this.map(data);
       },
       error => {
         console.log(error)
@@ -15324,7 +15351,9 @@ export class CategoriesComponent implements OnInit {
         return this._div;
       };
 
-      var date=this.date
+      var date=this.current_date;
+      var mobility=this.current_mob;
+      var category=this.current_cat;
 
       info.update = function (props: any) {
 
@@ -15391,7 +15420,7 @@ export class CategoriesComponent implements OnInit {
 
       let temp=data.find(e=> e['FIPS']===Number(value))
       let colors = colormap({
-          colormap:'portland',
+          colormap:'salinity',
           nshades: 4000,
           format: 'hex',
           alpha: 1
