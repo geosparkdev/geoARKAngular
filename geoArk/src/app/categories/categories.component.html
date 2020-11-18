@@ -28,12 +28,12 @@ Geo-Context and COVID-19 in Missouri
               <th>Model</th>
             </tr>
             <tr>
-                <td [class.highlighted]="'yes'==current_mob" (click)="current_mob='yes'" >
+                <td [class.highlighted]="'yes'==current_mob" (click)="current_mob='yes';updateMap()" >
                     Mobility
                 </td>
             </tr>
         <tr>
-                <td [class.highlighted]="'no'==current_mob" (click)="current_mob='no'">
+                <td [class.highlighted]="'no'==current_mob" (click)="current_mob='no';updateMap()">
                     Nonmobility
                 </td>
             </tr>
@@ -44,27 +44,27 @@ Geo-Context and COVID-19 in Missouri
               <th>Category</th>
             </tr>
             <tr>
-                <td [class.highlighted]="'Susceptible'==current_cat" (click)="current_cat='Susceptible';updateMap_cat()" >
+                <td [class.highlighted]="'Susceptible'==current_cat" (click)="current_cat='Susceptible';updateMap()" >
                     Susceptible (S)
                 </td>
             </tr>
             <tr>
-                <td [class.highlighted]="'Asymptomatic infectious'==current_cat" (click)="current_cat='Asymptomatic infectious';updateMap_cat()">
+                <td [class.highlighted]="'Asymptomatic infectious'==current_cat" (click)="current_cat='Asymptomatic infectious';updateMap()">
                     Asymptomatic (A)
                 </td>
             </tr>
             <tr>
-                <td [class.highlighted]="'Symptomatic infectious'==current_cat" (click)="current_cat='Symptomatic infectious';updateMap_cat()">
+                <td [class.highlighted]="'Symptomatic infectious'==current_cat" (click)="current_cat='Symptomatic infectious';updateMap()">
                     Symptomatic (I)
                 </td>
             </tr>
             <tr>
-                <td [class.highlighted]="'Recovered'==current_cat" (click)="current_cat='Recovered';updateMap_cat()">
+                <td [class.highlighted]="'Recovered'==current_cat" (click)="current_cat='Recovered';updateMap()">
                     Recovered (R)
                 </td>
             </tr>
             <tr>
-                <td [class.highlighted]="'Deceased'==current_cat" (click)="current_cat='Deceased';updateMap_cat()">
+                <td [class.highlighted]="'Deceased'==current_cat" (click)="current_cat='Deceased';updateMap()">
                     Deceased (D)
                 </td>
             </tr>

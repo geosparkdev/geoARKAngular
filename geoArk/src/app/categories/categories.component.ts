@@ -15346,7 +15346,7 @@ export class CategoriesComponent implements OnInit {
     )
   }
 
-  updateMap_cat(){
+  updateMap(){
 
     let temp=this.model_data.filter(e=> e['Mobility']===this.current_mob)
     this.current_data=temp.filter(e=> e['Category']===this.current_cat)
@@ -15493,12 +15493,11 @@ export class CategoriesComponent implements OnInit {
   }
 
 
-	// onUserChange(changeContext: ChangeContext): void {
-  //   this.current_date=this.dates[changeContext.value]
-	// 	this.cat_map.removeLayer(L.GeoJSON);
-  //   this.map(this.current_data, this.current_max,1)
+	 onUserChange(changeContext: ChangeContext): void {
+     this.current_date=this.dates[changeContext.value]
+     this.updateMap()
 		
-  // }
+   }
 
 
 
