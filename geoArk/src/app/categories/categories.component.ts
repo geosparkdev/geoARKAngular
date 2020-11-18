@@ -15328,13 +15328,15 @@ export class CategoriesComponent implements OnInit {
         let temp_meta2=temp_meta.filter(e=> e['category']===this.current_cat)
         this.current_max=temp_meta2[0]['max']
 
+        console.log(this.current_max)
+
 
 
         this.options.ceil=this.dates.length-1;
         this.value=this.dates.length-1;
         this.slidertogg=true;
 
-        this.map(this.current_data, this.current_max,0)
+        //this.map(this.current_data, this.current_max,0)
       },
       error => {
         console.log(error)
