@@ -15302,7 +15302,15 @@ export class CategoriesComponent implements OnInit {
 
   ngOnInit(): void {
 
+      this.cat_map = L.map("cat_map").setView([38.573936, -92.603760], 6.2);
 
+
+      L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
+      {
+        id: "mapbox.light",
+        attribution: "SOS"
+			// can have min and max zoom here
+    }).addTo(this.cat_map);
    
     this.getModelData();
 	
@@ -15360,15 +15368,7 @@ export class CategoriesComponent implements OnInit {
 
 
   map(data,max,num){
-    this.cat_map = L.map("cat_map").setView([38.573936, -92.603760], 6.2);
-
-
-    L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
-		{
-			id: "mapbox.light",
-			attribution: "SOS"
-			// can have min and max zoom here
-    }).addTo(this.cat_map);
+ 
 
     let info;
     info = new L.Control({position: 'bottomleft'});
