@@ -15458,9 +15458,10 @@ export class CategoriesComponent implements OnInit {
 
     function getcolor2(value,colorange){
 
+      console.log(data)
       let temp=data.filter(e=> e['FIPS']===String(value))
 
-      return colorange[temp[0][date]]
+      return colorange[temp[0][date]-1]
     }
     
     // function getcolor(value){
