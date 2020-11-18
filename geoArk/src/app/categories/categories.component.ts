@@ -15336,7 +15336,7 @@ export class CategoriesComponent implements OnInit {
         this.value=this.dates.length-1;
         this.slidertogg=true;
 
-        //this.map(this.current_data, this.current_max,0)
+        this.map(this.current_data, this.current_max,0)
       },
       error => {
         console.log(error)
