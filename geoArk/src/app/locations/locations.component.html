@@ -14,11 +14,11 @@ Geo-Context and COVID-19 in Missouri
         <div class='columns'>
             <div class='column is-3'>
                 <select id="county drop down" name="county"(change)="getCountyData($event)" >
-                    <option *ngFor='let county of counties' value={{county.cnty_fips}} >{{county.cnty_name}}</option>
+                    <option *ngFor='let county of counties' value={{county.cnty_fips}} >{{county.cnty_name}} County</option>
 
                 </select>
                 <br>
-                    <span class='SB_2'>QUICK FACTS</span>
+                    <span class='SB_2'>Quick Facts</span>
             </div>
             <div class='column'>
                 <div class='stat_shift'>

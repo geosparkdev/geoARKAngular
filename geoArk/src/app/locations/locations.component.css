@@ -64,8 +64,8 @@
   
   .SB_1{
     font-family:"Euphemia UCAS";
-    font-weight: bolder;
-    font-size: 1.6rem;
+    /*font-weight: bolder;*/
+    font-size: 2rem;
   }
   
   .SB_2{
