@@ -15337,14 +15337,8 @@ export class CategoriesComponent implements OnInit {
 
 
 
-      this.cat_map = L.map("cat_map").setView([38.573936, -92.603760], 6.2);
-        L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
-        {
-          id: "mapbox.light",
-          attribution: "SOS"
-        // can have min and max zoom here
-      }).addTo(this.cat_map);
-
+ 
+        this.cat_map = L.map("cat_map").setView([38.573936, -92.603760], 6.2);
 
         this.map(this.current_data, this.current_max,0)
       },
@@ -15371,6 +15365,14 @@ export class CategoriesComponent implements OnInit {
 
   map(data,max,num){
  
+
+      L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
+      {
+        id: "mapbox.light",
+        attribution: "SOS"
+      // can have min and max zoom here
+    }).addTo(this.cat_map);
+
 
     let info;
     info = new L.Control({position: 'bottomleft'});
@@ -15462,7 +15464,6 @@ export class CategoriesComponent implements OnInit {
     function getcolor(value){
 
       let temp=data.filter(e=> e['FIPS']===String(value))
-      console.log('temp')
       let colors = colormap({
           colormap:'summer',
           nshades: Number(max),
