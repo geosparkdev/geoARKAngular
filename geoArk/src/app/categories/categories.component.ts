@@ -15394,7 +15394,7 @@ export class CategoriesComponent implements OnInit {
     
       function temp1(fips){
         let temp=data.filter(e=> e['FIPS']===fips)
-        return temp[0][date]
+        return (temp[0][date])
       }
 
 
@@ -15454,8 +15454,20 @@ export class CategoriesComponent implements OnInit {
           alpha: 1
       })
 
-      return colors[temp[0][date]]
+      return colors[temp[0][date]-1]
     }
   }
+
+
+	onUserChange(changeContext: ChangeContext): void {
+		this.cat_map.removeLayer(L.GeoJSON);
+		this.getMap(this.legend[changeContext.value]['keys'],1)
+		
+  }
+
+
+
+
+
 }
 
