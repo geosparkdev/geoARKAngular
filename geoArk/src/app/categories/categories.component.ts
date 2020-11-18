@@ -15323,6 +15323,9 @@ export class CategoriesComponent implements OnInit {
 
         let temp_meta=this.metadata.find(e=> e['mobility']===this.current_mob)
         let temp_meta2=temp_meta.find(e=> e['category']===this.current_cat)
+        console.log(temp_meta2)
+        console.log(temp_meta2.max)
+        console.log(this.dates.length-1)
 
 
         this.options.ceil=this.dates.length-1;
