@@ -15474,7 +15474,7 @@ export class CategoriesComponent implements OnInit {
 
 	onUserChange(changeContext: ChangeContext): void {
 		this.cat_map.removeLayer(L.GeoJSON);
-    this.map(this.current_data, this.current_max)
+    this.map(this.current_data, this.current_max,1)
 		
   }
 
