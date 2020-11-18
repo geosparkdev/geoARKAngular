@@ -15286,8 +15286,8 @@ export class CategoriesComponent implements OnInit {
      to: '#00b300'
    },
    
-     translate: (): string => {
-         return this.dates
+     translate: (value: number): string => {
+         return this.dates[value]
      }
    }
 
@@ -15313,6 +15313,7 @@ export class CategoriesComponent implements OnInit {
         this.metadata=response[0]
         this.dates=response[1]
         this.model_data=response[2]
+        console.log(this.model_data)
 
         let temp=this.model_data.find(e=> e['Mobility']===this.current_mob)
         let data=temp.find(e=> e['Category']===this.current_cat)
