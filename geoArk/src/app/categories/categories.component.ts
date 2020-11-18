@@ -15403,9 +15403,6 @@ export class CategoriesComponent implements OnInit {
 
     
       function temp1(fips){
-        console.log('HEEEEREEE')
-        console.log(fips)
-        console.log(data)
         let temp=data.filter(e=> e['FIPS']===String(fips))
         return (temp[0][date])
       }
@@ -15465,6 +15462,7 @@ export class CategoriesComponent implements OnInit {
           format: 'hex',
           alpha: 1
       })
+      console.log(colors)
 
       return colors[temp[0][date]]
     }
