@@ -15316,11 +15316,17 @@ export class CategoriesComponent implements OnInit {
         console.log(this.model_data)
 
         let temp=this.model_data.find(e=> e['Mobility']===this.current_mob)
+        console.log('HERE')
+        console.log(temp)
         let data=temp.find(e=> e['Category']===this.current_cat)
         console.log(data)
 
         let temp_meta=this.metadata.find(e=> e['mobility']===this.current_mob)
         let temp_meta2=temp_meta.find(e=> e['category']===this.current_cat)
+
+
+        this.options.ceil=this.dates.length-1;
+        this.value=this.dates.length-1;
 
         this.map(data, temp_meta2.max)
       },

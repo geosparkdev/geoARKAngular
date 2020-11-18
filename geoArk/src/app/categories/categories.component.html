@@ -19,8 +19,53 @@ Geo-Context and COVID-19 in Missouri
 
         <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
     </div>
-    <div class="column is-3">
-        Test
+    <div class="column is-2">
+        <table>
+            <tr>
+              <th>Model</th>
+            </tr>
+            <tr>
+                <td [class.highlighted]="'yes'==current_mob" (click)="current_mob='yes'" >
+                    Mobility
+                </td>
+            </tr>
+        <tr>
+                <td [class.highlighted]="'no'==current_mob" (click)="current_mob='no'">
+                    Nonmobility
+                </td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+              <th>Category</th>
+            </tr>
+            <tr>
+                <td [class.highlighted]="'Susceptible'==current_cat" (click)="current_cat='Susceptible'" >
+                    Susceptible (S)
+                </td>
+            </tr>
+            <tr>
+                <td [class.highlighted]="'Asymptomatic infectious'==current_cat" (click)="current_cat='Asymptomatic infectious'">
+                    Asymptomatic (A)
+                </td>
+            </tr>
+            <tr>
+                <td [class.highlighted]="'Symptomatic infectious'==current_cat" (click)="current_cat='Symptomatic infectious'">
+                    Symptomatic (I)
+                </td>
+            </tr>
+            <tr>
+                <td [class.highlighted]="'Recovered'==current_cat" (click)="current_cat='Recovered'">
+                    Recovered (R)
+                </td>
+            </tr>
+            <tr>
+                <td [class.highlighted]="'Deceased'==current_cat" (click)="current_cat='Deceased'">
+                    Deceased (D)
+                </td>
+            </tr>
+        </table>
     </div>
 </div>
 
