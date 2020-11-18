@@ -15303,14 +15303,13 @@ export class CategoriesComponent implements OnInit {
   ngOnInit(): void {
 
       this.cat_map = L.map("cat_map").setView([38.573936, -92.603760], 6.2);
-
-
       L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
       {
         id: "mapbox.light",
         attribution: "SOS"
 			// can have min and max zoom here
     }).addTo(this.cat_map);
+
    
     this.getModelData();
 	
@@ -15459,7 +15458,7 @@ export class CategoriesComponent implements OnInit {
     
     function getcolor(value){
 
-      let temp=data.filter(e=> e['FIPS']===value)
+      let temp=data.filter(e=> e['FIPS']===String(value))
       console.log('temp')
       let colors = colormap({
           colormap:'summer',
