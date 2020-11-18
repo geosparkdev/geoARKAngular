@@ -15267,7 +15267,7 @@ export class CategoriesComponent implements OnInit {
    
   
      public metadata:any;
-     public dates:any;
+     public dates:any=[0];
      public model_data:any; 
 
      public current_date:any='6/19/2020';
@@ -15326,7 +15326,7 @@ export class CategoriesComponent implements OnInit {
         let temp_meta2=temp_meta.filter(e=> e['category']===this.current_cat)
         this.current_max=temp_meta2.max
         console.log(temp_meta2)
-        console.log(temp_meta2.max)
+        console.log(temp_meta2['max'])
         console.log(this.dates.length-1)
 
 
@@ -15341,7 +15341,9 @@ export class CategoriesComponent implements OnInit {
     )
   }
 
-  
+  updateMap(category:string){
+
+  }
   
 
 
