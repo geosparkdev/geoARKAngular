@@ -44,27 +44,27 @@ Geo-Context and COVID-19 in Missouri
               <th>Category</th>
             </tr>
             <tr>
-                <td [class.highlighted]="'Susceptible'==current_cat" (click)="current_cat='Susceptible'" >
+                <td [class.highlighted]="'Susceptible'==current_cat" (click)="current_cat='Susceptible';updateMap_cat()" >
                     Susceptible (S)
                 </td>
             </tr>
             <tr>
-                <td [class.highlighted]="'Asymptomatic infectious'==current_cat" (click)="current_cat='Asymptomatic infectious'">
+                <td [class.highlighted]="'Asymptomatic infectious'==current_cat" (click)="current_cat='Asymptomatic infectious';updateMap_cat()">
                     Asymptomatic (A)
                 </td>
             </tr>
             <tr>
-                <td [class.highlighted]="'Symptomatic infectious'==current_cat" (click)="current_cat='Symptomatic infectious'">
+                <td [class.highlighted]="'Symptomatic infectious'==current_cat" (click)="current_cat='Symptomatic infectious';updateMap_cat()">
                     Symptomatic (I)
                 </td>
             </tr>
             <tr>
-                <td [class.highlighted]="'Recovered'==current_cat" (click)="current_cat='Recovered'">
+                <td [class.highlighted]="'Recovered'==current_cat" (click)="current_cat='Recovered';updateMap_cat()">
                     Recovered (R)
                 </td>
             </tr>
             <tr>
-                <td [class.highlighted]="'Deceased'==current_cat" (click)="current_cat='Deceased'">
+                <td [class.highlighted]="'Deceased'==current_cat" (click)="current_cat='Deceased';updateMap_cat()">
                     Deceased (D)
                 </td>
             </tr>

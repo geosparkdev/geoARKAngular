@@ -15320,24 +15320,16 @@ export class CategoriesComponent implements OnInit {
         this.metadata=response[0]
         this.dates=response[1]
         this.model_data=response[2]
-        console.log(this.model_data)
+ 
 
         let temp=this.model_data.filter(e=> e['Mobility']===this.current_mob)
-        console.log('HERE')
         this.current_data=temp.filter(e=> e['Category']===this.current_cat)
-        console.log(this.current_data)
 
-
-        let test=this.current_data.filter(e=> e['FIPS']===Number(29005))
-        console.log("TEST")
-        console.log(test)
 
         let temp_meta=this.metadata.filter(e=> e['mobility']===this.current_mob)
         let temp_meta2=temp_meta.filter(e=> e['category']===this.current_cat)
         this.current_max=temp_meta2.max
-        console.log(temp_meta2)
-        console.log(temp_meta2[0].max)
-        console.log(this.dates.length-1)
+
 
 
         this.options.ceil=this.dates.length-1;
@@ -15352,8 +15344,17 @@ export class CategoriesComponent implements OnInit {
     )
   }
 
-  updateMap(category:string){
+  updateMap_cat(){
 
+    let temp=this.model_data.filter(e=> e['Mobility']===this.current_mob)
+    this.current_data=temp.filter(e=> e['Category']===this.current_cat)
+
+    let temp_meta=this.metadata.filter(e=> e['mobility']===this.current_mob)
+    let temp_meta2=temp_meta.filter(e=> e['category']===this.current_cat)
+    this.current_max=temp_meta2.max
+
+    this.cat_map.removeLayer(L.GeoJSON);
+    this.map(this.current_data, this.current_max,1)
   }
   
 
@@ -15461,7 +15462,7 @@ export class CategoriesComponent implements OnInit {
       let temp=data.filter(e=> e['FIPS']===value)
       console.log('temp')
       let colors = colormap({
-          colormap:'salinity',
+          colormap:'summer',
           nshades: Number(max),
           format: 'hex',
           alpha: 1
