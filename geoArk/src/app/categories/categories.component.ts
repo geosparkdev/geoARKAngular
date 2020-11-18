@@ -15445,16 +15445,16 @@ export class CategoriesComponent implements OnInit {
     
     function getcolor(value){
 
-      let temp=data.find(e=> e['FIPS']===Number(value))
+      let temp=data.filter(e=> e['FIPS']===Number(value))
       console.log('HEREHERHERHE')
       let colors = colormap({
           colormap:'salinity',
-          nshades: 994188,
+          nshades: Number(max),
           format: 'hex',
           alpha: 1
       })
 
-      return colors[temp[date]]
+      return colors[temp[0][date]]
     }
   }
 }
