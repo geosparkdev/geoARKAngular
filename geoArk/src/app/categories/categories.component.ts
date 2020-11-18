@@ -15297,9 +15297,7 @@ export class CategoriesComponent implements OnInit {
 
 
    
-
-    let temp=this.test.find(e=> e['FIPS']===29001)
-    console.log(temp[this.date])
+    this.getModelData();
 	
   }
 
@@ -15318,8 +15316,12 @@ export class CategoriesComponent implements OnInit {
 
         let temp=this.model_data.find(e=> e['Mobility']===this.current_mob)
         let data=temp.find(e=> e['Category']===this.current_cat)
+        console.log(data)
 
-        this.map(data);
+        let temp_meta=this.metadata.find(e=> e['mobility']===this.current_mob)
+        let temp_meta2=temp_meta.find(e=> e['category']===this.current_cat)
+
+        this.map(data, temp_meta2.max)
       },
       error => {
         console.log(error)
@@ -15331,7 +15333,7 @@ export class CategoriesComponent implements OnInit {
   
 
 
-  map(data){
+  map(data,max){
     this.cat_map = L.map("cat_map").setView([38.573936, -92.603760], 6.2);
 
 
@@ -15421,7 +15423,7 @@ export class CategoriesComponent implements OnInit {
       let temp=data.find(e=> e['FIPS']===Number(value))
       let colors = colormap({
           colormap:'salinity',
-          nshades: 4000,
+          nshades: max,
           format: 'hex',
           alpha: 1
       })
