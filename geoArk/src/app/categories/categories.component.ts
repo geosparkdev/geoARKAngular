@@ -15336,7 +15336,7 @@ export class CategoriesComponent implements OnInit {
         this.value=this.dates.length-1;
         this.slidertogg=true;
 
-        this.map(this.current_data, this.current_max,0)
+        this.map(this.current_data,0)
       },
       error => {
         console.log(error)
@@ -15354,12 +15354,12 @@ export class CategoriesComponent implements OnInit {
     this.current_max=temp_meta2.max
 
     this.cat_map.removeLayer(L.GeoJSON);
-    this.map(this.current_data, this.current_max,1)
+    this.map(this.current_data,1)
   }
   
 
 
-  map(data,max,num){
+  map(data,num){
  
       this.cat_map = L.map("cat_map").setView([38.573936, -92.603760], 6.2);
       L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
@@ -15372,6 +15372,7 @@ export class CategoriesComponent implements OnInit {
 
 
     var date=this.current_date;
+    var colors=makeColors(this.current_max);
 
     let info;
     info = new L.Control({position: 'bottomleft'});
@@ -15415,7 +15416,7 @@ export class CategoriesComponent implements OnInit {
         return{
           color: 'black',
           weight: 0.5,
-          fillColor:getcolor(feature.id),
+          fillColor:getcolor2(feature.id,colors),
           fillOpacity:0.8,
         }
       },
@@ -15452,20 +15453,41 @@ export class CategoriesComponent implements OnInit {
       this.cat_map.fitBounds(e.target.getBounds());
     }
 
-    
-    function getcolor(value){
+
+    function getcolor2(value,colorange){
 
       let temp=data.filter(e=> e['FIPS']===String(value))
-      let colors = colormap({
-          colormap:'summer',
-          nshades: Number(max),
-          format: 'hex',
-          alpha: 1
-      })
-      console.log(colors)
 
-      return colors[temp[0][date]]
+      return colorange[temp[0][date]]
     }
+    
+    // function getcolor(value){
+
+    //   let temp=data.filter(e=> e['FIPS']===String(value))
+    //   let colors = colormap({
+    //       colormap:'summer',
+    //       nshades: Number(max),
+    //       format: 'hex',
+    //       alpha: 1
+    //   })
+
+    //   return colors[temp[0][date]]
+    // }
+
+
+    function makeColors(value){
+      let colors = colormap({
+        colormap:'summer',
+        nshades: Number(value),
+        format: 'hex',
+        alpha: 1
+    })
+
+    return colors
+
+    }
+
+
   }
 
 
