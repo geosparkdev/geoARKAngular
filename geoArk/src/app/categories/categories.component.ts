@@ -15469,12 +15469,12 @@ export class CategoriesComponent implements OnInit {
   }
 
 
-	onUserChange(changeContext: ChangeContext): void {
-    this.current_date=this.dates[changeContext.value]
-		this.cat_map.removeLayer(L.GeoJSON);
-    this.map(this.current_data, this.current_max,1)
+	// onUserChange(changeContext: ChangeContext): void {
+  //   this.current_date=this.dates[changeContext.value]
+	// 	this.cat_map.removeLayer(L.GeoJSON);
+  //   this.map(this.current_data, this.current_max,1)
 		
-  }
+  // }
 
 
 
