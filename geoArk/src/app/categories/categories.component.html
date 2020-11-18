@@ -17,7 +17,10 @@ Geo-Context and COVID-19 in Missouri
     <div class="column">
         <div id="cat_map" class="cat_map"></div>   
 
-        <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
+        <div *ngIf='slidertogg'>
+            <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
+        </div>
+      
     </div>
     <div class="column is-2">
         <table>

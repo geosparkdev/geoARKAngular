@@ -15286,11 +15286,17 @@ export class CategoriesComponent implements OnInit {
      from: '#fcfed3',
      to: '#00b300'
    },
+
    
      translate: (value: number): string => {
          return this.dates[value]
      }
    }
+
+
+   public slidertogg:boolean=false;
+
+
 
   constructor(public http: HttpClient,private spinner: NgxSpinnerService,private route:Router) { }
 
@@ -15322,7 +15328,7 @@ export class CategoriesComponent implements OnInit {
         console.log(this.current_data)
 
 
-        let test=this.current_data.find(e=> e['FIPS']===Number(29005))
+        let test=this.current_data.filter(e=> e['FIPS']===Number(29005))
         console.log("TEST")
         console.log(test)
 
@@ -15330,12 +15336,13 @@ export class CategoriesComponent implements OnInit {
         let temp_meta2=temp_meta.filter(e=> e['category']===this.current_cat)
         this.current_max=temp_meta2.max
         console.log(temp_meta2)
-        console.log(temp_meta2['max'])
+        console.log(temp_meta2[0].max)
         console.log(this.dates.length-1)
 
 
         this.options.ceil=this.dates.length-1;
         this.value=this.dates.length-1;
+        this.slidertogg=true;
 
         this.map(this.current_data, temp_meta2.max)
       },
