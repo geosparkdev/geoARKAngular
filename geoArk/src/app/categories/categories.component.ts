@@ -47,7 +47,7 @@ export class CategoriesComponent implements OnInit {
 
 
 
-  public risk_map:any;
+  public cat_map:any;
   
   public map_obj:any=[{'type': 'FeatureCollection',
   'features': [{'properties': {'GEO_ID': '0500000US29097',
@@ -3422,7 +3422,7 @@ export class CategoriesComponent implements OnInit {
 
 
   map(data){
-    this.risk_map = L.map("risk_map").setView([38.573936, -92.603760], 6.2);
+    this.cat_map = L.map("risk_map").setView([38.573936, -92.603760], 6.2);
 
 
     L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
@@ -3430,7 +3430,7 @@ export class CategoriesComponent implements OnInit {
 			id: "mapbox.light",
 			attribution: "SOS"
 			// can have min and max zoom here
-    }).addTo(this.risk_map);
+    }).addTo(this.cat_map);
 
     let info;
     info = new L.Control({position: 'bottomleft'});
@@ -3450,7 +3450,7 @@ export class CategoriesComponent implements OnInit {
         this._div.innerHTML =
           (props ? "<b>County: </b>"+props.NAME+"<br><b>Total Risk: </b>"+temp1(props['fips'])+"</b><br />" : "<h4>Click to see details of another county.</h4>");
       };
-      info.addTo(this.risk_map);
+      info.addTo(this.cat_map);
 
     
       function temp1(fips){
@@ -3477,7 +3477,7 @@ export class CategoriesComponent implements OnInit {
           click: zoomToFeature
         });
       }
-    }).addTo(this.risk_map);
+    }).addTo(this.cat_map);
   
 
     function highlightFeature(e) {
@@ -3500,7 +3500,7 @@ export class CategoriesComponent implements OnInit {
     }
 
     function zoomToFeature(e) {
-      this.risk_map.fitBounds(e.target.getBounds());
+      this.cat_map.fitBounds(e.target.getBounds());
     }
 
 

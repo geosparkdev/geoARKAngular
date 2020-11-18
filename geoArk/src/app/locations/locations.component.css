@@ -50,11 +50,16 @@
 .windorose{
  padding:100px;
 }
+
+.stat_shift{
+  padding-left:50px;
+}
 .statsblock{
     background-color:#c4c4c4;  
     margin-top:0px;
   
-    padding: 10px 10px;
+    padding: 10px 15px;
+    padding-top:20px;
   }
   
   .SB_1{
@@ -89,7 +94,7 @@
 
 /* Navigation bar -- Tabs */
 .nav_bar{
-    margin-left:300px;
+    margin-left:380px;
 }
 
 
@@ -187,8 +192,10 @@ EDIT ON
 
 .risklegend{
   font-size: 12px;
-  margin:auto;
+  vertical-align:center;
 }
+
+
 
 .factors_container{
   border:solid 1px black;
@@ -197,6 +204,11 @@ EDIT ON
   margin-left:0px;
 }
 
+
+.risk_shift{
+  position:inline;
+
+}
 .risk_map{
   height:50vh;
   width: 55vh;
@@ -257,7 +269,7 @@ hr.new1 {
 
 
 select{
-  width:100%;
+  width:80%;
   font-family:"Euphemia UCAS";
   font-weight: bold;
   font-size: 1.2rem;
