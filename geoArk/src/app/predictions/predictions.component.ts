@@ -17,6 +17,7 @@ import * as L from 'leaflet';
 import { Options,ChangeContext } from 'ng5-slider';
 import { NgxSpinnerService } from "ngx-spinner";
 import * as colormap from 'colormap';
+import { features } from 'process';
 
 
 
@@ -344,7 +345,7 @@ export class PredictionsComponent implements OnInit {
 		  })
 
 		  console.log(colorrange)
-		  
+
 		var ranges= getBin(min,max,threshold);
 
 		gradientLegend(colorrange,ranges);
@@ -360,7 +361,8 @@ export class PredictionsComponent implements OnInit {
 					return{
 						color: 'black',
 						weight: 1,
-						fillColor:getColor2(min,max,threshold,feature.properties[test],colorrange,ranges),
+						//fillColor:getColor2(min,max,threshold,feature.properties[test],colorrange,ranges),
+						fillColor:colorrange[feature.properties[test]],
 						fillOpacity:0.8,
 					}
 
