@@ -339,7 +339,7 @@ export class PredictionsComponent implements OnInit {
 		//light to dark
 		var colorrange=colormap({
 			  colormap:'summer',
-			  nshades: max,
+			  nshades: threshold,
 			  format: 'hex',
 			  alpha: 1
 		  })
