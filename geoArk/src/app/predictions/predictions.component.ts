@@ -28,9 +28,9 @@ import { features } from 'process';
 })
 export class PredictionsComponent implements OnInit {
 
-  public model_butt:any='yes';
-  public cat_butt:any='Susceptible';
-  public subtitle:any=''
+public model_butt:any='yes';
+public cat_butt:any='Susceptible';
+public subtitle:any=''
 
 	public initial_params:any=['yes','Susceptible']
 // map variables
@@ -86,10 +86,6 @@ export class PredictionsComponent implements OnInit {
 
 
 }
-
-
-
-
 
 	//functions for loading screen 
 	startLoading(){
@@ -186,11 +182,15 @@ export class PredictionsComponent implements OnInit {
       }
     )
     
-  	}
+  }
 
   
 
-  	changeDataset(index:number){
+
+
+
+
+  changeDataset(index:number){
     this.map.removeLayer(L.GeoJSON);
     this.data_selected=this.legend[index].attr_label
     this.min=this.legend[index].min
@@ -199,7 +199,7 @@ export class PredictionsComponent implements OnInit {
 
 	this.getMap(this.data_selected,1)
 		
-  	}
+  }
 
 
 // update map when slider moves
@@ -258,7 +258,13 @@ export class PredictionsComponent implements OnInit {
 	var ranges= getBin(min,max,threshold);
 	gradientLegend(colorrange,ranges);
 
+	
+		//initializing map -- map id matches HTML div id
+		// center initial map on Missouri
+		//let map = L.map("map").setView([37.9643, -91.8318], 6.2);
+
 		//load tile layer 
+		//Can layer tiles
 		L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
 		{
 			id: "mapbox.light",
