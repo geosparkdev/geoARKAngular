@@ -248,6 +248,22 @@ export class PredictionsComponent implements OnInit {
   getMap(test:string, num:number){
 
 	
+
+		var min=this.min;
+		var max=this.max;
+		var threshold=this.threshold;
+		//light to dark
+		var colorrange=colormap({
+			colormap:'summer',
+			nshades: threshold,
+			format: 'hex',
+			alpha: 1
+		})
+
+
+	var ranges= getBin(min,max,threshold);
+	gradientLegend(colorrange,ranges);
+
 	
 		//initializing map -- map id matches HTML div id
 		// center initial map on Missouri
@@ -263,17 +279,16 @@ export class PredictionsComponent implements OnInit {
 		}).addTo(this.map);
 
 
-			//legend -- start	
-			let legend;
-			let max_title= String(this.max)
+		//legend -- start ----------
+		let legend;
+		let max_title= String(this.max)
 
 
-			legend = new L.Control({position: 'topright'});
-			legend.onAdd = function () {
+		legend = new L.Control({position: 'topright'});
+		legend.onAdd = function () {
         
-
-        if(num==0){
-          this._div = L.DomUtil.create("div", "legend legendcontainer");
+		if(num==0){
+		this._div = L.DomUtil.create("div", "legend legendcontainer");
 				}
 				else
 				{
@@ -296,58 +311,44 @@ export class PredictionsComponent implements OnInit {
 										'<div class="ind_range"> <span class="range_bottom"> Range 5 </span> </div>'+
 										'<div class="ind_range"> <span class="range_bottom"> Range 6 <br><br>0</span> </div>'+
 										'</div>')*/;
+		};
+
+		legend.addTo(this.map);
+
+			
+		//informatin box--start
+
+
+		let info;
+		info = new L.Control({position: 'bottomleft'});
+		info.remove();
+
+		info.onAdd = function (map) {
+
+			if(num==0){
+				this._div = L.DomUtil.create("div", "info");
+			}
+			else
+			{
+
+				this._div=document.getElementsByClassName("info")[0];
+
+			}
+				this.update();
+				return this._div;
 			};
-	
-			legend.addTo(this.map);
-
-			//informatin box--start
-
-
-			let info;
-			info = new L.Control({position: 'bottomleft'});
-			info.remove();
-
-			info.onAdd = function (map) {
-
-				if(num==0){
-					this._div = L.DomUtil.create("div", "info");
-				}
-				else
-				{
-
-					this._div=document.getElementsByClassName("info")[0];
-
-				}
-					this.update();
-					return this._div;
-				};
 
 
 
-				info.update = function (props: any) {
-					this._div.innerHTML =
-						"<h4>Hover over a county</h4>" +
-						(props ? "<b>County: </b>" +props.NAME + "<br><b>Predicted Cases: </b>"+props[test] + "<br/>" : "");
-				};
-				info.addTo(this.map);
+			info.update = function (props: any) {
+				this._div.innerHTML =
+					"<h4>Hover over a county</h4>" +
+					(props ? "<b>County: </b>" +props.NAME + "<br><b>Predicted Cases: </b>"+props[test] + "<br/>" : "");
+			};
+			info.addTo(this.map);
 
 
 			
-		var min=this.min;
-		var max=this.max;
-		var threshold=this.threshold;
-		//light to dark
-		var colorrange=colormap({
-			  colormap:'summer',
-			  nshades: threshold,
-			  format: 'hex',
-			  alpha: 1
-		  })
-
-
-		var ranges= getBin(min,max,threshold);
-
-		gradientLegend(colorrange,ranges);
 
 
 
@@ -417,7 +418,7 @@ export class PredictionsComponent implements OnInit {
 		}
 
 		
-		
+		// Create gradient for legend
 		function gradientLegend(colors,ranges){
 			var html = [];
 			var range_html=[];
@@ -438,8 +439,6 @@ export class PredictionsComponent implements OnInit {
 		function getColor2(min,max,threshold,value, colorrange,ranges){
 
 			var color;
-
-			//light to dark
 				
 			for(var i=(threshold-1); i>=min; i--)
 			{
@@ -453,9 +452,6 @@ export class PredictionsComponent implements OnInit {
 			return color
 		}
 
-
-
-			
 
 
 	
