@@ -342,6 +342,9 @@ export class PredictionsComponent implements OnInit {
 			  format: 'hex',
 			  alpha: 1
 		  })
+
+		  console.log(colorrange)
+		  
 		var ranges= getBin(min,max,threshold);
 
 		gradientLegend(colorrange,ranges);
