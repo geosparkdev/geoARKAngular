@@ -29,8 +29,8 @@ import { features } from 'process';
 export class PredictionsComponent implements OnInit {
 
   public model_butt:any='yes';
-	public cat_butt:any='Susceptible';
-	public subtitle:any=''
+  public cat_butt:any='Susceptible';
+  public subtitle:any=''
 
 	public initial_params:any=['yes','Susceptible']
 // map variables
@@ -87,6 +87,10 @@ export class PredictionsComponent implements OnInit {
 
 }
 
+
+
+
+
 	//functions for loading screen 
 	startLoading(){
 		this.loading_togg=true;
@@ -104,21 +108,18 @@ export class PredictionsComponent implements OnInit {
 
     this.http.post(environment.base_url+"5000/getModelingData",JSON.stringify(params), {headers: customheaders}).subscribe(
       response=> {
-				console.log(response)
 
-				this.geojson_obj=response[0];
+		this.geojson_obj=response[0];
         this.legend=response[1];
-        console.log("TEST")
-    
+
         this.map = L.map("map").setView([37.9643, -91.8318], 6.2);
         
-				this.min=this.legend[this.legend.length-1]['min']
-				this.max=this.legend[this.legend.length-1]['max']
-				console.log(this.max)
+		this.min=this.legend[this.legend.length-1]['min']
+		this.max=this.legend[this.legend.length-1]['max']
         this.threshold=1000
 
-				this.getMap(this.legend[this.legend.length-1]['keys'],0);
-				this.subtitle=this.cat_butt;
+		this.getMap(this.legend[this.legend.length-1]['keys'],0);
+		this.subtitle=this.cat_butt;
     
         this.options.ceil=this.legend.length-1;
         this.value=this.legend.length-1;
@@ -185,27 +186,20 @@ export class PredictionsComponent implements OnInit {
       }
     )
     
-  }
+  	}
 
   
 
-
-
-
-
-  changeDataset(index:number){
+  	changeDataset(index:number){
     this.map.removeLayer(L.GeoJSON);
     this.data_selected=this.legend[index].attr_label
     this.min=this.legend[index].min
     this.max=this.legend[index].max
   
 
-		this.getMap(this.data_selected,1)
+	this.getMap(this.data_selected,1)
 		
-  }
-
-
-
+  	}
 
 
 // update map when slider moves
@@ -264,13 +258,7 @@ export class PredictionsComponent implements OnInit {
 	var ranges= getBin(min,max,threshold);
 	gradientLegend(colorrange,ranges);
 
-	
-		//initializing map -- map id matches HTML div id
-		// center initial map on Missouri
-		//let map = L.map("map").setView([37.9643, -91.8318], 6.2);
-
 		//load tile layer 
-		//Can layer tiles
 		L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
 		{
 			id: "mapbox.light",
