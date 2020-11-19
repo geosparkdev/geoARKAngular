@@ -156,10 +156,10 @@ export class PredictionsComponent implements OnInit {
 
     this.http.post(environment.base_url+"5000/getModelingData",JSON.stringify(params), {headers: customheaders}).subscribe(
       response=> {
-				console.log(response)
+		console.log(response)
 				
 
-				this.geojson_obj=response[0];
+		this.geojson_obj=response[0];
         this.legend=response[1];
         console.log("TEST")
     
@@ -169,8 +169,8 @@ export class PredictionsComponent implements OnInit {
         this.threshold=1000
 
 				
-				this.getMap(this.legend[this.legend.length-1]['keys'],1);
-				this.subtitle=this.cat_butt;
+		this.getMap(this.legend[this.legend.length-1]['keys'],1);
+		this.subtitle=this.cat_butt;
     
         this.options.ceil=this.legend.length-1;
         this.value=this.legend.length-1;
@@ -344,7 +344,6 @@ export class PredictionsComponent implements OnInit {
 			  alpha: 1
 		  })
 
-		  console.log(colorrange)
 
 		var ranges= getBin(min,max,threshold);
 
