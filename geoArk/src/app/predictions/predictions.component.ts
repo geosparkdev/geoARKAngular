@@ -339,7 +339,7 @@ export class PredictionsComponent implements OnInit {
 		//light to dark
 		var colorrange=colormap({
 			  colormap:'summer',
-			  nshades: max,
+			  nshades: threshold,
 			  format: 'hex',
 			  alpha: 1
 		  })
@@ -360,8 +360,8 @@ export class PredictionsComponent implements OnInit {
 					return{
 						color: 'black',
 						weight: 1,
-						//fillColor:getColor2(min,max,threshold,feature.properties[test],colorrange,ranges),
-						fillColor:colorrange[feature.properties[test]],
+						fillColor:getColor2(min,max,threshold,feature.properties[test],colorrange,ranges),
+						//fillColor:colorrange[feature.properties[test]],
 						fillOpacity:0.8,
 					}
 
