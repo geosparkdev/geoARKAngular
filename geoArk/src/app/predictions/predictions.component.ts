@@ -28,9 +28,9 @@ import { features } from 'process';
 })
 export class PredictionsComponent implements OnInit {
 
-public model_butt:any='yes';
-public cat_butt:any='Susceptible';
-public subtitle:any=''
+  public model_butt:any='yes';
+	public cat_butt:any='Susceptible';
+	public subtitle:any=''
 
 	public initial_params:any=['yes','Susceptible']
 // map variables
@@ -104,18 +104,21 @@ public subtitle:any=''
 
     this.http.post(environment.base_url+"5000/getModelingData",JSON.stringify(params), {headers: customheaders}).subscribe(
       response=> {
+				console.log(response)
 
-		this.geojson_obj=response[0];
+				this.geojson_obj=response[0];
         this.legend=response[1];
-
+        console.log("TEST")
+    
         this.map = L.map("map").setView([37.9643, -91.8318], 6.2);
         
-		this.min=this.legend[this.legend.length-1]['min']
-		this.max=this.legend[this.legend.length-1]['max']
+				this.min=this.legend[this.legend.length-1]['min']
+				this.max=this.legend[this.legend.length-1]['max']
+				console.log(this.max)
         this.threshold=1000
 
-		this.getMap(this.legend[this.legend.length-1]['keys'],0);
-		this.subtitle=this.cat_butt;
+				this.getMap(this.legend[this.legend.length-1]['keys'],0);
+				this.subtitle=this.cat_butt;
     
         this.options.ceil=this.legend.length-1;
         this.value=this.legend.length-1;
@@ -197,9 +200,12 @@ public subtitle:any=''
     this.max=this.legend[index].max
   
 
-	this.getMap(this.data_selected,1)
+		this.getMap(this.data_selected,1)
 		
   }
+
+
+
 
 
 // update map when slider moves
@@ -242,22 +248,6 @@ public subtitle:any=''
   getMap(test:string, num:number){
 
 	
-
-		var min=this.min;
-		var max=this.max;
-		var threshold=500;
-		//light to dark
-		var colorrange=colormap({
-			colormap:'summer',
-			nshades: threshold,
-			format: 'hex',
-			alpha: 1
-		})
-
-
-	var ranges= getBin(min,max,threshold);
-	gradientLegend(colorrange,ranges);
-
 	
 		//initializing map -- map id matches HTML div id
 		// center initial map on Missouri
@@ -273,16 +263,17 @@ public subtitle:any=''
 		}).addTo(this.map);
 
 
-		//legend -- start ----------
-		let legend;
-		let max_title= String(this.max)
+			//legend -- start	
+			let legend;
+			let max_title= String(this.max)
 
 
-		legend = new L.Control({position: 'topright'});
-		legend.onAdd = function () {
+			legend = new L.Control({position: 'topright'});
+			legend.onAdd = function () {
         
-		if(num==0){
-		this._div = L.DomUtil.create("div", "legend legendcontainer");
+
+        if(num==0){
+          this._div = L.DomUtil.create("div", "legend legendcontainer");
 				}
 				else
 				{
@@ -305,44 +296,58 @@ public subtitle:any=''
 										'<div class="ind_range"> <span class="range_bottom"> Range 5 </span> </div>'+
 										'<div class="ind_range"> <span class="range_bottom"> Range 6 <br><br>0</span> </div>'+
 										'</div>')*/;
-		};
+			};
+	
+			legend.addTo(this.map);
 
-		legend.addTo(this.map);
+			//informatin box--start
+
+
+			let info;
+			info = new L.Control({position: 'bottomleft'});
+			info.remove();
+
+			info.onAdd = function (map) {
+
+				if(num==0){
+					this._div = L.DomUtil.create("div", "info");
+				}
+				else
+				{
+
+					this._div=document.getElementsByClassName("info")[0];
+
+				}
+					this.update();
+					return this._div;
+				};
+
+
+
+				info.update = function (props: any) {
+					this._div.innerHTML =
+						"<h4>Hover over a county</h4>" +
+						(props ? "<b>County: </b>" +props.NAME + "<br><b>Predicted Cases: </b>"+props[test] + "<br/>" : "");
+				};
+				info.addTo(this.map);
+
 
 			
-		//informatin box--start
+		var min=this.min;
+		var max=this.max;
+		var threshold:500;
+		//light to dark
+		var colorrange=colormap({
+			  colormap:'summer',
+			  nshades: threshold,
+			  format: 'hex',
+			  alpha: 1
+		  })
 
 
-		let info;
-		info = new L.Control({position: 'bottomleft'});
-		info.remove();
+		var ranges= getBin(min,max,threshold);
 
-		info.onAdd = function (map) {
-
-			if(num==0){
-				this._div = L.DomUtil.create("div", "info");
-			}
-			else
-			{
-
-				this._div=document.getElementsByClassName("info")[0];
-
-			}
-				this.update();
-				return this._div;
-			};
-
-
-
-			info.update = function (props: any) {
-				this._div.innerHTML =
-					"<h4>Hover over a county</h4>" +
-					(props ? "<b>County: </b>" +props.NAME + "<br><b>Predicted Cases: </b>"+props[test] + "<br/>" : "");
-			};
-			info.addTo(this.map);
-
-
-			
+		gradientLegend(colorrange,ranges);
 
 
 
@@ -412,7 +417,7 @@ public subtitle:any=''
 		}
 
 		
-		// Create gradient for legend
+		
 		function gradientLegend(colors,ranges){
 			var html = [];
 			var range_html=[];
@@ -433,6 +438,8 @@ public subtitle:any=''
 		function getColor2(min,max,threshold,value, colorrange,ranges){
 
 			var color;
+
+			//light to dark
 				
 			for(var i=(threshold-1); i>=min; i--)
 			{
@@ -446,6 +453,9 @@ public subtitle:any=''
 			return color
 		}
 
+
+
+			
 
 
 	
