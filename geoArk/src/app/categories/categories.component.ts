@@ -15373,8 +15373,13 @@ export class CategoriesComponent implements OnInit {
 
 
 
+
+
+
+    
     var date=this.current_date;
     var colors=makeColors(this.current_max);
+    var range=getBin(0,this.current_max,1000);
 
     let info;
     info = new L.Control({position: 'bottomleft'});
@@ -15402,6 +15407,7 @@ export class CategoriesComponent implements OnInit {
         this._div.innerHTML =
           (props ? "<b>County: </b>"+props.NAME+"<br><b>Total Risk: </b>"+temp1(props['fips'])+"</b><br />" : "<h4>Click to see details of another county.</h4>");
       };
+      
       info.addTo(this.cat_map);
 
     
@@ -15418,7 +15424,8 @@ export class CategoriesComponent implements OnInit {
         return{
           color: 'black',
           weight: 0.5,
-          fillColor:getcolor2(feature.id,colors),
+          //fillColor:getcolor2(feature.id,colors),
+          fillColor:getColor2(0,this.current_max,1000,feature.id,colors,range),
           fillOpacity:0.8,
         } 
       },
@@ -15456,27 +15463,13 @@ export class CategoriesComponent implements OnInit {
     }
 
 
-    function getcolor2(value,colorange){
+    function getcolor(value,colorange){
 
       console.log(data)
       let temp=data.find(e=> e['FIPS']===String(value))
 
       return colorange[temp[date]]
     }
-    
-    // function getcolor(value){
-
-    //   let temp=data.filter(e=> e['FIPS']===String(value))
-    //   let colors = colormap({
-    //       colormap:'summer',
-    //       nshades: Number(max),
-    //       format: 'hex',
-    //       alpha: 1
-    //   })
-
-    //   return colors[temp[0][date]]
-    // }
-
 
     function makeColors(value){
       let colors = colormap({
@@ -15484,10 +15477,72 @@ export class CategoriesComponent implements OnInit {
         nshades: Number(value),
         format: 'hex',
         alpha: 1
-    })
 
-    return colors
+      })
+      return colors
+    }
 
+
+
+
+
+    function getBin(min,max,threshold)
+    {
+  
+      var multiple=max/threshold
+      var bins=[];
+      for (var i=min; i<max; i+=multiple)
+      {
+        bins.push(i)
+      }
+  
+      return bins
+    }
+  
+
+
+
+
+    // Functions for color and threshold 
+
+
+
+    function gradientLegend(colors,ranges){
+      var html = [];
+      var range_html=[];
+
+
+      for(var i = colors.length;i>=0;i--){
+
+        html.push("<div class='color' style='background-color:"+colors[i]+"; height:"+((i-(i-1))/colors.length*100)+"%;'></div>");
+
+      }
+
+      document.getElementById("colors").innerHTML = html.join('');
+      
+    }
+
+
+    // final function for color and legend
+    function getColor2(min,max,threshold,FIPS, colorrange,ranges){
+
+      let attribute=data.find(e=> e['FIPS']===String(FIPS))
+      let value=attribute[date]
+
+      var color;
+
+      //light to dark
+        
+      for(var i=(threshold-1); i>=min; i--)
+      {
+        if(value >=ranges[i])
+        {
+          color= colorrange[i];
+          break;
+        }
+      }
+
+      return color
     }
 
 
