@@ -15420,7 +15420,7 @@ export class CategoriesComponent implements OnInit {
           weight: 0.5,
           fillColor:getcolor2(feature.id,colors),
           fillOpacity:0.8,
-        }
+        } 
       },
       onEachFeature: function onEachFeature(feature, layer: L.Layer) {
         layer.on({
