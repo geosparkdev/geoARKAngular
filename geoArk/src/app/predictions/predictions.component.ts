@@ -104,21 +104,21 @@ export class PredictionsComponent implements OnInit {
 
     this.http.post(environment.base_url+"5000/getModelingData",JSON.stringify(params), {headers: customheaders}).subscribe(
       response=> {
-				console.log(response)
+		console.log(response)
 
-				this.geojson_obj=response[0];
+		this.geojson_obj=response[0];
         this.legend=response[1];
         console.log("TEST")
     
         this.map = L.map("map").setView([37.9643, -91.8318], 6.2);
         
-				this.min=this.legend[this.legend.length-1]['min']
-				this.max=this.legend[this.legend.length-1]['max']
-				console.log(this.max)
+		this.min=this.legend[this.legend.length-1]['min']
+		this.max=this.legend[this.legend.length-1]['max']
+		console.log(this.max)
         this.threshold=1000
 
-				this.getMap(this.legend[this.legend.length-1]['keys'],0);
-				this.subtitle=this.cat_butt;
+		this.getMap(this.legend[this.legend.length-1]['keys'],0);
+		this.subtitle=this.cat_butt;
     
         this.options.ceil=this.legend.length-1;
         this.value=this.legend.length-1;
@@ -230,7 +230,7 @@ export class PredictionsComponent implements OnInit {
 			if (key >= this.legend.length-1){
 				this.stopSlider()
 			}
-
+			this.value=key
 			this.getMap(this.legend[key]['keys'],1)
 			key+=7
 		})
@@ -336,6 +336,7 @@ export class PredictionsComponent implements OnInit {
 			  alpha: 1
 		  })
 
+		colorrange.reverse();
 
 		var ranges= getBin(min,max,threshold);
 
