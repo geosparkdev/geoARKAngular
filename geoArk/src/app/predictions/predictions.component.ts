@@ -327,7 +327,7 @@ export class PredictionsComponent implements OnInit {
 			
 		var min=this.min;
 		var max=this.max;
-		var threshold:500;
+		var threshold=500;
 		//light to dark
 		var colorrange=colormap({
 			  colormap:'summer',
