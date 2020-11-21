@@ -248,13 +248,7 @@ export class PredictionsComponent implements OnInit {
   getMap(test:string, num:number){
 
 	
-	
-		//initializing map -- map id matches HTML div id
-		// center initial map on Missouri
-		//let map = L.map("map").setView([37.9643, -91.8318], 6.2);
-
-		//load tile layer 
-		//Can layer tiles
+		//map background layer--
 		L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
 		{
 			id: "mapbox.light",
@@ -266,8 +260,6 @@ export class PredictionsComponent implements OnInit {
 			//legend -- start	
 			let legend;
 			let max_title= String(this.max)
-
-
 			legend = new L.Control({position: 'topright'});
 			legend.onAdd = function () {
         
@@ -438,6 +430,9 @@ export class PredictionsComponent implements OnInit {
 		function getColor2(min,max,threshold,value, colorrange,ranges){
 
 			var color;
+			console.log('VALUE HERE')
+			console.log(value)
+			console.log(threshold)
 
 			//light to dark
 				
@@ -446,6 +441,8 @@ export class PredictionsComponent implements OnInit {
 				if(value >=ranges[i])
 				{
 					color= colorrange[i];
+					console.log('IN HERE')
+					console.log(color)
 					break;
 				}
 			}
