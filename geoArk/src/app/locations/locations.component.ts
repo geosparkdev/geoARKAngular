@@ -4223,6 +4223,10 @@ triggerFactor(factor){
       console.log(factor_max)
 
       var min=0;
+      if (factor_max.min<0){
+        min=factor_max.min;
+      }
+    
       var threshold=200;
 
       var colorrange=colormap({
