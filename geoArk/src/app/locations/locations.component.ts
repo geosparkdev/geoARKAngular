@@ -4301,7 +4301,7 @@ triggerFactor(factor){
 
     function getcolor2(value){
 
-      let temp=data.find(e=> e['cnty_fips']===Number(value))
+      let temp=data.find(e=> e['cnty_fips']===value)
       console.log(temp)
       console.log('IN HERE ')
 
