@@ -3661,7 +3661,7 @@ export class LocationsComponent implements OnInit {
     this.getSusFactors(this.counties[0].cnty_fips);
     this.getCovidData(this.counties[0].cnty_fips);
     
-    this.map(this.Q5_sus);
+    this.map(this.Q5_sus,0);
     this.getWindrose();
 
 
@@ -3673,8 +3673,7 @@ export class LocationsComponent implements OnInit {
     this.spinnertogg=true;
     this.county_fips=fips.target.value;
 
-    risk_map.redraw()
-
+    this.map(this.Q5_sus,1);
 
 
     let temp=this.counties.find(e=> e['cnty_fips']===Number(this.county_fips))
@@ -4151,7 +4150,7 @@ export class LocationsComponent implements OnInit {
 
 
 
-  map(data){
+  map(data,num){
 
     var current=this.county_fips
 
@@ -4166,7 +4165,15 @@ export class LocationsComponent implements OnInit {
     // info block
     info = new L.Control({position: 'bottomleft'});
     info.onAdd = function () {
-       this._div = L.DomUtil.create("div", "info");
+      if(num==0){
+        this._div = L.DomUtil.create("div", "info");
+      }
+      else
+      {
+
+        this._div=document.getElementsByClassName("info")[0];
+
+      }
         this.update();
         return this._div;
       };
