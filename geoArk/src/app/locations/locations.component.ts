@@ -4335,7 +4335,7 @@ triggerFactor(factor){
     function getcolor3(value){
 
 
-      let temp=data[1].find(e=> e['cnty_fips']===Number(value))
+      let temp=data.find(e=> e['cnty_fips']===value)
 			var color;
 
 
