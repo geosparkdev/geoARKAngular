@@ -3673,6 +3673,7 @@ export class LocationsComponent implements OnInit {
     this.spinnertogg=true;
     this.county_fips=fips.target.value;
 
+    risk_map.removeLayer(L.GeoJSON);
     this.map(this.Q5_sus,1);
 
 
