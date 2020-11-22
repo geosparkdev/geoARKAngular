@@ -4302,6 +4302,10 @@ triggerFactor(factor){
     function getcolor2(value){
 
       let temp=data.find(e=> e['cnty_fips']===Number(value))
+      console.log('IN HERE ')
+      console.log(temp['total'])
+      console.log(temp)
+
 
   
       return colorrange[temp[current_fact]]
