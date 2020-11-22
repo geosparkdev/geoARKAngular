@@ -3681,7 +3681,7 @@ export class LocationsComponent implements OnInit {
     this.county_fips=fips.target.value;
 
     geoJSON.clearLayers();
-    this.map(this.Q5_sus,1);
+    this.map(1);
 
 
     let temp=this.counties.find(e=> e['cnty_fips']===Number(this.county_fips))
