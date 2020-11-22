@@ -4260,8 +4260,8 @@ triggerFactor(factor){
 
     //data look up for info box
       function getInfo(fips){
-        let temp=data[1].find(e=> e['cnty_fips']===Number(fips))
-        return temp.total
+        let temp=data.find(e=> e['cnty_fips']===Number(fips))
+        return temp[current_fact]
       }
 
 
