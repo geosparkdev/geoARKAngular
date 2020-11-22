@@ -4174,7 +4174,7 @@ factorsMapData(){
   const customheaders= new HttpHeaders()
         .set('Content-Type', 'application/json');
 
-  this.http.post(environment.base_url+"5000/factorsMapData",JSON.stringify(covid_fips), {headers: customheaders}).subscribe(
+  this.http.post(environment.base_url+"5000/factorsMapData", {headers: customheaders}).subscribe(
     response=> {
       console.log(response)
      
