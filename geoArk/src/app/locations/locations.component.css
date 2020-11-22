@@ -1,4 +1,4 @@
-/* Main structure */
+/*----------- Main structure -----------*/
 .header{
     background-color:#2872b2;
    
@@ -15,24 +15,14 @@
 }
 
 
-.main{
-    padding-top:30px;
-    padding-bottom:50px;
-    height:100%
-}
-
-.loading{
-  margin-left:150px;
-  width:150px;
-  height:500px;
-  position: relative;
-}
-
-.loading_msg{
+.main_container{
   padding:10px;
-  text-align:center;
-  font-size:10px;
 }
+
+
+
+
+
 .footer{
   background-color:#c4c4c4;
   position:relative;
@@ -47,10 +37,28 @@
 }
 
 
-.windorose{
+/* -----------Loading -----------*/
+
+.loading{
+  margin-left:150px;
+  width:150px;
+  height:500px;
+  position: relative;
+}
+
+.loading_msg{
+  padding:10px;
+  text-align:center;
+  font-size:10px;
+}
+
+
+.windrose{
  padding:100px;
 }
 
+
+/* -----------Quick Facts and headers -----------*/
 .stat_shift{
   padding-left:50px;
 }
@@ -82,9 +90,6 @@
   
   
 
-.main_container{
-    padding:10px;
-}
 
 ::ng-deep .modebar {
   display: none !important;
@@ -190,6 +195,11 @@ EDIT ON
 }
 
 
+
+
+
+/* -----------Risk Factor Plots -----------*/
+
 .risklegend{
   font-size: 12px;
   vertical-align:center;
@@ -209,6 +219,10 @@ EDIT ON
   position:inline;
 
 }
+
+
+
+/*----------- Map -----------*/
 .risk_map{
   height:50vh;
   width: 55vh;
@@ -229,6 +243,12 @@ EDIT ON
   color: #777;
   }
 
+
+
+
+
+
+  /*----------- Buttons -----------*/
   .main_button{
 
     color: white;

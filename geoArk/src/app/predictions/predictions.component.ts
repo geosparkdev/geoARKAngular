@@ -30,7 +30,7 @@ export class PredictionsComponent implements OnInit {
 
   public model_butt:any='yes';
 	public cat_butt:any='Susceptible';
-	public subtitle:any=''
+ 	public subtitle:any=''
 
 	public initial_params:any=['yes','Susceptible']
 // map variables
@@ -245,7 +245,7 @@ export class PredictionsComponent implements OnInit {
   }
 
   // choropleth map
-  getMap(test:string, num:number){
+  getMap(attribute:string, num:number){
 
 	
 		//map background layer--
@@ -319,7 +319,7 @@ export class PredictionsComponent implements OnInit {
 				info.update = function (props: any) {
 					this._div.innerHTML =
 						"<h4>Hover over a county</h4>" +
-						(props ? "<b>County: </b>" +props.NAME + "<br><b>Predicted Cases: </b>"+props[test] + "<br/>" : "");
+						(props ? "<b>County: </b>" +props.NAME + "<br><b>Predicted Cases: </b>"+props[attribute] + "<br/>" : "");
 				};
 				info.addTo(this.map);
 
@@ -337,9 +337,7 @@ export class PredictionsComponent implements OnInit {
 		  })
 
 		colorrange.reverse();
-
 		var ranges= getBin(min,max,threshold);
-
 		gradientLegend(colorrange,ranges);
 
 
@@ -353,7 +351,7 @@ export class PredictionsComponent implements OnInit {
 					return{
 						color: 'black',
 						weight: 1,
-						fillColor:getColor2(min,max,threshold,feature.properties[test],colorrange,ranges),
+						fillColor:getColor2(min,max,threshold,feature.properties[attribute],colorrange,ranges),
 						//fillColor:colorrange[feature.properties[test]],
 						fillOpacity:0.8,
 					}

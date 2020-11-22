@@ -8,6 +8,14 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import * as L from 'leaflet';
 import * as colormap from 'colormap';
 
+
+
+//Risk factors map and geoJSON object
+var risk_map;
+var geoJSON;
+var info;
+var outlined_county;
+
 @Component({
   selector: 'app-locations',
   templateUrl: './locations.component.html',
@@ -19,7 +27,7 @@ export class LocationsComponent implements OnInit {
 
   
 
-
+// Look up object for fips and counties
   public counties:any=[{'cnty_fips': 29003, 'cnty_name': 'Andrew'},
   {'cnty_fips': 29005, 'cnty_name': 'Atchison'},
   {'cnty_fips': 29009, 'cnty_name': 'Barry'},
@@ -136,8 +144,13 @@ export class LocationsComponent implements OnInit {
   {'cnty_fips': 29219, 'cnty_name': 'Warren'},
   {'cnty_fips': 29510, 'cnty_name': 'St. Louis City'}]
 
+
+
+  //Current county-- variables needed to pull in data from database 
   public county_name:string=this.counties[0].cnty_name;
   public county_fips:string=this.counties[1].cnty_fips;
+
+  //County Quick  Facts
   public county_pop:string;
   public county_65:string;
   public county_cov_case:string;
@@ -145,6 +158,7 @@ export class LocationsComponent implements OnInit {
   public county_total_risk:string;
 
 
+  // Covid deaths and cases graphs
   public covid_county_cases:any={};
   public covid_county_deaths:any={};
   public covid_cases:any={};
@@ -153,8 +167,14 @@ export class LocationsComponent implements OnInit {
   public covid:any=[];
 
 
+
+  // Spinner 
   public spinnertogg:boolean=true;
 
+
+
+
+  //Risk Factors Graphs
   public susc_factors_bars:any=[];
   public susc_factors:any=[];
 
@@ -348,8 +368,8 @@ export class LocationsComponent implements OnInit {
 
 
 
-  public risk_map:any;
-  
+
+//missouri geoJSON object
   public map_obj:any=[{'type': 'FeatureCollection',
   'features': [{'properties': {'GEO_ID': '0500000US29097',
      'STATE': '29',
@@ -3621,13 +3641,22 @@ export class LocationsComponent implements OnInit {
   
 
 
+  //windrose
   public windrose:any;
+
+
+
 
   constructor(public http: HttpClient,private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     
     this.spinner.show();
+
+
+    risk_map = L.map("risk_map").setView([38.573936, -92.603760], 6.2);
+
+
     this.getStatsBar(this.counties[0].cnty_fips);
     this.getSusFactors(this.counties[0].cnty_fips);
     this.getCovidData(this.counties[0].cnty_fips);
@@ -3638,6 +3667,8 @@ export class LocationsComponent implements OnInit {
 
   }
   
+
+  //When a new county is selected, data and all plots must be updated
   getCountyData(fips:any){
     this.spinnertogg=true;
     this.county_fips=fips.target.value;
@@ -3646,22 +3677,18 @@ export class LocationsComponent implements OnInit {
 
     let temp=this.counties.find(e=> e['cnty_fips']===Number(this.county_fips))
     this.county_name=temp.cnty_name
-    //this.county_fips=fips;
 
-    // let temp1=document.getElementById('test')
-    // temp1.remove();
     this.getStatsBar(Number(this.county_fips))
     this.getSusFactors(Number(this.county_fips));
     this.getCovidData(Number(this.county_fips));
 
-   
-    
+
 
   }
  
 
 
-
+// get county quick facts data
   getStatsBar(covid_fips:any){
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
@@ -3687,6 +3714,7 @@ export class LocationsComponent implements OnInit {
   }
 
 
+//pull data for risk factor bar plots and build plots
   getSusFactors(covid_fips:any){
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
@@ -3706,6 +3734,7 @@ export class LocationsComponent implements OnInit {
   }
 
 
+// Get data for covid plots and build plots
   getCovidData(covid_fips:any){
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
@@ -3728,7 +3757,7 @@ export class LocationsComponent implements OnInit {
 
 
   
-
+// function to create risk factor bar plots
   SusFactorsbarplot(){
     this.susc_factors_bars = [];
 
@@ -3777,7 +3806,7 @@ export class LocationsComponent implements OnInit {
     }  
 }
 
-
+//Create Covid County and State plots
   getCovidPlots(){
 
     //// Covid county cases plots
@@ -3943,9 +3972,7 @@ export class LocationsComponent implements OnInit {
 
 
 
-
-
-
+//Update Covid Plots
   updateCovidPlots(){
 
     //// Covid county cases plots
@@ -4056,6 +4083,8 @@ export class LocationsComponent implements OnInit {
      };
   }
 
+
+// Create WindRose chart
   getWindrose(){
     this.windrose = {
       data: [
@@ -4111,87 +4140,65 @@ export class LocationsComponent implements OnInit {
     }
 }
 
-  map(data){
-    this.risk_map = L.map("risk_map").setView([38.573936, -92.603760], 6.2);
 
+
+// -------------------- MAP FUNCTIONS ------------------ //
+
+
+
+
+
+
+  map(data){
+
+    var current=this.county_fips
 
     L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
 		{
 			id: "mapbox.light",
 			attribution: "SOS"
 			// can have min and max zoom here
-    }).addTo(this.risk_map);
+    }).addTo(risk_map);
 
-    let info;
+
+    // info block
     info = new L.Control({position: 'bottomleft'});
-
     info.onAdd = function () {
        this._div = L.DomUtil.create("div", "info");
         this.update();
         return this._div;
       };
 
-
-
+     //info box display
       info.update = function (props: any) {
-
-       // console.log(props.FIPS)
-       
         this._div.innerHTML =
-          (props ? "<b>County: </b>"+props.NAME+"<br><b>Total Risk: </b>"+temp1(props['fips'])+"</b><br />" : "<h4>Click to see details of another county.</h4>");
+          (props ? "<b>County: </b>"+props.NAME+"<br><b>Total Risk: </b>"+getInfo(props['fips'])+"</b><br />" : "<h4>Click to see details of another county.</h4>");
       };
-      info.addTo(this.risk_map);
+      info.addTo(risk_map);
 
-    
-      function temp1(fips){
+    //data look up for info box
+      function getInfo(fips){
         let temp=data[1].find(e=> e['cnty_fips']===Number(fips))
         return temp.total
       }
 
 
-
-		let geojson: L.GeoJSON = L.geoJSON(this.map_obj, {
-      
+    //geoJSON object and coloring of county
+		geoJSON= L.geoJSON(this.map_obj, {
       style: function (feature) {
         return{
           color: 'black',
-          weight: 0.5,
+          weight: getLineWidth(feature.id),
           fillColor:getcolor(feature.id),
           fillOpacity:0.8,
         }
       },
-      onEachFeature: function onEachFeature(feature, layer: L.Layer) {
-        layer.on({
-          mouseover: highlightFeature,
-          mouseout: resetHighlight,
-          click: zoomToFeature
-        });
-      }
-    }).addTo(this.risk_map);
+      onEachFeature: (feature, layer) => this.onEachFeature(feature, layer)
+    }).addTo(risk_map);
   
 
-    function highlightFeature(e) {
-      const layer = e.target;
-      layer.setStyle({
-        weight: 3,
-        color: "black",
-        fillOpacity: 1.0
-      });
-      if (!L.Browser.ie && !L.Browser.edge) {
-        layer.bringToFront();
-      }
-      info.update(layer.feature.properties);
-    }
 
-
-    function resetHighlight(e) {
-      geojson.resetStyle(e.target);
-      info.update();
-    }
-
-    function zoomToFeature(e) {
-      this.risk_map.fitBounds(e.target.getBounds());
-    }
+//get color of county
 
 
     function getcolor(value){
@@ -4207,5 +4214,60 @@ export class LocationsComponent implements OnInit {
 
       return colors[temp.total]
     }
+
+
+    function getLineWidth(fips){
+      if (fips==current){
+          return 3
+      }
+      else{
+        return 0.5
+      }
+    }
+
+
+
   }
+
+
+  
+
+// map functions 
+  highlightFeature(e) {
+    const layer = e.target;
+    layer.setStyle({
+      weight: 2,
+      color: "black",
+      fillOpacity: 1.0
+    });
+    if (!L.Browser.ie && !L.Browser.edge) {
+      layer.bringToFront();
+    }
+    info.update(layer.feature.properties);
+  }
+
+   onEachFeature(feature, layer: L.Layer) {
+    layer.on({
+      mouseover: this.highlightFeature,
+      mouseout: this.resetHighlight,
+      click: this.zoomToFeature
+    });
+  }
+
+  resetHighlight(e) {
+    geoJSON.resetStyle(e.target);
+    info.update();
+  }
+
+  zoomToFeature(e) {
+    risk_map.fitBounds(e.target.getBounds());
+  }
+
+  onOutlineEachFeature(feature, layer: L.Layer) {
+    layer.on({
+    });
+  }
+
+
+
 }
