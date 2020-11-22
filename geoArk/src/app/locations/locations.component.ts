@@ -4202,7 +4202,8 @@ factorsMapData(){
 
 
 triggerFactor(factor){
-  console.log(factor)
+  this.current_factor=factor;
+  this.map(1);
 }
 
 
@@ -4264,7 +4265,7 @@ triggerFactor(factor){
 
     //data look up for info box
       function getInfo(fips){
-        let temp=data.find(e=> e['cnty_fips']===Number(fips))
+        let temp=data.find(e=> e['cnty_fips']===fips)
         return temp[current_fact]
       }
 
