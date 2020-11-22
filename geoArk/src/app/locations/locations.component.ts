@@ -4239,7 +4239,7 @@ triggerFactor(factor){
     
     var current=this.county_fips
 
-    var ranges= getBin(0,factor_max.max,200);
+    var ranges= getBin(min,factor_max.max,200);
 
     L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
 		{
