@@ -3673,7 +3673,7 @@ export class LocationsComponent implements OnInit {
     this.spinnertogg=true;
     this.county_fips=fips.target.value;
 
-    risk_map.removeLayer(L.GeoJSON);
+    geoJSON.clearLayers();
     this.map(this.Q5_sus,1);
 
 
@@ -3688,6 +3688,28 @@ export class LocationsComponent implements OnInit {
 
   }
  
+
+  getCountyDataClick(event){
+    console.log(event);
+    this.spinnertogg=true;
+    this.county_fips=event.target.feature.properties.fips;
+    console.log(this.county_fips);
+
+    console.log(risk_map)
+
+    geoJSON.clearLayers();
+    this.map(this.Q5_sus,1);
+
+
+    let temp=this.counties.find(e=> e['cnty_fips']===Number(this.county_fips))
+    this.county_name=temp.cnty_name
+
+    this.getStatsBar(Number(this.county_fips))
+    this.getSusFactors(Number(this.county_fips));
+    this.getCovidData(Number(this.county_fips));
+
+
+  }
 
 
 // get county quick facts data
@@ -4147,12 +4169,16 @@ export class LocationsComponent implements OnInit {
 // -------------------- MAP FUNCTIONS ------------------ //
 
 
-
+triggerFactor(factor){
+  console.log(factor)
+}
 
 
 
   map(data,num){
 
+
+    
     var current=this.county_fips
 
     L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
@@ -4228,7 +4254,7 @@ export class LocationsComponent implements OnInit {
 
     function getLineWidth(fips){
       if (fips==current){
-          return 3
+          return 4
       }
       else{
         return 0.5
@@ -4251,7 +4277,7 @@ export class LocationsComponent implements OnInit {
       fillOpacity: 1.0
     });
     if (!L.Browser.ie && !L.Browser.edge) {
-      layer.bringToFront();
+      //layer.bringToFront();
     }
     info.update(layer.feature.properties);
   }
@@ -4260,7 +4286,7 @@ export class LocationsComponent implements OnInit {
     layer.on({
       mouseover: this.highlightFeature,
       mouseout: this.resetHighlight,
-      click: this.zoomToFeature
+      click: (event) => this.getCountyDataClick(event),
     });
   }
 
@@ -4269,14 +4295,15 @@ export class LocationsComponent implements OnInit {
     info.update();
   }
 
-  zoomToFeature(e) {
+  /*zoomToFeature(e) {
     risk_map.fitBounds(e.target.getBounds());
-  }
+  }*/
 
   onOutlineEachFeature(feature, layer: L.Layer) {
     layer.on({
     });
   }
+
 
 
 
