@@ -4276,7 +4276,7 @@ triggerFactor(factor){
       function getInfo(fips){
         let temp=data.find(e=> e['cnty_fips']===fips)
         console.log('IN LEGEND')
-        console.log[data]
+        console.log(data)
 
         console.log(fips)
         return temp[current_fact]
