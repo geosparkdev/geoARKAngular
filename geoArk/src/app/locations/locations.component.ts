@@ -4204,7 +4204,7 @@ factorsMapData(){
 triggerFactor(factor){
   this.current_factor=factor[0];
   console.log(this.current_factor)
-  risk_map.removeLayer(L.GeoJSON);
+  geoJSON.clearLayers();
   this.map(1);
 }
 
@@ -4273,7 +4273,7 @@ triggerFactor(factor){
         let temp=data.find(e=> e['cnty_fips']===fips)
         console.log('IN LEGEND')
 
-        console.log(temp)
+        console.log(fips)
         return temp[current_fact]
       }
 
