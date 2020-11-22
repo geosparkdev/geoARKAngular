@@ -4204,6 +4204,7 @@ factorsMapData(){
 triggerFactor(factor){
   this.current_factor=factor[0];
   console.log(this.current_factor)
+  risk_map.removeLayer(L.GeoJSON);
   this.map(1);
 }
 
