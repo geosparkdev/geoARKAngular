@@ -369,7 +369,9 @@ export class LocationsComponent implements OnInit {
 
 
   //Risk Factors Map
-  public factors_map:any;
+  public factors:any;
+
+  public current_factor:any='total';
 
 //missouri geoJSON object
   public map_obj:any=[{'type': 'FeatureCollection',
@@ -4178,8 +4180,9 @@ factorsMapData(){
     response=> {
       console.log(response)
      
-    this.factors_map=response
-    console.log(this.factors_map)
+    this.factors=response
+    console.log('here')
+    console.log(this.factors)
 
 
     },
