@@ -4180,8 +4180,6 @@ factorsMapData(){
       console.log(response)
      
     this.factors=response[0];
-    console.log('HERERERE')
-    console.log(this.factors)
     this.factors_meta=response[1];
 
     this.map(0);
@@ -4212,6 +4210,8 @@ triggerFactor(factor){
   map(num){
 
       var data=this.factors;
+      console.log('HERE IN MAP')
+      console.log(data)
       var metadata=this.factors_meta;
       var current_fact=this.current_factor;
 
@@ -4302,9 +4302,9 @@ triggerFactor(factor){
     function getcolor2(value){
 
       let temp=data.find(e=> e['cnty_fips']===Number(value))
-      console.log('IN HERE ')
-      console.log(temp['total'])
       console.log(temp)
+      console.log('IN HERE ')
+
 
 
   
