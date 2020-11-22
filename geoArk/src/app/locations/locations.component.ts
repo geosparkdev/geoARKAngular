@@ -4218,6 +4218,9 @@ triggerFactor(factor){
 
       let factor_max=metadata.find(e=> e['factor']===current_fact)
 
+      console.log('FACTOR MAX')
+      console.log(factor_max)
+
       var min=0;
       var threshold=200;
 
