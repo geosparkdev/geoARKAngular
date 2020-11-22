@@ -3673,6 +3673,8 @@ export class LocationsComponent implements OnInit {
     this.spinnertogg=true;
     this.county_fips=fips.target.value;
 
+    risk_map.redraw()
+
 
 
     let temp=this.counties.find(e=> e['cnty_fips']===Number(this.county_fips))
