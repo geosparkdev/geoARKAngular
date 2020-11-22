@@ -3667,8 +3667,6 @@ export class LocationsComponent implements OnInit {
     this.factorsMapData();
     this.getCovidData(this.counties[0].cnty_fips);
 
-    
-    this.map(0);
     this.getWindrose();
 
 
@@ -4182,7 +4180,11 @@ factorsMapData(){
       console.log(response)
      
     this.factors=response[0];
+    console.log('HERERERE')
+    console.log(this.factors)
     this.factors_meta=response[1];
+
+    this.map(0);
 
 
     },
