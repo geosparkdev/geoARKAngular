@@ -4210,22 +4210,26 @@ triggerFactor(factor){
   map(num){
 
       var data=this.factors;
-      console.log('HERE IN MAP')
-      console.log(data)
       var metadata=this.factors_meta;
       var current_fact=this.current_factor;
+      
 
       let factor_max=metadata.find(e=> e['factor']===current_fact)
 
+      var min=0;
+      var threshold=200;
+
       var colorrange=colormap({
         colormap:'portland',
-        nshades:factor_max.max,
+        nshades:threshold,
         format: 'hex',
         alpha: 1
     })
 
     
     var current=this.county_fips
+
+    var ranges= getBin(0,factor_max.max,200);
 
     L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
 		{
@@ -4272,7 +4276,7 @@ triggerFactor(factor){
           color: 'black',
           weight: getLineWidth(feature.id),
           //fillColor:getcolor(feature.id),
-          fillColor:getcolor2(feature.id),
+          fillColor:getcolor3(feature.id),
           fillOpacity:0.8,
         }
       },
@@ -4282,6 +4286,22 @@ triggerFactor(factor){
 
 
 //get color of county
+
+
+
+      // Functions for color and threshold 
+      function getBin(min,max,threshold)
+      {
+      
+        var multiple=max/threshold
+        var bins=[];
+        for (var i=min; i<max; i+=multiple)
+        {
+          bins.push(i)
+        }
+      
+        return bins
+      }
 
 
     function getcolor(value){
@@ -4310,6 +4330,30 @@ triggerFactor(factor){
   
       return colorrange[temp[current_fact]]
     }
+
+
+    function getcolor3(value){
+
+
+      let temp=data[1].find(e=> e['cnty_fips']===Number(value))
+			var color;
+
+
+			//light to dark
+				
+			for(var i=(threshold-1); i>=min; i--)
+			{
+				if(temp[current_fact] >=ranges[i])
+				{
+					color= colorrange[i];
+					console.log('IN HERE')
+					console.log(color)
+					break;
+				}
+			}
+
+			return color
+		}
 
 
 
