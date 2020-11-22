@@ -4202,7 +4202,7 @@ factorsMapData(){
 
 
 triggerFactor(factor){
-  this.current_factor=factor;
+  this.current_factor=factor[0];
   console.log(this.current_factor)
   this.map(1);
 }
