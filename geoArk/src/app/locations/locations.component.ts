@@ -4274,7 +4274,7 @@ triggerFactor(factor){
 
     //data look up for info box
       function getInfo(fips){
-        let temp=data.find(e=> e['cnty_fips']===fips)
+        let temp=data.find(e=> e['cnty_fips']===String(fips))
         console.log('IN LEGEND')
         console.log(data)
 
