@@ -370,6 +370,7 @@ export class LocationsComponent implements OnInit {
 
   //Risk Factors Map
   public factors:any;
+  public factors_meta:any;
 
   public current_factor:any='total';
 
@@ -3667,7 +3668,7 @@ export class LocationsComponent implements OnInit {
     this.getCovidData(this.counties[0].cnty_fips);
 
     
-    this.map(this.Q5_sus,0);
+    this.map(0);
     this.getWindrose();
 
 
@@ -3704,7 +3705,7 @@ export class LocationsComponent implements OnInit {
     console.log(risk_map)
 
     geoJSON.clearLayers();
-    this.map(this.Q5_sus,1);
+    this.map(1);
 
 
     let temp=this.counties.find(e=> e['cnty_fips']===Number(this.county_fips))
@@ -4180,9 +4181,8 @@ factorsMapData(){
     response=> {
       console.log(response)
      
-    this.factors=response
-    console.log('here')
-    console.log(this.factors)
+    this.factors=response[0];
+    this.factors_meta=response[1];
 
 
     },
@@ -4207,8 +4207,20 @@ triggerFactor(factor){
 
 
 
-  map(data,num){
+  map(num){
 
+      var data=this.factors;
+      var metadata=this.factors_meta;
+      var current_fact=this.current_factor;
+
+      let factor_max=metadata.find(e=> e['factor']===current_fact)
+
+      var colorrange=colormap({
+        colormap:'portland',
+        nshades:factor_max.max,
+        format: 'hex',
+        alpha: 1
+    })
 
     
     var current=this.county_fips
@@ -4257,7 +4269,8 @@ triggerFactor(factor){
         return{
           color: 'black',
           weight: getLineWidth(feature.id),
-          fillColor:getcolor(feature.id),
+          //fillColor:getcolor(feature.id),
+          fillColor:getcolor2(feature.id),
           fillOpacity:0.8,
         }
       },
@@ -4282,6 +4295,16 @@ triggerFactor(factor){
 
       return colors[temp.total]
     }
+
+
+    function getcolor2(value){
+
+      let temp=data.find(e=> e['cnty_fips']===Number(value))
+
+  
+      return colorrange[temp[current_fact]]
+    }
+
 
 
     function getLineWidth(fips){
