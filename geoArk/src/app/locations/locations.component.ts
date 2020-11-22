@@ -4224,7 +4224,7 @@ triggerFactor(factor){
 
       var min=0;
       if (factor_max.min<0){
-        min=factor_max.min;
+        min=-2;
       }
     
       var threshold=200;
