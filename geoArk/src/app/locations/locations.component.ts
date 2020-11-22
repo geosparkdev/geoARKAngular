@@ -368,6 +368,8 @@ export class LocationsComponent implements OnInit {
 
 
 
+  //Risk Factors Map
+  public factors_map:any;
 
 //missouri geoJSON object
   public map_obj:any=[{'type': 'FeatureCollection',
@@ -3659,7 +3661,9 @@ export class LocationsComponent implements OnInit {
 
     this.getStatsBar(this.counties[0].cnty_fips);
     this.getSusFactors(this.counties[0].cnty_fips);
+    this.factorsMapData();
     this.getCovidData(this.counties[0].cnty_fips);
+
     
     this.map(this.Q5_sus,0);
     this.getWindrose();
@@ -4163,6 +4167,31 @@ export class LocationsComponent implements OnInit {
         }
     }
 }
+
+
+
+factorsMapData(){
+  const customheaders= new HttpHeaders()
+        .set('Content-Type', 'application/json');
+
+  this.http.post(environment.base_url+"5000/factorsMapData",JSON.stringify(covid_fips), {headers: customheaders}).subscribe(
+    response=> {
+      console.log(response)
+     
+    this.factors_map=response
+    console.log(this.factors_map)
+
+
+    },
+    error => {
+      console.log(error)
+    }
+  )
+
+}
+
+
+
 
 
 
