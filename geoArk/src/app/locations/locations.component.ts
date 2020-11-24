@@ -3476,7 +3476,7 @@ export class LocationsComponent implements OnInit {
 
 
     this.getStatsBar(this.counties[0].cnty_fips);
-    this.getSusFactors(this.counties[0].cnty_fips,this.current_risk_factor);
+    this.getRiskFactors(this.counties[0].cnty_fips,this.current_risk_factor);
     this.factorsMapData();
     this.getCovidData(this.counties[0].cnty_fips);
 
@@ -3490,7 +3490,7 @@ export class LocationsComponent implements OnInit {
 
   getFactorsData(factor:any){
     this.current_risk_factor=factor
-    this.getSusFactors(this.county_fips,this.current_risk_factor);
+    this.getRiskFactors(this.county_fips,this.current_risk_factor);
   }
   //When a new county is selected, data and all plots must be updated
   getCountyData(fips:any){
@@ -3505,7 +3505,7 @@ export class LocationsComponent implements OnInit {
     this.county_name=temp.cnty_name
 
     this.getStatsBar(Number(this.county_fips))
-    this.getSusFactors(Number(this.county_fips),this.current_risk_factor);
+    this.getRiskFactors(Number(this.county_fips),this.current_risk_factor);
     this.getCovidData(Number(this.county_fips));
 
 
@@ -3529,7 +3529,7 @@ export class LocationsComponent implements OnInit {
     this.county_name=temp.cnty_name
 
     this.getStatsBar(Number(this.county_fips))
-    this.getSusFactors(Number(this.county_fips), this.current_risk_factor);
+    this.getRiskFactors(Number(this.county_fips), this.current_risk_factor);
     this.getCovidData(Number(this.county_fips));
 
 
@@ -3563,11 +3563,11 @@ export class LocationsComponent implements OnInit {
 
 
 //pull data for risk factor bar plots and build plots
-  getSusFactors(covid_fips:any, factor:any){
+  getRiskFactors(covid_fips:any, factor:any){
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
 
-    this.http.post(environment.base_url+"5000/getsusdata",JSON.stringify(covid_fips,factor), {headers: customheaders}).subscribe(
+    this.http.post(environment.base_url+"5000/getriskfactordata",JSON.stringify(covid_fips,factor), {headers: customheaders}).subscribe(
       response=> {
         console.log(response)
         this.risk_factors=response;
