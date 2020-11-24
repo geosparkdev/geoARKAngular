@@ -144,7 +144,7 @@ export class LocationsComponent implements OnInit {
   {'cnty_fips': 29219, 'cnty_name': 'Warren'},
   {'cnty_fips': 29510, 'cnty_name': 'St. Louis City'}]
 
-
+  public current_risk_factor:any='susceptibility'
 
   //Current county-- variables needed to pull in data from database 
   public county_name:string=this.counties[0].cnty_name;
@@ -175,196 +175,9 @@ export class LocationsComponent implements OnInit {
 
 
   //Risk Factors Graphs
-  public susc_factors_bars:any=[];
-  public susc_factors:any=[];
+  public risk_factors_bars:any=[];
+  public risk_factors:any=[];
 
-  public temp=[{'cnty_fips': 29101,
-  'cnty_name': 'Johnson',
-  'state_abbr': 'MO',
-  'susc_factors': 'Hyperten',
-  'susc_values': 9.7,
-  'Q5': 5,
-  'mean': 7.077391304347826,
-  'max': 14.5,
-  'min': 2.7,
-  'min_2': 0.0,
-  'Q5_color': '#d7191c'},
- {'cnty_fips': 29101,
-  'cnty_name': 'Johnson',
-  'state_abbr': 'MO',
-  'susc_factors': 'TotCardDis',
-  'susc_values': 74.7,
-  'Q5': 5,
-  'mean': 64.37043478260868,
-  'max': 94.2,
-  'min': 41.3,
-  'min_2': 0.0,
-  'Q5_color': '#d7191c'},
- {'cnty_fips': 29101,
-  'cnty_name': 'Johnson',
-  'state_abbr': 'MO',
-  'susc_factors': 'HeartDis',
-  'susc_values': 54.3,
-  'Q5': 5,
-  'mean': 46.71739130434782,
-  'max': 73.6,
-  'min': 29.8,
-  'min_2': 0.0,
-  'Q5_color': '#d7191c'},
- {'cnty_fips': 29101,
-  'cnty_name': 'Johnson',
-  'state_abbr': 'MO',
-  'susc_factors': 'PctUnins75',
-  'susc_values': 1.2,
-  'Q5': 4,
-  'mean': 0.4356521739130435,
-  'max': 11.2,
-  'min': 0.0,
-  'min_2': 0.0,
-  'Q5_color': '#e89438'},
- {'cnty_fips': 29101,
-  'cnty_name': 'Johnson',
-  'state_abbr': 'MO',
-  'susc_factors': 'PctUnins65',
-  'susc_values': 0.5,
-  'Q5': 4,
-  'mean': 0.6313043478260869,
-  'max': 7.5,
-  'min': 0.0,
-  'min_2': 0.0,
-  'Q5_color': '#e89438'},
- {'cnty_fips': 29101,
-  'cnty_name': 'Johnson',
-  'state_abbr': 'MO',
-  'susc_factors': 'StrokeHosp',
-  'susc_values': 13.4,
-  'Q5': 4,
-  'mean': 12.61739130434783,
-  'max': 18.5,
-  'min': 8.5,
-  'min_2': 0.0,
-  'Q5_color': '#e89438'},
- {'cnty_fips': 29101,
-  'cnty_name': 'Johnson',
-  'state_abbr': 'MO',
-  'susc_factors': 'LeisTime',
-  'susc_values': 28.2,
-  'Q5': 3,
-  'mean': 27.905217391304348,
-  'max': 42.2,
-  'min': 19.4,
-  'min_2': 0.0,
-  'Q5_color': '#ffe600'},
- {'cnty_fips': 29101,
-  'cnty_name': 'Johnson',
-  'state_abbr': 'MO',
-  'susc_factors': 'NonadhBld',
-  'susc_values': 22.3,
-  'Q5': 3,
-  'mean': 22.21217391304348,
-  'max': 28.4,
-  'min': 18.6,
-  'min_2': 0.0,
-  'Q5_color': '#ffe600'},
- {'cnty_fips': 29101,
-  'cnty_name': 'Johnson',
-  'state_abbr': 'MO',
-  'susc_factors': 'Diabetes',
-  'susc_values': 11.0,
-  'Q5': 3,
-  'mean': 11.168695652173914,
-  'max': 21.2,
-  'min': 1.8,
-  'min_2': 0.0,
-  'Q5_color': '#ffe600'},
- {'cnty_fips': 29101,
-  'cnty_name': 'Johnson',
-  'state_abbr': 'MO',
-  'susc_factors': 'Obesity',
-  'susc_values': 33.8,
-  'Q5': 3,
-  'mean': 33.01391304347826,
-  'max': 46.3,
-  'min': 21.0,
-  'min_2': 0.0,
-  'Q5_color': '#ffe600'},
- {'cnty_fips': 29101,
-  'cnty_name': 'Johnson',
-  'state_abbr': 'MO',
-  'susc_factors': 'SmokeROC96',
-  'susc_values': -0.7,
-  'Q5': 2,
-  'mean': -0.6017391304347827,
-  'max': 0.2,
-  'min': -1.9,
-  'min_2': -1.9,
-  'Q5_color': '#8ec9d6'},
- {'cnty_fips': 29101,
-  'cnty_name': 'Johnson',
-  'state_abbr': 'MO',
-  'susc_factors': 'PctUninsur',
-  'susc_values': 8.8,
-  'Q5': 2,
-  'mean': 11.954782608695652,
-  'max': 35.4,
-  'min': 4.9,
-  'min_2': 0.0,
-  'Q5_color': '#8ec9d6'},
- {'cnty_fips': 29101,
-  'cnty_name': 'Johnson',
-  'state_abbr': 'MO',
-  'susc_factors': 'AvePM2p5',
-  'susc_values': 9.4,
-  'Q5': 1,
-  'mean': 9.884347826086955,
-  'max': 12.1,
-  'min': 9.0,
-  'min_2': 0.0,
-  'Q5_color': '#2c7bb6'},
- {'cnty_fips': 29101,
-  'cnty_name': 'Johnson',
-  'state_abbr': 'MO',
-  'susc_factors': 'SmokePrev2',
-  'susc_values': 22.4,
-  'Q5': 1,
-  'mean': 27.11391304347826,
-  'max': 32.3,
-  'min': 18.0,
-  'min_2': 0.0,
-  'Q5_color': '#2c7bb6'},
- {'cnty_fips': 29101,
-  'cnty_name': 'Johnson',
-  'state_abbr': 'MO',
-  'susc_factors': 'WOHlthIns',
-  'susc_values': 10.0,
-  'Q5': 1,
-  'mean': 13.051304347826088,
-  'max': 22.8,
-  'min': 6.2,
-  'min_2': 0.0,
-  'Q5_color': '#2c7bb6'},
- {'cnty_fips': 29101,
-  'cnty_name': 'Johnson',
-  'state_abbr': 'MO',
-  'susc_factors': 'Age65P_Nor',
-  'susc_values': 0.11800000000000001,
-  'Q5': 1,
-  'mean': 0.18370434782608697,
-  'max': 0.33,
-  'min': 0.106,
-  'min_2': 0.0,
-  'Q5_color': '#2c7bb6'},
- {'cnty_fips': 29101,
-  'cnty_name': 'Johnson',
-  'state_abbr': 'MO',
-  'susc_factors': 'Age75P_Nor',
-  'susc_values': 0.046,
-  'Q5': 1,
-  'mean': 0.07800869565217391,
-  'max': 0.131,
-  'min': 0.042,
-  'min_2': 0.0,
-  'Q5_color': '#2c7bb6'}]
 
 
 
@@ -3663,7 +3476,7 @@ export class LocationsComponent implements OnInit {
 
 
     this.getStatsBar(this.counties[0].cnty_fips);
-    this.getSusFactors(this.counties[0].cnty_fips);
+    this.getSusFactors(this.counties[0].cnty_fips,this.current_risk_factor);
     this.factorsMapData();
     this.getCovidData(this.counties[0].cnty_fips);
 
@@ -3673,6 +3486,12 @@ export class LocationsComponent implements OnInit {
   }
   
 
+
+
+  getFactorsData(factor:any){
+    this.current_risk_factor=factor
+    this.getSusFactors(this.county_fips,this.current_risk_factor);
+  }
   //When a new county is selected, data and all plots must be updated
   getCountyData(fips:any){
     this.spinnertogg=true;
@@ -3686,7 +3505,7 @@ export class LocationsComponent implements OnInit {
     this.county_name=temp.cnty_name
 
     this.getStatsBar(Number(this.county_fips))
-    this.getSusFactors(Number(this.county_fips));
+    this.getSusFactors(Number(this.county_fips),this.current_risk_factor);
     this.getCovidData(Number(this.county_fips));
 
 
@@ -3710,7 +3529,7 @@ export class LocationsComponent implements OnInit {
     this.county_name=temp.cnty_name
 
     this.getStatsBar(Number(this.county_fips))
-    this.getSusFactors(Number(this.county_fips));
+    this.getSusFactors(Number(this.county_fips), this.current_risk_factor);
     this.getCovidData(Number(this.county_fips));
 
 
@@ -3744,14 +3563,14 @@ export class LocationsComponent implements OnInit {
 
 
 //pull data for risk factor bar plots and build plots
-  getSusFactors(covid_fips:any){
+  getSusFactors(covid_fips:any, factor:any){
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
 
-    this.http.post(environment.base_url+"5000/getsusdata",JSON.stringify(covid_fips), {headers: customheaders}).subscribe(
+    this.http.post(environment.base_url+"5000/getsusdata",JSON.stringify(covid_fips,factor), {headers: customheaders}).subscribe(
       response=> {
         console.log(response)
-        this.susc_factors=response;
+        this.risk_factors=response;
         this.SusFactorsbarplot();
 
       },
@@ -3788,28 +3607,28 @@ export class LocationsComponent implements OnInit {
   
 // function to create risk factor bar plots
   SusFactorsbarplot(){
-    this.susc_factors_bars = [];
+    this.risk_factors_bars = [];
 
-    for(let i=0; i<this.susc_factors.length; i++){
-      this.susc_factors_bars.push({
+    for(let i=0; i<this.risk_factors.length; i++){
+      this.risk_factors_bars.push({
         data: [
           {
-            x: [this.susc_factors[i].susc_values],
-            y: [this.susc_factors[i].susc_factors],
+            x: [this.risk_factors[i].factors_values],
+            y: [this.risk_factors[i].factors_factors],
             orientation: 'h',
             type: 'bar',
             width:2,
             marker: {
-              color: this.susc_factors[i].Q5_color
+              color: this.risk_factors[i].Q5_color
             },
           },
          ],
          layout: {
           plot_bgcolor: 'rgba(245,246,249,1)',
            xaxis:{
-            range: [this.susc_factors[i].min_2, this.susc_factors[i].max],
+            range: [this.risk_factors[i].min_2, this.risk_factors[i].max],
           // dtick: this.temp[i].max,
-          tickvals: [this.susc_factors[i].mean.toFixed(2),this.susc_factors[i].max.toFixed(3)],
+          tickvals: [this.risk_factors[i].mean.toFixed(2),this.risk_factors[i].max.toFixed(3)],
           
 
            },
@@ -3820,9 +3639,9 @@ export class LocationsComponent implements OnInit {
           shapes: [{
             name:'test',
             type: 'line',
-            x0: this.susc_factors[i].mean,
+            x0: this.risk_factors[i].mean,
             y0: -1,
-            x1: this.susc_factors[i].mean,
+            x1: this.risk_factors[i].mean,
             y1: 1,
             line: {
               color: 'black',
