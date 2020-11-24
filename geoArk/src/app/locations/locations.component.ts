@@ -3563,11 +3563,11 @@ export class LocationsComponent implements OnInit {
 
 
 //pull data for risk factor bar plots and build plots
-  getRiskFactors(covid_fips:any, factor:any){
+  getRiskFactors(fips:any, factor:any){
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
 
-    this.http.post(environment.base_url+"5000/getriskfactordata",JSON.stringify(covid_fips,factor), {headers: customheaders}).subscribe(
+    this.http.post(environment.base_url+"5000/getriskfactordata",JSON.stringify([fips,factor]), {headers: customheaders}).subscribe(
       response=> {
         console.log(response)
         this.risk_factors=response;
