@@ -3613,7 +3613,7 @@ export class LocationsComponent implements OnInit {
       this.risk_factors_bars.push({
         data: [
           {
-            x: [this.risk_factors[i].factors_values],
+            x: [Number(this.risk_factors[i].factors_values)],
             y: [this.risk_factors[i].factors],
             orientation: 'h',
             type: 'bar',
@@ -3626,9 +3626,9 @@ export class LocationsComponent implements OnInit {
          layout: {
           plot_bgcolor: 'rgba(245,246,249,1)',
            xaxis:{
-            range: [this.risk_factors[i].min_2, this.risk_factors[i].max],
+            range: [Number(this.risk_factors[i].min_2), Number(this.risk_factors[i].max)],
           // dtick: this.temp[i].max,
-          tickvals: [this.risk_factors[i].mean.toFixed(2),this.risk_factors[i].max.toFixed(3)],
+          tickvals: [Number(this.risk_factors[i].mean).toFixed(2),Number(this.risk_factors[i].max).toFixed(3)],
           
 
            },
