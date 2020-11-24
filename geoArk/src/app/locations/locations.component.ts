@@ -3614,7 +3614,7 @@ export class LocationsComponent implements OnInit {
         data: [
           {
             x: [this.risk_factors[i].factors_values],
-            y: [this.risk_factors[i].factors_factors],
+            y: [this.risk_factors[i].factors],
             orientation: 'h',
             type: 'bar',
             width:2,
