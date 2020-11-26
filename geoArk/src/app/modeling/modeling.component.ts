@@ -64,7 +64,11 @@ export class ModelingComponent implements OnInit {
 
         this.current_date=this.date_attr[this.date_attr.length-1]
         console.log(this.current_date)
-        console.log("OUT OF MAP DATA FXN")
+
+
+        
+        console.log("MODEL MAP START")
+        this.model_map()
 
       },
       error => {
