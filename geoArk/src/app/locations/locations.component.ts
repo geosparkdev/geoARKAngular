@@ -3477,7 +3477,7 @@ export class LocationsComponent implements OnInit {
 
     this.getStatsBar(this.counties[0].cnty_fips);
     this.getRiskFactors(this.counties[0].cnty_fips,this.current_risk_factor);
-    this.factorsMapData();
+    this.factorsMapData(this.current_risk_factor);
     this.getCovidData(this.counties[0].cnty_fips);
 
     this.getWindrose();
@@ -3491,6 +3491,7 @@ export class LocationsComponent implements OnInit {
   getFactorsData(factor:any){
     this.current_risk_factor=factor
     this.getRiskFactors(this.county_fips,this.current_risk_factor);
+    this.factorsMapData(this.current_risk_factor);
   }
   //When a new county is selected, data and all plots must be updated
   getCountyData(fips:any){
@@ -3990,11 +3991,11 @@ export class LocationsComponent implements OnInit {
 
 
 
-factorsMapData(){
+factorsMapData(risk:any){
   const customheaders= new HttpHeaders()
         .set('Content-Type', 'application/json');
 
-  this.http.get(environment.base_url+"5000/factorsMapData", {headers: customheaders}).subscribe(
+  this.http.post(environment.base_url+"5000/factorsMapData",JSON.stringify(risk), {headers: customheaders}).subscribe(
     response=> {
       console.log(response)
      
