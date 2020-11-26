@@ -118,9 +118,21 @@ Geo-Context and COVID-19 in Missouri
                         <br>
                         <div class='main_button button_blue'>Socioconomic</div>
                         <br>
-                        <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("susceptibility")'>Susceptibility</div><span><hr class='new1'></span>
+
+                        <div *ngIf='current_risk_factor=="susceptibility"'>
+                            <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("susceptibility")'>Susceptibility</div><span><hr class='new1'></span>
+                        </div>
+                        <div *ngIf='current_risk_factor!="susceptibility"'>
+                            <div class='main_button button_blue' (click)='getFactorsData("susceptibility")'>Susceptibility</div>
+                        </div>
+
                         <br>
-                        <div class='main_button button_blue' (click)='getFactorsData("transmission")'>Transmission</div>
+                        <div *ngIf='current_risk_factor=="transmission"'>
+                            <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("transmission")'>Transmission</div><span><hr class='new1'></span>
+                        </div>
+                        <div *ngIf='current_risk_factor!="transmission"'>
+                            <div class='main_button button_blue' (click)='getFactorsData("transmission")'>Transmission</div>
+                        </div>
                     </div>
                 </div>
             </div>
