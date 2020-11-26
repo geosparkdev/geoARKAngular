@@ -3371,8 +3371,12 @@ export class LocationsComponent implements OnInit {
 
   getFactorsData(factor:any){
     this.current_risk_factor=factor
-    this.getRiskFactors(this.county_fips,this.current_risk_factor);
-    this.factorsMapData(this.current_risk_factor);
+    this.current_factor='total'
+
+    geoJSON.clearLayers();
+
+    this.getRiskFactors(this.county_fips,factor);
+    this.factorsMapData(factor);
   }
   //When a new county is selected, data and all plots must be updated
   getCountyData(fips:any){
