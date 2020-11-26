@@ -148,6 +148,13 @@ EDIT ON
   margin:5px;
   }
 
+.actual_map{
+  height:50vh;
+  width: 55vh;
+  margin:5px;
+  }
+  
+
 
 ::ng-deep .info {
   padding: 6px 8px;
