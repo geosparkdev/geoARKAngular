@@ -3369,7 +3369,7 @@ export class LocationsComponent implements OnInit {
   
 
 
-
+// get Data for Selected Risk Factor
   getFactorsData(factor:any){
     this.current_risk_factor=factor
     this.current_factor='total'
