@@ -41,7 +41,7 @@ export class ModelingComponent implements OnInit {
   constructor(public http: HttpClient,private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
-    model_map = L.map("risk_map").setView([38.573936, -92.603760], 6.2);
+    model_map = L.map("model_map").setView([38.573936, -92.603760], 6.2);
     this.getMapdata();
   }
 
