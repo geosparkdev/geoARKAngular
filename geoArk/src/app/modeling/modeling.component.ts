@@ -108,7 +108,7 @@ export class ModelingComponent implements OnInit {
   })
 
 
-  var ranges= getBin(min,mob_cat_data.max,threshold);
+  var ranges= getBin(min,Number(mob_cat_data.max),threshold);
 
   L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
   {
