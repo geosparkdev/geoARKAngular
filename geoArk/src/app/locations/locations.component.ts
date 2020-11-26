@@ -3388,6 +3388,7 @@ export class LocationsComponent implements OnInit {
     this.current_factor='total'
 
     let temp=this.counties.find(e=> e['cnty_fips']===Number(fips))
+    console.log(temp)
     this.county_name=temp.cnty_name
 
     geoJSON.clearLayers();
