@@ -14,6 +14,7 @@ import * as colormap from 'colormap';
 var risk_map;
 var geoJSON;
 var info;
+var map_status=0;
 
 @Component({
   selector: 'app-locations',
@@ -3385,7 +3386,7 @@ export class LocationsComponent implements OnInit {
     this.current_factor='total'
 
     geoJSON.clearLayers();
-    this.map(1);
+    this.map();
 
 
     let temp=this.counties.find(e=> e['cnty_fips']===Number(this.county_fips))
@@ -3412,7 +3413,7 @@ export class LocationsComponent implements OnInit {
     console.log(risk_map)
 
     geoJSON.clearLayers();
-    this.map(1);
+    this.map();
 
 
     let temp=this.counties.find(e=> e['cnty_fips']===Number(this.county_fips))
@@ -3892,7 +3893,7 @@ factorsMapData(risk:any){
     this.factors=response[0];
     this.factors_meta=response[1];
 
-    this.map(0);
+    this.map();
 
 
     },
@@ -3915,12 +3916,12 @@ triggerFactor(factor){
   this.current_factor=factor[0];
   console.log(this.current_factor)
   geoJSON.clearLayers();
-  this.map(1);
+  this.map();
 }
 
 
 
-  map(num){
+  map(){
 
       var data=this.factors;
       var metadata=this.factors_meta;
@@ -3962,8 +3963,9 @@ triggerFactor(factor){
     // info block
     info = new L.Control({position: 'bottomleft'});
     info.onAdd = function () {
-      if(num==0){
+      if(map_status==0){
         this._div = L.DomUtil.create("div", "info");
+        map_status=1;
       }
       else
       {
