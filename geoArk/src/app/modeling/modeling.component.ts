@@ -37,6 +37,8 @@ export class ModelingComponent implements OnInit {
   public date_attr:any;
   public map_metadata:any;
 
+  public model_map_obj:any;
+
 
   constructor(public http: HttpClient,private spinner: NgxSpinnerService) { }
 
@@ -56,7 +58,7 @@ export class ModelingComponent implements OnInit {
         console.log(response)
         this.date_attr=response[0];
         this.map_metadata=response[1];
-        geoJSON=response[2];
+        this.model_map_obj=response[2];
 
         console.log('IN MAP DATA FXN')
         console.log(this.date_attr);
@@ -143,7 +145,7 @@ export class ModelingComponent implements OnInit {
 
 
   //geoJSON object and coloring of county
-  geoJSON= L.geoJSON(geoJSON, {
+  geoJSON= L.geoJSON(this.model_map_obj, {
     style: function (feature) {
       return{
         color: 'black',
