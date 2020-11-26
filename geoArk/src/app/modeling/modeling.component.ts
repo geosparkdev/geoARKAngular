@@ -105,9 +105,8 @@ export class ModelingComponent implements OnInit {
       alpha: 1
   })
 
-  
 
-  var ranges= getBin(min,mob_cat_data.max,200);
+  var ranges= getBin(min,mob_cat_data.max,threshold);
 
   L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
   {
@@ -180,7 +179,9 @@ export class ModelingComponent implements OnInit {
 
 
   function getcolor3(value){
-
+    console.log('IN COLOR FXN')
+    console.log(value)
+    console.log(ranges)
 
     //light to dark
     var color;
