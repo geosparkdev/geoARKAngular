@@ -14,7 +14,6 @@ import * as colormap from 'colormap';
 var risk_map;
 var geoJSON;
 var info;
-var outlined_county;
 
 @Component({
   selector: 'app-locations',
@@ -3379,6 +3378,7 @@ export class LocationsComponent implements OnInit {
   getCountyData(fips:any){
     this.spinnertogg=true;
     this.county_fips=fips.target.value;
+    this.current_factor='total'
 
     geoJSON.clearLayers();
     this.map(1);
@@ -3400,6 +3400,9 @@ export class LocationsComponent implements OnInit {
     console.log(event);
     this.spinnertogg=true;
     this.county_fips=event.target.feature.properties.fips;
+    this.current_factor='total'
+
+
     console.log(this.county_fips);
 
     console.log(risk_map)
@@ -3414,6 +3417,7 @@ export class LocationsComponent implements OnInit {
     this.getStatsBar(Number(this.county_fips))
     this.getRiskFactors(Number(this.county_fips), this.current_risk_factor);
     this.getCovidData(Number(this.county_fips));
+    
 
 
   }
