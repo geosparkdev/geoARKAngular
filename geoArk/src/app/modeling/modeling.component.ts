@@ -89,7 +89,7 @@ export class ModelingComponent implements OnInit {
     console.log("IN MODEL MAP")
     let mob_data=this.map_metadata.filter(e=> e['mobility']===this.mobility)
  
-    console.log(mob_data.filter(e=> e['category']===this.category))
+    let filtered=mob_data.filter(e=> e['category']===this.category)
     
     var attribute=this.model_attr+this.current_date
     console.log("ATTRIBUTE")
@@ -106,7 +106,7 @@ export class ModelingComponent implements OnInit {
   })
 
 
-  var ranges= getBin(min,500,threshold);
+  var ranges= getBin(min,Number(filtered.max),threshold);
 
   L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
   {
