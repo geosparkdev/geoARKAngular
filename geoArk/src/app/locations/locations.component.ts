@@ -3379,49 +3379,46 @@ export class LocationsComponent implements OnInit {
     this.getRiskFactors(this.county_fips,factor);
     this.factorsMapData(factor);
   }
-  //When a new county is selected, data and all plots must be updated
+
+
+  //trigger data pull and visual creation for new selected county -- by drop down 
   getCountyData(fips:any){
     this.spinnertogg=true;
     this.county_fips=fips.target.value;
     this.current_factor='total'
 
-    geoJSON.clearLayers();
-    this.map();
-
-
-    let temp=this.counties.find(e=> e['cnty_fips']===Number(this.county_fips))
+    let temp=this.counties.find(e=> e['cnty_fips']===Number(fips))
     this.county_name=temp.cnty_name
 
-    this.getStatsBar(Number(this.county_fips))
-    this.getRiskFactors(Number(this.county_fips),this.current_risk_factor);
-    this.getCovidData(Number(this.county_fips));
+    geoJSON.clearLayers();
+    this.map();
+    this.getStatsBar(Number(fips))
+    this.getRiskFactors(Number(fips),this.current_risk_factor);
+    this.getCovidData(Number(fips));
 
 
 
   }
  
-
+//trigger data pull and visual creation for new selected county -- by map 
   getCountyDataClick(event){
     console.log(event);
     this.spinnertogg=true;
     this.county_fips=event.target.feature.properties.fips;
     this.current_factor='total'
 
+ 
 
-    console.log(this.county_fips);
 
-    console.log(risk_map)
+    let temp=this.counties.find(e=> e['cnty_fips']===Number(event.target.feature.properties.fips))
+    this.county_name=temp.cnty_name
+
 
     geoJSON.clearLayers();
     this.map();
-
-
-    let temp=this.counties.find(e=> e['cnty_fips']===Number(this.county_fips))
-    this.county_name=temp.cnty_name
-
-    this.getStatsBar(Number(this.county_fips))
-    this.getRiskFactors(Number(this.county_fips), this.current_risk_factor);
-    this.getCovidData(Number(this.county_fips));
+    this.getStatsBar(Number(event.target.feature.properties.fips))
+    this.getRiskFactors(Number(event.target.feature.properties.fips), this.current_risk_factor);
+    this.getCovidData(Number(event.target.feature.properties.fips));
     
 
 
