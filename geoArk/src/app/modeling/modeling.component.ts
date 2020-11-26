@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { environment} from 'src/environments/environment';
-import { NgxSpinnerService } from 'ngx-spinner';
 
 //Third Party Packages 
 import * as L from 'leaflet';
 import * as colormap from 'colormap';
+import { Options,ChangeContext } from 'ng5-slider';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 
@@ -34,10 +35,31 @@ export class ModelingComponent implements OnInit {
 
   public current_date:any;
 
-  public date_attr:any;
+  public date_attr:any=[0];
   public map_metadata:any;
 
   public model_map_obj:any;
+
+// slider
+
+  public slider_togg: boolean=false;
+
+  public value: number=0;
+  public options: Options={
+    floor: 0,
+    ceil: 0,
+    showSelectionBar: true,
+    selectionBarGradient: {
+    from: '#fcfed3',
+    to: '#00b300'
+   },
+
+   
+     translate: (value: number): string => {
+         return this.date_attr[value]
+     }
+   }
+
 
 
   constructor(public http: HttpClient,private spinner: NgxSpinnerService) { }
@@ -60,16 +82,16 @@ export class ModelingComponent implements OnInit {
         this.map_metadata=response[1];
         this.model_map_obj=response[2];
 
-        console.log('IN MAP DATA FXN')
-        console.log(this.date_attr);
-        console.log(this.map_metadata);
+
 
         this.current_date=this.date_attr[this.date_attr.length-1]
-        console.log(this.current_date)
 
 
+        this.options.ceil=this.date_attr.length-1;
+        this.value=this.date_attr.length-1;
+        this.slider_togg=true;
         
-        console.log("MODEL MAP START")
+
         this.model_map()
 
       },
@@ -81,7 +103,17 @@ export class ModelingComponent implements OnInit {
   }
 
 
+// Map Functions
 
+
+
+onUserChange(changeContext: ChangeContext): void {
+  this.current_date=this.date_attr[changeContext.value]
+  model_map.removeLayer(L.GeoJSON);
+  this.model_map()
+
+ 
+}
 
 
   model_map(){

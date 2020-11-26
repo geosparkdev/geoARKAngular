@@ -12,6 +12,11 @@
 
 <div class='main_container'>
     <div id="model_map" class="model_map"></div>   
+
+    <div *ngIf='slidertogg'>
+        <ng5-slider [(value)]="value" [options]="options" (userChange)="onUserChange($event)"></ng5-slider>
+    </div>
+  
 </div>
 
 
