@@ -3387,15 +3387,15 @@ export class LocationsComponent implements OnInit {
     this.county_fips=fips.target.value;
     this.current_factor='total'
 
-    let temp=this.counties.find(e=> e['cnty_fips']===Number(fips))
+    let temp=this.counties.find(e=> e['cnty_fips']===Number(fips.target.value))
     console.log(temp)
     this.county_name=temp.cnty_name
 
     geoJSON.clearLayers();
     this.map();
-    this.getStatsBar(Number(fips))
-    this.getRiskFactors(Number(fips),this.current_risk_factor);
-    this.getCovidData(Number(fips));
+    this.getStatsBar(Number(fips.target.value))
+    this.getRiskFactors(Number(fips.target.value),this.current_risk_factor);
+    this.getCovidData(Number(fips.target.value));
 
 
 
