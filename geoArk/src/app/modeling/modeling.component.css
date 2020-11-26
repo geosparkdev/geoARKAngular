@@ -1,0 +1,167 @@
+/*----------- Main structure -----------*/
+.header{
+    background-color:#2872b2;
+   
+    left:0;
+    top:0;
+    width:100%;
+
+    font-family:"Euphemia UCAS";
+    font-weight: bolder;
+    font-size: 2.5rem;
+    color:white;
+    text-align:center;
+    padding: 10px 200px;
+}
+
+
+.main_container{
+  padding:10px;
+}
+
+
+
+
+
+.footer{
+  background-color:#c4c4c4;
+  position:relative;
+  left:0;
+  bottom:0;
+  width:100%;
+  overflow:hidden;
+
+  margin-top:0px;
+
+  padding: 10px 200px;
+}
+
+
+
+/* Navigation bar -- Tabs */
+.nav_bar{
+    margin-left:380px;
+}
+
+
+ML CSS JSResult
+EDIT ON
+
+
+.tabrow {
+  text-align: center;
+  list-style: none;
+  margin: 200px 0 20px;
+  padding: 0;
+  line-height: 35px;
+  height: 37px;
+  overflow: hidden;
+  font-size: 12px;
+  position: relative;
+  
+
+}
+
+.tabrow li {
+  border: 2px solid #2872b2;
+  background:#8abeec;
+  display: inline-block;
+  position:relative;
+  z-index: 0;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin: 0 12px;
+  padding: 0 30px;
+
+  color: white;
+  font-family:"Verdana";
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor:pointer;
+}
+
+.tabrow a {
+  color: #2872b2;
+  text-decoration: none;
+}
+
+.tabrow li.selected {
+  background: #2872b2;
+  color:white;
+  z-index: 2;
+  border-top-color:#2872b2;
+}
+
+.tabrow:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-top: 1px solid #2872b2;
+  z-index: 1;
+}
+
+.tabrow li:before,
+.tabrow li:after {
+  border: 1px solid #2872b2;
+  position: absolute;
+  top: -1px;
+  width: 6px;
+  height: 6px;
+  content: "";
+}
+
+.tabrow li:before {
+  left: -8px;
+  top:-3px;
+  border-top-right-radius: 10px;
+  border-width: 1px 0px 0px 0px;
+  box-shadow: 2.3px 0px 0 #2872b2;
+  
+}
+
+.tabrow li:after {
+  right: -7.6px;
+  top:-3.2px;
+  border-top-left-radius: 10px;
+  border-width: 1px 0px 0px 0px;
+  box-shadow: -2.3px 0px 0 #2872b2;
+}
+
+.tabrow li.selected:before {
+  box-shadow: 2px 0px 0 #2872b2;
+}
+
+.tabrow li.selected:after {
+  box-shadow: -2px 0px 0 #2872b2;
+}
+
+
+
+
+
+/*----------- Map -----------*/
+.model_map{
+  height:50vh;
+  width: 55vh;
+  margin:5px;
+  }
+
+
+::ng-deep .info {
+  padding: 6px 8px;
+  font: 14px/16px Arial, Helvetica, sans-serif;
+  background: white;
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  }
+  .info h4 {
+  margin: 0 0 5px;
+  color: #777;
+  }
+
+
+
+

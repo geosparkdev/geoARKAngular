@@ -9,6 +9,8 @@ import { DbDesignComponent } from './db-design/db-design.component';
 import { UpcomingComponent } from './upcoming/upcoming.component';
 import { PredictionsComponent } from './predictions/predictions.component';
 import { LocationsComponent } from './locations/locations.component';
+import {Categories2Component} from '../app/categories2/categories2.component';
+import {ModelingComponent} from '../app/modeling/modeling.component';
 
 
 
@@ -24,7 +26,7 @@ const routes: Routes = [
    },
   {
     path: 'categories',
-    component: CategoriesComponent,
+    component: Categories2Component,
    },
    {
     path: 'dashboard',
@@ -49,7 +51,7 @@ const routes: Routes = [
   },
   {
     path:'predictions',
-    component: PredictionsComponent
+    component: ModelingComponent
   },
   {
     path: 'counties',
