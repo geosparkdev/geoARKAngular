@@ -89,7 +89,7 @@ export class ModelingComponent implements OnInit {
 
     console.log("IN MODEL MAP")
     let mob_data=this.map_metadata.filter(e=> e['mobility']===this.mobility)
-    let mob_cat_data=mob_data.filter(e=> e['category']===this.category)
+    let mob_cat_data=mob_data[0].filter(e=> e['category']===this.category)
 
     console.log(mob_cat_data)
     
