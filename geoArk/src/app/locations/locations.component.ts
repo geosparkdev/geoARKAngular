@@ -3387,6 +3387,9 @@ export class LocationsComponent implements OnInit {
     this.county_fips=fips.target.value;
     this.current_factor='total'
 
+    console.log("hurr")
+    console.log(fips.target.value)
+
     let temp=this.counties.find(e=> e['cnty_fips']===Number(fips.target.value))
     console.log(temp)
     this.county_name=temp.cnty_name
@@ -3409,7 +3412,7 @@ export class LocationsComponent implements OnInit {
     this.current_factor='total'
 
  
-
+  
 
     let temp=this.counties.find(e=> e['cnty_fips']===Number(event.target.feature.properties.fips))
     this.county_name=temp.cnty_name
