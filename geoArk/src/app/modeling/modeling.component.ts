@@ -89,7 +89,7 @@ export class ModelingComponent implements OnInit {
     console.log("IN MODEL MAP")
     let mob_data=this.map_metadata.filter(e=> e['mobility']===this.mobility)
  
-    console.log(this.map_metadata.filter(e=> e['category']===this.category))
+    console.log(mob_data.filter(e=> e['category']===this.category))
     
     var attribute=this.model_attr+this.current_date
     console.log("ATTRIBUTE")
