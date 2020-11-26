@@ -49,10 +49,6 @@ export class ModelingComponent implements OnInit {
     floor: 0,
     ceil: 0,
     showSelectionBar: true,
-    selectionBarGradient: {
-    from: '#fcfed3',
-    to: '#00b300'
-   },
 
    
      translate: (value: number): string => {
