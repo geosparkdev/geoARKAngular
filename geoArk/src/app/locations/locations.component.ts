@@ -147,8 +147,8 @@ export class LocationsComponent implements OnInit {
   public current_risk_factor:any='susceptibility'
 
   //Current county-- variables needed to pull in data from database 
-  public county_name:string=this.counties[0].cnty_name;
-  public county_fips:string=this.counties[1].cnty_fips;
+  public county_name:any=this.counties[0].cnty_name;
+  public county_fips:any=this.counties[1].cnty_fips;
 
   //County Quick  Facts
   public county_pop:string;
@@ -3384,7 +3384,7 @@ export class LocationsComponent implements OnInit {
   //trigger data pull and visual creation for new selected county -- by drop down 
   getCountyData(fips:any){
     this.spinnertogg=true;
-    this.county_fips=fips.target.value;
+    this.county_fips=Number(fips.target.value);
     this.current_factor='total'
 
     console.log("hurr")
@@ -3408,7 +3408,7 @@ export class LocationsComponent implements OnInit {
   getCountyDataClick(event){
     console.log(event);
     this.spinnertogg=true;
-    this.county_fips=event.target.feature.properties.fips;
+    this.county_fips=Number(event.target.feature.properties.fips);
     this.current_factor='total'
 
  
