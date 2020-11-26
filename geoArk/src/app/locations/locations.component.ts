@@ -3343,6 +3343,7 @@ export class LocationsComponent implements OnInit {
 
   //windrose
   public windrose:any;
+  public windrose_data:any;
 
 
 
@@ -3361,8 +3362,8 @@ export class LocationsComponent implements OnInit {
     this.getRiskFactors(this.counties[0].cnty_fips,this.current_risk_factor);
     this.factorsMapData(this.current_risk_factor);
     this.getCovidData(this.counties[0].cnty_fips);
-
-    this.getWindrose();
+    this.getWindrose
+    this.getWindrosedata(this.counties[0].cnty_fips);
 
 
   }
@@ -3399,6 +3400,7 @@ export class LocationsComponent implements OnInit {
     this.getStatsBar(Number(fips.target.value))
     this.getRiskFactors(Number(fips.target.value),this.current_risk_factor);
     this.getCovidData(Number(fips.target.value));
+    this.getWindrosedata(Number(fips.target.value));
 
 
 
@@ -3423,6 +3425,7 @@ export class LocationsComponent implements OnInit {
     this.getStatsBar(Number(event.target.feature.properties.fips))
     this.getRiskFactors(Number(event.target.feature.properties.fips), this.current_risk_factor);
     this.getCovidData(Number(event.target.feature.properties.fips));
+    this.getWindrosedata(Number(event.target.feature.properties.fips));
     
 
 
@@ -3825,12 +3828,38 @@ export class LocationsComponent implements OnInit {
   }
 
 
+
+// Get data for covid plots and build plots
+getWindrosedata(covid_fips:any){
+  const customheaders= new HttpHeaders()
+        .set('Content-Type', 'application/json');
+
+  this.http.post(environment.base_url+"5000/getwindrose",JSON.stringify(covid_fips), {headers: customheaders}).subscribe(
+    response=> {
+      console.log(response)
+      this.windrose_data=response;
+      this.getWindrose()
+   
+
+
+    },
+    error => {
+      console.log(error)
+    }
+  )
+
+}
+
+
+
+
+
 // Create WindRose chart
   getWindrose(){
     this.windrose = {
       data: [
           { 
-            r: [77.5],
+            r: [Number(this.windrose_data[0])],
             theta: ["Susceptibility"],
             marker: {color: "#646efb"},
             showlegend:false,
@@ -3844,7 +3873,7 @@ export class LocationsComponent implements OnInit {
             type: "barpolar"
           },
           {
-            r: [15.0],
+            r: [Number(this.windrose_data[1])],
             theta: ["Transmission",],
             marker: {color: "#00cd96"},
             showlegend:false,
