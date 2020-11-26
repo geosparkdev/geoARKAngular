@@ -166,7 +166,10 @@ export class ModelingComponent implements OnInit {
     // Functions for color and threshold 
     function getBin(min,max,threshold)
     {
-    
+      console.log("IN BIN FUNCTION")
+      console.log(min)
+      console.log(max)
+      console.log(threshold)
       var multiple=max/threshold
       var bins=[];
       for (var i=min; i<max; i+=multiple)
