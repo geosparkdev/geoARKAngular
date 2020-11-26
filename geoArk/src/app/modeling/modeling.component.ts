@@ -16,6 +16,10 @@ import * as colormap from 'colormap';
 })
 export class ModelingComponent implements OnInit {
 
+
+  public category:any='Susceptible'
+  public mobility:any='yes'
+
   constructor(public http: HttpClient,private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
