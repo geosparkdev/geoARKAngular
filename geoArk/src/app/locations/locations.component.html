@@ -84,8 +84,16 @@ Geo-Context and COVID-19 in Missouri
                 <div class='column'>
                     <div class='aligncenter'>
                         <span class='SB_2'>
-                            Total Susceptibility Risk
+                            {{current_risk_factor}} Risk factors
                         </span>
+
+                        <div *ngIf='current_factor=="total"'>
+                            Total {{current_risk_factor}} Risk
+                        </div>
+
+                        <div *ngIf='current_factor!="total"'>
+                            {{current_factor}}
+                        </div>
                     </div>
                     <div id="risk_map" class="risk_map"></div>   
                 </div>
