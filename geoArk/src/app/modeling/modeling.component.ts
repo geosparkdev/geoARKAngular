@@ -63,7 +63,6 @@ export class ModelingComponent implements OnInit {
         console.log('IN MAP DATA FXN')
         console.log(this.date_attr);
         console.log(this.map_metadata);
-        console.log(geoJSON);
 
         this.current_date=this.date_attr[this.date_attr.length-1]
         console.log(this.current_date)
@@ -90,7 +89,7 @@ export class ModelingComponent implements OnInit {
     console.log("IN MODEL MAP")
     let mob_data=this.map_metadata.filter(e=> e['mobility']===this.mobility)
  
-    console.log(mob_data)
+    console.log(this.map_metadata.filter(e=> e['category']===this.category))
     
     var attribute=this.model_attr+this.current_date
     console.log("ATTRIBUTE")
