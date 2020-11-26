@@ -41,6 +41,7 @@ export class ModelingComponent implements OnInit {
   constructor(public http: HttpClient,private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    model_map = L.map("risk_map").setView([38.573936, -92.603760], 6.2);
     this.getMapdata();
   }
 
@@ -87,6 +88,8 @@ export class ModelingComponent implements OnInit {
     console.log("IN MODEL MAP")
     let mob_data=this.map_metadata.filter(e=> e['mobility']===this.mobility)
     let mob_cat_data=mob_data.filter(e=> e['category']===this.category)
+
+    console.log(mob_cat_data)
     
     var attribute=this.model_attr+this.current_date
     console.log("ATTRIBUTE")
