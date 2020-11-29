@@ -289,6 +289,7 @@ actual_map(){
 
   console.log("IN ACTUAL MODEL MAP")
   let filtered=this.map_metadata.filter(e=> e['category']===this.covid_category)
+  console.log(filtered)
 
   
   var attribute=this.covid_attr+this.current_date
