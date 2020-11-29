@@ -21,6 +21,13 @@
                 <div class='column'>
                     <div class='aligncenter'>
                         <span class='type1'>Actual</span>
+
+                        <div *ngIf='covid_category=="covid_cases"'>
+                            Covid Cases
+                        </div>
+                        <div *ngIf='covid_category=="covid_deaths"'>
+                            Covid Deaths
+                        </div>
                     
                          <div id="actual_map" class="actual_map"></div>   
                     </div>
@@ -29,6 +36,7 @@
                 <div class='column'>
                     <div class='aligncenter'>
                         <span class='type1'>Predicted</span>
+                        <br> {{category}}
                         <div id="model_map" class="model_map"></div>   
                     </div>
                 </div>
