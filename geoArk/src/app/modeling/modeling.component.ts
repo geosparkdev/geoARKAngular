@@ -67,6 +67,7 @@ export class ModelingComponent implements OnInit {
 
   ngOnInit(): void {
     model_map = L.map("model_map").setView([38.573936, -92.603760], 6.2);
+    actual_map = L.map("actual_map").setView([38.573936, -92.603760], 6.2);
     this.getMapdata();
   }
 
@@ -94,6 +95,8 @@ export class ModelingComponent implements OnInit {
         
 
         this.model_map()
+        this.actual_map()
+
 
       },
       error => {
@@ -111,7 +114,9 @@ export class ModelingComponent implements OnInit {
 onUserChange(changeContext: ChangeContext): void {
   this.current_date=this.date_attr[changeContext.value]
   model_map.removeLayer(L.GeoJSON);
+  actual_map.removeLayer(L.GeoJSON);
   this.model_map()
+  this.actual_map()
 
  
 }
