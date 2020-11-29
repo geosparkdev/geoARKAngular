@@ -140,6 +140,19 @@ newCategory(category:any){
 
 }
 
+
+newModel(mobility:any){
+  this.mobility=mobility
+  this.model_attr=this.mobility+'_'+this.category+'_'
+
+  model_map.removeLayer(L.GeoJSON);
+  actual_map.removeLayer(L.GeoJSON);
+  this.model_map()
+  this.actual_map()
+
+}
+
+
 // MODEL MAP --------------------------
 
 
