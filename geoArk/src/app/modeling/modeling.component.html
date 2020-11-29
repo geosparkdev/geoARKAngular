@@ -71,27 +71,27 @@
                   <th>Category</th>
                 </tr>
                 <tr>
-                    <td [class.highlighted]="'Susceptible'==category"  >
+                    <td [class.highlighted]="'Susceptible'==category" (click)='newCategory("Susceptible")' >
                         Susceptible (S)
                     </td>
                 </tr>
                 <tr>
-                    <td [class.highlighted]="'Asymptomatic infectious'==category">
+                    <td [class.highlighted]="'Asymptomatic infectious'==category" (click)='newCategory("Asymptomatic infectious")' >
                         Asymptomatic (A)
                     </td>
                 </tr>
                 <tr>
-                    <td [class.highlighted]="'Symptomatic infectious'==category" >
+                    <td [class.highlighted]="'Symptomatic infectious'==category" (click)='newCategory("Symptomatic infectious")'  >
                         Symptomatic (I)
                     </td>
                 </tr>
                 <tr>
-                    <td [class.highlighted]="'Recovered'==category" >
+                    <td [class.highlighted]="'Recovered'==category" (click)='newCategory("Recovered")' >
                         Recovered (R)
                     </td>
                 </tr>
                 <tr>
-                    <td [class.highlighted]="'Deceased'==category" >
+                    <td [class.highlighted]="'Deceased'==category" (click)='newCategory("Deceased")' >
                         Deceased (D)
                     </td>
                 </tr>
