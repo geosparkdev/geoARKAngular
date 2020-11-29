@@ -120,7 +120,7 @@ onUserChange(changeContext: ChangeContext): void {
 }
 
 newCategory(category:any){
-  this.category==category
+  this.category=category
   this.model_attr=this.mobility+'_'+this.category+'_'
 
   if(this.category=='Deceased'){
