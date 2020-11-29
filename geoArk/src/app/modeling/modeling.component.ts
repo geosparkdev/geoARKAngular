@@ -275,5 +275,131 @@ onOutlineEachFeature(feature, layer: L.Layer) {
 
 
 
+actual_map(){
+
+  console.log("IN MODEL MAP")
+  let mob_data=this.map_metadata.filter(e=> e['mobility']===this.mobility)
+
+  let filtered=mob_data.filter(e=> e['category']===this.category)
+  
+  var attribute=this.model_attr+this.current_date
+  console.log("ATTRIBUTE")
+  console.log(attribute)
+
+  var min=0;  
+  var threshold=200;
+
+  var colorrange=colormap({
+    colormap:'portland',
+    nshades:threshold,
+    format: 'hex',
+    alpha: 1
+})
+
+
+var ranges= getBin(min,Number(filtered[0].max),threshold);
+
+L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
+{
+  id: "mapbox.light",
+  attribution: "SOS"
+  // can have min and max zoom here
+}).addTo(model_map);
+
+
+// info block
+info = new L.Control({position: 'bottomleft'});
+info.onAdd = function () {
+  if(map_status==0){
+    this._div = L.DomUtil.create("div", "info");
+    map_status=1;
+  }
+  else
+  {
+
+    this._div=document.getElementsByClassName("info")[0];
+
+  }
+    this.update();
+    return this._div;
+  };
+
+ //info box display
+  info.update = function (props: any) {
+    this._div.innerHTML =
+      (props ? "<b>County: </b>": "<h4>Click to see details of another county.</h4>");
+  };
+  info.addTo(model_map);
+
+
+
+//geoJSON object and coloring of county
+geoJSON= L.geoJSON(this.model_map_obj, {
+  style: function (feature) {
+    return{
+      color: 'black',
+      weight: 0.5,
+      //fillColor:getcolor(feature.id),
+      fillColor:getcolor3(feature.properties[attribute]),
+      fillOpacity:0.8,
+    }
+  },
+  onEachFeature: (feature, layer) => this.onEachFeature(feature, layer)
+}).addTo(model_map);
+
+
+
+
+
+
+  // Functions for color and threshold 
+  function getBin(min,max,threshold)
+  {
+    console.log("IN BIN FUNCTION")
+    console.log(min)
+    console.log(max)
+    console.log(threshold)
+    var multiple=max/threshold
+    var bins=[];
+    for (var i=min; i<max; i+=multiple)
+    {
+      bins.push(i)
+    }
+  
+    return bins
+  }
+
+
+
+
+function getcolor3(value){
+  console.log('IN COLOR FXN')
+  console.log(value)
+  console.log(ranges)
+
+  //light to dark
+  var color;
+
+  for(var i=(threshold-1); i>=min; i--)
+  {
+    if(value>=ranges[i])
+    {
+      color= colorrange[i];
+ 
+      break;
+    }
+  }
+
+  return color
+}
+
+
+
+}
+
+
+
+
+
 
 }
