@@ -139,7 +139,7 @@ onUserChange(changeContext: ChangeContext): void {
     var threshold=200;
 
     var colorrange=colormap({
-      colormap:'portland',
+      colormap:'cdom',
       nshades:threshold,
       format: 'hex',
       alpha: 1
@@ -305,7 +305,7 @@ actual_map(){
   var threshold=200;
 
   var colorrange=colormap({
-    colormap:'portland',
+    colormap:'viridis',
     nshades:threshold,
     format: 'hex',
     alpha: 1
@@ -441,7 +441,7 @@ highlightFeature_actual(e) {
 }
 
 resetHighlight_actual(e) {
-  geoJSON.resetStyle(e.target);
+  geoJSON_actual.resetStyle(e.target);
   info_actual.update();
 }
 
