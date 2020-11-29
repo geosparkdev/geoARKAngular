@@ -109,8 +109,6 @@ export class ModelingComponent implements OnInit {
 
 // Map Functions
 
-
-
 onUserChange(changeContext: ChangeContext): void {
   this.current_date=this.date_attr[changeContext.value]
   model_map.removeLayer(L.GeoJSON);
@@ -120,6 +118,10 @@ onUserChange(changeContext: ChangeContext): void {
 
  
 }
+
+// MODEL MAP --------------------------
+
+
 
 
   model_map(){
@@ -174,7 +176,7 @@ onUserChange(changeContext: ChangeContext): void {
    //info box display
     info.update = function (props: any) {
       this._div.innerHTML =
-        (props ? "<b>County: </b>": "<h4>Click to see details of another county.</h4>");
+      (props ? "<b>County: </b>" +props.NAME + "<br><b>Predicted Cases: </b>"+props[attribute] + "<br/>" : "");
     };
     info.addTo(model_map);
 
@@ -284,6 +286,10 @@ onOutlineEachFeature(feature, layer: L.Layer) {
 
 
 
+
+
+// ACTUAL MAP --------------------------
+
 actual_map(){
 
   console.log("IN ACTUAL MODEL MAP")
@@ -336,7 +342,7 @@ info_actual.onAdd = function () {
  //info box display
  info_actual.update = function (props: any) {
     this._div.innerHTML =
-      (props ? "<b>County: </b>": "<h4>Click to see details of another county.</h4>");
+    (props ? "<b>County: </b>" +props.NAME + "<br><b>Actual Cases: </b>"+props[attribute] + "<br/>" : "");
   };
   info_actual.addTo(actual_map);
 
@@ -359,7 +365,7 @@ geoJSON_actual= L.geoJSON(this.model_map_obj, {
       fillOpacity:0.8,
     }
   },
-  onEachFeature: (feature, layer) => this.onEachFeature(feature, layer)
+  onEachFeature: (feature, layer) => this.onEachFeature_actual(feature, layer)
 }).addTo(actual_map);
 
 
@@ -409,6 +415,45 @@ function getcolor3(value){
 
 
 }
+
+
+
+// map functions 
+highlightFeature_actual(e) {
+  const layer = e.target;
+  layer.setStyle({
+    weight: 2,
+    color: "black",
+    fillOpacity: 1.0
+  });
+  if (!L.Browser.ie && !L.Browser.edge) {
+    //layer.bringToFront();
+  }
+  info_actual.update(layer.feature.properties);
+}
+
+ onEachFeature_actual(feature, layer: L.Layer) {
+  layer.on({
+    mouseover: this.highlightFeature_actual,
+    mouseout: this.resetHighlight_actual,
+    //click: (event) => this.getCountyDataClick(event),
+  });
+}
+
+resetHighlight_actual(e) {
+  geoJSON.resetStyle(e.target);
+  info_actual.update();
+}
+
+/*zoomToFeature(e) {
+  risk_map.fitBounds(e.target.getBounds());
+}*/
+
+onOutlineEachFeature_actual(feature, layer: L.Layer) {
+  layer.on({
+  });
+}
+
 
 
 
