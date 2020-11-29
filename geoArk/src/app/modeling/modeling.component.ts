@@ -139,7 +139,7 @@ onUserChange(changeContext: ChangeContext): void {
     var threshold=200;
 
     var colorrange=colormap({
-      colormap:'cdom',
+      colormap:'viridis',
       nshades:threshold,
       format: 'hex',
       alpha: 1
@@ -305,7 +305,7 @@ actual_map(){
   var threshold=200;
 
   var colorrange=colormap({
-    colormap:'viridis',
+    colormap:'cdom',
     nshades:threshold,
     format: 'hex',
     alpha: 1
