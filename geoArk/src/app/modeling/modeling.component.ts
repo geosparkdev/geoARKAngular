@@ -15,8 +15,11 @@ import { NgxSpinnerService } from 'ngx-spinner';
 var actual_map;
 var model_map;
 var geoJSON;
+var geoJSON_actual;
 var info;
+var info_actual;
 var map_status=0;
+var map_status_actual=0;
 
 
 @Component({
@@ -29,6 +32,8 @@ export class ModelingComponent implements OnInit {
 
   public category:any='Susceptible'
   public mobility:any='yes'
+
+  public covid_category='covid_cases'
 
   public covid_attr:any='covid_cases_'
   public model_attr:any= this.mobility+'_'+this.category+'_'
@@ -277,12 +282,11 @@ onOutlineEachFeature(feature, layer: L.Layer) {
 
 actual_map(){
 
-  console.log("IN MODEL MAP")
-  let mob_data=this.map_metadata.filter(e=> e['mobility']===this.mobility)
+  console.log("IN ACTUAL MODEL MAP")
+  let filtered=this.map_metadata.filter(e=> e['category']===this.covid_category)
 
-  let filtered=mob_data.filter(e=> e['category']===this.category)
   
-  var attribute=this.model_attr+this.current_date
+  var attribute=this.covid_attr+this.current_date
   console.log("ATTRIBUTE")
   console.log(attribute)
 
@@ -304,20 +308,20 @@ L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
   id: "mapbox.light",
   attribution: "SOS"
   // can have min and max zoom here
-}).addTo(model_map);
+}).addTo(actual_map);
 
 
 // info block
-info = new L.Control({position: 'bottomleft'});
-info.onAdd = function () {
-  if(map_status==0){
-    this._div = L.DomUtil.create("div", "info");
-    map_status=1;
+info_actual = new L.Control({position: 'bottomleft'});
+info_actual.onAdd = function () {
+  if(map_status_actual==0){
+    this._div = L.DomUtil.create("div", "info_actual");
+    map_status_actual=1;
   }
   else
   {
 
-    this._div=document.getElementsByClassName("info")[0];
+    this._div=document.getElementsByClassName("info_actual")[0];
 
   }
     this.update();
@@ -325,16 +329,16 @@ info.onAdd = function () {
   };
 
  //info box display
-  info.update = function (props: any) {
+ info_actual.update = function (props: any) {
     this._div.innerHTML =
       (props ? "<b>County: </b>": "<h4>Click to see details of another county.</h4>");
   };
-  info.addTo(model_map);
+  info_actual.addTo(actual_map);
 
 
 
 //geoJSON object and coloring of county
-geoJSON= L.geoJSON(this.model_map_obj, {
+geoJSON_actual= L.geoJSON(this.model_map_obj, {
   style: function (feature) {
     return{
       color: 'black',
@@ -345,7 +349,7 @@ geoJSON= L.geoJSON(this.model_map_obj, {
     }
   },
   onEachFeature: (feature, layer) => this.onEachFeature(feature, layer)
-}).addTo(model_map);
+}).addTo(actual_map);
 
 
 
