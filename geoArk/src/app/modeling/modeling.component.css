@@ -38,7 +38,39 @@
 }
 
 
+/* Table */
 
+table, td, th {  
+  border: 1px solid #ddd;
+  text-align: left;
+  
+  }
+  
+  table {
+  border-collapse: collapse;
+  width: 100%;
+  
+  }
+  
+  th{
+  background: #3a3a3a;
+  color:white;
+  padding: 5px;
+  text-align:center;
+  font-weight:bold;
+  }
+  
+  td{
+  background: #eaeaea;
+  padding: 5px;
+  font-size:12px;
+  }
+  
+  
+  .highlighted{
+  background-color: #8abeec;
+  color:white;
+  }
 
 /* Headers */
 

@@ -50,7 +50,53 @@
         </div>
         
         <div class='column is-2'>
-            Test
+            <table>
+                <tr>
+                  <th>Model</th>
+                </tr>
+                <tr>
+                    <td [class.highlighted]="'yes'==mobility" >
+                        Mobility
+                    </td>
+                </tr>
+            <tr>
+                    <td [class.highlighted]="'no'==mobility" >
+                        Nonmobility
+                    </td>
+                </tr>
+            </table>
+    
+            <table>
+                <tr>
+                  <th>Category</th>
+                </tr>
+                <tr>
+                    <td [class.highlighted]="'Susceptible'==category"  >
+                        Susceptible (S)
+                    </td>
+                </tr>
+                <tr>
+                    <td [class.highlighted]="'Asymptomatic infectious'==category">
+                        Asymptomatic (A)
+                    </td>
+                </tr>
+                <tr>
+                    <td [class.highlighted]="'Symptomatic infectious'==cateogry" >
+                        Symptomatic (I)
+                    </td>
+                </tr>
+                <tr>
+                    <td [class.highlighted]="'Recovered'==cateogry" >
+                        Recovered (R)
+                    </td>
+                </tr>
+                <tr>
+                    <td [class.highlighted]="'Deceased'==category" >
+                        Deceased (D)
+                    </td>
+                </tr>
+            </table>
+
         </div>
     </div>
 
