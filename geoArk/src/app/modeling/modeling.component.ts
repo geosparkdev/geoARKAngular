@@ -119,6 +119,27 @@ onUserChange(changeContext: ChangeContext): void {
  
 }
 
+newCategory(category:any){
+  this.category==category
+  this.model_attr=this.mobility+'_'+this.category+'_'
+
+  if(this.category=='Deceased'){
+    this.covid_category='covid_deaths'
+    this.covid_attr='covid_deaths_'
+  }
+  else{
+    this.covid_category='covid_cases'
+    this.covid_attr='covid_cases_'
+  }
+
+
+  model_map.removeLayer(L.GeoJSON);
+  actual_map.removeLayer(L.GeoJSON);
+  this.model_map()
+  this.actual_map()
+
+}
+
 // MODEL MAP --------------------------
 
 
