@@ -346,6 +346,11 @@ info_actual.onAdd = function () {
 //geoJSON object and coloring of county
 geoJSON_actual= L.geoJSON(this.model_map_obj, {
   style: function (feature) {
+
+    console.log("in geoJSON actual map fxn")
+    console.log(feature.properties)
+    console.log(feature.properties[attribute])
+
     return{
       color: 'black',
       weight: 0.5,
