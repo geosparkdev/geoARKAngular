@@ -183,7 +183,9 @@ onUserChange(changeContext: ChangeContext): void {
   //geoJSON object and coloring of county
   geoJSON= L.geoJSON(this.model_map_obj, {
     style: function (feature) {
+
       return{
+
         color: 'black',
         weight: 0.5,
         //fillColor:getcolor(feature.id),
@@ -220,9 +222,6 @@ onUserChange(changeContext: ChangeContext): void {
 
 
   function getcolor3(value){
-    console.log('IN COLOR FXN')
-    console.log(value)
-    console.log(ranges)
 
     //light to dark
     var color;
@@ -348,6 +347,7 @@ geoJSON_actual= L.geoJSON(this.model_map_obj, {
   style: function (feature) {
 
     console.log("in geoJSON actual map fxn")
+    console.log(attribute)
     console.log(feature.properties)
     console.log(feature.properties[attribute])
 
@@ -388,9 +388,7 @@ geoJSON_actual= L.geoJSON(this.model_map_obj, {
 
 
 function getcolor3(value){
-  console.log('IN COLOR FXN')
-  console.log(value)
-  console.log(ranges)
+
 
   //light to dark
   var color;
