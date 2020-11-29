@@ -307,7 +307,7 @@ actual_map(){
 })
 
 
-var ranges= getBin(min,Number(filtered.max),threshold);
+var ranges= getBin(min,Number(filtered[0].max),threshold);
 
 L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
 {
