@@ -33,6 +33,7 @@ export class Categories2Component implements OnInit {
     this.risk_factors['Accessibility']=0;
     this.risk_factors['Health resources']=0;
     console.log(Object.values(this.risk_factors))
+    console.log('test')
 
 
 
