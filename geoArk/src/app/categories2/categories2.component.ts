@@ -38,7 +38,7 @@ export class Categories2Component implements OnInit {
     this.risk_factors['Health resources']=0;
 
 
-
+    this.getTotals(this.risk_factors);
     
 
   }
@@ -57,7 +57,8 @@ export class Categories2Component implements OnInit {
         this.bar_name=response[0];
         this.bar_data=response[1];
         this.tot_table=response[2];
-        
+
+
 
   
   
