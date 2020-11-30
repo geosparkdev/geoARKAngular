@@ -99,7 +99,7 @@ export class Categories2Component implements OnInit {
       ],
       layout: {
               width: 400, 
-              height: 100, 
+              height: 800, 
 
               title: {
                 text: 'title',
