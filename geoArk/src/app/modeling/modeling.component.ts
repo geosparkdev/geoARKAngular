@@ -18,8 +18,8 @@ var geoJSON_model;
 var geoJSON_actual;
 var info_model;
 var info_actual;
-var map_status=0;
-var map_status_actual=0;
+var map_status;
+var map_status_actual;
 
 
 @Component({
@@ -66,6 +66,9 @@ export class ModelingComponent implements OnInit {
   constructor(public http: HttpClient,private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+
+    map_status=0;
+    map_status_actual=0;
     model_map = L.map("model_map").setView([38.573936, -92.603760], 6.2);
     actual_map = L.map("actual_map").setView([38.573936, -92.603760], 6.2);
     this.getMapdata();
