@@ -38,7 +38,7 @@ export class Categories2Component implements OnInit {
     this.risk_factors.Health_resources=0;
 
     let factors_list=[this.risk_factors.Accessibility,this.risk_factors.Exposure,this.risk_factors.Health_resources,this.risk_factors.Socioeconomic,this.risk_factors.Susceptibility,this.risk_factors.Transmission]
-
+    console.log(factors_list)
 
     this.getTotals(factors_list);
     
