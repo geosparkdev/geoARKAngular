@@ -43,10 +43,19 @@
                 </div>
 
             </div>
-            <div *ngIf='slider_togg'>
-                <ng5-slider [(value)]="value" [options]="options" (userChange)="onUserChange($event)"></ng5-slider>
-            </div>
 
+            <div class='columns'>
+                <div class='column is-2'>
+
+                </div>
+                <div class='column'>
+                    <div *ngIf='slider_togg'>
+                        <ng5-slider [(value)]="value" [options]="options" (userChange)="onUserChange($event)"></ng5-slider>
+                    </div>
+        
+                </div>
+            </div>
+            
         </div>
         
         <div class='column is-2'>
