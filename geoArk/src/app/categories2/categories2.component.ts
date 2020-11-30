@@ -94,7 +94,7 @@ export class Categories2Component implements OnInit {
             orientation:'h',
             //mode: 'lines', 
             name:'tot cases',
-            marker: {color: colors} 
+            marker: {color: 'red'} 
           },
       ],
       layout: {
