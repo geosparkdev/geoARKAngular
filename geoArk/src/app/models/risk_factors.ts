@@ -1,10 +1,9 @@
 export class risk_factors{
-    public risk_factors: any={
-        'Susceptibility':1,
-        'Transmission':1,
-        'Socioeconomic':1,
-        'Exposure':1,
-        'Accessibility':1,
-        'Health resources':1}
+        public Susceptibility:any=1;
+        public Transmission:any=1;
+        public Socioeconomic:any=1;
+        public Exposure:any=1;
+        public Accessibility:any=1;
+        public Health_resources :any=1;
     
  }
