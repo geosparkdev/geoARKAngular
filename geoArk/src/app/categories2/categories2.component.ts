@@ -23,6 +23,10 @@ export class Categories2Component implements OnInit {
 
   public risk_factors:risk_factors;
 
+  public tot_table:any;
+  public bar_name:any;
+  public bar_data:any;
+
 
   constructor(public http: HttpClient,private spinner: NgxSpinnerService) { }
 
@@ -32,13 +36,37 @@ export class Categories2Component implements OnInit {
     this.risk_factors['Socioeconomic']=0;
     this.risk_factors['Accessibility']=0;
     this.risk_factors['Health resources']=0;
-    console.log(Object.values(this.risk_factors))
-    console.log('test')
 
 
 
     
 
+  }
+
+
+
+
+
+  getTotals(risk_factors:any){
+    const customheaders= new HttpHeaders()
+          .set('Content-Type', 'application/json');
+  
+    this.http.post(environment.base_url+"5000/getTotals",JSON.stringify(risk_factors), {headers: customheaders}).subscribe(
+      response=> {
+        console.log(response)
+        this.bar_name=response[0];
+        this.bar_data=response[1];
+        this.tot_table=response[2];
+        
+
+  
+  
+      },
+      error => {
+        console.log(error)
+      }
+    )
+  
   }
 
 }
