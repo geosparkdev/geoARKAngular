@@ -26,6 +26,7 @@ export class Categories2Component implements OnInit {
   public tot_table:any;
   public bar_name:any;
   public bar_data:any;
+  public tot_bar:any;
 
 
   constructor(public http: HttpClient,private spinner: NgxSpinnerService) { }
@@ -60,6 +61,8 @@ export class Categories2Component implements OnInit {
         this.bar_data=response[1];
         this.tot_table=response[2];
 
+        this.getTotalsGraph();
+
 
 
   
@@ -70,6 +73,53 @@ export class Categories2Component implements OnInit {
       }
     )
   
+  }
+
+
+  getTotalsGraph(){
+
+    let colors = colormap({
+      colormap:'portland',
+      nshades: this.bar_data.length,
+      format: 'oxygen',
+      alpha: 1
+  })
+
+
+    this.tot_bar = {
+      data: [
+          { x: this.bar_data, 
+            y: this.bar_name, 
+            type: 'bar', 
+            orientation:'h',
+            //mode: 'lines', 
+            name:'tot cases',
+            marker: {color: colors} 
+          },
+      ],
+      layout: {
+              width: 400, 
+              height: 100, 
+
+              title: {
+                text: 'title',
+                font: {
+                  size: 12
+                },
+                standoff: -5
+              },
+  
+              margin:{
+                l:50, 
+                r:20, 
+                t:20, 
+                b:30, 
+                pad:0
+              },
+
+              size: 6,
+         }
+     };
   }
 
 }
