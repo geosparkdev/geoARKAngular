@@ -14,9 +14,9 @@ import { NgxSpinnerService } from 'ngx-spinner';
 //Risk factors map and geoJSON object
 var actual_map;
 var model_map;
-var geoJSON;
+var geoJSON_model;
 var geoJSON_actual;
-var info;
+var info_model;
 var info_actual;
 var map_status=0;
 var map_status_actual=0;
@@ -191,16 +191,16 @@ newModel(mobility:any){
 
 
   // info block
-  info = new L.Control({position: 'bottomleft'});
-  info.onAdd = function () {
+  info_model = new L.Control({position: 'bottomleft'});
+  info_model.onAdd = function () {
     if(map_status==0){
-      this._div = L.DomUtil.create("div", "info");
+      this._div = L.DomUtil.create("div", "info_model");
       map_status=1;
     }
     else
     {
 
-      this._div=document.getElementsByClassName("info")[0];
+      this._div=document.getElementsByClassName("info_model")[0];
 
     }
       this.update();
@@ -208,16 +208,16 @@ newModel(mobility:any){
     };
 
    //info box display
-    info.update = function (props: any) {
+    info_model.update = function (props: any) {
       this._div.innerHTML =
       (props ? "<b>County: </b>" +props.NAME + "<br><b>Predicted Cases: </b>"+props[attribute] + "<br/>" : "");
     };
-    info.addTo(model_map);
+    info_model.addTo(model_map);
 
 
 
   //geoJSON object and coloring of county
-  geoJSON= L.geoJSON(this.model_map_obj, {
+  geoJSON_model= L.geoJSON(this.model_map_obj, {
     style: function (feature) {
 
       return{
@@ -293,7 +293,7 @@ highlightFeature(e) {
   if (!L.Browser.ie && !L.Browser.edge) {
     //layer.bringToFront();
   }
-  info.update(layer.feature.properties);
+  info_model.update(layer.feature.properties);
 }
 
  onEachFeature(feature, layer: L.Layer) {
@@ -305,8 +305,8 @@ highlightFeature(e) {
 }
 
 resetHighlight(e) {
-  geoJSON.resetStyle(e.target);
-  info.update();
+  geoJSON_model.resetStyle(e.target);
+  info_model.update();
 }
 
 /*zoomToFeature(e) {

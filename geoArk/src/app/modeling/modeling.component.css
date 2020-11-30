@@ -199,7 +199,7 @@ EDIT ON
   
 
 
-::ng-deep .info {
+::ng-deep .info_model {
   padding: 6px 8px;
   font: 14px/16px Arial, Helvetica, sans-serif;
   background: white;
@@ -207,7 +207,7 @@ EDIT ON
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px;
   }
-  .info h4 {
+  .info_model h4 {
   margin: 0 0 5px;
   color: #777;
   }
