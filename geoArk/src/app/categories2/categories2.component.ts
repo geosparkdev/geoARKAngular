@@ -3272,7 +3272,7 @@ export class Categories2Component implements OnInit {
       ],
       layout: {
               width: 400, 
-              height: 200, 
+              height: 50, 
               title: {
                 text: 'title',
                 font: {
