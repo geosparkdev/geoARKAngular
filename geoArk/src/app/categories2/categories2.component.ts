@@ -3360,7 +3360,7 @@ export class Categories2Component implements OnInit {
 
   //data look up for info box
     function getInfo(fips){
-      let temp=data.find(e=> e['cnty_fips']===String(fips))
+      let temp=data.find(e=> e['countyFIPS']===String(fips))
       console.log('IN LEGEND')
       console.log(data)
 
@@ -3411,7 +3411,7 @@ export class Categories2Component implements OnInit {
   function getcolor3(value){
 
 
-    let temp=data.find(e=> e['cnty_fips']===value)
+    let temp=data.find(e=> e['countyFIPS']===value)
     var color;
 
 
