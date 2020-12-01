@@ -78,8 +78,9 @@ Geo-Context and COVID-19 in Missouri
                         <br>
                         <plotly-plot [data]="covid_county_deaths.data" [layout]="covid_county_deaths.layout"></plotly-plot>
                         <br>
-                        <plotly-plot [data]="covid_cases.data" [layout]="covid_cases.layout"></plotly-plot>
-                        <br>
+                        <div class='covid_plot'>
+                            <plotly-plot [data]="covid_cases.data" [layout]="covid_cases.layout"></plotly-plot>
+                        </div>
                         <plotly-plot [data]="covid_deaths.data" [layout]="covid_deaths.layout"></plotly-plot>
                     </div> 
 
