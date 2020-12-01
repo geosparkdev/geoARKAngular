@@ -27,7 +27,7 @@
         <div class='column'>
             <div id="cat_map" class="cat_map"></div>   
         </div>
-        <div class='column is-3'>
+        <div class='column is-4'>
             <table>
                 <tr>
                   <th>Filtered by:</th>
@@ -57,7 +57,7 @@
                             FIPS
 
                             <div *ngFor="let data of tot_table">
-                                <div>
+                                <div class='bars_plot'>
                                     {{data.countyFIPS}}
                                 </div>
                             </div>
@@ -65,7 +65,7 @@
                         <div class="column">
                             CASES
                             <div *ngFor="let data of tot_table">
-                                <div>
+                                <div class='bars_plot'>
                                     {{data.total_cases}}
                                 </div>
                             </div>
@@ -73,7 +73,7 @@
                         <div class="column">
                             DEATHS
                             <div *ngFor="let data of tot_table">
-                                <div>
+                                <div class='bars_plot'>
                                     {{data.total_deaths}}
                                 </div> 
                             </div>
