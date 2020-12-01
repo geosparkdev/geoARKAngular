@@ -3344,7 +3344,7 @@ export class Categories2Component implements OnInit {
     else
     {
 
-      this._div=document.getElementsByClassName("info")[0];
+      this._div=document.getElementsByClassName("cat_info")[0];
 
     }
       this.update();
