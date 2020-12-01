@@ -3261,21 +3261,21 @@ export class Categories2Component implements OnInit {
     //console.log(this.bar_data)
     let colors = colormap({
       colormap:'autumn',
-      nshades: factor_max.max,
+      nshades: 50,
       format: 'oxygen',
       alpha: 1
   })
 
   colors.reverse()
 
-  let range=this.getBins(0,factor_max.max,100)
+  let range=this.getBins(0,factor_max.max,50)
 
 
 
 
   for(let i=0; i<this.bar_name.length; i++){
     
-    let color=this.getColor(Number(this.bar_data[i]),0, 100, colors, range)
+    let color=this.getColor(Number(this.bar_data[i]),0, 50, colors, range)
 
     this.bar_bars.push({
       data: [
@@ -3331,8 +3331,6 @@ export class Categories2Component implements OnInit {
     
     var color;
 
-
-    //light to dark
       
     for(var i=(threshold-1); i>=min; i--)
     {
