@@ -3248,6 +3248,9 @@ export class Categories2Component implements OnInit {
 
   getTotalsGraph(){
 
+
+    console.log("EHRHERHEHR")
+    console.log(this.bar_data[0])
     let colors = colormap({
       colormap:'portland',
       nshades: this.bar_data.length,
@@ -3258,8 +3261,8 @@ export class Categories2Component implements OnInit {
 //
     this.tot_bar = {
       data: [
-          { x: this.bar_data, 
-            y: this.bar_name,
+          { x: this.bar_data[0], 
+            y: this.bar_name[0],
             type: 'bar', 
             orientation:'h',
             //mode: 'lines', 
@@ -3269,7 +3272,7 @@ export class Categories2Component implements OnInit {
       ],
       layout: {
               width: 400, 
-              height: 800, 
+              height: 200, 
               title: {
                 text: 'title',
                 font: {
