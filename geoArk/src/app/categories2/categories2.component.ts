@@ -3200,7 +3200,7 @@ export class Categories2Component implements OnInit {
 
 
     cat_map_status=0;
-    cat_map = L.map("cat_map").setView([38.573936, -92.603760], 6.5);
+    cat_map = L.map("cat_map").setView([38.573936, -92.603760], 6.3);
 
     this.risk_factors= new risk_factors();
     this.risk_factors.Socioeconomic=0;
@@ -3260,6 +3260,11 @@ export class Categories2Component implements OnInit {
       data: [
           { x: this.bar_data, 
             y: this.bar_name, 
+            transforms: {
+              type: 'sort',
+              target: 'x',
+              order: 'descending'
+            },
             type: 'bar', 
             orientation:'h',
             //mode: 'lines', 
@@ -3268,7 +3273,7 @@ export class Categories2Component implements OnInit {
           },
       ],
       layout: {
-              width: 400, 
+              width: 500, 
               height: 800, 
 
               title: {
