@@ -3286,7 +3286,7 @@ export class Categories2Component implements OnInit {
               width: 400, 
               height: 25,
               xaxis:{
-                range: [Number(factor_max.max), Number(0)]
+                range: [Number(0), Number(factor_max.max)]
               },
               margin:{
                 l:125, 
