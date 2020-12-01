@@ -3260,16 +3260,22 @@ export class Categories2Component implements OnInit {
     //console.log("EHRHERHEHR")
     //console.log(this.bar_data)
     let colors = colormap({
-      colormap:'portland',
+      colormap:'autumn',
       nshades: factor_max.max,
       format: 'oxygen',
       alpha: 1
   })
 
+  colors.reverse()
+
+  let range=this.getBins(0,factor_max.max,100)
+
+
+
+
   for(let i=0; i<this.bar_name.length; i++){
     
-    let color=colors[this.bar_data[i]]
-
+    let color=this.getColor(Number(this.bar_data[i]),0, 100, colors, range)
 
     this.bar_bars.push({
       data: [
@@ -3304,6 +3310,43 @@ export class Categories2Component implements OnInit {
   }
 
 
+
+
+  getBins(min,max,threshold){
+
+      var multiple=max/threshold
+      var bins=[];
+      for (var i=min; i<max; i+=multiple)
+      {
+        bins.push(i)
+      }
+    
+      return bins
+  
+  }
+
+
+    
+  getColor(value,min, threshold, colorrange, binrange){
+    
+    var color;
+
+
+    //light to dark
+      
+    for(var i=(threshold-1); i>=min; i--)
+    {
+      if(value >=binrange[i])
+      {
+        color= colorrange[i];
+        console.log('IN HERE')
+        console.log(color)
+        break;
+      }
+    }
+
+    return color
+  }
 
 
 
