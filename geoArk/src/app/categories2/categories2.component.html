@@ -56,20 +56,26 @@
                         <div class="column">
                             FIPS
 
-                            <div class="let data of tot_table">
-                                {{data.countyFIPS}}
+                            <div *ngFor="let data of tot_table">
+                                <div>
+                                    {{data.countyFIPS}}
+                                </div>
                             </div>
                         </div>
                         <div class="column">
                             CASES
-                            <div class="let data of tot_table">
-                                {{data.total_cases}}
+                            <div *ngFor="let data of tot_table">
+                                <div>
+                                    {{data.total_cases}}
+                                </div>
                             </div>
                         </div>
                         <div class="column">
                             DEATHS
-                            <div class="let data of tot_table">
-                                {{data.total_deaths}}
+                            <div *ngFor="let data of tot_table">
+                                <div>
+                                    {{data.total_deaths}}
+                                </div> 
                             </div>
                         </div>
                     </div>
