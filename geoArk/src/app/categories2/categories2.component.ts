@@ -3390,7 +3390,7 @@ export class Categories2Component implements OnInit {
   cat_info = new L.Control({position: 'bottomleft'});
   cat_info.onAdd = function () {
     if(cat_map_status==0){
-      this._div = L.DomUtil.create("div", "info");
+      this._div = L.DomUtil.create("div", "cat_info");
       cat_map_status=1;
     }
     else
