@@ -31,6 +31,8 @@ export class Categories2Component implements OnInit {
 
   public tot_table:any;
   public bar_name:any;
+
+  public bar_bars:any=[];
   public bar_data:any;
   public tot_bar:any;
 
@@ -3249,43 +3251,49 @@ export class Categories2Component implements OnInit {
 
 
   getTotalsGraph(){
-
+    this.bar_bars=[];
 
     //console.log("EHRHERHEHR")
     //console.log(this.bar_data)
     let colors = colormap({
       colormap:'portland',
-      nshades: 126,
+      nshades: 200,
       format: 'oxygen',
       alpha: 1
   })
 
-//
-    this.tot_bar = {
+  for(let i=0; i<this.bar_name.length; i++){
+    
+    let color=colors[this.bar_data[i]]
+
+
+    this.bar_bars.push({
       data: [
-          { x:this.bar_data, 
-            y:this.bar_name,
+          { x:this.bar_data[i], 
+            y:this.bar_name[i],
             type: 'bar', 
             orientation:'h',
             //mode: 'lines', 
             name:'tot cases',
-            marker: {color: 'red'}
+            marker: {color: color}
           },
       ],
       layout: {
               width: 400, 
-              height: 2500,
+              height: 50,
               margin:{
                 l:125, 
                 r:5, 
-                t:15, 
-                b:15, 
+                t:0, 
+                b:0, 
                 pad:0
               },
 
               size: 6,
          }
-     };
+     });
+    }
+
   }
 
 

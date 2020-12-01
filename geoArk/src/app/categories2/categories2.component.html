@@ -34,7 +34,13 @@
   
     <div class="columns">
         <div class="column">
-            <plotly-plot [data]="tot_bar.data" [layout]="tot_bar.layout"></plotly-plot>
+            <div *ngFor='let factors of bar_bars'>
+                <div class='risk_button'>
+    
+                    <plotly-plot [data]="factors.data" [layout]="factors.layout"></plotly-plot>
+                </div>
+              
+            </div>
         </div>
         <div class="column">
             
@@ -42,7 +48,6 @@
 
             <table>
                 <tr>
-
                   <th>FIPS</th>
                   <th>Cases to date</th>
                   <th>Death to date</th>
