@@ -3259,21 +3259,21 @@ export class Categories2Component implements OnInit {
     this.tot_bar = {
       data: [
           { x: this.bar_data, 
-            y: this.bar_name, 
-            transforms: {
-              type: 'sort',
-              target: 'x',
-              order: 'descending'
-            },
+            y: this.bar_name,
             type: 'bar', 
             orientation:'h',
             //mode: 'lines', 
             name:'tot cases',
-            marker: {color: 'red'} 
+            marker: {color: 'red'},
+            transforms: {
+              type: 'sort',
+              target: 'x',
+              order: 'descending'
+            }
           },
       ],
       layout: {
-              width: 500, 
+              width: 400, 
               height: 800, 
 
               title: {
@@ -3285,7 +3285,7 @@ export class Categories2Component implements OnInit {
               },
   
               margin:{
-                l:50, 
+                l:100, 
                 r:20, 
                 t:20, 
                 b:30, 
