@@ -3200,6 +3200,8 @@ export class Categories2Component implements OnInit {
 
 
     cat_map_status=0;
+    cat_map = L.map("risk_map").setView([38.573936, -92.603760], 6.2);
+
     this.risk_factors= new risk_factors();
     this.risk_factors.Socioeconomic=0;
     this.risk_factors.Accessibility=0;
@@ -3230,7 +3232,7 @@ export class Categories2Component implements OnInit {
         this.metadata=response[3];
 
         this.getTotalsGraph();
-
+        this.map();
 
 
   
