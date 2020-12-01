@@ -3269,13 +3269,7 @@ export class Categories2Component implements OnInit {
       ],
       layout: {
               width: 400, 
-              height: 800, 
-
-              xaxis:{
-                categoryorder:'descending',
-                categoryarray: 'x'
-              },
-
+              height: 100, 
               title: {
                 text: 'title',
                 font: {
