@@ -312,3 +312,11 @@ select{
   padding:5px;
   }
   
+
+
+
+
+  .covid_plot{
+    width: 100%;
+    height: 100px;
+  }

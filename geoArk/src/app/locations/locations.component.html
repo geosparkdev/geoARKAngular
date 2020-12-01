@@ -72,7 +72,9 @@ Geo-Context and COVID-19 in Missouri
                     </div>
                     <br>
                     <div *ngIf='!spinnertogg'>
-                        <plotly-plot [data]="covid_county_cases.data" [layout]="covid_county_cases.layout"></plotly-plot>
+                        <div class='covid_plot'>
+                            <plotly-plot [data]="covid_county_cases.data" [layout]="covid_county_cases.layout"></plotly-plot>
+                        </div>
                         <br>
                         <plotly-plot [data]="covid_county_deaths.data" [layout]="covid_county_deaths.layout"></plotly-plot>
                         <br>
