@@ -3253,11 +3253,15 @@ export class Categories2Component implements OnInit {
   getTotalsGraph(){
     this.bar_bars=[];
 
+
+
+    var current_fact='total_risk'
+    let factor_max=this.metadata.find(e=> e['factor']===current_fact)
     //console.log("EHRHERHEHR")
     //console.log(this.bar_data)
     let colors = colormap({
       colormap:'portland',
-      nshades: 200,
+      nshades: factor_max.max,
       format: 'oxygen',
       alpha: 1
   })
@@ -3283,7 +3287,7 @@ export class Categories2Component implements OnInit {
               height: 25,
               margin:{
                 l:125, 
-                r:5, 
+                r:0, 
                 t:0, 
                 b:0, 
                 pad:0
