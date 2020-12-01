@@ -34,7 +34,23 @@
   
     <div class="columns">
         <div class="column">
-            <plotly-plot [data]="tot_bar.data" [layout]="tot_bar.layout"></plotly-plot>
+            
+
+
+            <table>
+                <tr>
+                  <th>Plots</th>
+                  <th>FIPS</th>
+                  <th>Cases to date</th>
+                  <th>Death to date</th>
+                </tr>
+                <tr>
+                  <td><plotly-plot [data]="tot_bar.data" [layout]="tot_bar.layout"></plotly-plot></td>
+                  <td>Smith</td>
+                  <td>50</td>
+                  <td>302</td>
+                </tr>
+              </table>
         </div>
         <div class="column">
             choose filters

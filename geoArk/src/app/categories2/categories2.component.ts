@@ -3258,8 +3258,8 @@ export class Categories2Component implements OnInit {
 
     this.tot_bar = {
       data: [
-          { x: this.bar_data, 
-            y: this.bar_name,
+          { x: this.bar_data[0], 
+            y: this.bar_name[0],
             type: 'bar', 
             orientation:'h',
             //mode: 'lines', 
