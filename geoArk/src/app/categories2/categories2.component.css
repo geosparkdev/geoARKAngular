@@ -213,6 +213,11 @@ EDIT ON
 
 
 
+::ng-deep .modebar {
+    display: none !important;
+    }
+  
+
 
 /*----------- Map -----------*/
 .cat_map{

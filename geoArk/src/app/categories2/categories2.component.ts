@@ -3210,7 +3210,9 @@ export class Categories2Component implements OnInit {
     let factors_list=[this.risk_factors.Accessibility,this.risk_factors.Exposure,this.risk_factors.Health_resources,this.risk_factors.Socioeconomic,this.risk_factors.Susceptibility,this.risk_factors.Transmission]
     console.log(factors_list)
 
-    this.getTotals(factors_list);
+
+   // this.getTotalsGraph()
+   this.getTotals(factors_list);
     
 
   }
@@ -3249,11 +3251,11 @@ export class Categories2Component implements OnInit {
   getTotalsGraph(){
 
 
-    console.log("EHRHERHEHR")
-    console.log(this.bar_data)
+    //console.log("EHRHERHEHR")
+    //console.log(this.bar_data)
     let colors = colormap({
       colormap:'portland',
-      nshades: this.bar_data.length,
+      nshades: 126,
       format: 'oxygen',
       alpha: 1
   })
@@ -3261,8 +3263,8 @@ export class Categories2Component implements OnInit {
 //
     this.tot_bar = {
       data: [
-          { x: [Number(this.bar_data[0])], 
-            y: [this.bar_name[0]],
+          { x:this.bar_data, 
+            y:this.bar_name,
             type: 'bar', 
             orientation:'h',
             //mode: 'lines', 
@@ -3272,8 +3274,7 @@ export class Categories2Component implements OnInit {
       ],
       layout: {
               width: 400, 
-              height: 50,
-  
+              height: 800,
               margin:{
                 l:100, 
                 r:20, 
