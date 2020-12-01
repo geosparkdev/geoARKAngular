@@ -11,197 +11,182 @@ Geo-Context and COVID-19 in Missouri
 </div> 
 <div class='main_container'>
 
+    <div class='statsblock'>
+        <div class='columns'>
+            <div class='column is-3'>
+                <select id="county drop down" name="county"(change)="getCountyData($event)" >
+                    <option *ngFor='let county of counties' value={{county.cnty_fips}} >{{county.cnty_name}} County</option>
 
-
-
-
-    <div class="columns">
-        <div class="column is-1">
-
-        </div>
-        <div class="column">
-            <div class='statsblock'>
-                <div class='columns'>
-                    <div class='column is-3'>
-                        <select id="county drop down" name="county"(change)="getCountyData($event)" >
-                            <option *ngFor='let county of counties' value={{county.cnty_fips}} >{{county.cnty_name}} County</option>
-        
-                        </select>
-                        <br>
-                            <span class='SB_2'>Quick Facts</span>
-                    </div>
-                    <div class='column'>
-                        <div class='stat_shift'>
-                            <span class='SB_1'>{{county_pop}}</span>
-                            <br>
-                            Population
-                        </div>
-                     
-                    </div>
-                    <div class='column'>
-                        <div class='stat_shift'>
-                            <span class='SB_1'>{{county_65}}</span>
-                            <br>
-                            People aged 65+
-                        </div>
-                    </div>
-                    <div class='column'>
-                        <div class='stat_shift'>
-                            <span class='SB_1'>{{county_cov_case}}</span>
-                            <br>
-                            Cases Total
-                        </div>
-                    </div>
-                    <div class='column'>
-                        <div class='stat_shift'>
-                            <span class='SB_1'>{{county_cov_deaths}}</span>
-                            <br>
-                            Deaths Total
-                        </div>
-                    </div>
-                    <div class='column'>
-                        <div class='stat_shift'>
-                            <span class='SB_1'>119</span>
-                            <br>
-                            Risk Total
-                        </div>
-                    </div>
-        
+                </select>
+                <br>
+                    <span class='SB_2'>Quick Facts</span>
+            </div>
+            <div class='column'>
+                <div class='stat_shift'>
+                    <span class='SB_1'>{{county_pop}}</span>
+                    <br>
+                    Population
+                </div>
+             
+            </div>
+            <div class='column'>
+                <div class='stat_shift'>
+                    <span class='SB_1'>{{county_65}}</span>
+                    <br>
+                    People aged 65+
                 </div>
             </div>
-            
-            <div class='columns'>
-                <div class='column'>
-                    <div class='columns'>
-                        <div class='column'>
-        
-                            <div *ngIf='spinnertogg' class='loading'>
-                                <ngx-spinner bdColor = "rgba(0,0,0,0)" size = "medium" color = "#ff8700" type = "ball-spin-clockwise-fade-rotating" [fullScreen] = "false">
-                                </ngx-spinner>
-                            </div>
-                            <br>
-                            <div *ngIf='!spinnertogg'>
-                                <plotly-plot [data]="covid_county_cases.data" [layout]="covid_county_cases.layout"></plotly-plot>
-                                <br>
-                                <plotly-plot [data]="covid_county_deaths.data" [layout]="covid_county_deaths.layout"></plotly-plot>
-                                <br>
-                                <plotly-plot [data]="covid_cases.data" [layout]="covid_cases.layout"></plotly-plot>
-                                <br>
-                                <plotly-plot [data]="covid_deaths.data" [layout]="covid_deaths.layout"></plotly-plot>
-                            </div> 
-        
-                        </div>
-                        <div class='column'>
-                            <div class='aligncenter'>
-                                <span class='SB_2'>
-                                    {{current_risk_factor}} Risk factors
-                                </span>
-        
-                                <div *ngIf='current_factor=="total"'>
-                                    Total {{current_risk_factor}} Risk
-                                </div>
-        
-                                <div *ngIf='current_factor!="total"'>
-                                    {{current_factor}}
-                                </div>
-                            </div>
-                            <div id="risk_map" class="risk_map"></div>   
-                        </div>
-                    </div>
-        
-        
-                    <div class='columns'>
-                        <div class='column'>
-        
-                            <div class='windrose'>
-                                <plotly-plot [data]="windrose.data" [layout]="windrose.data.layout"></plotly-plot>
-                            </div>
-        
-                        </div>
-                        <div class='column is-4'>
-                            <div class='alignright'>
-                                <div class='main_button button_blue'>Accessibility</div>
-                          
-        
-                                <div *ngIf='current_risk_factor=="exposure"'>
-                                    <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("exposure")'>Exposure</div><span><hr class='new1'></span>
-                                </div>
-                                <div *ngIf='current_risk_factor!="exposure"'>
-                                    <div class='main_button button_blue' (click)='getFactorsData("exposure")'>Exposure</div>
-                                </div>
-        
-        
-                                
-                                <div class='main_button button_blue'>Health Resources</div>
-                                <br>
-                                <div class='main_button button_blue'>Socioconomic</div>
-                                <br>
-        
-                                <div *ngIf='current_risk_factor=="susceptibility"'>
-                                    <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("susceptibility")'>Susceptibility</div><span><hr class='new1'></span>
-                                </div>
-                                <div *ngIf='current_risk_factor!="susceptibility"'>
-                                    <div class='main_button button_blue' (click)='getFactorsData("susceptibility")'>Susceptibility</div>
-                                </div>
-        
-        
-                                <div *ngIf='current_risk_factor=="transmission"'>
-                                    <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("transmission")'>Transmission</div><span><hr class='new1'></span>
-                                </div>
-                                <div *ngIf='current_risk_factor!="transmission"'>
-                                    <div class='main_button button_blue' (click)='getFactorsData("transmission")'>Transmission</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-        
-        
-        
-        
-                </div>
-                <div class='column is-4'>
-                    <div class='factors_container'>
-                        <div class='aligncenter'>
-                            <span class='SB_3'>
-                                {{county_name}} County {{current_risk_factor}} risk factors
-                            </span>
-                            <br>as compared to the mean of other MO counties
-                        </div>
-                      
-                        <div id='test'>
-                            <div *ngFor='let factors of risk_factors_bars'>
-                                <div class='risk_button' (click)="triggerFactor(factors.data[0].y)">
-                    
-                                    <plotly-plot [data]="factors.data" [layout]="factors.layout" [config]="factors.config" ></plotly-plot>
-                                </div>
-                              
-                            </div>
-                        </div>
-                        <br>
-                        <div class='aligncenter'>
-                            <div class='risklegend'>
-                                Risk Values: <img src="../../assets/red.png"> 5-highest
-                                <img src="../../assets/orange.png"> 4
-                                <img src="../../assets/yellow.png"> 3
-                                <img src="../../assets/ltblue.png"> 2
-                                <img src="../../assets/blue.png"> 1-lowest
-                            </div>
-              
-                        </div>
-        
-                    </div>
-        
-        
-        
+            <div class='column'>
+                <div class='stat_shift'>
+                    <span class='SB_1'>{{county_cov_case}}</span>
+                    <br>
+                    Cases Total
                 </div>
             </div>
-        
-        </div>
-        <div class="column is-1">
-            
+            <div class='column'>
+                <div class='stat_shift'>
+                    <span class='SB_1'>{{county_cov_deaths}}</span>
+                    <br>
+                    Deaths Total
+                </div>
+            </div>
+            <div class='column'>
+                <div class='stat_shift'>
+                    <span class='SB_1'>119</span>
+                    <br>
+                    Risk Total
+                </div>
+            </div>
+
         </div>
     </div>
     
+    <div class='columns'>
+        <div class='column'>
+            <div class='columns'>
+                <div class='column'>
+
+                    <div *ngIf='spinnertogg' class='loading'>
+                        <ngx-spinner bdColor = "rgba(0,0,0,0)" size = "medium" color = "#ff8700" type = "ball-spin-clockwise-fade-rotating" [fullScreen] = "false">
+                        </ngx-spinner>
+                    </div>
+                    <br>
+                    <div *ngIf='!spinnertogg'>
+                        <plotly-plot [data]="covid_county_cases.data" [layout]="covid_county_cases.layout"></plotly-plot>
+                        <br>
+                        <plotly-plot [data]="covid_county_deaths.data" [layout]="covid_county_deaths.layout"></plotly-plot>
+                        <br>
+                        <plotly-plot [data]="covid_cases.data" [layout]="covid_cases.layout"></plotly-plot>
+                        <br>
+                        <plotly-plot [data]="covid_deaths.data" [layout]="covid_deaths.layout"></plotly-plot>
+                    </div> 
+
+                </div>
+                <div class='column'>
+                    <div class='aligncenter'>
+                        <span class='SB_2'>
+                            {{current_risk_factor}} Risk factors
+                        </span>
+
+                        <div *ngIf='current_factor=="total"'>
+                            Total {{current_risk_factor}} Risk
+                        </div>
+
+                        <div *ngIf='current_factor!="total"'>
+                            {{current_factor}}
+                        </div>
+                    </div>
+                    <div id="risk_map" class="risk_map"></div>   
+                </div>
+            </div>
+
+
+            <div class='columns'>
+                <div class='column'>
+
+                    <div class='windrose'>
+                        <plotly-plot [data]="windrose.data" [layout]="windrose.data.layout"></plotly-plot>
+                    </div>
+
+                </div>
+                <div class='column is-4'>
+                    <div class='alignright'>
+                        <div class='main_button button_blue'>Accessibility</div>
+                  
+
+                        <div *ngIf='current_risk_factor=="exposure"'>
+                            <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("exposure")'>Exposure</div><span><hr class='new1'></span>
+                        </div>
+                        <div *ngIf='current_risk_factor!="exposure"'>
+                            <div class='main_button button_blue' (click)='getFactorsData("exposure")'>Exposure</div>
+                        </div>
+
+
+                        
+                        <div class='main_button button_blue'>Health Resources</div>
+                        <br>
+                        <div class='main_button button_blue'>Socioconomic</div>
+                        <br>
+
+                        <div *ngIf='current_risk_factor=="susceptibility"'>
+                            <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("susceptibility")'>Susceptibility</div><span><hr class='new1'></span>
+                        </div>
+                        <div *ngIf='current_risk_factor!="susceptibility"'>
+                            <div class='main_button button_blue' (click)='getFactorsData("susceptibility")'>Susceptibility</div>
+                        </div>
+
+
+                        <div *ngIf='current_risk_factor=="transmission"'>
+                            <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("transmission")'>Transmission</div><span><hr class='new1'></span>
+                        </div>
+                        <div *ngIf='current_risk_factor!="transmission"'>
+                            <div class='main_button button_blue' (click)='getFactorsData("transmission")'>Transmission</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+        <div class='column is-4'>
+            <div class='factors_container'>
+                <div class='aligncenter'>
+                    <span class='SB_3'>
+                        {{county_name}} County {{current_risk_factor}} risk factors
+                    </span>
+                    <br>as compared to the mean of other MO counties
+                </div>
+              
+                <div id='test'>
+                    <div *ngFor='let factors of risk_factors_bars'>
+                        <div class='risk_button' (click)="triggerFactor(factors.data[0].y)">
+            
+                            <plotly-plot [data]="factors.data" [layout]="factors.layout" [config]="factors.config" ></plotly-plot>
+                        </div>
+                      
+                    </div>
+                </div>
+                <br>
+                <div class='aligncenter'>
+                    <div class='risklegend'>
+                        Risk Values: <img src="../../assets/red.png"> 5-highest
+                        <img src="../../assets/orange.png"> 4
+                        <img src="../../assets/yellow.png"> 3
+                        <img src="../../assets/ltblue.png"> 2
+                        <img src="../../assets/blue.png"> 1-lowest
+                    </div>
+      
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
 
 
 
