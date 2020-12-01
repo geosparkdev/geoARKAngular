@@ -3250,7 +3250,7 @@ export class Categories2Component implements OnInit {
 
 
     console.log("EHRHERHEHR")
-    console.log(this.bar_data[0])
+    console.log(this.bar_data)
     let colors = colormap({
       colormap:'portland',
       nshades: this.bar_data.length,
@@ -3261,8 +3261,8 @@ export class Categories2Component implements OnInit {
 //
     this.tot_bar = {
       data: [
-          { x: this.bar_data[0], 
-            y: this.bar_name[0],
+          { x: [Number(this.bar_data[0])], 
+            y: [this.bar_name[0]],
             type: 'bar', 
             orientation:'h',
             //mode: 'lines', 
