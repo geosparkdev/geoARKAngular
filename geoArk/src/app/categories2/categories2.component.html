@@ -41,31 +41,29 @@
   
     <div class="columns">
         <div class="column">
+            Plots
             <div *ngFor='let factors of bar_bars'>
                 <div class='bars_plot'>
-    
                     <plotly-plot [data]="factors.data" [layout]="factors.layout"></plotly-plot>
                 </div>
               
             </div>
         </div>
         <div class="column">
-            
-
-
-            <table>
-                <tr>
-                  <th>FIPS</th>
-                  <th>Cases to date</th>
-                  <th>Death to date</th>
-                </tr>
-                <tr>
-                  <td>Smith</td>
-                  <td>50</td>
-                  <td>302</td>
-                </tr>
-              </table>
+            FIPS
         </div>
+        <div class="column">
+            CASES
+        </div>
+        <div class="column">
+            DEATHS
+        </div>
+        <div class="column is-3">
+            SPACE
+        </div>
+
+
+
         <div class="column is-3">
             choose filters
             
