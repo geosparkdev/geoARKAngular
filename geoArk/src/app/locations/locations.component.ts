@@ -3641,8 +3641,7 @@ export class LocationsComponent implements OnInit {
           },
       ],
       layout: {
-              width: 400, 
-              height: 100, 
+              autosize:true,
 
               title: {
                 automargin: true,
