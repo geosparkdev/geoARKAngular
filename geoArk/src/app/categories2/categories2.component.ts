@@ -3264,17 +3264,17 @@ export class Categories2Component implements OnInit {
             orientation:'h',
             //mode: 'lines', 
             name:'tot cases',
-            marker: {color: 'red'},
-            transforms: {
-              type: 'sort',
-              target: 'x',
-              order: 'descending'
-            }
+            marker: {color: 'red'}
           },
       ],
       layout: {
               width: 400, 
               height: 800, 
+
+              xaxis:{
+                categoryorder:'array',
+                categoryarray: 'x'
+              },
 
               title: {
                 text: 'title',
