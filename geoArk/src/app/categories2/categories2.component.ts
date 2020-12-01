@@ -3255,7 +3255,7 @@ export class Categories2Component implements OnInit {
       alpha: 1
   })
 
-
+//
     this.tot_bar = {
       data: [
           { x: this.bar_data[0], 
