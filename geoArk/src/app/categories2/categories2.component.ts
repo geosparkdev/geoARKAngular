@@ -3272,7 +3272,7 @@ export class Categories2Component implements OnInit {
               height: 800, 
 
               xaxis:{
-                categoryorder:'array',
+                categoryorder:'descending',
                 categoryarray: 'x'
               },
 
