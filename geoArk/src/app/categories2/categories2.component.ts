@@ -3269,8 +3269,8 @@ export class Categories2Component implements OnInit {
 
     this.bar_bars.push({
       data: [
-          { x:this.bar_data[i], 
-            y:this.bar_name[i],
+          { x:[Number(this.bar_data[i])], 
+            y:[this.bar_name[i]],
             type: 'bar', 
             orientation:'h',
             //mode: 'lines', 
