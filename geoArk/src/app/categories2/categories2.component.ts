@@ -3274,12 +3274,12 @@ export class Categories2Component implements OnInit {
       ],
       layout: {
               width: 400, 
-              height: 800,
+              height: 1200,
               margin:{
-                l:100, 
+                l:125, 
                 r:20, 
-                t:0, 
-                b:10, 
+                t:15, 
+                b:15, 
                 pad:0
               },
 
