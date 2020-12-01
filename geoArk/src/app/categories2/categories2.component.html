@@ -41,11 +41,11 @@
   
     <div class="columns">
             <div class="column">
-                Counties ordered by the highest risk total
+                <span class='bars_title'>Counties ordered by the highest risk total</span>
                 <div class="bars_scroll">
                     <div class="columns">
                         <div class="column">
-                            Plots
+                            
                             <div *ngFor='let factors of bar_bars'>
                                 <div class='bars_plot'>
                                     <plotly-plot [data]="factors.data" [layout]="factors.layout"></plotly-plot>
@@ -63,7 +63,7 @@
                             </div>
                         </div>
                         <div class="column">
-                            CASES
+                            Cases to date
                             <div *ngFor="let data of tot_table">
                                 <div class='bars_plot'>
                                     {{data.total_cases}}
@@ -71,7 +71,7 @@
                             </div>
                         </div>
                         <div class="column">
-                            DEATHS
+                            Deaths to date
                             <div *ngFor="let data of tot_table">
                                 <div class='bars_plot'>
                                     {{data.total_deaths}}

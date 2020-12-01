@@ -222,6 +222,7 @@ EDIT ON
 
 .bars_plot{
     height:25px;
+    font-size:12px;
 }
 
 
@@ -236,6 +237,14 @@ EDIT ON
 
 }
 
+
+.bars_title
+{
+    text-align:center;
+    font-size:1rem;
+    margin-left:200px;
+
+}
 
 /*----------- Map -----------*/
 .cat_map{
