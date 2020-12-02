@@ -221,8 +221,6 @@ EDIT ON
 
 .bars_plot{
     height:25px;
-    font-size:12px;
-    vertical-align: center;
 }
 
 
@@ -272,4 +270,9 @@ color: #777;
   
   
 
+.map_header{
+    font-size:1.3rem;
+    font-weight:bolder;
 
+
+}
