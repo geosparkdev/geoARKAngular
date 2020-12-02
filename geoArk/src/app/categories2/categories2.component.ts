@@ -3270,7 +3270,6 @@ export class Categories2Component implements OnInit {
   
     this.http.post(environment.base_url+"5000/getTotals",JSON.stringify(risk_factors), {headers: customheaders}).subscribe(
       response=> {
-        console.log(response)
         this.bar_name=response[0];
         this.bar_data=response[1];
         this.tot_table=response[2];
@@ -3381,8 +3380,6 @@ export class Categories2Component implements OnInit {
       if(value >=binrange[i])
       {
         color= colorrange[i];
-        console.log('IN HERE')
-        console.log(color)
         break;
       }
     }
@@ -3400,9 +3397,6 @@ export class Categories2Component implements OnInit {
     
 
     let factor_max=metadata.find(e=> e['factor']===current_fact)
-
-    console.log('FACTOR MAX')
-    console.log(factor_max)
 
     var min=0;
     if (factor_max.min<0){
