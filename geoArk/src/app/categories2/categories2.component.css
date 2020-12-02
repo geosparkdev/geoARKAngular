@@ -64,7 +64,6 @@
 }
 .button_blue_selected{
   background-color:#033554;
-  margin-right:0px;
 }
 
 
@@ -220,14 +219,12 @@ EDIT ON
 
 
 .bars_plot{
-    height:25px;
+    height:26px;
 
 }
 
 .bars_plot_text{
-    height:25px;
-    margin-top:1px;
-    
+    height:25px;    
 }
 
 
