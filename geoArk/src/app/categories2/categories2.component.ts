@@ -39,7 +39,7 @@ export class Categories2Component implements OnInit {
 
   public metadata:any;
 
-  public map_title:'Exposure, Susceptibility, Transmission'
+  public map_title:any='Exposure, Susceptibility, Transmission'
 
 
 
@@ -3253,6 +3253,9 @@ export class Categories2Component implements OnInit {
   }
 
 
+
+
+  
   getTotalsGraph(){
     this.bar_bars=[];
 
