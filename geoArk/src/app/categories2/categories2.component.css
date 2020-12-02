@@ -267,9 +267,13 @@ EDIT ON
 
 }
 
+.bar_header{
+    padding:0px;
+    margin-left:200px;
+}
 .bar_header1{
     width:400px;
-    margin-left:200px;
+    float:left;
 }
 .bar_header2{
     width:105px;

@@ -91,10 +91,11 @@ Geo-Context and COVID-19 in Missouri
                 <div class='column'>
                     <div class='aligncenter'>
                         <span class='SB_2'>
-                            {{current_risk_factor}} Risk factors
+                            {{current_risk_factor.capitalize()}} Risk factors
                         </span>
 
                         <div *ngIf='current_factor=="total"'>
+
                             Total {{current_risk_factor}} Risk
                         </div>
 
