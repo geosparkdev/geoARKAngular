@@ -72,7 +72,7 @@
 table, td, th {  
   border: 1px solid #ddd;
   text-align: left;
-  margin-right:5px;
+  width:80%;
   
   }
   
@@ -218,7 +218,7 @@ EDIT ON
 
 
 .bars_plot{
-    height:24px;
+    height:25px;
 
 }
 

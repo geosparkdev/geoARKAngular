@@ -3225,6 +3225,13 @@ export class Categories2Component implements OnInit {
 
 
 
+  updateTotals(){
+   let factors_list=[this.risk_factors.Accessibility,this.risk_factors.Exposure,this.risk_factors.Health_resources,this.risk_factors.Socioeconomic,this.risk_factors.Susceptibility,this.risk_factors.Transmission]
+   this.map_title='new title'
+   this.getTotals(factors_list);
+
+  }
+
 
   getTotals(risk_factors:any){
     const customheaders= new HttpHeaders()
@@ -3255,7 +3262,7 @@ export class Categories2Component implements OnInit {
 
 
 
-  
+
   getTotalsGraph(){
     this.bar_bars=[];
 
