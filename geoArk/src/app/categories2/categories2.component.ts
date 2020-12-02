@@ -3306,7 +3306,7 @@ export class Categories2Component implements OnInit {
     let colors = colormap({
       colormap:'autumn',
       nshades: 50,
-      format: 'oxygen',
+      format: 'hex',
       alpha: 1
   })
 
