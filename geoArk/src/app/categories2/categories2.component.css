@@ -277,6 +277,7 @@ EDIT ON
 }
 .bar_header2{
     width:105px;
+    margin-left:3px;
     display : inline-flex;
     
 }
