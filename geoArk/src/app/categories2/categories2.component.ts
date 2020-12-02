@@ -3227,21 +3227,19 @@ export class Categories2Component implements OnInit {
 
   updateTotals(risk:string){
 
-   if (this.risk_factors[risk]==0){
+   if (this.risk_factors[risk]==2){
      this.risk_factors[risk]=1
    }
    else
    {
-     this.risk_factors[risk]=0
+     this.risk_factors[risk]=2
    }
    let factors_list=[this.risk_factors.Accessibility,this.risk_factors.Exposure,this.risk_factors.Health_resources,this.risk_factors.Socioeconomic,this.risk_factors.Susceptibility,this.risk_factors.Transmission]
 
 
-
-
-   this.map_title='new title'
    this.getTotals(factors_list);
 
+   this.map_title='new title'
   }
 
 
