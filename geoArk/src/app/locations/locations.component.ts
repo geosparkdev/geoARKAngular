@@ -14,7 +14,7 @@ import * as colormap from 'colormap';
 var risk_map;
 var geoJSON;
 var info;
-var map_status=0;
+var map_status;
 
 @Component({
   selector: 'app-locations',
@@ -3354,7 +3354,7 @@ export class LocationsComponent implements OnInit {
     
     this.spinner.show();
 
-
+    map_status=0
     risk_map = L.map("risk_map").setView([38.573936, -92.603760], 6.2);
 
 
