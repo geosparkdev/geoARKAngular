@@ -221,7 +221,15 @@ EDIT ON
 
 .bars_plot{
     height:25px;
+
 }
+
+.bars_plot_text{
+    height:25px;
+    padding-top:2px;
+    
+}
+
 
 
 
@@ -240,7 +248,7 @@ EDIT ON
 .bars_title
 {
     text-align:center;
-    font-size:1.1rem;
+    font-size:1.0rem;
     margin-left:200px;
 
 }
@@ -271,7 +279,7 @@ color: #777;
   
 
 .map_header{
-    font-size:1.3rem;
+    font-size:1.1rem;
     font-weight:bolder;
 
 
