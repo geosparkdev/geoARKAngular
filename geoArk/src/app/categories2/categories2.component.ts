@@ -3474,7 +3474,7 @@ export class Categories2Component implements OnInit {
         weight:0.5,
         //fillColor:getcolor(feature.id),
         fillColor:getcolor3(feature.id),
-        fillOpacity:0.8,
+        fillOpacity:1.0,
       }
     },
     onEachFeature: (feature, layer) => this.onEachFeature(feature, layer)
