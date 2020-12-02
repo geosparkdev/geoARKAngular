@@ -3528,7 +3528,7 @@ export class LocationsComponent implements OnInit {
           
 
            },
-          width: 400, 
+          autosize:true, 
           height: 45, 
           margin:{l:100, r:25, t:15, b:15, pad:1},
           size: 6,
@@ -3565,7 +3565,7 @@ export class LocationsComponent implements OnInit {
           },
       ],
       layout: {
-              width: 400, 
+              autosize:true, 
               height: 100, 
 
               title: {
@@ -3602,7 +3602,7 @@ export class LocationsComponent implements OnInit {
           },
       ],
       layout: {
-              width: 400, 
+              autosize:true, 
               height: 100, 
 
               title: {
@@ -3680,7 +3680,7 @@ export class LocationsComponent implements OnInit {
           },
       ],
       layout: {
-              width: 400, 
+              autosize:true, 
               height: 100, 
 
               title: {
