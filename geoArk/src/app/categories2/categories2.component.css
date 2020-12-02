@@ -273,10 +273,11 @@ EDIT ON
 }
 .bar_header1{
     width:400px;
-    float:left;
+    display : inline-flex;
 }
 .bar_header2{
     width:105px;
+    display : inline-flex;
     
 }
 
