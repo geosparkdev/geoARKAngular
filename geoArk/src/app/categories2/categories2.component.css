@@ -267,6 +267,15 @@ EDIT ON
 
 }
 
+.bar_header1{
+    width:400px;
+    margin-left:200px;
+}
+.bar_header2{
+    width:105px;
+    
+}
+
 /*----------- Map -----------*/
 .cat_map{
     height:40vh;

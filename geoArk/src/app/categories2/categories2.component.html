@@ -17,11 +17,11 @@
             <div class="alignright">
                 <br>
                 <div  class='main_button button_blue'>Accessibility</div>
-                <div  [ngClass]="{'main_button button_blue' : risk_factors.Exposure==2,'main_button1 button_blue_selected' : risk_factors.Exposure==1}" (click)='updateTotals("Exposure")'>Exposure</div>
+                <div class='main_button button_blue' [ngClass]="{'main_button1 button_blue_selected' : risk_factors.Exposure==1}" (click)='updateTotals("Exposure")'>Exposure</div>
                 <div  class='main_button button_blue'>Health Resources</div>
                 <div  class='main_button button_blue'>Socioeconomic</div>
-                <div  [ngClass]="{'main_button button_blue' : risk_factors.Susceptibility==2,'main_button1 button_blue_selected' : risk_factors.Susceptibility==1}" (click)='updateTotals("Susceptibility")'>Susceptibility</div>
-                <div  [ngClass]="{'main_button button_blue' : risk_factors.Transmission==2, 'main_button1 button_blue_selected' : risk_factors.Transmission==1}" (click)='updateTotals("Transmission")'>Transmission</div>
+                <div  class='main_button button_blue' [ngClass]="{'main_button1 button_blue_selected' : risk_factors.Susceptibility==1}" (click)='updateTotals("Susceptibility")'>Susceptibility</div>
+                <div class='main_button button_blue' [ngClass]="{'main_button1 button_blue_selected' : risk_factors.Transmission==1}" (click)='updateTotals("Transmission")'>Transmission</div>
             </div>
         
         </div>
@@ -49,6 +49,23 @@
     <div class="columns">
             <div class="column">
                 <div class='bars_title'>Counties ordered by the highest risk total</div>
+                <div class="columns">
+                    <div class="column is-3">
+
+                    </div>
+                    <div class="column is-3">
+
+                    </div>
+                    <div class="column">
+                        FIPS
+                    </div>
+                    <div class="column">
+                        Cases to date
+                    </div>
+                    <div class="column">
+                        Deaths to date
+                    </div>
+                </div>
                 <div class="bars_scroll">
                     <div class="columns">
                         <div class="column">
