@@ -17,7 +17,7 @@
             <div class="alignright">
                 <br>
                 <div  class='main_button button_blue'>Accessibility</div>
-                <div  [ngClass]="{'main_button button_blue' : risk_factors.Exposure!=1,'main_button button_blue button_blue_selected' : risk_factors.Exposure!=1}" (click)='updateTotals("Exposure")'>Exposure</div>
+                <div  [ngClass]="{'main_button button_blue' : risk_factors.Exposure==1,'main_button button_blue button_blue_selected' : risk_factors.Exposure!=1}" (click)='updateTotals("Exposure")'>Exposure</div>
                 <div  class='main_button button_blue'>Health Resources</div>
                 <div  class='main_button button_blue'>Socioeconomic</div>
                 <div  [ngClass]="{'main_button button_blue' : risk_factors.Susceptibility==1,'main_button button_blue button_blue_selected' : risk_factors.Susceptibility!=1}" (click)='updateTotals("Susceptibility")'>Susceptibility</div>
