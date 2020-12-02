@@ -3406,7 +3406,7 @@ export class Categories2Component implements OnInit {
    //info box display
    cat_info.update = function (props: any) {
       this._div.innerHTML =
-        (props ? "<b>County: </b>"+props.NAME+"<br><b>Total Risk: </b>"+getInfo(props['fips'])+"</b><br />" : "<h4>Click to see details of another county.</h4>");
+        (props ? "<b>County: </b>"+props.NAME+"<br><b>Total Risk: </b>"+getInfo(props['fips'])+"</b><br />" : "<h4>Click to see details of county.</h4>");
     };
     cat_info.addTo(cat_map);
 
