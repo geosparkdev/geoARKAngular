@@ -3629,7 +3629,7 @@ export class LocationsComponent implements OnInit {
          }
      };
 
-     //// MO covid cases plots
+     ///MO covid cases plots
     this.covid_cases = {
       data: [
           { x: this.covid[0], 
