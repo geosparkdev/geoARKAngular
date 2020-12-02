@@ -39,7 +39,7 @@ export class Categories2Component implements OnInit {
 
   public metadata:any;
 
-  public map_title:any='Exposure, Susceptibility, Transmission'
+  public map_title:any='Exposure Susceptibility Transmission'
 
 
 
@@ -3244,19 +3244,19 @@ export class Categories2Component implements OnInit {
    if (this.risk_factors.Accessibility==1){
     title=title+'Accessibility '
    }
-   else if(this.risk_factors.Exposure==1){
+   if(this.risk_factors.Exposure==1){
     title=title+'Exposure '
    }
-   else if(this.risk_factors.Health_resources==1){
+   if(this.risk_factors.Health_resources==1){
     title=title+'Health Resources '
    }
-   else if(this.risk_factors.Socioeconomic==1){
+   if(this.risk_factors.Socioeconomic==1){
     title=title+'Socioeconomic '
    }
-   else if(this.risk_factors.Susceptibility==1){
+   if(this.risk_factors.Susceptibility==1){
     title=title+'Susceptibility '
    }
-   else if(this.risk_factors.Transmission==1){
+   if(this.risk_factors.Transmission==1){
     title=title+'Transmission '
    }
 
