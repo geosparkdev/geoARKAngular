@@ -3239,7 +3239,28 @@ export class Categories2Component implements OnInit {
 
    this.getTotals(factors_list);
 
-   this.map_title='new title'
+   let title='';
+
+   if (this.risk_factors.Accessibility==1){
+    title=title+'Accessibility '
+   }
+   else if(this.risk_factors.Exposure==1){
+    title=title+'Exposure '
+   }
+   else if(this.risk_factors.Health_resources==1){
+    title=title+'Health Resources '
+   }
+   else if(this.risk_factors.Socioeconomic==1){
+    title=title+'Socioeconomic '
+   }
+   else if(this.risk_factors.Susceptibility==1){
+    title=title+'Susceptibility '
+   }
+   else if(this.risk_factors.Transmission==1){
+    title=title+'Transmission '
+   }
+
+   this.map_title=title;
   }
 
 
