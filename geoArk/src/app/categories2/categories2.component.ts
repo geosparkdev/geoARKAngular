@@ -36,7 +36,10 @@ export class Categories2Component implements OnInit {
   public bar_data:any;
   public tot_bar:any;
 
+
   public metadata:any;
+
+  public map_title:'Exposure, Susceptibility, Transmission'
 
 
 

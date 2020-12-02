@@ -72,13 +72,12 @@
 table, td, th {  
   border: 1px solid #ddd;
   text-align: left;
+  margin-right:20px;
   
   }
   
   table {
   border-collapse: collapse;
-  width: 80%;
-  margin-right:100px;
   
   }
   
@@ -219,7 +218,7 @@ EDIT ON
 
 
 .bars_plot{
-    height:26px;
+    height:24px;
 
 }
 
