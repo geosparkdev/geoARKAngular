@@ -3594,7 +3594,7 @@ export class Categories2Component implements OnInit {
     console.log("IN FILTER OPACITY")
     console.log(value)
   
-    if(filter=false){
+    if(filter==false){
       console.log('In filter false loop of filter opacity')
       return 1.0
     }
