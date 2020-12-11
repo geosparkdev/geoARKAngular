@@ -3399,11 +3399,11 @@ export class Categories2Component implements OnInit {
   selectFilter(filter){
 
 
-    this.current_filter=filter;
-    let curr_data=this.filters_data.find(e=> e['filter']===filter)
+    this.current_filter=filter.target.value;
+    let curr_data=this.filters_data.find(e=> e['filter']===filter.target.value)
 
     console.log("IN FILTERS FXN")
-    console.log(filter)
+    console.log(filter.target.value)
     console.log(this.filters_data)
     console.log(curr_data)
 
