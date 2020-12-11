@@ -3292,7 +3292,7 @@ export class Categories2Component implements OnInit {
         this.getFilters();
 
         this.getTotalsGraph();
-        this.map();
+    
 
 
   
@@ -3394,6 +3394,8 @@ export class Categories2Component implements OnInit {
 
         this.options.ceil=this.maxValue
         this.options.floor=this.minValue
+
+        this.map();
   
   
       },
