@@ -3330,7 +3330,6 @@ export class Categories2Component implements OnInit {
     cat_map = L.map("cat_map").setView([38.573936, -92.603760], 6.3);
 
     this.risk_factors= new risk_factors();
-    this.risk_factors.Socioeconomic=0;
     this.risk_factors.Accessibility=0;
     this.risk_factors.Health_resources=0;
 
