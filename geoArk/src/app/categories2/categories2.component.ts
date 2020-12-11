@@ -3454,6 +3454,7 @@ export class Categories2Component implements OnInit {
   
     var current_filter=this.current_filter
     var filter=this.filter
+    var filters_obj=this.filters_obj
     var value1=this.minValue
     var value2=this.maxValue
 
@@ -3585,7 +3586,7 @@ export class Categories2Component implements OnInit {
     console.log("IN FILTER OPACITY")
     console.log(value)
   
-    let filter_val=this.filters_obj.find(e=> e['cnty_fips']===value)
+    let filter_val=filters_obj.find(e=> e['cnty_fips']===value)
 
     console.log(filter_val)
     console.log(filter_val[current_filter])
