@@ -3403,6 +3403,8 @@ export class Categories2Component implements OnInit {
     let curr_data=this.filters_data.find(e=> e['filter']===filter)
 
     console.log("IN FILTERS FXN")
+    console.log(filter)
+    console.log(this.filters_data)
     console.log(curr_data)
 
     this.minValue= Number(curr_data.min);
