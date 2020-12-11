@@ -3441,6 +3441,7 @@ export class Categories2Component implements OnInit {
 
   onUserChange(changeContext: ChangeContext): void {
     console.log(changeContext)
+    this.map()
   
   }
 
@@ -3477,6 +3478,8 @@ export class Categories2Component implements OnInit {
     var filters_obj=this.filters_obj
     var value1=this.minValue
     var value2=this.maxValue
+    console.log('value1')
+    console.log(value1)
 
     let factor_max=metadata.find(e=> e['factor']===current_fact)
 
