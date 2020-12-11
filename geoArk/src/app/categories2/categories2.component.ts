@@ -3289,9 +3289,11 @@ export class Categories2Component implements OnInit {
         this.tot_table=response[2];
         this.metadata=response[3];
 
+        this.map();
         this.getFilters();
-
         this.getTotalsGraph();
+       
+  
     
 
 
@@ -3383,19 +3385,6 @@ export class Categories2Component implements OnInit {
         this.filters_obj=response[0];
         this.filters_data=response[1];
 
-        let curr_data=this.filters_data.find(e=> e['filter']===this.current_filter)
-
-        console.log("IN FILTERS FXN")
-        console.log(curr_data)
-
-        this.minValue= Number(curr_data.min);
-        this.maxValue= Number(curr_data.max);
-        console.log(this.maxValue)
-
-        this.options.ceil=this.maxValue
-        this.options.floor=this.minValue
-
-        this.map();
   
   
       },
@@ -3408,6 +3397,19 @@ export class Categories2Component implements OnInit {
 
 
   selectFilter(filter){
+
+
+
+    let curr_data=this.filters_data.find(e=> e['filter']===this.current_filter)
+
+    console.log("IN FILTERS FXN")
+    console.log(curr_data)
+
+    this.minValue= Number(curr_data.min);
+    this.maxValue= Number(curr_data.max);
+    console.log(this.maxValue)
+
+
     this.options.ceil=this.maxValue
     this.options.floor=this.minValue
     this.filter=true;
@@ -3415,6 +3417,7 @@ export class Categories2Component implements OnInit {
     this.current_filter=filter;
     console.log("select Filter fxn")
     console.log(filter)
+    this.map()
   }
 
 
@@ -3593,22 +3596,27 @@ export class Categories2Component implements OnInit {
     console.log("IN FILTER OPACITY")
     console.log(value)
   
-    let filter_val=filters_obj.find(e=> e['cnty_fips']===value)
-
-    console.log(filter_val)
-    console.log(filter_val[current_filter])
-
-    if(filter==false){
+    if(filter=false){
       return 1.0
     }
-    else if(filter==true && filter_val[current_filter] >=value1 && filter_val[current_filter] <=value2)
-    {
-      return 1.0
+    else{
+
+      let filter_val=filters_obj.find(e=> e['cnty_fips']===value)
+
+      console.log(filter_val)
+      console.log(filter_val[current_filter])
+
+      if(filter_val[current_filter] >=value1 && filter_val[current_filter] <=value2)
+      {
+        return 1.0
+      }
+      else
+      {
+        return 0.6
+      }
+
     }
-    else
-    {
-      return 0.6
-    }
+    
 
   }
 
