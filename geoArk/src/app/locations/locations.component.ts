@@ -3866,7 +3866,7 @@ getWindrosedata(covid_fips:any){
             type: "barpolar",
           },
           {
-            r: [72.5],
+            r: [Number(this.windrose_data[3])],
             theta: ["Socioeconomic",],
             marker: {color: "#ef563b"},
             showlegend:false,
