@@ -3620,6 +3620,9 @@ export class Categories2Component implements OnInit {
 
       console.log(filter_val)
       console.log(filter_val[current_filter])
+      console.log("***")
+      console.log(value1)
+      console.log(value2)
 
       if((filter_val[current_filter] >=value1) && (filter_val[current_filter] <=value2))
       {
@@ -3627,7 +3630,9 @@ export class Categories2Component implements OnInit {
       }
       else
       {
+        console.log("in the filter loop else statement")
         return 0.6
+     
       }
 
     }
