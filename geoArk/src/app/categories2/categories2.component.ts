@@ -3441,7 +3441,9 @@ export class Categories2Component implements OnInit {
 
   onUserChange(changeContext: ChangeContext): void {
     console.log(changeContext)
+    cat_geoJSON.removeLayer(L.GeoJSON);
     this.map()
+    
   
   }
 
