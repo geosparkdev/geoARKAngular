@@ -319,6 +319,21 @@ color: #777;
 
 
 
+
+select{
+  width:100%;
+  font-family:"Euphemia UCAS";
+  font-weight: bold;
+  font-size: 0.8rem;
+  text-align:center;
+  border: solid 1px black;
+  padding:5px;
+  }
+
+
+
+
+
 ::ng-deep .custom-slider .ng5-slider .ng5-slider-bar {
     background: #ffe4d1;
     height: 2px;
