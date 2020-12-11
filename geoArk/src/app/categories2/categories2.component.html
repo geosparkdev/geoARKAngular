@@ -42,7 +42,10 @@
                 <tr>
                   <td>
                       
-                    <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+                    <div *ngIf='filter'>
+                        <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+                    </div>
+           
 
                 
                 
@@ -105,10 +108,10 @@
         </div>
         
       
-        <div class="column is-4">
+        <div class="column is-3">
             Choose a filter:
-            <select id="filter_select">
-                <option value='rural'>Rural-Urban Continuum</option>
+            <select id="filter_select" (change)="selectFilter($event)" >
+                <option value='RUCC_2013'>Rural-Urban Continuum</option>
             </select>
             
         </div>

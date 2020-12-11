@@ -3197,7 +3197,7 @@ export class Categories2Component implements OnInit {
 
   
 
-  public current_filter='RUCC_2013';
+  public current_filter:any;
 
 
   public minValue: number;
@@ -3207,7 +3207,7 @@ export class Categories2Component implements OnInit {
     ceil: 0
   };
 
-  public filter:boolean=true;
+  public filter:boolean=false;
 
   public filters_data:any;
   public filters_obj:any;
@@ -3407,8 +3407,15 @@ export class Categories2Component implements OnInit {
   }
 
 
+  selectFilter(filter){
+    this.options.ceil=this.maxValue
+    this.options.floor=this.minValue
+    this.filter=true;
 
-
+    this.current_filter=filter;
+    console.log("select Filter fxn")
+    console.log(filter)
+  }
 
 
 
