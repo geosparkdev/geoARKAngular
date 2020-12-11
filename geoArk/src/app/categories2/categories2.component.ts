@@ -3612,7 +3612,7 @@ export class Categories2Component implements OnInit {
   
     if(filter==false){
       console.log('In filter false loop of filter opacity')
-      return 1.0
+      return 0.6
     }
     else{
 
