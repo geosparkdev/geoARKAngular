@@ -3289,6 +3289,8 @@ export class Categories2Component implements OnInit {
         this.tot_table=response[2];
         this.metadata=response[3];
 
+        this.getFilters();
+
         this.getTotalsGraph();
         this.map();
 
@@ -3371,7 +3373,7 @@ export class Categories2Component implements OnInit {
 
 
 
-  getFilters(risk_factors:any){
+  getFilters(){
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
   
