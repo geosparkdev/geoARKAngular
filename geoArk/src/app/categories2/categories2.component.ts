@@ -3,6 +3,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { environment} from 'src/environments/environment';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Options,ChangeContext } from 'ng5-slider';
 
 //Third Party Packages 
 import * as L from 'leaflet';
@@ -39,7 +40,6 @@ export class Categories2Component implements OnInit {
   public metadata:any;
 
   public map_title:any='Exposure Susceptibility Transmission'
-
 
 
 
@@ -3197,127 +3197,20 @@ export class Categories2Component implements OnInit {
 
   
 
+  public current_filter='RUCC_2013';
 
-  public filter_obj:any=[{'FIPS': 29001, 'rural': 7.0},
-  {'FIPS': 29003, 'rural': 3.0},
-  {'FIPS': 29005, 'rural': 9.0},
-  {'FIPS': 29007, 'rural': 6.0},
-  {'FIPS': 29009, 'rural': 6.0},
-  {'FIPS': 29011, 'rural': 6.0},
-  {'FIPS': 29013, 'rural': 1.0},
-  {'FIPS': 29015, 'rural': 7.0},
-  {'FIPS': 29017, 'rural': 3.0},
-  {'FIPS': 29019, 'rural': 3.0},
-  {'FIPS': 29021, 'rural': 3.0},
-  {'FIPS': 29023, 'rural': 5.0},
-  {'FIPS': 29025, 'rural': 1.0},
-  {'FIPS': 29027, 'rural': 3.0},
-  {'FIPS': 29029, 'rural': 7.0},
-  {'FIPS': 29031, 'rural': 3.0},
-  {'FIPS': 29033, 'rural': 6.0},
-  {'FIPS': 29035, 'rural': 9.0},
-  {'FIPS': 29037, 'rural': 1.0},
-  {'FIPS': 29039, 'rural': 6.0},
-  {'FIPS': 29041, 'rural': 9.0},
-  {'FIPS': 29043, 'rural': 2.0},
-  {'FIPS': 29045, 'rural': 9.0},
-  {'FIPS': 29047, 'rural': 1.0},
-  {'FIPS': 29049, 'rural': 1.0},
-  {'FIPS': 29051, 'rural': 3.0},
-  {'FIPS': 29053, 'rural': 6.0},
-  {'FIPS': 29055, 'rural': 6.0},
-  {'FIPS': 29057, 'rural': 8.0},
-  {'FIPS': 29059, 'rural': 2.0},
-  {'FIPS': 29061, 'rural': 8.0},
-  {'FIPS': 29063, 'rural': 3.0},
-  {'FIPS': 29065, 'rural': 7.0},
-  {'FIPS': 29067, 'rural': 6.0},
-  {'FIPS': 29069, 'rural': 7.0},
-  {'FIPS': 29071, 'rural': 1.0},
-  {'FIPS': 29073, 'rural': 6.0},
-  {'FIPS': 29075, 'rural': 8.0},
-  {'FIPS': 29077, 'rural': 2.0},
-  {'FIPS': 29079, 'rural': 7.0},
-  {'FIPS': 29081, 'rural': 7.0},
-  {'FIPS': 29083, 'rural': 6.0},
-  {'FIPS': 29085, 'rural': 8.0},
-  {'FIPS': 29087, 'rural': 8.0},
-  {'FIPS': 29089, 'rural': 6.0},
-  {'FIPS': 29091, 'rural': 7.0},
-  {'FIPS': 29093, 'rural': 7.0},
-  {'FIPS': 29095, 'rural': 1.0},
-  {'FIPS': 29097, 'rural': 3.0},
-  {'FIPS': 29099, 'rural': 1.0},
-  {'FIPS': 29101, 'rural': 4.0},
-  {'FIPS': 29103, 'rural': 9.0},
-  {'FIPS': 29105, 'rural': 6.0},
-  {'FIPS': 29107, 'rural': 1.0},
-  {'FIPS': 29109, 'rural': 6.0},
-  {'FIPS': 29111, 'rural': 9.0},
-  {'FIPS': 29113, 'rural': 1.0},
-  {'FIPS': 29115, 'rural': 7.0},
-  {'FIPS': 29117, 'rural': 6.0},
-  {'FIPS': 29119, 'rural': 2.0},
-  {'FIPS': 29121, 'rural': 7.0},
-  {'FIPS': 29123, 'rural': 6.0},
-  {'FIPS': 29125, 'rural': 8.0},
-  {'FIPS': 29127, 'rural': 5.0},
-  {'FIPS': 29129, 'rural': 9.0},
-  {'FIPS': 29131, 'rural': 6.0},
-  {'FIPS': 29133, 'rural': 6.0},
-  {'FIPS': 29135, 'rural': 3.0},
-  {'FIPS': 29137, 'rural': 9.0},
-  {'FIPS': 29139, 'rural': 6.0},
-  {'FIPS': 29141, 'rural': 8.0},
-  {'FIPS': 29143, 'rural': 7.0},
-  {'FIPS': 29145, 'rural': 3.0},
-  {'FIPS': 29147, 'rural': 6.0},
-  {'FIPS': 29149, 'rural': 9.0},
-  {'FIPS': 29151, 'rural': 3.0},
-  {'FIPS': 29153, 'rural': 9.0},
-  {'FIPS': 29155, 'rural': 7.0},
-  {'FIPS': 29157, 'rural': 6.0},
-  {'FIPS': 29159, 'rural': 4.0},
-  {'FIPS': 29161, 'rural': 5.0},
-  {'FIPS': 29163, 'rural': 6.0},
-  {'FIPS': 29165, 'rural': 1.0},
-  {'FIPS': 29167, 'rural': 2.0},
-  {'FIPS': 29169, 'rural': 5.0},
-  {'FIPS': 29171, 'rural': 9.0},
-  {'FIPS': 29173, 'rural': 9.0},
-  {'FIPS': 29175, 'rural': 6.0},
-  {'FIPS': 29177, 'rural': 1.0},
-  {'FIPS': 29179, 'rural': 9.0},
-  {'FIPS': 29181, 'rural': 9.0},
-  {'FIPS': 29183, 'rural': 1.0},
-  {'FIPS': 29185, 'rural': 8.0},
-  {'FIPS': 29186, 'rural': 6.0},
-  {'FIPS': 29187, 'rural': 4.0},
-  {'FIPS': 29189, 'rural': 1.0},
-  {'FIPS': 29195, 'rural': 6.0},
-  {'FIPS': 29197, 'rural': 9.0},
-  {'FIPS': 29199, 'rural': 9.0},
-  {'FIPS': 29201, 'rural': 4.0},
-  {'FIPS': 29203, 'rural': 9.0},
-  {'FIPS': 29205, 'rural': 9.0},
-  {'FIPS': 29207, 'rural': 6.0},
-  {'FIPS': 29209, 'rural': 6.0},
-  {'FIPS': 29211, 'rural': 9.0},
-  {'FIPS': 29213, 'rural': 4.0},
-  {'FIPS': 29215, 'rural': 9.0},
-  {'FIPS': 29217, 'rural': 7.0},
-  {'FIPS': 29219, 'rural': 1.0},
-  {'FIPS': 29221, 'rural': 6.0},
-  {'FIPS': 29223, 'rural': 9.0},
-  {'FIPS': 29225, 'rural': 2.0},
-  {'FIPS': 29227, 'rural': 9.0},
-  {'FIPS': 29229, 'rural': 6.0},
-  {'FIPS': 29510, 'rural': 1.0}]
 
-  public current_filter='rural';
-  public value1:any='2';
-  public value2:any='5';
+  public minValue: number;
+  public maxValue: number;
+  public options: Options = {
+    floor: 0,
+    ceil: 0
+  };
+
   public filter:boolean=true;
+
+  public filters_data:any;
+  public filters_obj:any;
 
 
 
@@ -3476,6 +3369,45 @@ export class Categories2Component implements OnInit {
 
 
 
+
+
+  getFilters(risk_factors:any){
+    const customheaders= new HttpHeaders()
+          .set('Content-Type', 'application/json');
+  
+    this.http.get(environment.base_url+"5000/getFilters", {headers: customheaders}).subscribe(
+      response=> {
+
+        this.filters_obj=response[0];
+        this.filters_data=response[1];
+
+        let curr_data=this.filters_data.find(e=> e['filter']===this.current_filter)
+
+        console.log("IN FILTERS FXN")
+        console.log(curr_data)
+
+        this.minValue= Number(curr_data.min);
+        this.maxValue= Number(curr_data.max);
+        console.log(this.maxValue)
+
+        this.options.ceil=this.maxValue
+        this.options.floor=this.minValue
+  
+  
+      },
+      error => {
+        console.log(error)
+      }
+    )
+  
+  }
+
+
+
+
+
+
+
   getBins(min,max,threshold){
 
       var multiple=max/threshold
@@ -3516,9 +3448,10 @@ export class Categories2Component implements OnInit {
     var metadata=this.metadata;
     var current_fact='total_risk'
   
+    var current_filter=this.current_filter
     var filter=this.filter
-    var value1=this.value1
-    var value2=this.value2
+    var value1=this.minValue
+    var value2=this.maxValue
 
     let factor_max=metadata.find(e=> e['factor']===current_fact)
 
@@ -3592,7 +3525,7 @@ export class Categories2Component implements OnInit {
         weight:0.5,
         //fillColor:getcolor(feature.id),
         fillColor:getcolor3(feature.id),
-        fillOpacity:1.0,
+        fillOpacity:filterOpacity(feature.id),
       }
     },
     onEachFeature: (feature, layer) => this.onEachFeature(feature, layer)
@@ -3645,10 +3578,18 @@ export class Categories2Component implements OnInit {
 
   function filterOpacity(value){
 
+    console.log("IN FILTER OPACITY")
+    console.log(value)
+  
+    let filter_val=this.filters_obj.find(e=> e['cnty_fips']===value)
+
+    console.log(filter_val)
+    console.log(filter_val[current_filter])
+
     if(filter==false){
       return 1.0
     }
-    else if(filter==true && value >=value1 && value <=value2)
+    else if(filter==true && filter_val[current_filter] >=value1 && filter_val[current_filter] <=value2)
     {
       return 1.0
     }
