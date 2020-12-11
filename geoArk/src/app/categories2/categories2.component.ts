@@ -3441,7 +3441,7 @@ export class Categories2Component implements OnInit {
 
   onUserChange(changeContext: ChangeContext): void {
     console.log(changeContext)
-    cat_geoJSON.clearLayers();
+    //cat_geoJSON.clearLayers();
     this.map()
     
   
@@ -3472,8 +3472,7 @@ export class Categories2Component implements OnInit {
   map(){
 
 
-    cat_geoJSON.clearLayers();
-    
+
     var data=this.tot_table;
     var metadata=this.metadata;
     var current_fact='total_risk'
