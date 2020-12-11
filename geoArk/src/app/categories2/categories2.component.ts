@@ -3626,12 +3626,12 @@ export class Categories2Component implements OnInit {
 
       if((Number(filter_val[current_filter]) >=value1) && (Number(filter_val[current_filter]) <=value2))
       {
-        return 1.0
+        return 0.6
       }
       else
       {
         console.log("in the filter loop else statement")
-        return 0.6
+        return 1.0
      
       }
 
