@@ -3437,6 +3437,15 @@ export class Categories2Component implements OnInit {
   }
 
 
+
+
+  onUserChange(changeContext: ChangeContext): void {
+    console.log(changeContext)
+  
+  }
+
+
+
     
   getColor(value,min, threshold, colorrange, binrange){
     

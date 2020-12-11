@@ -43,7 +43,7 @@
                   <td>
                       
                     <div *ngIf='filter'>
-                        <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+                        <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options" (userChange)="onUserChange($event)"></ng5-slider>
                     </div>
            
 
