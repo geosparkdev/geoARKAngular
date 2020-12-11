@@ -3580,7 +3580,6 @@ export class Categories2Component implements OnInit {
       if(temp[current_fact] >=ranges[i])
       {
         color= colorrange[i];
-        console.log('IN HERE')
         console.log(color)
         break;
       }
@@ -3596,6 +3595,7 @@ export class Categories2Component implements OnInit {
     console.log(value)
   
     if(filter=false){
+      console.log('In filter false loop of filter opacity')
       return 1.0
     }
     else{
