@@ -3441,7 +3441,7 @@ export class Categories2Component implements OnInit {
 
   onUserChange(changeContext: ChangeContext): void {
     console.log(changeContext)
-    cat_geoJSON.removeLayer(L.GeoJSON);
+    cat_geoJSON.clearLayers();
     this.map()
     
   
@@ -3612,7 +3612,7 @@ export class Categories2Component implements OnInit {
   
     if(filter==false){
       console.log('In filter false loop of filter opacity')
-      return 0.6
+      return 1.0
     }
     else{
 
@@ -3626,12 +3626,12 @@ export class Categories2Component implements OnInit {
 
       if((Number(filter_val[current_filter]) >=value1) && (Number(filter_val[current_filter]) <=value2))
       {
-        return 0.6
+        return 1.0
       }
       else
       {
         console.log("in the filter loop else statement")
-        return 1.0
+        return 0.5
      
       }
 
