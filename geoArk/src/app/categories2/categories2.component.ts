@@ -3399,8 +3399,8 @@ export class Categories2Component implements OnInit {
   selectFilter(filter){
 
 
-
-    let curr_data=this.filters_data.find(e=> e['filter']===this.current_filter)
+    this.current_filter=filter;
+    let curr_data=this.filters_data.find(e=> e['filter']===filter)
 
     console.log("IN FILTERS FXN")
     console.log(curr_data)
@@ -3414,7 +3414,6 @@ export class Categories2Component implements OnInit {
     this.options.floor=this.minValue
     this.filter=true;
 
-    this.current_filter=filter;
     console.log("select Filter fxn")
     console.log(filter)
     this.map()
