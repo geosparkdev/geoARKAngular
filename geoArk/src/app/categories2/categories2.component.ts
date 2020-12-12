@@ -3441,7 +3441,10 @@ export class Categories2Component implements OnInit {
 
   onUserChange(changeContext: ChangeContext): void {
     console.log(changeContext)
-    cat_geoJSON.clearLayers();
+    if(this.filter==true){
+      cat_geoJSON.clearLayers();
+    }
+ 
     //this.map()
     
   
