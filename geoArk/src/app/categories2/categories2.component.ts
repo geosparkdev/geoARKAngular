@@ -3416,6 +3416,8 @@ export class Categories2Component implements OnInit {
     this.options.floor=this.minValue
     this.filter=true;
 
+
+    
     cat_geoJSON.clearLayers();
     console.log("select Filter fxn")
     console.log(filter)
@@ -3640,7 +3642,7 @@ export class Categories2Component implements OnInit {
       else
       {
         console.log("in the filter loop else statement")
-        return 0.5
+        return 0.3
      
       }
 
