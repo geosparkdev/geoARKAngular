@@ -3416,6 +3416,7 @@ export class Categories2Component implements OnInit {
     this.options.floor=this.minValue
     this.filter=true;
 
+    cat_geoJSON.clearLayers();
     console.log("select Filter fxn")
     console.log(filter)
     this.map()
@@ -3441,11 +3442,14 @@ export class Categories2Component implements OnInit {
 
   onUserChange(changeContext: ChangeContext): void {
     console.log(changeContext)
+    // ADD THIS TO SEE WHAT THIS.FILTER IS
+    console.log(this.filter)
     if(this.filter==true){
       cat_geoJSON.clearLayers();
     }
+
  
-    //this.map()
+    this.map()
     
   
   }
