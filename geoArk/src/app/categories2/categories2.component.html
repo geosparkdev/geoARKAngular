@@ -44,7 +44,10 @@
                     <div *ngIf='!filter' style='height:280px'>
                     </div>
                     <div  *ngIf='filter'>
-                        <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options" (userChange)="onUserChange($event)"></ng5-slider>
+                        <div class='custom-slider'>
+                            <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options" (userChange)="onUserChange($event)"></ng5-slider>
+                        </div>
+                       
                     </div>
            
 
