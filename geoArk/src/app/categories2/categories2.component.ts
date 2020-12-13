@@ -3289,6 +3289,13 @@ export class Categories2Component implements OnInit {
         this.tot_table=response[2];
         this.metadata=response[3];
 
+
+
+        if(cat_map_status==1){
+          cat_geoJSON.clearLayers();
+        }
+
+
         this.map();
         this.getFilters();
         this.getTotalsGraph();
