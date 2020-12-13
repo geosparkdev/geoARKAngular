@@ -3563,7 +3563,7 @@ export class Categories2Component implements OnInit {
       return{
         color: 'black',
         //weight: getLineWidth(feature.id),
-        weight:0.5,
+        weight:filterLine(feature.id),
         //fillColor:getcolor(feature.id),
         fillColor:getcolor3(feature.id),
         fillOpacity:filterOpacity(feature.id),
@@ -3642,7 +3642,44 @@ export class Categories2Component implements OnInit {
       else
       {
         console.log("in the filter loop else statement")
-        return 0.3
+        return 0.2
+     
+      }
+
+    }
+    
+
+  }
+
+
+
+  function filterLine(value){
+
+    console.log("IN FILTER Line")
+    console.log(value)
+  
+    if(filter==false){
+      console.log('In filter false loop of filter opacity')
+      return 0.5
+    }
+    else{
+
+      let filter_val=filters_obj.find(e=> e['cnty_fips']===value)
+
+      console.log(filter_val)
+      console.log(filter_val[current_filter])
+      console.log("***")
+      console.log(value1)
+      console.log(value2)
+
+      if((Number(filter_val[current_filter]) >=value1) && (Number(filter_val[current_filter]) <=value2))
+      {
+        return 0.5
+      }
+      else
+      {
+        console.log("in the filter loop else statement")
+        return 0.0
      
       }
 
