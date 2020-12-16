@@ -3425,7 +3425,7 @@ export class Categories2Component implements OnInit {
     console.log(curr_data)
 
     this.minValue= Number(curr_data.min);
-    this.maxValue= Number(curr_data.max);
+    this.maxValue=9;
     console.log(this.maxValue)
 
 
