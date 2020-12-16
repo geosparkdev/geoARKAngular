@@ -3468,7 +3468,8 @@ export class Categories2Component implements OnInit {
       cat_geoJSON.clearLayers();
     }
 
- 
+    this.minValue= Number(changeContext.value);
+    this.maxValue= Number(changeContext.highValue);
     this.map()
     
   
