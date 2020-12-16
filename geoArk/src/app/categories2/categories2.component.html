@@ -28,7 +28,8 @@
         <div class='column'>
             <div class='map_header'>
                 {{map_title}} Risk Totals
-                <br>
+            </div>
+            <div *ngIf="filter">
                 {{filter_display_name}} values between {{this.minValue}} and {{this.maxValue}}
             </div>
             <div id="cat_map" class="cat_map"></div>   
