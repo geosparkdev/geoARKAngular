@@ -3225,7 +3225,7 @@ export class Categories2Component implements OnInit {
   ngOnInit(): void {
 
     this.filter1=new filter();
-    this.filter=true;
+    //this.filter=true;
    
 
     cat_map_status=0;
