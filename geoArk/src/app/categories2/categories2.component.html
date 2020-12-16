@@ -43,9 +43,10 @@
                   <td>
                     <div *ngIf='!filter' style='height:280px'>
                     </div>
-                    <div  *ngIf='filter'>
+                    <div style='height:280px' *ngIf='filter'>
                         <div class='custom-slider'>
-                            <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options" (userChange)="onUserChange($event)"></ng5-slider>
+                            {{filter1.name}} <div class="close"><i class="mdi mdi-close-box-outline" ></i></div>
+                            <ng5-slider [(value)]="filter1.min_value" [(highValue)]="filter1.max_value" [options]="filter1.options" (userChange)="onUserChange($event)"></ng5-slider>
                         </div>
                        
                     </div>

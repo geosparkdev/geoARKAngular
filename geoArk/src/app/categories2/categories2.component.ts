@@ -11,6 +11,7 @@ import * as colormap from 'colormap';
 
 //Objects
 import{risk_factors} from '../models/risk_factors';
+import {filter } from '../models/filterBase';
 
 
 var cat_map:any;
@@ -3197,6 +3198,11 @@ export class Categories2Component implements OnInit {
 
   
 
+
+
+
+  public filter1:filter;
+
   public current_filter:any;
 
 
@@ -3218,6 +3224,9 @@ export class Categories2Component implements OnInit {
 
   ngOnInit(): void {
 
+    this.filter1=new filter();
+    this.filter=true;
+   
 
     cat_map_status=0;
     cat_map = L.map("cat_map").setView([38.573936, -92.603760], 6.3);
@@ -3408,6 +3417,8 @@ export class Categories2Component implements OnInit {
 
     this.current_filter=filter.target.value;
     let curr_data=this.filters_data.find(e=> e['filter']===filter.target.value)
+    this.filter1.name=filter.target.value
+
 
     console.log("IN FILTERS FXN")
     console.log(filter.target.value)

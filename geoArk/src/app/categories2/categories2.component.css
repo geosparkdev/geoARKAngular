@@ -332,7 +332,10 @@ select{
 
 
  
-
+.close{
+  float:right;
+  font-size:14px;
+}
 
 ::ng-deep .custom-slider .ng5-slider .ng5-slider-bar {
     background:black;
@@ -343,8 +346,8 @@ select{
   }
 
   ::ng-deep .custom-slider .ng5-slider .ng5-slider-pointer {
-    width: 12px;
-    height: 12px;
+    width: 13px;
+    height: 13px;
     top: auto; /* to remove the default positioning */
     bottom: 0;
     background-color: black;
@@ -357,7 +360,10 @@ select{
 
   ::ng-deep  .custom-slider .ng5-slider .ng5-slider-bubble {
     bottom: 14px;
+    font-size: 10px;
   }
+
+
 
   ::ng-deep  .custom-slider .ng5-slider .ng5-slider-limit {
     font-weight: bold;
