@@ -3425,11 +3425,11 @@ export class Categories2Component implements OnInit {
     console.log(curr_data)
 
     this.minValue= Number(curr_data.min);
-    this.maxValue=8;
+    this.maxValue=Number(curr_data.max);
     console.log(this.maxValue)
 
 
-    this.options.ceil=8
+    this.options.ceil=this.maxValue
     this.options.floor=this.minValue
     this.filter=true;
 
