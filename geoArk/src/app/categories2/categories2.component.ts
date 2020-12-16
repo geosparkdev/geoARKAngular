@@ -3429,7 +3429,7 @@ export class Categories2Component implements OnInit {
     console.log(this.maxValue)
 
 
-    this.options.ceil=this.maxValue
+    this.options.ceil=9
     this.options.floor=this.minValue
     this.filter=true;
 
