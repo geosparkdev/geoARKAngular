@@ -3218,6 +3218,7 @@ export class Categories2Component implements OnInit {
   public filters_data:any;
   public filters_obj:any;
 
+  public filter_display_name:string='Rural-Urban Continuum';
 
 
   constructor(public http: HttpClient,private spinner: NgxSpinnerService) { }
@@ -3334,8 +3335,6 @@ export class Categories2Component implements OnInit {
 
     var current_fact='total_risk'
     let factor_max=this.metadata.find(e=> e['factor']===current_fact)
-    //console.log("EHRHERHEHR")
-    //console.log(this.bar_data)
     let colors = colormap({
       colormap:'autumn',
       nshades: 50,
@@ -3442,6 +3441,13 @@ export class Categories2Component implements OnInit {
     this.map()
   }
 
+
+  dropFilter(){
+    this.filter=false;
+    cat_geoJSON.clearLayers();
+    this.map()
+
+  }
 
 
   getBins(min,max,threshold){
