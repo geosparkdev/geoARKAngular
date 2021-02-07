@@ -118,9 +118,7 @@ Geo-Context and COVID-19 in Missouri
                 </div>
                 <div class='column is-4'>
                     <div class='alignright'>
-                        <div class='main_button button_blue'></div>
-
-
+           
 
                         <div *ngIf='current_risk_factor=="accessibility"'>
                             <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("accessibility")'>Accessibility</div><span><hr class='new1'></span>
@@ -131,17 +129,21 @@ Geo-Context and COVID-19 in Missouri
 
                   
 
-                        <div *ngIf='current_risk_factor=="exposure"'>
-                            <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("exposure")'>Exposure</div><span><hr class='new1'></span>
+                        <div *ngIf='current_risk_factor=="healthresources"'>
+                            <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("healthresources")'>Health Resources</div><span><hr class='new1'></span>
                         </div>
-                        <div *ngIf='current_risk_factor!="exposure"'>
-                            <div class='main_button button_blue' (click)='getFactorsData("exposure")'>Exposure</div>
+                        <div *ngIf='current_risk_factor!="healthresources"'>
+                            <div class='main_button button_blue' (click)='getFactorsData("healthresources")'>Health Resources</div>
                         </div>
 
 
                         
-                        <div class='main_button button_blue'>Health Resources</div>
-                        <br>
+                        <div *ngIf='current_risk_factor=="accessibility"'>
+                            <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("accessibility")'>Accessibility</div><span><hr class='new1'></span>
+                        </div>
+                        <div *ngIf='current_risk_factor!="accessibility"'>
+                            <div class='main_button button_blue' (click)='getFactorsData("accessibility")'>Accessibility</div>
+                        </div>
 
 
                         <div *ngIf='current_risk_factor=="socioeconomic"'>
