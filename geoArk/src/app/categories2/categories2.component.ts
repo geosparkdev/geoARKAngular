@@ -40,7 +40,7 @@ export class Categories2Component implements OnInit {
 
   public metadata:any;
 
-  public map_title:any='Total Risk'
+  public map_title:any=''
 
 
 
@@ -3287,7 +3287,7 @@ export class Categories2Component implements OnInit {
     && this.risk_factors.Socioeconomic==1
     && this.risk_factors.Susceptibility==1
     && this.risk_factors.Transmission==1){
-      title="Total Risk"
+      title=""
     }
 
    this.map_title=title;
