@@ -14,7 +14,7 @@ Geo-Context and COVID-19 in Missouri
     <div class='statsblock'>
         <div class='columns'>
             <div class='column is-3'>
-                <select id="county drop down" name="county"(change)="getCountyData($event)" >
+                <select id="county drop down" [ngModel]="selectcntyfip" name="county"(change)="getCountyData($event)" >
                     <option *ngFor='let county of counties' value={{county.cnty_fips}} >{{county.cnty_name}} County</option>
 
                 </select>
