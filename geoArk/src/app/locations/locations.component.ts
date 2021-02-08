@@ -3445,7 +3445,7 @@ export class LocationsComponent implements OnInit {
         this.county_65=response[1];
         this.county_cov_case=response[2];
         this.county_cov_deaths=response[3];
-        this.county_total_risk="100";
+        this.county_total_risk=response[4];
 
 
 
