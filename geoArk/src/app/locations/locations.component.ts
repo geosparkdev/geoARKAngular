@@ -3419,7 +3419,7 @@ export class LocationsComponent implements OnInit {
     let temp=this.counties.find(e=> e['cnty_fips']===Number(event.target.feature.properties.fips))
     this.county_name=temp.cnty_name
 
-    let setValue = (<HTMLInputElement>document.getElementById('county drop down')).value=this.county_name;
+    (<HTMLInputElement>document.getElementById('county drop down')).value=this.county_fips;
 
     geoJSON.clearLayers();
     this.map();
