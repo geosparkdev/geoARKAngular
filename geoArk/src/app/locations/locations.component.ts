@@ -3427,6 +3427,9 @@ export class LocationsComponent implements OnInit {
     this.getCovidData(Number(event.target.feature.properties.fips));
     this.getWindrosedata(Number(event.target.feature.properties.fips));
     
+    var selectelement=document.getElementById("county drop down")
+    console.log(selectelement)
+    console.log("SELECT ELEMENT ^")
 
 
   }
