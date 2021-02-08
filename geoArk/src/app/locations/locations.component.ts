@@ -3413,12 +3413,13 @@ export class LocationsComponent implements OnInit {
     this.county_fips=Number(event.target.feature.properties.fips);
     this.current_factor='total'
 
- 
+   
   
 
     let temp=this.counties.find(e=> e['cnty_fips']===Number(event.target.feature.properties.fips))
     this.county_name=temp.cnty_name
 
+    let setValue = (<HTMLInputElement>document.getElementById('county drop down')).value=this.county_name;
 
     geoJSON.clearLayers();
     this.map();
