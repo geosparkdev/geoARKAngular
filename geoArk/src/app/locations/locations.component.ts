@@ -3347,7 +3347,7 @@ export class LocationsComponent implements OnInit {
 
 
 
-  public selectcntyfip:any=0;
+  public selectcntyfip:any=29003;
 
   constructor(public http: HttpClient,private spinner: NgxSpinnerService) { }
 
