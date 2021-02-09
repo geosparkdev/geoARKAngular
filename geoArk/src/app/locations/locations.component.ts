@@ -3890,9 +3890,16 @@ getWindrosedata(covid_fips:any){
             type: "barpolar"
           },
           {
-            r: [50.0],
+            r: [Number(this.windrose_data[4])],
             theta: ["Accessibility",],
             marker: {color: "#ffa15a"},
+            showlegend:false,
+            type: "barpolar"
+          },
+          {
+            r: [Number(this.windrose_data[5])],
+            theta: ["Health Resources",],
+            marker: {color: "#fffb00"},
             showlegend:false,
             type: "barpolar"
           }
