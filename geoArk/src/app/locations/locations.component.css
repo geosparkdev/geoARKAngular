@@ -57,9 +57,13 @@
 .windrose{
  margin-right:-50px;
  position:absolute;
- z-index: -9;
+ z-index: 1;
+ top:-15px;
 }
 
+.test{
+  position:relative;
+}
 
 /* -----------Quick Facts and headers -----------*/
 .stat_shift{
