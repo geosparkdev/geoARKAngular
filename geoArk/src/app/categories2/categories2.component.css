@@ -35,6 +35,13 @@
 
   padding: 10px 200px;
 }
+
+
+
+.footer_links:hover{
+  color:white;
+}
+
   /*----------- Buttons -----------*/
   .main_button{
 

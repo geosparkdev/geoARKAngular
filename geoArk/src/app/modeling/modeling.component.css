@@ -23,7 +23,6 @@
 
 
 
-
 .footer{
   background-color:#c4c4c4;
   position:fixed;
@@ -35,6 +34,11 @@
   margin-top:0px;
 
   padding: 10px 200px;
+}
+
+
+.footer_links:hover{
+  color:white;
 }
 
 
