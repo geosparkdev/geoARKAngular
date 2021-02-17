@@ -37,7 +37,8 @@ export class DatasourcesComponent implements OnInit {
   
     this.http.post(environment.base_url+"5000/getdatasources",JSON.stringify(risk_factors), {headers: customheaders}).subscribe(
       response=> {
-
+        console.log("test")
+        console.log(response)
         this.data_sources=response;
         console.log(this.data_sources)
       
