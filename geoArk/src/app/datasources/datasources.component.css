@@ -25,12 +25,11 @@
 
 .footer{
   background-color:#c4c4c4;
-  position:relative;
+  position:absolute;
   left:0;
   bottom:0;
   width:100%;
   overflow:hidden;
-
   margin-top:0px;
 
   padding: 10px 200px;
@@ -90,7 +89,7 @@
 
 .scroll{
   overflow:scroll;
-  height:400px;
+  height:800px;
 }
 table, td, th {  
   border: 1px solid #ddd;
