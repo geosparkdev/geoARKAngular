@@ -3252,7 +3252,7 @@ export class Categories2Component implements OnInit {
 
 
   updateTotals(risk:string){
-
+    this.spinnertogg=true;
    if (this.risk_factors[risk]==11){
      this.risk_factors[risk]=1
    }
@@ -3262,7 +3262,7 @@ export class Categories2Component implements OnInit {
    }
    let factors_list=[this.risk_factors.Accessibility,this.risk_factors.Exposure,this.risk_factors.Health_resources,this.risk_factors.Socioeconomic,this.risk_factors.Susceptibility,this.risk_factors.Transmission]
 
-   this.spinnertogg=true;
+  
 
    this.getTotals(factors_list);
 
