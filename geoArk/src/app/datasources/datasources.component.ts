@@ -23,6 +23,7 @@ export class DatasourcesComponent implements OnInit {
 
 
   public data_sources:any;
+  public risk_factors:risk_factors;
 
   constructor(public http: HttpClient,private spinner: NgxSpinnerService) { }
 
@@ -37,10 +38,30 @@ export class DatasourcesComponent implements OnInit {
   
     this.http.post(environment.base_url+"5000/getdatasources",JSON.stringify(risk_factors), {headers: customheaders}).subscribe(
       response=> {
-        console.log("test")
-        console.log(response)
+        this.risk_factors= new risk_factors()
+        
+        if(risk_factors=='accessibility'){
+          this.risk_factors.Accessibility=1;
+        }
+        else if (risk_factors=='exposure'){
+          this.risk_factors.Exposure=1
+        }
+        else if (risk_factors=='health resources'){
+          this.risk_factors.Health_resources=1
+        }
+        else if(risk_factors=='socioeconomic'){
+          this.risk_factors.Socioeconomic=1
+        }
+        else if(risk_factors=='susceptibility'){
+          this.risk_factors.Susceptibility=1
+        }
+        else{
+          this.risk_factors.Transmission=1
+        }
+        
+
         this.data_sources=response;
-        console.log(this.data_sources)
+ 
       
       },
       error => {

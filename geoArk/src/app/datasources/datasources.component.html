@@ -16,17 +16,17 @@
         <div class='column is-3'>
             <div class="alignright">
                 Select Risk Factor to see data sources
-                <div class='main_button button_blue' (click)='getDataSources("accessibility")'>Accessibility</div>
+                <div class='main_button button_blue' [ngClass]="{'main_button1 button_blue_selected' : risk_factors.Accessibility==1}" (click)='getDataSources("accessibility")'>Accessibility</div>
                 <br>
-                <div class='main_button button_blue' (click)='getDataSources("exposure")'>Exposure</div>
+                <div class='main_button button_blue' [ngClass]="{'main_button1 button_blue_selected' : risk_factors.Exposure==1}" (click)='getDataSources("exposure")'>Exposure</div>
                 <br>
-                <div class='main_button button_blue' (click)='getDataSources("health resources")'>Health Resources</div>
+                <div class='main_button button_blue' [ngClass]="{'main_button1 button_blue_selected' : risk_factors.Health_resources==1}" (click)='getDataSources("health resources")'>Health Resources</div>
                 <br>
-                <div  class='main_button button_blue' (click)='getDataSources("socioeconomic")'>Socioeconomic</div>
+                <div  class='main_button button_blue' [ngClass]="{'main_button1 button_blue_selected' : risk_factors.Socioeconomic==1}"  (click)='getDataSources("socioeconomic")'>Socioeconomic</div>
                 <br>
-                <div  class='main_button button_blue' (click)='getDataSources("susceptibility")'>Susceptibility</div>
+                <div  class='main_button button_blue' [ngClass]="{'main_button1 button_blue_selected' : risk_factors.Susceptibility==1}" (click)='getDataSources("susceptibility")'>Susceptibility</div>
                 <br>
-                <div class='main_button button_blue' (click)='getDataSources("transmission")'>Transmission</div>
+                <div class='main_button button_blue' [ngClass]="{'main_button1 button_blue_selected' : risk_factors.Transmission==1}" (click)='getDataSources("transmission")'>Transmission</div>
             </div>
         </div>
         <div class='column'>
