@@ -39,6 +39,7 @@ export class DatasourcesComponent implements OnInit {
       response=> {
 
         this.data_sources=response;
+        console.log(this.data_sources)
       
       },
       error => {
