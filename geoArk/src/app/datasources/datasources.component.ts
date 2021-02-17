@@ -28,6 +28,7 @@ export class DatasourcesComponent implements OnInit {
   constructor(public http: HttpClient,private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this.risk_factors= new risk_factors;
     this.getDataSources('exposure');
   }
 
@@ -38,6 +39,7 @@ export class DatasourcesComponent implements OnInit {
   
     this.http.post(environment.base_url+"5000/getdatasources",JSON.stringify(risk_factor), {headers: customheaders}).subscribe(
       response=> {
+    
         this.risk_factors.Accessibility=0
         this.risk_factors.Exposure=0
         this.risk_factors.Health_resources=0
