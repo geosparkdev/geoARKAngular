@@ -388,10 +388,11 @@ select{
   /* -----------Loading -----------*/
 
 .loading{
-  margin-left:150px;
-  width:150px;
-  height:500px;
-  position: relative;
+  width:650px;
+  height:300px;
+  position: absolute;
+  z-index:10;
+ 
 }
 
 .loading_msg{
@@ -400,3 +401,6 @@ select{
   font-size:10px;
 }
 
+.map_loading{
+  position:relative;
+}

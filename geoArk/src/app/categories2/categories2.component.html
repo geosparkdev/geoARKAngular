@@ -33,14 +33,16 @@
                 {{filter_display_name}} values between {{this.minValue}} and {{this.maxValue}}
             </div>
 
-            <div *ngIf='spinnertogg' class='loading'>
-                <ngx-spinner bdColor = "rgba(0,0,0,0)" size = "medium" color = "#ff8700" type = "ball-spin-clockwise-fade-rotating" [fullScreen] = "false">
-                </ngx-spinner>
-            </div>
+            <div class='map_loading'>
+                <div *ngIf='spinnertogg' class='loading'>
+                    <ngx-spinner bdColor = "rgba(0,0,0,0)" size = "medium" color = "#ff8700" type = "ball-spin-clockwise-fade-rotating" [fullScreen] = "false">
+                    </ngx-spinner>
+                </div>
+                <div id="cat_map" class="cat_map"></div>
+            
+                    
+            </div>   
 
-            <div *ngIf='!spinnertogg'>
-                <div id="cat_map" class="cat_map"></div>   
-            </div>
             
         </div>
         <div class='column is-4'>
