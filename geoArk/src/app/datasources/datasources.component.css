@@ -97,7 +97,7 @@ table, td, th {
   
   table {
   border-collapse: collapse;
-  overflow: auto;
+  overflow: scroll;
   height: 400px;
   
   }
