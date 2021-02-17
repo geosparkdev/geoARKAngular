@@ -38,7 +38,12 @@ export class DatasourcesComponent implements OnInit {
   
     this.http.post(environment.base_url+"5000/getdatasources",JSON.stringify(risk_factor), {headers: customheaders}).subscribe(
       response=> {
-        this.risk_factors= new risk_factors()
+        this.risk_factors.Accessibility=0
+        this.risk_factors.Exposure=0
+        this.risk_factors.Health_resources=0
+        this.risk_factors.Socioeconomic=0
+        this.risk_factors.Susceptibility=0
+        this.risk_factors.Transmission=0
         
         if(risk_factor=='accessibility'){
           this.risk_factors.Accessibility=1;
