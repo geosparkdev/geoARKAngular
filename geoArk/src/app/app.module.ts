@@ -26,6 +26,7 @@ import { DataComponent } from './data/data.component';
 import { Categories2Component } from './categories2/categories2.component';
 import { ModelingComponent } from './modeling/modeling.component';
 import { DatasourcesComponent } from './datasources/datasources.component';
+import { GuideComponent } from './guide/guide.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { DatasourcesComponent } from './datasources/datasources.component';
     Categories2Component,
     ModelingComponent,
     DatasourcesComponent,
+    GuideComponent,
   ],
   imports: [
     BrowserModule,

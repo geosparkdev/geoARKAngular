@@ -96,7 +96,7 @@ Geo-Context and COVID-19 in Missouri
 
                         <div *ngIf='current_factor=="total"'>
 
-                            Total {{current_risk_factor}} Risk
+                            Total {{current_risk_factor}} risk
                         </div>
 
                         <div *ngIf='current_factor!="total"'>
@@ -184,6 +184,17 @@ Geo-Context and COVID-19 in Missouri
                         {{county_name}} County {{current_risk_factor}} risk factors
                     </span>
                     <br>as compared to the mean of other MO counties
+        
+                    <br>
+                    <div class='risklegend'>
+                        Risk Values: <img src="../../assets/red.png"> 5-highest
+                        <img src="../../assets/orange.png"> 4
+                        <img src="../../assets/yellow.png"> 3
+                        <img src="../../assets/ltblue.png"> 2
+                        <img src="../../assets/blue.png"> 1-lowest
+                    </div>
+        
+ 
                 </div>
               
                 <div id='test'>
@@ -196,17 +207,6 @@ Geo-Context and COVID-19 in Missouri
                     </div>
                 </div>
                 <br>
-                <div class='aligncenter'>
-                    <div class='risklegend'>
-                        Risk Values: <img src="../../assets/red.png"> 5-highest
-                        <img src="../../assets/orange.png"> 4
-                        <img src="../../assets/yellow.png"> 3
-                        <img src="../../assets/ltblue.png"> 2
-                        <img src="../../assets/blue.png"> 1-lowest
-                    </div>
-      
-                </div>
-
             </div>
 
 
