@@ -315,7 +315,7 @@ hr.new1 {
   width:50px;
   float:right;
   margin-right:-40px;
-  z-index:-1;
+  z-index:-10;
 }
 
 
