@@ -68,7 +68,7 @@
 }
 
 .guidance{
-  font-size:10px;
+  font-size:12px;
 }
 
 .zindex{
@@ -236,7 +236,7 @@ EDIT ON
   margin-left:0px;
   min-height:75%;
   background:white;
-  z-index:1;
+  z-index:10;
 }
 
 
