@@ -32,27 +32,27 @@ export class DatasourcesComponent implements OnInit {
   }
 
 
-  getDataSources(risk_factors:any){
+  getDataSources(risk_factor:any){
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
   
-    this.http.post(environment.base_url+"5000/getdatasources",JSON.stringify(risk_factors), {headers: customheaders}).subscribe(
+    this.http.post(environment.base_url+"5000/getdatasources",JSON.stringify(risk_factor), {headers: customheaders}).subscribe(
       response=> {
         this.risk_factors= new risk_factors()
         
-        if(risk_factors=='accessibility'){
+        if(risk_factor=='accessibility'){
           this.risk_factors.Accessibility=1;
         }
-        else if (risk_factors=='exposure'){
+        else if (risk_factor=='exposure'){
           this.risk_factors.Exposure=1
         }
-        else if (risk_factors=='health resources'){
+        else if (risk_factor=='health resources'){
           this.risk_factors.Health_resources=1
         }
-        else if(risk_factors=='socioeconomic'){
+        else if(risk_factor=='socioeconomic'){
           this.risk_factors.Socioeconomic=1
         }
-        else if(risk_factors=='susceptibility'){
+        else if(risk_factor=='susceptibility'){
           this.risk_factors.Susceptibility=1
         }
         else{
