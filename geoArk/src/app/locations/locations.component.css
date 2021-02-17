@@ -67,6 +67,10 @@
   position:relative;
 }
 
+.guidance{
+  font-size:10px;
+}
+
 .zindex{
   z-index:10px;
   position: relative;
