@@ -183,7 +183,7 @@ Geo-Context and COVID-19 in Missouri
 
 
         </div>
-        <div class='column is-4'>
+        <div class='column is-4 test'>
             <div class='factors_container'>
                 <div class='aligncenter'>
                     <span class='SB_3'>
@@ -192,7 +192,7 @@ Geo-Context and COVID-19 in Missouri
                     <br>as compared to the mean of other MO counties
         
                     <br>
-                    <div class='risklegend'>
+                    <div class='test'>
                         Risk Values: <img src="../../assets/red.png"> 5-highest
                         <img src="../../assets/orange.png"> 4
                         <img src="../../assets/yellow.png"> 3
@@ -203,7 +203,7 @@ Geo-Context and COVID-19 in Missouri
  
                 </div>
               
-                <div id='test'>
+                <div id='risk_factors'>
                     <div *ngFor='let factors of risk_factors_bars'>
                         <div class='risk_button' (click)="triggerFactor(factors.data[0].y)">
             
