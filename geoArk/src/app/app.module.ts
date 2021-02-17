@@ -25,6 +25,7 @@ import { PlotlyViaWindowModule } from 'angular-plotly.js';
 import { DataComponent } from './data/data.component';
 import { Categories2Component } from './categories2/categories2.component';
 import { ModelingComponent } from './modeling/modeling.component';
+import { DatasourcesComponent } from './datasources/datasources.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { ModelingComponent } from './modeling/modeling.component';
     DataComponent,
     Categories2Component,
     ModelingComponent,
+    DatasourcesComponent,
   ],
   imports: [
     BrowserModule,

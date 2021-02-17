@@ -11,6 +11,7 @@ import { PredictionsComponent } from './predictions/predictions.component';
 import { LocationsComponent } from './locations/locations.component';
 import {Categories2Component} from '../app/categories2/categories2.component';
 import {ModelingComponent} from '../app/modeling/modeling.component';
+import { DatasourcesComponent } from '../app/datasources/datasources.component';
 
 
 
@@ -56,6 +57,10 @@ const routes: Routes = [
   {
     path: 'counties',
     component: LocationsComponent
+  },
+  {
+    path: 'datasources',
+    component: DatasourcesComponent
   },
   
     

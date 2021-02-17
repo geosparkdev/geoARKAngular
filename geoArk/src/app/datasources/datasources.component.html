@@ -1,0 +1,59 @@
+<div class='header'>
+    Geo-Context and COVID-19 in Missouri
+</div>
+    
+<div class='nav_bar'>
+    <ul class='tabrow'>
+        <li routerLink="/predictions" routerLinkActive="active" > Predictions</li>
+        <li routerLink="/categories" routerLinkActive="active"> Risk Categories</li>
+        <li routerLink="/counties" routerLinkActive="active" > Counties</li>
+    </ul> 
+</div> 
+
+<div class='main_container'>
+    <div class='columns'>
+       
+        <div class='column is-3'>
+            <div class="alignright">
+                Select Risk Factor to see data sources
+                <div class='main_button button_blue'>Accessibility</div>
+                <br>
+                <div class='main_button button_blue'>Exposure</div>
+                <br>
+                <div class='main_button button_blue'>Health Resources</div>
+                <br>
+                <div  class='main_button button_blue'>Socioeconomic</div>
+                <br>
+                <div  class='main_button button_blue'>Susceptibility</div>
+                <br>
+                <div class='main_button button_blue'>Transmission</div>
+            </div>
+        </div>
+        <div class='column'>
+            <div class="type1">Data Sources</div>
+            <table>
+                <tr>
+                  <th>Field</th>
+                  <th>Description</th>
+                  <th>Source URL</th>
+                  <th>Comments</th>
+                </tr>
+                <tr *ngFor='let sources of data_sources'>
+                  <td>{{sources.field}}</td>
+                  <td>{{sources.description}}</td>
+                  <td>{{sources.source_url}}</td>
+                  <td>{{sources.comments}}</td>
+                </tr>
+              </table>
+        </div>
+    </div>
+</div>
+
+
+<div class='footer'>
+    How to use this dashboard
+    <br>
+    Data sources
+    <br>
+    &copy;
+</div>
