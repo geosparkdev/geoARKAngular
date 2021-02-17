@@ -382,3 +382,21 @@ select{
   ::ng-deep  .custom-slider .ng5-slider .ng5-slider-tick.ng5-slider-selected {
     background: black;
   }
+
+
+
+  /* -----------Loading -----------*/
+
+.loading{
+  margin-left:150px;
+  width:150px;
+  height:500px;
+  position: relative;
+}
+
+.loading_msg{
+  padding:10px;
+  text-align:center;
+  font-size:10px;
+}
+

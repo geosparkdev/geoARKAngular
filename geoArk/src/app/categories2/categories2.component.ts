@@ -3221,10 +3221,14 @@ export class Categories2Component implements OnInit {
   public filter_display_name:string='Rural-Urban Continuum';
 
 
+
+  public spinnertogg:boolean=true;
+
   constructor(public http: HttpClient,private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
 
+    this.spinner.show();
     this.filter1=new filter();
     //this.filter=true;
    
@@ -3258,6 +3262,7 @@ export class Categories2Component implements OnInit {
    }
    let factors_list=[this.risk_factors.Accessibility,this.risk_factors.Exposure,this.risk_factors.Health_resources,this.risk_factors.Socioeconomic,this.risk_factors.Susceptibility,this.risk_factors.Transmission]
 
+   this.spinnertogg=true;
 
    this.getTotals(factors_list);
 
@@ -3293,8 +3298,10 @@ export class Categories2Component implements OnInit {
    this.map_title=title;
   }
 
-
+  
   getTotals(risk_factors:any){
+
+
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
   
@@ -3304,7 +3311,7 @@ export class Categories2Component implements OnInit {
         this.bar_data=response[1];
         this.tot_table=response[2];
         this.metadata=response[3];
-
+        this.spinnertogg=false;
 
 
         if(cat_map_status==1){
