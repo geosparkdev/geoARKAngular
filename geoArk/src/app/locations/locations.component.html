@@ -57,7 +57,6 @@ Geo-Context and COVID-19 in Missouri
                     Risk Total
                 </div>
             </div>
-            Cases and Deaths updated [date time]
         </div>
     </div>
     
@@ -117,8 +116,14 @@ Geo-Context and COVID-19 in Missouri
 
                 </div>
                 <div class='column is-4'>
+
+
                     <div class='alignright'>
-           
+
+                        Click on a risk category to see risk factors.
+                        <br>
+                        Click on a risk factor bar to update map visual.
+                        
 
                         <div *ngIf='current_risk_factor=="accessibility"'>
                             <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("accessibility")'>Accessibility</div><span><hr class='new1'></span>
