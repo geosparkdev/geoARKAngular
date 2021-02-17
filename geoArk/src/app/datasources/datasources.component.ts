@@ -44,6 +44,7 @@ export class DatasourcesComponent implements OnInit {
       
       },
       error => {
+        console.log("inside error")
         console.log(error)
       }
     )
