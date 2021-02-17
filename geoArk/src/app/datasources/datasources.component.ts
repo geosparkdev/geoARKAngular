@@ -27,7 +27,7 @@ export class DatasourcesComponent implements OnInit {
   constructor(public http: HttpClient,private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
-    this.getDataSources('accessibility');
+    this.getDataSources('exposure');
   }
 
 
