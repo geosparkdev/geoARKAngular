@@ -3484,11 +3484,11 @@ export class Categories2Component implements OnInit {
     if(this.filter==true){
       cat_geoJSON.clearLayers();
     }
-    this.filter1.options.ceil=Number(changeContext.value);
-    this.filter1.options.floor=Number(changeContext.highValue);
+    this.filter1.options.floor=Number(changeContext.value);
+    this.filter1.options.ceil=Number(changeContext.highValue);
 
-    this.filter1.max_value=Number(changeContext.value);;
-    this.filter1.min_value=Number(changeContext.highValue);
+    this.filter1.min_value=Number(changeContext.value);;
+    this.filter1.max_value=Number(changeContext.highValue);
 
    // this.minValue= Number(changeContext.value);
    // this.maxValue= Number(changeContext.highValue);
