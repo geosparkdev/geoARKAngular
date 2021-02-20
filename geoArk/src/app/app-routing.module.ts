@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {CategoriesComponent} from '../app/categories/categories.component';
+import { CategoriesComponent } from '../app/categories/categories.component';
 import {HomeComponent} from '../app/home/home.component';
-import {DashboardComponent} from '../app/dashboard/dashboard.component';
+import {DashboardComponent } from '../app/dashboard/dashboard.component';
 import { GeoarkdataHomeComponent } from './geoarkdata-home/geoarkdata-home.component';
 import { UploaddataComponent } from './uploaddata/uploaddata.component';
 import { DbDesignComponent } from './db-design/db-design.component';
 import { UpcomingComponent } from './upcoming/upcoming.component';
 import { PredictionsComponent } from './predictions/predictions.component';
 import { LocationsComponent } from './locations/locations.component';
-import {Categories2Component} from '../app/categories2/categories2.component';
-import {ModelingComponent} from '../app/modeling/modeling.component';
+import { Categories2Component} from '../app/categories2/categories2.component';
+import { ModelingComponent} from '../app/modeling/modeling.component';
 import { DatasourcesComponent } from '../app/datasources/datasources.component';
+import { GuideComponent } from '../app/guide/guide.component';
 
 
 
@@ -61,6 +62,10 @@ const routes: Routes = [
   {
     path: 'datasources',
     component: DatasourcesComponent
+  },
+  {
+    path: 'howtouse',
+    component: GuideComponent
   },
   
     
