@@ -30,7 +30,7 @@
                 {{map_title}} Risk Totals
             </div>
             <div *ngIf="filter1_togg">
-                {{this.filter1.name}} values between {{this.filter1.min_value}} and {{this.filter1.max_value}}
+                {{this.filter1.display}} values between {{this.filter1.min_value}} and {{this.filter1.max_value}}
             </div>
 
             <div class='map_loading'>
@@ -65,7 +65,7 @@
                     <div style='height:280px' *ngIf='filter1_togg'>
                         <div class='custom-slider'>
                             
-                            {{filter_display_name}}
+                            {{this.filter1.display}}
                             
                             <div class="close" (click)="dropFilter()"><i class="mdi mdi-close-box-outline" ></i></div>
                             <ng5-slider [(value)]="filter1.min_value" [(highValue)]="filter1.max_value" [options]="filter1.options" (userChange)="onUserChange($event)"></ng5-slider>

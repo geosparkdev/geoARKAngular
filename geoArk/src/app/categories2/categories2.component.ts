@@ -3420,6 +3420,7 @@ export class Categories2Component implements OnInit {
       this.filter1.min_value=Number(curr_data.min);
       this.filter1.options.ceil=Number(curr_data.max);
       this.filter1.options.floor=Number(curr_data.min);
+      this.filter1.display=curr_data.display;
     }
 
 

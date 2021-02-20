@@ -8,5 +8,6 @@ export class filter{
         floor: 0,
         ceil: 10
       };
+    public display:string;
 
  }
