@@ -3421,28 +3421,27 @@ export class Categories2Component implements OnInit {
   selectFilter(filter){
 
 
-    this.current_filter=filter.target.value;
     let curr_data=this.filters_data.find(e=> e['filter']===filter.target.value)
-    this.filter1.name=filter.target.value
-    this.filter1.max_value=Number(curr_data.max);
-    this.filter1.min_value=Number(curr_data.min);
-    this.filter1.options.ceil=Number(curr_data.max);
-    this.filter1.options.floor=Number(curr_data.min);
+
+    if(this.filter1.name==null){
+      this.filter1.name=filter.target.value
+      this.filter1.max_value=Number(curr_data.max);
+      this.filter1.min_value=Number(curr_data.min);
+      this.filter1.options.ceil=Number(curr_data.max);
+      this.filter1.options.floor=Number(curr_data.min);
+    }
+
+    //this.current_filter=filter.target.value;
+    //let curr_data=this.filters_data.find(e=> e['filter']===filter.target.value)
+    //this.minValue= Number(curr_data.min);
+    //this.maxValue=Number(curr_data.max);
+  
 
 
-
-    console.log("IN FILTERS FXN")
-    console.log(filter.target.value)
-    console.log(this.filters_data)
-    console.log(curr_data)
-
-    this.minValue= Number(curr_data.min);
-    this.maxValue=Number(curr_data.max);
-    console.log(this.maxValue)
+    //this.options.ceil=this.maxValue
+    //this.options.floor=this.minValue
 
 
-    this.options.ceil=this.maxValue
-    this.options.floor=this.minValue
     this.filter=true;
 
 
@@ -3488,9 +3487,11 @@ export class Categories2Component implements OnInit {
     this.filter1.options.ceil=Number(changeContext.value);
     this.filter1.options.floor=Number(changeContext.highValue);
 
+    this.filter1.max_value=Number(changeContext.value);;
+    this.filter1.min_value=Number(changeContext.highValue);
 
-    this.minValue= Number(changeContext.value);
-    this.maxValue= Number(changeContext.highValue);
+   // this.minValue= Number(changeContext.value);
+   // this.maxValue= Number(changeContext.highValue);
     this.map()
     
   
@@ -3526,15 +3527,14 @@ export class Categories2Component implements OnInit {
     var metadata=this.metadata;
     var current_fact='total_risk'
   
-    var current_filter=this.current_filter
+   // var current_filter=this.current_filter
     var filter=this.filter
     var filters_obj=this.filters_obj
-    var value1=this.minValue
-    var value2=this.maxValue
+  // var value1=this.minValue
+   // var value2=this.maxValue
 
     var filter1=this.filter1;
-    console.log('value1')
-    console.log(value1)
+
 
     let factor_max=metadata.find(e=> e['factor']===current_fact)
 
@@ -3677,7 +3677,7 @@ export class Categories2Component implements OnInit {
       console.log(this.filter1.max)
       console.log(this.filter1.min)
 
-      if((Number(filter_val[this.filter1.name]) >=this.filter1.min) && (Number(filter_val[current_filter]) <=this.filter1max))
+      if((Number(filter_val[this.filter1.name]) >=this.filter1.min) && (Number(filter_val[this.filter1.name]) <=this.filter1max))
       {
         return 1.0
       }
@@ -3714,7 +3714,7 @@ export class Categories2Component implements OnInit {
       console.log(this.filter1.min)
       console.log(this.filter1.max)
 
-      if((Number(filter_val[this.filter1.min]) >=value1) && (Number(filter_val[current_filter]) <=this.filter1.max))
+      if((Number(filter_val[this.filter1.name]) >=this.filter1.min) && (Number(filter_val[this.filter1.name]) <=this.filter1max))
       {
         return 0.5
       }
