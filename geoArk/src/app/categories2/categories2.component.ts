@@ -3200,18 +3200,13 @@ export class Categories2Component implements OnInit {
 
 
 
-
-  public filter1:filter;
-
-  public current_filter:any;
-
-
-  public filter1_togg:boolean=false;
-
+  //filter objects
   public filters_data:any;
   public filters_obj:any;
   
 
+//filter 1  
+  public filter1:filter;
 
   public spinnertogg:boolean=true;
 
@@ -3423,7 +3418,7 @@ export class Categories2Component implements OnInit {
     }
 
 
-    this.filter1_togg=true;
+    this.filter1.toggle=true;
 
 
     
@@ -3435,7 +3430,6 @@ export class Categories2Component implements OnInit {
 
 
   dropFilter(){
-    this.filter1_togg=false;
     this.filter1=new filter();
     cat_geoJSON.clearLayers();
     this.map()
@@ -3462,7 +3456,7 @@ export class Categories2Component implements OnInit {
   onUserChange(changeContext: ChangeContext): void {
     console.log(changeContext)
     // ADD THIS TO SEE WHAT THIS.FILTER IS
-    if(this.filter1_togg==true){
+    if(this.filter1.toggle==true){
       cat_geoJSON.clearLayers();
     }
     this.filter1.options.floor=Number(changeContext.value);
@@ -3505,8 +3499,6 @@ export class Categories2Component implements OnInit {
     var data=this.tot_table;
     var metadata=this.metadata;
     var current_fact='total_risk'
-  
-   // var current_filter=this.current_filter
 
     var filter1_name=this.filter1.name
     var filter1_max=this.filter1.max_value
@@ -3515,7 +3507,7 @@ export class Categories2Component implements OnInit {
 
 
 
-    var filter1_togg=this.filter1_togg
+    var filter1_togg=this.filter1.toggle
     var filters_obj=this.filters_obj
   // var value1=this.minValue
    // var value2=this.maxValue
