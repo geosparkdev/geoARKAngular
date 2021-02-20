@@ -3221,7 +3221,6 @@ export class Categories2Component implements OnInit {
 
     this.spinner.show();
     this.filter1=new filter();
-    //this.filter=true;
    
 
     cat_map_status=0;
@@ -3437,6 +3436,7 @@ export class Categories2Component implements OnInit {
 
   dropFilter(){
     this.filter1_togg=false;
+    this.filter1=new filter();
     cat_geoJSON.clearLayers();
     this.map()
 
