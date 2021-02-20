@@ -3217,7 +3217,7 @@ export class Categories2Component implements OnInit {
 
   public filters_data:any;
   public filters_obj:any;
-
+  
   public filter_display_name:string='Rural-Urban Continuum';
 
 
@@ -3318,16 +3318,10 @@ export class Categories2Component implements OnInit {
           cat_geoJSON.clearLayers();
         }
 
-
-        this.map();
         this.getFilters();
+        this.map();
         this.getTotalsGraph();
-       
-  
-    
 
-
-  
   
       },
       error => {
