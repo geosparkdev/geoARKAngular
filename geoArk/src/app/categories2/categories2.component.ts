@@ -3528,12 +3528,21 @@ export class Categories2Component implements OnInit {
     var current_fact='total_risk'
   
    // var current_filter=this.current_filter
+    var filter1=this.filter1;
+
+    var filter1_name=this.filter1.name
+    var filter1_max=this.filter1.max_value
+    var filter1_min=this.filter1.min_value
+
+
+
+
     var filter=this.filter
     var filters_obj=this.filters_obj
   // var value1=this.minValue
    // var value2=this.maxValue
-
-    var filter1=this.filter1;
+   
+   
 
 
     let factor_max=metadata.find(e=> e['factor']===current_fact)
@@ -3672,12 +3681,12 @@ export class Categories2Component implements OnInit {
       let filter_val=filters_obj.find(e=> e['cnty_fips']===value)
 
       console.log(filter_val)
-      console.log(filter_val[this.filter1.name])
-      console.log("***")
-      console.log(this.filter1.max)
-      console.log(this.filter1.min)
+      console.log(filter_val[filter1_name])
+      console.log("*** filter opacity")
+      console.log(filter1_max)
+      console.log(filter1_min)
 
-      if((Number(filter_val[this.filter1.name]) >=this.filter1.min) && (Number(filter_val[this.filter1.name]) <=this.filter1max))
+      if((Number(filter_val[filter1_name]) >=filter1_min) && (Number(filter_val[filter1_name]) <=filter1_max))
       {
         return 1.0
       }
@@ -3709,12 +3718,12 @@ export class Categories2Component implements OnInit {
       let filter_val=filters_obj.find(e=> e['cnty_fips']===value)
 
       console.log(filter_val)
-      console.log(filter_val[this.filter1.name])
+      console.log(filter_val[filter1_name])
       console.log("***line opacity")
-      console.log(this.filter1.min)
-      console.log(this.filter1.max)
+      console.log(filter1_max)
+      console.log(filter1_min)
 
-      if((Number(filter_val[this.filter1.name]) >=this.filter1.min) && (Number(filter_val[this.filter1.name]) <=this.filter1max))
+      if((Number(filter_val[filter1_name]) >=filter1_min) && (Number(filter_val[filter1_name]) <=filter1_max))
       {
         return 0.5
       }
