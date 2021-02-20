@@ -3206,20 +3206,11 @@ export class Categories2Component implements OnInit {
   public current_filter:any;
 
 
-  public minValue: number;
-  public maxValue: number;
-  public options: Options = {
-    floor: 0,
-    ceil: 0
-  };
-
-  public filter:boolean=false;
+  public filter1_togg:boolean=false;
 
   public filters_data:any;
   public filters_obj:any;
   
-  public filter_display_name:string='Rural-Urban Continuum';
-
 
 
   public spinnertogg:boolean=true;
@@ -3431,18 +3422,8 @@ export class Categories2Component implements OnInit {
       this.filter1.options.floor=Number(curr_data.min);
     }
 
-    //this.current_filter=filter.target.value;
-    //let curr_data=this.filters_data.find(e=> e['filter']===filter.target.value)
-    //this.minValue= Number(curr_data.min);
-    //this.maxValue=Number(curr_data.max);
-  
 
-
-    //this.options.ceil=this.maxValue
-    //this.options.floor=this.minValue
-
-
-    this.filter=true;
+    this.filter1_togg=true;
 
 
     
@@ -3454,7 +3435,7 @@ export class Categories2Component implements OnInit {
 
 
   dropFilter(){
-    this.filter=false;
+    this.filter1_togg=false;
     cat_geoJSON.clearLayers();
     this.map()
 
@@ -3480,8 +3461,7 @@ export class Categories2Component implements OnInit {
   onUserChange(changeContext: ChangeContext): void {
     console.log(changeContext)
     // ADD THIS TO SEE WHAT THIS.FILTER IS
-    console.log(this.filter)
-    if(this.filter==true){
+    if(this.filter1_togg==true){
       cat_geoJSON.clearLayers();
     }
     this.filter1.options.floor=Number(changeContext.value);
@@ -3490,8 +3470,6 @@ export class Categories2Component implements OnInit {
     this.filter1.min_value=Number(changeContext.value);;
     this.filter1.max_value=Number(changeContext.highValue);
 
-   // this.minValue= Number(changeContext.value);
-   // this.maxValue= Number(changeContext.highValue);
     this.map()
     
   
@@ -3528,7 +3506,6 @@ export class Categories2Component implements OnInit {
     var current_fact='total_risk'
   
    // var current_filter=this.current_filter
-    var filter1=this.filter1;
 
     var filter1_name=this.filter1.name
     var filter1_max=this.filter1.max_value
@@ -3537,7 +3514,7 @@ export class Categories2Component implements OnInit {
 
 
 
-    var filter=this.filter
+    var filter1_togg=this.filter1_togg
     var filters_obj=this.filters_obj
   // var value1=this.minValue
    // var value2=this.maxValue
@@ -3672,19 +3649,13 @@ export class Categories2Component implements OnInit {
     console.log("IN FILTER OPACITY")
     console.log(value)
   
-    if(filter==false){
+    if(filter1_togg==false){
       console.log('In filter false loop of filter opacity')
       return 1.0
     }
     else{
 
       let filter_val=filters_obj.find(e=> e['cnty_fips']===value)
-
-      console.log(filter_val)
-      console.log(filter_val[filter1_name])
-      console.log("*** filter opacity")
-      console.log(filter1_max)
-      console.log(filter1_min)
 
       if((Number(filter_val[filter1_name]) >=filter1_min) && (Number(filter_val[filter1_name]) <=filter1_max))
       {
@@ -3709,19 +3680,13 @@ export class Categories2Component implements OnInit {
     console.log("IN FILTER Line")
     console.log(value)
   
-    if(filter==false){
+    if(filter1_togg==false){
       console.log('In filter false loop of filter opacity')
       return 0.5
     }
     else{
 
       let filter_val=filters_obj.find(e=> e['cnty_fips']===value)
-
-      console.log(filter_val)
-      console.log(filter_val[filter1_name])
-      console.log("***line opacity")
-      console.log(filter1_max)
-      console.log(filter1_min)
 
       if((Number(filter_val[filter1_name]) >=filter1_min) && (Number(filter_val[filter1_name]) <=filter1_max))
       {

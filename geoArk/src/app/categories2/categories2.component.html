@@ -29,8 +29,8 @@
             <div class='map_header'>
                 {{map_title}} Risk Totals
             </div>
-            <div *ngIf="filter">
-                {{filter_display_name}} values between {{this.minValue}} and {{this.maxValue}}
+            <div *ngIf="filter1_togg">
+                {{this.filter1.name}} values between {{this.filter1.min_value}} and {{this.filter1.max_value}}
             </div>
 
             <div class='map_loading'>
@@ -55,13 +55,17 @@
                 </tr>
                 <tr>
                   <td>
-                    <div *ngIf='!filter' style='height:280px'>
+                    <div *ngIf='!filter1_togg' style='height:280px'>
+                        Choose a filter:
+                        <select id="filter_select" (change)="selectFilter($event)" >
+                            <option value=''>Select a Filter</option>
+                            <option value='RUCC_2013'>Rural-Urban Continuum</option>
+                        </select>
                     </div>
-                    <div style='height:280px' *ngIf='filter'>
+                    <div style='height:280px' *ngIf='filter1_togg'>
                         <div class='custom-slider'>
                             
                             {{filter_display_name}}
-                            
                             
                             <div class="close" (click)="dropFilter()"><i class="mdi mdi-close-box-outline" ></i></div>
                             <ng5-slider [(value)]="filter1.min_value" [(highValue)]="filter1.max_value" [options]="filter1.options" (userChange)="onUserChange($event)"></ng5-slider>
@@ -132,11 +136,6 @@
         
       
         <div class="column is-3">
-            Choose a filter:
-            <select id="filter_select" (change)="selectFilter($event)" >
-                <option value=''>Select a Filter</option>
-                <option value='RUCC_2013'>Rural-Urban Continuum</option>
-            </select>
             
         </div>
     </div>
