@@ -38,6 +38,8 @@ export class Categories2Component implements OnInit {
   public bar_data:any;
   public tot_bar:any;
 
+  public histogram:any={};
+
 
   public initial_tot_table:any;
   public initial_metadata:any;
@@ -3387,7 +3389,42 @@ export class Categories2Component implements OnInit {
   }
 
 
+  filterHistogram(){
 
+
+    let xlist=[]
+
+    this.filters_obj.foreach(value => {
+      xlist.push(value[this.filter1.name])
+    })
+
+
+    this.histogram={
+      data:[
+        {
+          trace1:{
+            x:xlist,
+            type:"histogram"
+           }
+      } ],
+      layout:[{
+
+        barmode: "stack",
+        width: 400, 
+        height: 25,
+        margin:{
+          l:125, 
+          r:0, 
+          t:0, 
+          b:0, 
+          pad:0
+        },
+      }
+      ]
+    }
+
+
+  }
 
 
 
