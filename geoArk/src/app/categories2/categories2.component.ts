@@ -39,6 +39,8 @@ export class Categories2Component implements OnInit {
   public tot_bar:any;
 
 
+  public initial_tot_table:any;
+  public initial_metadata:any;
   public metadata:any;
 
   public map_title:any=''
@@ -3297,6 +3299,11 @@ export class Categories2Component implements OnInit {
         this.bar_data=response[1];
         this.tot_table=response[2];
         this.metadata=response[3];
+
+        this.initial_tot_table=response[2];
+        this.initial_metadata=response[3];
+
+        
         this.spinnertogg=false;
 
 
@@ -3459,7 +3466,6 @@ export class Categories2Component implements OnInit {
         this.metadata=response[3];
 
         this.getTotalsGraph();
-        this.map();
 
   
       },
@@ -3508,6 +3514,8 @@ export class Categories2Component implements OnInit {
     
     this.filter_controller.filter1_min=Number(changeContext.value);
     this.filter_controller.filter1_max=Number(changeContext.highValue);
+
+    this.map();
     this.updateTotalsFilter();
   
   
@@ -3539,8 +3547,8 @@ export class Categories2Component implements OnInit {
 
 
 
-    var data=this.tot_table;
-    var metadata=this.metadata;
+    var data=this.initial_tot_table;
+    var metadata=this.initial_metadata;
     var current_fact='total_risk'
 
     var filter1_name=this.filter1.name
