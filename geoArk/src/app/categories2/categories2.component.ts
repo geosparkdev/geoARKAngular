@@ -3459,6 +3459,7 @@ export class Categories2Component implements OnInit {
         this.metadata=response[3];
 
         this.getTotalsGraph();
+        this.map();
 
   
       },
@@ -3508,7 +3509,6 @@ export class Categories2Component implements OnInit {
     this.filter_controller.filter1_min=Number(changeContext.value);
     this.filter_controller.filter1_max=Number(changeContext.highValue);
     this.updateTotalsFilter();
-    this.map();
   
   
   }
