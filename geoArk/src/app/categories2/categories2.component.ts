@@ -3393,6 +3393,7 @@ export class Categories2Component implements OnInit {
 
 
     let xlist=[]
+    console.log(this.filters_obj)
 
     for (let temp in this.filters_obj){
       xlist.push(Number(temp[this.filter1.name]))
