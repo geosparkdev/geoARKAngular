@@ -3509,8 +3509,8 @@ export class Categories2Component implements OnInit {
 
 
     
-    this.filter_controller.filter1_min=String(changeContext.value);
-    this.filter_controller.filter1_max=String(changeContext.highValue);
+    this.filter_controller.filter1_min=Number(changeContext.value);
+    this.filter_controller.filter1_max=Number(changeContext.highValue);
     this.map();
     this.updateTotalsFilter();
   
