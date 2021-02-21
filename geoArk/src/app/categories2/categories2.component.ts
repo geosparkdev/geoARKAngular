@@ -3394,7 +3394,7 @@ export class Categories2Component implements OnInit {
 
     let xlist=[]
 
-    this.filters_obj.foreach(value => {
+    this.filters_obj.forEach(function(value){
       xlist.push(value[this.filter1.name])
     })
 
