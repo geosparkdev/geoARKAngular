@@ -3445,7 +3445,7 @@ export class Categories2Component implements OnInit {
 
   updateTotalsFilter(risk_factors:any,filter_controller:filterBar){
 
-    filter_controller.risk_factors=risk_factors;
+    filter_controller.risk_factors=JSON.stringify(risk_factors);
 
     console.log(filter_controller.risk_factors)
 
