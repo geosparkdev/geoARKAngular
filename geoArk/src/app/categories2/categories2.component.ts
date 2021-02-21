@@ -3417,7 +3417,7 @@ export class Categories2Component implements OnInit {
       this.filter1.options.floor=Number(curr_data.min);
       this.filter1.display=curr_data.display;
 
-      this.filter_controller.filter1_on=true;
+      this.filter_controller.filter1_on='1';
       this.filter_controller.filter1_var=filter.target.value;
 
       this.filter1.toggle=true;
@@ -3445,7 +3445,12 @@ export class Categories2Component implements OnInit {
 
   updateTotalsFilter(){
 
-    this.filter_controller.risk_factors=[this.risk_factors.Accessibility,this.risk_factors.Exposure,this.risk_factors.Health_resources,this.risk_factors.Socioeconomic,this.risk_factors.Susceptibility,this.risk_factors.Transmission]
+    this.filter_controller.risk_factors=[String(this.risk_factors.Accessibility),
+                                        String(this.risk_factors.Exposure),
+                                        String(this.risk_factors.Health_resources),
+                                        String(this.risk_factors.Socioeconomic),
+                                        String(this.risk_factors.Susceptibility),
+                                        String(this.risk_factors.Transmission)]
 
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
