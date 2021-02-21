@@ -3326,6 +3326,7 @@ export class Categories2Component implements OnInit {
 
 
 
+
     var current_fact='total_risk'
     let factor_max=this.metadata.find(e=> e['factor']===current_fact)
     let colors = colormap({
@@ -3445,12 +3446,7 @@ export class Categories2Component implements OnInit {
 
   updateTotalsFilter(){
 
-    this.filter_controller.risk_factors=[String(this.risk_factors.Accessibility),
-                                        String(this.risk_factors.Exposure),
-                                        String(this.risk_factors.Health_resources),
-                                        String(this.risk_factors.Socioeconomic),
-                                        String(this.risk_factors.Susceptibility),
-                                        String(this.risk_factors.Transmission)]
+    this.filter_controller.risk_factors=[this.risk_factors.Accessibility,this.risk_factors.Exposure,this.risk_factors.Health_resources,this.risk_factors.Socioeconomic,this.risk_factors.Susceptibility,this.risk_factors.Transmission]
 
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
