@@ -3394,9 +3394,12 @@ export class Categories2Component implements OnInit {
 
     let xlist=[]
 
-    this.filters_obj.forEach(function(value){
-      xlist.push(value[this.filter1.name])
-    })
+    for (let temp in this.filters_obj){
+      xlist.push(Number(temp[this.filter1.name]))
+    }
+ 
+
+
 
     console.log('HISTOGRAM FXN')
     console.log(xlist)
