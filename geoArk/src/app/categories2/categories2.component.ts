@@ -3445,11 +3445,8 @@ export class Categories2Component implements OnInit {
 
   updateTotalsFilter(risk_factors:any,filter_controller:filterBar){
 
-    filter_controller.risk_factors=JSON.stringify(risk_factors);
+    filter_controller.risk_factors=[this.risk_factors.Accessibility,this.risk_factors.Exposure,this.risk_factors.Health_resources,this.risk_factors.Socioeconomic,this.risk_factors.Susceptibility,this.risk_factors.Transmission]
 
-    console.log(filter_controller.risk_factors)
-
-    console.log('LOOOOOOK HERE')
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
   
