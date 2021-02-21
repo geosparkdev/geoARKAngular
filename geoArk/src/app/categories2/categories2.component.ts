@@ -3417,7 +3417,7 @@ export class Categories2Component implements OnInit {
       this.filter1.options.floor=Number(curr_data.min);
       this.filter1.display=curr_data.display;
 
-      this.filter_controller.filter1_on='1';
+      this.filter_controller.filter1_on=1;
       this.filter_controller.filter1_var=filter.target.value;
 
       this.filter1.toggle=true;
