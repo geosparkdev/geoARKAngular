@@ -3460,10 +3460,11 @@ export class Categories2Component implements OnInit {
 
       this.filter_controller.filter1_on=1;
       this.filter_controller.filter1_var=filter.target.value;
-
+      this.filterHistogram()
       this.filter1.toggle=true;
+      
     }
-
+    
 
 
     
