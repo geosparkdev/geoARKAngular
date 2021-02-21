@@ -3395,10 +3395,12 @@ export class Categories2Component implements OnInit {
     let xlist=[]
     console.log(this.filters_obj)
 
-    for (let temp in this.filters_obj){
-      xlist.push(Number(temp[this.filter1.name]))
+
+    for (var i=0; i<this.filters_obj.length; i+=1)
+    {
+      xlist.push(Number(this.filters_obj[1][this.filter1.name]))
     }
- 
+
 
 
 
