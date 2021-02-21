@@ -1,4 +1,5 @@
 export class filterBar{
+    public risk_factors:any=[];
     public filter1_on:boolean=false;
     public filter1_var:string;
     public filter1_max:Number;
