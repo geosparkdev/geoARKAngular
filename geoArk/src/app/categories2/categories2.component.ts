@@ -3438,7 +3438,7 @@ export class Categories2Component implements OnInit {
     this.filter1=new filter();
     cat_geoJSON.clearLayers();
     this.spinnertogg=true;
-    this.getTotals(this.risk_factors);
+    this.getTotals([this.risk_factors.Accessibility,this.risk_factors.Exposure,this.risk_factors.Health_resources,this.risk_factors.Socioeconomic,this.risk_factors.Susceptibility,this.risk_factors.Transmission]);
 
   }
 
