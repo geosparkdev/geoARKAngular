@@ -3445,11 +3445,11 @@ export class Categories2Component implements OnInit {
 
   updateTotalsFilter(risk_factors:any,filter_controller:filterBar){
 
-
+    let temp = JSON.stringify(filter_controller)
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
   
-    this.http.post(environment.base_url+"5000/getTotalsFilter",JSON.stringify([risk_factors,filter_controller]), {headers: customheaders}).subscribe(
+    this.http.post(environment.base_url+"5000/getTotalsFilter",JSON.stringify([risk_factors,temp]), {headers: customheaders}).subscribe(
       response=> {
         this.bar_name=response[0];
         this.bar_data=response[1];
