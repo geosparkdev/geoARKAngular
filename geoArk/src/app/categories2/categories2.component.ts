@@ -3443,14 +3443,14 @@ export class Categories2Component implements OnInit {
 
 
 
-  updateTotalsFilter(risk_factors:any,filter_controller:filterBar){
+  updateTotalsFilter(){
 
-    filter_controller.risk_factors=[this.risk_factors.Accessibility,this.risk_factors.Exposure,this.risk_factors.Health_resources,this.risk_factors.Socioeconomic,this.risk_factors.Susceptibility,this.risk_factors.Transmission]
+    this.filter_controller.risk_factors=[this.risk_factors.Accessibility,this.risk_factors.Exposure,this.risk_factors.Health_resources,this.risk_factors.Socioeconomic,this.risk_factors.Susceptibility,this.risk_factors.Transmission]
 
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
   
-    this.http.post(environment.base_url+"5000/getTotalsFilter",JSON.stringify(filter_controller), {headers: customheaders}).subscribe(
+    this.http.post(environment.base_url+"5000/getTotalsFilter",JSON.stringify(this.filter_controller), {headers: customheaders}).subscribe(
       response=> {
         this.bar_name=response[0];
         this.bar_data=response[1];
@@ -3507,7 +3507,7 @@ export class Categories2Component implements OnInit {
     this.filter_controller.filter1_min=String(changeContext.value);
     this.filter_controller.filter1_max=String(changeContext.highValue);
     this.map();
-    this.updateTotalsFilter(this.risk_factors,this.filter_controller);
+    this.updateTotalsFilter();
   
   }
 
