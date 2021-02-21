@@ -3398,6 +3398,8 @@ export class Categories2Component implements OnInit {
       xlist.push(value[this.filter1.name])
     })
 
+    console.log('HISTOGRAM FXN')
+    console.log(xlist)
 
     this.histogram={
       data:[
@@ -3410,15 +3412,9 @@ export class Categories2Component implements OnInit {
       layout:[{
 
         barmode: "stack",
-        width: 400, 
-        height: 25,
-        margin:{
-          l:125, 
-          r:0, 
-          t:0, 
-          b:0, 
-          pad:0
-        },
+        width: 300, 
+        height: 200,
+
       }
       ]
     }
