@@ -3412,14 +3412,12 @@ export class Categories2Component implements OnInit {
         {
           trace1:{
             x:xlist,
-            type:"histogram"
+            type:"histogram",
            }
       } ],
       layout:[{
 
         barmode: "stack",
-        width: 300, 
-        height: 200,
 
       }
       ]
