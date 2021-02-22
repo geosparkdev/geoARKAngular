@@ -3418,7 +3418,6 @@ export class Categories2Component implements OnInit {
       layout : {
         autosize:true, 
               height: 250, 
-              width:200,
 
               title: {
                 text: this.filter1.display,
