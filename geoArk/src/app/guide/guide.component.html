@@ -5,8 +5,8 @@
 <div class='nav_bar'>
     <ul class='tabrow'>
         <li routerLink="/predictions" routerLinkActive="active" > Predictions</li>
-        <li routerLink="/categories" routerLinkActive="active"> Risk Categories</li>
-        <li routerLink="/counties" routerLinkActive="active" > Counties</li>
+        <li routerLink="/categories" routerLinkActive="active" > Risk Categories</li>
+        <li routerLink="/counties" routerLinkActive="active"  > Counties</li>
     </ul> 
 </div> 
 
@@ -15,17 +15,33 @@
     <div class='columns'>
         <div class='column is-3 alignright'>
             Select a dashboard to see guidelines
-            <div class='main_button button_blue'>Predictions</div>
-            <div class='main_button button_blue'>Risk Categories</div>
-            <div class='main_button button_blue'>Counties</div>
+            <div class='main_button button_blue' [ngClass]="{'main_button1 button_blue_selected' : models_selected}"  (click)="selectButton('model')">Predictions</div>
+            <div class='main_button button_blue' [ngClass]="{'main_button1 button_blue_selected' : categories_selected}" (click)="selectButton('categories')" >Risk Categories</div>
+            <div class='main_button button_blue' [ngClass]="{'main_button1 button_blue_selected' : location_selected}" (click)="selectButton('counties')">Counties</div>
         </div>
 
 
         <div class="column">
-            <div class='aligncenter'>
+
+
+
+            <div class='aligncenter' *ngIf="location_selected">
                 <div class="type1">How to use Counties Dashboard</div>
                 <img src="../../assets/counties_howto.png">
             </div>
+
+            <div class='aligncenter' *ngIf="categories_selected">
+                <div class="type1">How to use Risk Categories Dashboard</div>
+                <img src="../../assets/location_howto.png">
+            </div>
+
+            <div class='aligncenter' *ngIf="models_selected">
+                <div class="type1">How to use Predictions Dashboard</div>
+
+            </div>
+
+
+
         </div>
 
 
@@ -33,61 +49,120 @@
 
         <div class="column is-4">
 
-            <span class='howtoText howtoB howtoL' >
-                The counties dashboard allows users to view risk category
-                factors and covid cases and deaths at the county level.
-                </span>
-            <div class='scroll'>
-                <br>
-                <span class='howtoText howtoB howtoL' >1)</span> 
-                <span class='howtoText'>
-                    There are two ways a user can select a county: from the drop down menu 
-                     clicking the county on the map.
-                </span>
-                <br>
-                <br>
-                <span class='howtoText howtoB howtoL' >2)</span>
-                
-                <span class='howtoText'>
-                To view factors of a risk category, click on the risk category button.
-                <br><span class='howtoB'> Bar chart module:</span>
-                <br>The risk factors will appear in the bar chart module on the right. Each 
-                bar displays the risk factor value of the selected county and how this value
-                compares to the mean and max value of all MO counties.
-                The colors of the bar represent what quantile the county value falls in.
-                <br><span class='howtoB'>Map:</span>
-                <br>To view a risk factor geospatially, click on the bar of the facor from 
-                    the bar chart module.
-                <br>
-                 </span>
-                 <br>
-                 <span class='howtoText howtoB howtoL' >3)</span> 
-                <span class='howtoText'>
-                    The windrose plot reports the total risk factor value per category. To view
-                     the value, hover over the band.
-                </span>
-                <br>
-                <br>
-                <span class='howtoText howtoB howtoL' >4)</span> 
-                
-                <span class='howtoText'>
-                    Cases and Deaths are reported as weekly counts. Hover over the bars of the 
-                     plot to see weekly counts.
-                </span>
-                <br>
-                <br>
-                <span class='howtoText howtoB howtoL' > 5) </span>
-                <span class='howtoText'>
-                     Hover over a county to see more details. 
-                </span>
-                <br>
-                <br>
-                <span class='howtoText howtoB howtoL' >6) </span>
-                <span class='howtoText'>
-                    This module displays an overview of the
-                    selected county.
-                </span>
+
+
+
+
+
+            <div *ngIf="categories_selected">
+                <span class='howtoText howtoB howtoL' >
+                    The risk categories dashboard allows users to explore aggregated total risk values of selected
+                    risk categories.
+                    </span>
+                <div class='scroll'>
+                    <br>
+                    <span class='howtoText howtoB howtoL' >1)</span> 
+                    <span class='howtoText'>
+                        Upon viewing the Risk Categories Dashbaord, all risk categories are selected. To de-select 
+                        a risk category, click on corresponding button. Buttons of unselected categories will be light blue. 
+                        When risk categories are selected, the sum of the total risk values per county is reflected on the 
+                        map.
+                    </span>
+                    <br>
+                    <br>
+                    <span class='howtoText howtoB howtoL' >2)</span>
+                    
+                    <span class='howtoText'>
+                     The table module consists of all counties ordered by the highest risk total. The bar chart reports the
+                     risk value total and the other columns report covid cases and deaths to date. When a filter is applied,
+                     this table will update and only counties that fall within the specified filter range, will appear.
+                     </span>
+                     <br>
+                     <br>
+                     <span class='howtoText howtoB howtoL' >3)</span> 
+                    <span class='howtoText'>
+                    To apply a filter, click on the drop down menu and select the desired filter. A range slider will appear 
+                    with the min and max value of the filter. When the slider is updated, the counties that do not fall within
+                    the range will not be prominant on the map. The table module (2) will also update.
+                    </span>
+                    <br>
+                    <br>
+                    <span class='howtoText howtoB howtoL' >4)</span> 
+                    
+                    <span class='howtoText'>
+                       When a filter is selected, a histogram appears to show the spread of the filter values.
+                    </span>
+                    <br>
+                    <br>
+                    <span class='howtoText howtoB howtoL' > 5) </span>
+                    <span class='howtoText'>
+                         Hover over a county to see more details. 
+                    </span>
+                    <br>
+                    <br>
+                </div>
             </div>
+
+
+
+            <div *ngIf="location_selected">
+                <span class='howtoText howtoB howtoL' >
+                    The counties dashboard allows users to view risk category
+                    factors and covid cases and deaths at the county level.
+                    </span>
+                <div class='scroll'>
+                    <br>
+                    <span class='howtoText howtoB howtoL' >1)</span> 
+                    <span class='howtoText'>
+                        There are two ways a user can select a county: from the drop down menu 
+                         clicking the county on the map.
+                    </span>
+                    <br>
+                    <br>
+                    <span class='howtoText howtoB howtoL' >2)</span>
+                    
+                    <span class='howtoText'>
+                    To view factors of a risk category, click on the risk category button.
+                    <br><span class='howtoB'> Bar chart module:</span>
+                    <br>The risk factors will appear in the bar chart module on the right. Each 
+                    bar displays the risk factor value of the selected county and how this value
+                    compares to the mean and max value of all MO counties.
+                    The colors of the bar represent what quantile the county value falls in.
+                    <br><span class='howtoB'>Map:</span>
+                    <br>To view a risk factor geospatially, click on the bar of the facor from 
+                        the bar chart module.
+                    <br>
+                     </span>
+                     <br>
+                     <span class='howtoText howtoB howtoL' >3)</span> 
+                    <span class='howtoText'>
+                        The windrose plot reports the total risk factor value per category. To view
+                         the value, hover over the band.
+                    </span>
+                    <br>
+                    <br>
+                    <span class='howtoText howtoB howtoL' >4)</span> 
+                    
+                    <span class='howtoText'>
+                        Cases and Deaths are reported as weekly counts. Hover over the bars of the 
+                         plot to see weekly counts.
+                    </span>
+                    <br>
+                    <br>
+                    <span class='howtoText howtoB howtoL' > 5) </span>
+                    <span class='howtoText'>
+                         Hover over a county to see more details. 
+                    </span>
+                    <br>
+                    <br>
+                    <span class='howtoText howtoB howtoL' >6) </span>
+                    <span class='howtoText'>
+                        This module displays an overview of the
+                        selected county.
+                    </span>
+                </div>
+            </div>
+    
             
         </div>
     </div>
@@ -95,9 +170,11 @@
    
 </div>
 
+
 <div class='footer'>
-    How to use this dashboard
-    <br>
+    <div class='footer_links' routerLink="/howtouse" routerLinkActive="active">
+        How to use this dashboard
+    </div>
    <div class='footer_links' routerLink="/datasources" routerLinkActive="active">
        Data Sources
    </div>
