@@ -3427,11 +3427,11 @@ export class Categories2Component implements OnInit {
               },
   
               margin:{
-                l:20, 
+                l:50, 
                 r:20, 
                 t:20, 
                 b:30, 
-                pad:0
+                pad:10
               },
       }
     }
