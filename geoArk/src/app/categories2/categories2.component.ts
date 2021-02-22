@@ -3398,7 +3398,7 @@ export class Categories2Component implements OnInit {
 
     for (var i=0; i<this.filters_obj.length; i+=1)
     {
-      xlist.push(Number(this.filters_obj[1][this.filter1.name]))
+      xlist.push(Number(this.filters_obj[i][this.filter1.name]))
     }
 
 
