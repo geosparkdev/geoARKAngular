@@ -138,7 +138,8 @@
         
       
         <div class="column is-3">
-            <div *ngIf="this.filter1.toggle">
+            
+            <div class='histogram_container' *ngIf="this.filter1.toggle">
                 <plotly-plot [data]="this.histogram.data" [layout]='this.histogram.layout' ></plotly-plot>
             </div>
         
