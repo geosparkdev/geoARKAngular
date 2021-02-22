@@ -3417,6 +3417,9 @@ export class Categories2Component implements OnInit {
           } 
       ]
     }
+
+
+    console.log(this.histogram.data)
   }
 
 
