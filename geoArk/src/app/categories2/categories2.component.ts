@@ -3413,7 +3413,27 @@ export class Categories2Component implements OnInit {
               x:xlist,
               type:'histogram',
           } 
-      ]
+      ],
+      layout : {
+        autosize:true, 
+              height: 100, 
+
+              title: {
+                text: this.filter1.display,
+                font: {
+                  size: 12
+                },
+                standoff: -5
+              },
+  
+              margin:{
+                l:50, 
+                r:20, 
+                t:20, 
+                b:30, 
+                pad:0
+              },
+      }
     }
 
 
