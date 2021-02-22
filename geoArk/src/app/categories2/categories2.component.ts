@@ -38,7 +38,7 @@ export class Categories2Component implements OnInit {
   public bar_data:any;
   public tot_bar:any;
 
-  public histogram:any={};
+  public histogram:any;
 
 
   public initial_tot_table:any;
@@ -3408,16 +3408,15 @@ export class Categories2Component implements OnInit {
     console.log(xlist)
 
     this.histogram={
-      data:[
-        {
-          trace1:{
-            x:xlist,
-            type:'histogram',
-           }
-      } ]
+        data:[
+          {
+            trace1:{
+              x:xlist,
+              type:'histogram',
+            }
+          } 
+      ]
     }
-
-
   }
 
 
