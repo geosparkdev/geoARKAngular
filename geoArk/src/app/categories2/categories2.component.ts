@@ -3433,7 +3433,7 @@ export class Categories2Component implements OnInit {
                 r:20, 
                 t:20, 
                 b:30, 
-                pad:10
+                pad:0;
               },
       }
     }
