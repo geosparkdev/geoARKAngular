@@ -3407,16 +3407,14 @@ export class Categories2Component implements OnInit {
     console.log('HISTOGRAM FXN')
     console.log(xlist)
 
-    this.histogram={
-        data:[
-          {
+    this.histogram=[{
             trace1:{
               x:xlist,
               type:'histogram',
             }
-          } 
-      ]
-    }
+          }
+        ]
+
 
 
     console.log(this.histogram.data)
