@@ -3412,11 +3412,12 @@ export class Categories2Component implements OnInit {
           {
               x:xlist,
               type:'histogram',
+              marker: {color: 'orange'} 
           } 
       ],
       layout : {
         autosize:true, 
-              height: 200, 
+              height: 250, 
 
               title: {
                 text: this.filter1.display,
