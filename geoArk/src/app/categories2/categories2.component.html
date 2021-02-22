@@ -37,7 +37,7 @@
 
             <div class='map_loading'>
                 <div *ngIf='spinnertogg' class='loading'>
-                    <ngx-spinner bdColor = "rgba(0,0,0,0)" size = "medium" color = "#00000" type = "ball-spin-clockwise-fade-rotating" [fullScreen] = "false">
+                    <ngx-spinner bdColor = "rgba(0,0,0,0)" size = "medium" color = "#000000" type = "ball-spin-clockwise-fade-rotating" [fullScreen] = "false">
                     </ngx-spinner>
                 </div>
                 <div id="cat_map" class="cat_map"></div>
@@ -139,7 +139,6 @@
       
         <div class="column is-3">
             <div *ngIf="this.filter1.toggle">
-                <plotly-plot [data]="histogram.data" [layout]="histogram.layout"></plotly-plot>
                 <plotly-plot [data]="histogram.data" ></plotly-plot>
             </div>
         

@@ -3414,11 +3414,7 @@ export class Categories2Component implements OnInit {
             x:xlist,
             type:'histogram',
            }
-      } ],
-      layout:[{
-
-      }
-      ]
+      } ]
     }
 
 
