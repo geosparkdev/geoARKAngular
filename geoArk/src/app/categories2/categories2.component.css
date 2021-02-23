@@ -286,7 +286,7 @@ EDIT ON
 .bar_header2{
     width:80px;
     margin-left:3px;
-    padding-left:8px;
+    padding-left:0px;
     display : inline-flex;
     
 }
