@@ -257,7 +257,7 @@ EDIT ON
 
 .bars_scroll
 {
-    max-height:250px;
+    max-height:220px;
     overflow-y: scroll;
     overflow-x: hidden;
     padding:0px;
