@@ -3366,6 +3366,7 @@ export class LocationsComponent implements OnInit {
     this.getCovidData(this.counties[0].cnty_fips);
     this.getWindrose
     this.getWindrosedata(this.counties[0].cnty_fips);
+    this.getCovidDate();
 
 
   }
