@@ -3390,11 +3390,7 @@ export class LocationsComponent implements OnInit {
     this.county_fips=Number(fips.target.value);
     this.current_factor='total'
 
-    console.log("hurr")
-    console.log(fips.target.value)
-
     let temp=this.counties.find(e=> e['cnty_fips']===Number(fips.target.value))
-    console.log(temp)
     this.county_name=temp.cnty_name
 
     geoJSON.clearLayers();
@@ -3410,7 +3406,6 @@ export class LocationsComponent implements OnInit {
  
 //trigger data pull and visual creation for new selected county -- by map 
   getCountyDataClick(event){
-    console.log(event);
     this.spinnertogg=true;
     this.county_fips=Number(event.target.feature.properties.fips);
     this.current_factor='total'
@@ -3443,7 +3438,6 @@ export class LocationsComponent implements OnInit {
 
     this.http.post(environment.base_url+"5000/getquickstats",JSON.stringify(covid_fips), {headers: customheaders}).subscribe(
       response=> {
-        console.log(response)
        
         this.county_pop=response[0];
         this.county_65=response[1];
@@ -3843,6 +3837,8 @@ export class LocationsComponent implements OnInit {
 
        
       this.update_date=response;
+      
+      console.log(this.update_date)
   
   
       },
@@ -3864,7 +3860,6 @@ getWindrosedata(covid_fips:any){
 
   this.http.post(environment.base_url+"5000/getwindrose",JSON.stringify(covid_fips), {headers: customheaders}).subscribe(
     response=> {
-      console.log(response)
       this.windrose_data=response;
       this.getWindrose()
    
@@ -3953,7 +3948,7 @@ factorsMapData(risk:any){
 
   this.http.post(environment.base_url+"5000/factorsMapData",JSON.stringify(risk), {headers: customheaders}).subscribe(
     response=> {
-      console.log(response)
+
      
     this.factors=response[0];
     this.factors_meta=response[1];
@@ -3979,7 +3974,6 @@ factorsMapData(risk:any){
 
 triggerFactor(factor){
   this.current_factor=factor[0];
-  console.log(this.current_factor)
   geoJSON.clearLayers();
   this.map();
 }
@@ -3994,9 +3988,6 @@ triggerFactor(factor){
       
 
       let factor_max=metadata.find(e=> e['factor']===current_fact)
-
-      console.log('FACTOR MAX')
-      console.log(factor_max)
 
       var min=0;
       if (factor_max.min<0){
@@ -4052,10 +4043,6 @@ triggerFactor(factor){
     //data look up for info box
       function getInfo(fips){
         let temp=data.find(e=> e['cnty_fips']===String(fips))
-        console.log('IN LEGEND')
-        console.log(data)
-
-        console.log(fips)
         return temp[current_fact]
       }
 
@@ -4113,10 +4100,7 @@ triggerFactor(factor){
     function getcolor2(value){
 
       let temp=data.find(e=> e['cnty_fips']===value)
-      console.log(temp)
-      console.log('IN HERE ')
-
-
+ 
 
   
       return colorrange[temp[current_fact]]
@@ -4137,8 +4121,6 @@ triggerFactor(factor){
 				if(temp[current_fact] >=ranges[i])
 				{
 					color= colorrange[i];
-					console.log('IN HERE')
-					console.log(color)
 					break;
 				}
 			}
