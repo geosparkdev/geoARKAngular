@@ -3464,6 +3464,10 @@ export class Categories2Component implements OnInit {
   }
 
 
+
+
+  
+
   selectFilter(filter){
 
 

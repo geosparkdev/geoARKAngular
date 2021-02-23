@@ -165,6 +165,7 @@ export class LocationsComponent implements OnInit {
   public covid_deaths:any={};
 
   public covid:any=[];
+  public update_date:any;
 
 
 
@@ -3829,6 +3830,30 @@ export class LocationsComponent implements OnInit {
          }
      };
   }
+
+
+
+
+  getCovidDate(){
+    const customheaders= new HttpHeaders()
+          .set('Content-Type', 'application/json');
+  
+    this.http.get(environment.base_url+"5000/getCovidDate", {headers: customheaders}).subscribe(
+      response=> {
+
+       
+      this.update_date=response;
+  
+  
+      },
+      error => {
+        console.log(error)
+      }
+    )
+  
+  }
+
+
 
 
 
