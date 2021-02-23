@@ -3368,7 +3368,7 @@ export class Categories2Component implements OnInit {
           },
       ],
       layout: {
-              width: 500, 
+              width: 480, 
               height: 25,
               xaxis:{
                 range: [Number(0), Number(factor_max.max)]
