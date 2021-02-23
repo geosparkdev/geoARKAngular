@@ -245,6 +245,7 @@ EDIT ON
 
 .bars_plot{
     height:25px;
+    width:100%;
 
 }
 
@@ -261,7 +262,7 @@ EDIT ON
     overflow-y: scroll;
     overflow-x: hidden;
     padding:0px;
-    margin-left:20%;
+    margin-left:25%;
     width:800px;
 
 }
@@ -271,13 +272,13 @@ EDIT ON
 {
     text-align:center;
     font-size:1.0rem;
-    margin-left:20%;
+    margin-left:25%;
 
 }
 
 .bar_header{
     padding:0px;
-    margin-left:20%;
+    margin-left:25%;
 }
 .bar_header1{
     width:400px;
