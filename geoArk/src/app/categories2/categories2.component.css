@@ -261,7 +261,6 @@ EDIT ON
     overflow-y: scroll;
     overflow-x: hidden;
     padding:0px;
-    margin-left:25%;
     width:800px;
 
 }
@@ -277,7 +276,6 @@ EDIT ON
 
 .bar_header{
     padding:0px;
-    margin-left:25%;
 }
 .bar_header1{
     width:480px;
