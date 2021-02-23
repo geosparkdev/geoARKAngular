@@ -3569,7 +3569,7 @@ export class LocationsComponent implements OnInit {
       ],
       layout: {
               autosize:true, 
-              height: 100, 
+              //height: 100, 
 
               title: {
                 text: this.county_name+' County Weekly Cases',
