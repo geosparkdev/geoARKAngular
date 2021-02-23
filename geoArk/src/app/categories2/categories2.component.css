@@ -280,11 +280,11 @@ EDIT ON
     margin-left:25%;
 }
 .bar_header1{
-    width:400px;
+    width:500px;
     display : inline-flex;
 }
 .bar_header2{
-    width:110px;
+    width:80px;
     margin-left:3px;
     padding-left:8px;
     display : inline-flex;
