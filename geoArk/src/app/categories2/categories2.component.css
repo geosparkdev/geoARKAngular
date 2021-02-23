@@ -257,11 +257,11 @@ EDIT ON
 
 .bars_scroll
 {
-    max-height:20%;
+    max-height:200px;
     overflow-y: scroll;
     overflow-x: hidden;
     padding:0px;
-    margin-left:150px;
+    margin-left:20%;
     width:800px;
 
 }
