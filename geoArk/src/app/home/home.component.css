@@ -79,3 +79,9 @@
     padding-left:100px;
     padding-right:100px;
 }
+
+
+.footer_links:hover{
+    color:white;
+    cursor: pointer;
+  }

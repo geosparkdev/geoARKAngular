@@ -36,10 +36,11 @@
 }
 
 
+
 .footer_links:hover{
   color:white;
+  cursor: pointer;
 }
-
 
 .scroll{
     overflow:scroll;
