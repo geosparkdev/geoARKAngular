@@ -234,5 +234,19 @@ EDIT ON
   
 
 
+    .loading{
+      width:650px;
+      height:300px;
+      position: absolute;
+      z-index:10;
+     
+    }
+    
+    
+    .map_loading{
+      position:relative;
+    }
+    
+
 
 

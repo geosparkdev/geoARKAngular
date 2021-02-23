@@ -63,10 +63,14 @@ export class ModelingComponent implements OnInit {
 
 
 
+
+   //spinner
+   public spinnertogg:boolean=true;
+
   constructor(public http: HttpClient,private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
-
+    this.spinner.show();
     map_status=0;
     map_status_actual=0;
     model_map = L.map("model_map").setView([38.573936, -92.603760], 6.2);
@@ -99,6 +103,7 @@ export class ModelingComponent implements OnInit {
 
         this.model_map()
         this.actual_map()
+
 
 
       },
