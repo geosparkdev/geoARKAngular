@@ -3927,6 +3927,7 @@ getWindrosedata(covid_fips:any){
         ],
         
         layout:{
+         title: "Total Risk per Risk Category",
           width: 300, 
           height: 200, 
           margin: {t:0,r:0,b:0,l:20},
