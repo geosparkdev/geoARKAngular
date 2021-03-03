@@ -61,7 +61,8 @@
 
 .windrose{
  margin-right:-50px;
- position:absolute;
+ position:relative;
+ width:100%
 }
 
 .test{
