@@ -235,7 +235,7 @@ EDIT ON
 
 
     .loading{
-      width:30px;
+      width:100px;
       height:300px;
       position: absolute;
       z-index:10;
