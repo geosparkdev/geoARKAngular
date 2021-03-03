@@ -13,17 +13,22 @@ import { Categories2Component} from '../app/categories2/categories2.component';
 import { ModelingComponent} from '../app/modeling/modeling.component';
 import { DatasourcesComponent } from '../app/datasources/datasources.component';
 import { GuideComponent } from '../app/guide/guide.component';
+import { MainComponent } from './main/main.component';
 
 
 
 const routes: Routes = [
   {
     path:"",
-    redirectTo: 'home',
+    redirectTo: 'GeoArkHome',
     pathMatch: 'full'
   },
   {
-    path: 'home',
+    path:"GeoArkHome",
+    component: MainComponent,
+  },
+  {
+    path: 'rapidHome',
     component: HomeComponent,
    },
   {

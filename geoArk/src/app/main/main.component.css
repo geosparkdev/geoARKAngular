@@ -1,0 +1,14 @@
+.button_title{
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.image_button{
+    cursor:pointer;
+    border: 1px black solid;
+    width: 90%;
+}
+
+.image_button:hover{
+    opacity: .5;
+}

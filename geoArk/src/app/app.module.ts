@@ -27,6 +27,8 @@ import { Categories2Component } from './categories2/categories2.component';
 import { ModelingComponent } from './modeling/modeling.component';
 import { DatasourcesComponent } from './datasources/datasources.component';
 import { GuideComponent } from './guide/guide.component';
+import { MainComponent } from './main/main.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -47,6 +49,8 @@ import { GuideComponent } from './guide/guide.component';
     ModelingComponent,
     DatasourcesComponent,
     GuideComponent,
+    MainComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
