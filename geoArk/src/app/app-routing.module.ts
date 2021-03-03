@@ -14,8 +14,23 @@ import { ModelingComponent} from '../app/modeling/modeling.component';
 import { DatasourcesComponent } from '../app/datasources/datasources.component';
 import { GuideComponent } from '../app/guide/guide.component';
 import { MainComponent } from './main/main.component';
+import { OktaCallbackComponent, OktaAuthGuard, OktaAuthModule } from '@okta/okta-angular';
+import { LoginComponent} from '../app/login/login.component';
 
 
+
+
+export function onAuthRequired({ oktaAuth, router }) {
+  // Redirect the user to your custom login page
+  router.navigate(['/login']);
+}
+const config = {
+  issuer: 'https://vu.okta.com/oauth2/default',
+  redirectUri: 'http://geoark.missouri.edu/implicit/callback',
+  clientId: '0oaab263mIdkXfafx5d6',
+  cacheMaxAge: 1000,
+  pkce: true
+}
 
 const routes: Routes = [
   {
@@ -24,28 +39,53 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
     path:"GeoArkHome",
     component: MainComponent,
+    canActivate: [ OktaAuthGuard ],
+    data: {
+      onAuthRequired
+    }
   },
   {
     path: 'rapidHome',
     component: HomeComponent,
+    canActivate: [ OktaAuthGuard ],
+    data: {
+      onAuthRequired
+    }
    },
   {
     path: 'categories',
     component: Categories2Component,
+    canActivate: [ OktaAuthGuard ],
+    data: {
+      onAuthRequired
+    }
    },
    {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [ OktaAuthGuard ],
+    data: {
+      onAuthRequired
+    }
    },
   {
     path:'geoARKData',
     component: GeoarkdataHomeComponent,
+    canActivate: [ OktaAuthGuard ],
+    data: {
+      onAuthRequired
+    }
   },
   {
     path:'uploadData',
     component:UploaddataComponent,
+    
   },
   {
     path:'dbDesign',
@@ -58,19 +98,36 @@ const routes: Routes = [
   },
   {
     path:'predictions',
-    component: ModelingComponent
+    component: ModelingComponent,
+    canActivate: [ OktaAuthGuard ],
+    data: {
+      onAuthRequired
+    }
   },
   {
     path: 'counties',
-    component: LocationsComponent
+    component: LocationsComponent,
+    canActivate: [ OktaAuthGuard ],
+    data: {
+      onAuthRequired
+    }
   },
   {
     path: 'datasources',
-    component: DatasourcesComponent
+    component: DatasourcesComponent,
+    canActivate: [ OktaAuthGuard ],
+    data: {
+      onAuthRequired
+    }
+    
   },
   {
     path: 'howtouse',
-    component: GuideComponent
+    component: GuideComponent,
+    canActivate: [ OktaAuthGuard ],
+    data: {
+      onAuthRequired
+    }
   },
   
     
@@ -81,4 +138,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+
 
