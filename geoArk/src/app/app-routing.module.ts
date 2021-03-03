@@ -39,6 +39,10 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'implicit/callback',
+    component: OktaCallbackComponent
+  },
+  {
     path: 'login',
     component: LoginComponent
   },
