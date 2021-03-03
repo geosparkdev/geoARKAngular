@@ -235,10 +235,10 @@ EDIT ON
 
 
     .loading{
-      width:650px;
+      width:30px;
       height:300px;
       position: absolute;
-      z-index:0;
+      z-index:10;
      
     }
     
