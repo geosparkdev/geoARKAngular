@@ -138,7 +138,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+    OktaAuthModule.initAuth(config)
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
