@@ -25,7 +25,7 @@ export function onAuthRequired({ oktaAuth, router }) {
   router.navigate(['/login']);
 }
 const config = {
-  issuer: 'https://dev-26889104-admin.okta.com/oauth2/default',
+  issuer: 'https://dev-26889104.okta.com/oauth2/default',
   redirectUri: 'https://geoark.missouri.edu/implicit/callback',
   clientId: '0oaab263mIdkXfafx5d6',
   cacheMaxAge: 1000,
