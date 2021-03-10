@@ -26,7 +26,7 @@ export function onAuthRequired({ oktaAuth, router }) {
 }
 const config = {
   issuer: 'https://vu.okta.com/oauth2/default',
-  redirectUri: 'http://geoark.missouri.edu/implicit/callback',
+  redirectUri: 'https://geoark.missouri.edu/implicit/callback',
   clientId: '0oaab263mIdkXfafx5d6',
   cacheMaxAge: 1000,
   pkce: true
