@@ -204,9 +204,9 @@ Geo-Context and COVID-19 in Missouri
                 </div>
               
                 <div id='risk_factors'>
-                    <div *ngFor='let factors of risk_factors_bars;'>
+                    <div *ngFor='let factors of risk_factors_bars;let i=index'>
                  
-                        <div class='risk_button' (click)="triggerFactor(factors.data[0].y)" tooltip="test" placement="left" show-delay="0">
+                        <div class='risk_button' (click)="triggerFactor(factors.data[0].y)" tooltip="risk_factors[i].description" placement="left" show-delay="0">
             
                             <plotly-plot [data]="factors.data" [layout]="factors.layout" [config]="factors.config" ></plotly-plot>
                         </div>
