@@ -128,7 +128,7 @@ const routes: Routes = [
   {
     path: 'howtouse',
     component: GuideComponent,
-    canActivate: [ OktaAuthGuard ],
+    // canActivate: [ OktaAuthGuard ],
     // data: {
     //   onAuthRequired
     // }

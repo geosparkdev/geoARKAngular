@@ -30,6 +30,7 @@ import { GuideComponent } from './guide/guide.component';
 import { MainComponent } from './main/main.component';
 import { LoginComponent } from './login/login.component';
 
+ 
 
 @NgModule({
   declarations: [
