@@ -35,7 +35,7 @@ export class GeoarkdataHomeComponent implements OnInit {
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
 
-    this.http.get(environment.base_url+"5000/geoarkdatahome", {headers: customheaders}).subscribe(
+    this.http.get(environment.base_url+"/geoarkdatahome", {headers: customheaders}).subscribe(
       response=> {
         console.log(response)
 

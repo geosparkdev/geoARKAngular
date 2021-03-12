@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../environments/environment.prod'
 import 'rxjs/add/operator/filter';
 
 
@@ -111,7 +112,7 @@ export class DashboardComponent implements OnInit {
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
 
-    this.http.post("http://localhost:5000/getDataCat",JSON.stringify(params), {headers: customheaders}).subscribe(
+    this.http.post(environment.base_url + "/getDataCat",JSON.stringify(params), {headers: customheaders}).subscribe(
       response=> {
 				console.log(response)
 
@@ -129,7 +130,7 @@ export class DashboardComponent implements OnInit {
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
 
-    this.http.get("http://localhost:5000/getFakeData", {headers: customheaders}).subscribe(
+    this.http.get(environment.base_url + "/getFakeData", {headers: customheaders}).subscribe(
       response=> {
         console.log(response)
 
@@ -166,7 +167,7 @@ export class DashboardComponent implements OnInit {
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
 
-    this.http.get("http://localhost:5000/buildObject", {headers: customheaders}).subscribe(
+    this.http.get(environment.base_url + "/buildObject", {headers: customheaders}).subscribe(
       response=> {
 				console.log(response)
 			//	this.stopLoading();

@@ -3295,7 +3295,7 @@ export class Categories2Component implements OnInit {
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
   
-    this.http.post(environment.base_url+"5000/getTotals",JSON.stringify(risk_factors), {headers: customheaders}).subscribe(
+    this.http.post(environment.base_url+"/getTotals",JSON.stringify(risk_factors), {headers: customheaders}).subscribe(
       response=> {
         this.bar_name=response[0];
         this.bar_data=response[1];
@@ -3447,7 +3447,7 @@ export class Categories2Component implements OnInit {
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
   
-    this.http.get(environment.base_url+"5000/getFilters", {headers: customheaders}).subscribe(
+    this.http.get(environment.base_url+"/getFilters", {headers: customheaders}).subscribe(
       response=> {
 
         this.filters_obj=response[0];
@@ -3515,7 +3515,7 @@ export class Categories2Component implements OnInit {
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
   
-    this.http.post(environment.base_url+"5000/getTotalsFilter",JSON.stringify(this.filter_controller), {headers: customheaders}).subscribe(
+    this.http.post(environment.base_url+"/getTotalsFilter",JSON.stringify(this.filter_controller), {headers: customheaders}).subscribe(
       response=> {
         this.bar_name=response[0];
         this.bar_data=response[1];

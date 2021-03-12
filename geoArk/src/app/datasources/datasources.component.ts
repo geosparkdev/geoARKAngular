@@ -37,7 +37,7 @@ export class DatasourcesComponent implements OnInit {
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
   
-    this.http.post(environment.base_url+"5000/getdatasources",JSON.stringify(risk_factor), {headers: customheaders}).subscribe(
+    this.http.post(environment.base_url+"/getdatasources",JSON.stringify(risk_factor), {headers: customheaders}).subscribe(
       response=> {
     
         this.risk_factors.Accessibility=0

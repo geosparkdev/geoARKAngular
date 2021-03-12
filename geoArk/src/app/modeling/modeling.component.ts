@@ -84,7 +84,7 @@ export class ModelingComponent implements OnInit {
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
 
-    this.http.get(environment.base_url+"5000/getpredictions", {headers: customheaders}).subscribe(
+    this.http.get(environment.base_url+"/getpredictions", {headers: customheaders}).subscribe(
       response=> {
         console.log(response)
         this.date_attr=response[0];

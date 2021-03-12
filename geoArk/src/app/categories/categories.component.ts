@@ -15311,7 +15311,7 @@ export class CategoriesComponent implements OnInit {
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
 
-    this.http.get(environment.base_url+"5000/getPredictions", {headers: customheaders}).subscribe(
+    this.http.get(environment.base_url+"/getPredictions", {headers: customheaders}).subscribe(
       response=> {
         console.log(response)
 

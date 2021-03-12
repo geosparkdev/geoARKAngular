@@ -102,7 +102,7 @@ export class PredictionsComponent implements OnInit {
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
 
-    this.http.post(environment.base_url+"5000/getModelingData",JSON.stringify(params), {headers: customheaders}).subscribe(
+    this.http.post(environment.base_url+"/getModelingData",JSON.stringify(params), {headers: customheaders}).subscribe(
       response=> {
 		console.log(response)
 
@@ -154,7 +154,7 @@ export class PredictionsComponent implements OnInit {
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
 
-    this.http.post(environment.base_url+"5000/getModelingData",JSON.stringify(params), {headers: customheaders}).subscribe(
+    this.http.post(environment.base_url+"/getModelingData",JSON.stringify(params), {headers: customheaders}).subscribe(
       response=> {
 		console.log(response)
 				

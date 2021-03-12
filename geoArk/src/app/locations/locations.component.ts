@@ -3437,7 +3437,7 @@ export class LocationsComponent implements OnInit {
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
 
-    this.http.post(environment.base_url+"5000/getquickstats",JSON.stringify(covid_fips), {headers: customheaders}).subscribe(
+    this.http.post(environment.base_url+"/getquickstats",JSON.stringify(covid_fips), {headers: customheaders}).subscribe(
       response=> {
        
         this.county_pop=response[0];
@@ -3462,7 +3462,7 @@ export class LocationsComponent implements OnInit {
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
 
-    this.http.post(environment.base_url+"5000/getriskfactordata",JSON.stringify([fips,factor]), {headers: customheaders}).subscribe(
+    this.http.post(environment.base_url+"/getriskfactordata",JSON.stringify([fips,factor]), {headers: customheaders}).subscribe(
       response=> {
         console.log(response)
         this.risk_factors=response;
@@ -3482,7 +3482,7 @@ export class LocationsComponent implements OnInit {
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
 
-    this.http.post(environment.base_url+"5000/getcovidcasesdeaths",JSON.stringify(covid_fips), {headers: customheaders}).subscribe(
+    this.http.post(environment.base_url+"/getcovidcasesdeaths",JSON.stringify(covid_fips), {headers: customheaders}).subscribe(
       response=> {
         console.log(response)
         this.covid=response;
@@ -3833,7 +3833,7 @@ export class LocationsComponent implements OnInit {
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
   
-    this.http.get(environment.base_url+"5000/getCovidDate", {headers: customheaders}).subscribe(
+    this.http.get(environment.base_url+"/getCovidDate", {headers: customheaders}).subscribe(
       response=> {
 
        
@@ -3859,7 +3859,7 @@ getWindrosedata(covid_fips:any){
   const customheaders= new HttpHeaders()
         .set('Content-Type', 'application/json');
 
-  this.http.post(environment.base_url+"5000/getwindrose",JSON.stringify(covid_fips), {headers: customheaders}).subscribe(
+  this.http.post(environment.base_url+"/getwindrose",JSON.stringify(covid_fips), {headers: customheaders}).subscribe(
     response=> {
       this.windrose_data=response;
       this.getWindrose()
@@ -3949,7 +3949,7 @@ factorsMapData(risk:any){
   const customheaders= new HttpHeaders()
         .set('Content-Type', 'application/json');
 
-  this.http.post(environment.base_url+"5000/factorsMapData",JSON.stringify(risk), {headers: customheaders}).subscribe(
+  this.http.post(environment.base_url+"/factorsMapData",JSON.stringify(risk), {headers: customheaders}).subscribe(
     response=> {
 
      
