@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  base_url:'https://geoark.missouri.edu:'
+  base_url:'http://geoark.missouri.edu:'
 };
