@@ -3351,43 +3351,53 @@ export class Categories2Component implements OnInit {
 
 
 
+  if(this.filter1.toggle==false){
 
-  for(let i=0; i<this.bar_name.length; i++){
-    
-    let color=this.getColor(Number(this.bar_data[i]),0, 50, colors, range)
+    for(let i=0; i<this.tot_table.length; i++){
+      
+      let color=this.getColor(Number(this.tot_table[i].total_risk),0, 50, colors, range)
 
-    this.bar_bars.push({
-      data: [
-          { x:[Number(this.bar_data[i])], 
-            y:[this.bar_name[i]],
-            type: 'bar', 
-            orientation:'h',
-            //mode: 'lines', 
-            name:'tot cases',
-            marker: {color: color}
-          },
-      ],
-      layout: {
-              width: 480, 
-              height: 25,
-              xaxis:{
-                range: [Number(0), Number(factor_max.max)]
-              },
-              margin:{
-                l:125, 
-                r:0, 
-                t:0, 
-                b:0, 
-                pad:0
-              },
+      this.bar_bars.push({
+        data: [
+            { x:[Number(this.bar_data[i])], 
+              y:[this.tot_table[i]['County Name']],
+              type: 'bar', 
+              orientation:'h',
+              //mode: 'lines', 
+              name:'tot cases',
+              marker: {color: color}
+            },
+        ],
+        layout: {
+                width: 480, 
+                height: 25,
+                xaxis:{
+                  range: [Number(0), Number(factor_max.max)]
+                },
+                margin:{
+                  l:125, 
+                  r:0, 
+                  t:0, 
+                  b:0, 
+                  pad:0
+                },
 
-              size: 6,
-         }
-     });
-    }
+                size: 6,
+          }
+      });
+      }
 
   }
+  //else
+  //{
 
+  //  if((Number(this.filters_obj) >=filter1_min) && (Number(filter_val[filter1_name]) <=filter1_max))
+  //  {
+
+  //  }
+  //}
+
+}
 
   filterHistogram(){
 
@@ -3485,7 +3495,7 @@ export class Categories2Component implements OnInit {
       this.filter_controller.filter1_var=filter.target.value;
       this.filter1.toggle=true;
       
-      this.filterHistogram()
+      //this.filterHistogram()
     }
     
 
