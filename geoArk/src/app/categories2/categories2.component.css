@@ -260,7 +260,7 @@ EDIT ON
 
 .bars_plot{
     height:25px;
-    width: 80vh;
+    width: 60vh;
 
 }
 
@@ -286,7 +286,7 @@ EDIT ON
 {
     text-align:center;
     font-size:1.0rem;
-    margin-left:20vh;
+    margin-left:10%;
 
 }
 
@@ -294,7 +294,7 @@ EDIT ON
     padding:0px;
 }
 .bar_header1{
-    width: 80vh;
+    width: 60vh;
     display : inline-flex;
 }
 .bar_header2{
