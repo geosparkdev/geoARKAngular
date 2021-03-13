@@ -3297,13 +3297,13 @@ export class Categories2Component implements OnInit {
   
     this.http.post(environment.base_url+"/getTotals",JSON.stringify(risk_factors), {headers: customheaders}).subscribe(
       response=> {
-        this.bar_name=response[0];
-        this.bar_data=response[1];
-        this.tot_table=response[2];
-        this.metadata=response[3];
+        //this.bar_name=response[0];
+        //this.bar_data=response[1];
+        this.tot_table=response[0];
+        this.metadata=response[1];
 
-        this.initial_tot_table=response[2];
-        this.initial_metadata=response[3];
+        this.initial_tot_table=response[0];
+        this.initial_metadata=response[1];
 
         
         this.spinnertogg=false;
