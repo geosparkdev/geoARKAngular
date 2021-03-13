@@ -3388,15 +3388,44 @@ export class Categories2Component implements OnInit {
       }
 
   }
-  // else
-  // {
-  //   for(let i=0; i<this.tot_table.length; i++){
-  //     if((Number(this.filters_obj) >=this.filter1.min_value) && (Number(this.[filter1_name]) <=this.filter1.max_value))
-  //     {
-   
-  //     }
-  //   }
-  // }
+  else
+  {
+    for(let i=0; i<this.tot_table.length; i++){
+      if((Number(this.tot_table[i][this.filter1.name]) >=this.filter1.min_value) && (Number(this.tot_table[i][this.filter1.name]) <=this.filter1.max_value))
+      {
+        let color=this.getColor(Number(this.tot_table[i].total_risk),0, 50, colors, range)
+
+        this.bar_bars.push({
+          data: [
+              { x:[Number(this.tot_table[i]['total_risk'])], 
+                y:[this.tot_table[i]['County Name']],
+                type: 'bar', 
+                orientation:'h',
+                //mode: 'lines', 
+                name:'tot cases',
+                marker: {color: color}
+              },
+          ],
+          layout: {
+                  width: 480, 
+                  height: 25,
+                  xaxis:{
+                    range: [Number(0), Number(factor_max.max)]
+                  },
+                  margin:{
+                    l:125, 
+                    r:0, 
+                    t:0, 
+                    b:0, 
+                    pad:0
+                  },
+  
+                  size: 6,
+            }
+        });
+      }
+    }
+  }
 
 
   
@@ -3587,7 +3616,8 @@ export class Categories2Component implements OnInit {
     this.filter_controller.filter1_max=Number(changeContext.highValue);
 
     this.map();
-    this.updateTotalsFilter();
+    //this.updateTotalsFilter();
+    this.getTotalsGraph();
   
   
   }
