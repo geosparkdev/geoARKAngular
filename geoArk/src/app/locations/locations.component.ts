@@ -3352,7 +3352,7 @@ export class LocationsComponent implements OnInit {
 
 
   public selectcntyfip:any=29003;
-  public locationscntyfips:number=0;
+  public locationscntyfips:any=0;
 
   constructor(public http: HttpClient,private spinner: NgxSpinnerService,public route: ActivatedRoute) {
     
@@ -3361,12 +3361,17 @@ export class LocationsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if(this.route.params!=null){
-      this.route.params.subscribe((params:Params)=>{
-        this.locationscntyfips=params["county_fips"]
-        console.log(this.locationscntyfips)
-      })
-    }
+    this.route.paramMap.subscribe(params=>{
+      this.locationscntyfips=params.get("id");
+      console.log(this.locationscntyfips)
+    })
+    // let id= +this.route.snapshot.params['id']
+    // if(this.route.params!=null){
+    //   this.route.params.subscribe((params:Params)=>{
+    //     this.locationscntyfips=params["id"]
+    //     console.log(this.locationscntyfips)
+    //   })
+    // }
     this.spinner.show();
 
     map_status=0
