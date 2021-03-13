@@ -129,6 +129,20 @@ table, td, th {
   color:white;
   }
 
+
+.updatetable{
+  font-size:12px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.updatetable:hover{
+  color:#5997ce;
+}
+
+
+
+
 /* Headers */
 
 
