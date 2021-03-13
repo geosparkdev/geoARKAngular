@@ -277,7 +277,7 @@ EDIT ON
     overflow-y: scroll;
     overflow-x: hidden;
     padding:0px;
-    width:80vh;
+    width:100vh;
 
 }
 
@@ -286,7 +286,7 @@ EDIT ON
 {
     text-align:left;
     font-size:1.0rem;
-    margin-left:10%;
+    margin-left:20%;
 
 }
 
