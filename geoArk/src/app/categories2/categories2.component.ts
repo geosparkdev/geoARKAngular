@@ -3823,7 +3823,7 @@ highlightFeature(e) {
   layer.on({
     mouseover: this.highlightFeature,
     mouseout: this.resetHighlight,
-    //click: (event) => this.getCountyDataClick(event),
+    click: (event) => this.countyView(event),
   });
 }
 
@@ -3843,7 +3843,10 @@ onOutlineEachFeature(feature, layer: L.Layer) {
 
 
 
-
+countyView(event){
+  let county_fips=Number(event.target.feature.properties.fips);
+  console.log(county_fips)
+}
 
 
 
