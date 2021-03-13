@@ -3372,6 +3372,8 @@ export class LocationsComponent implements OnInit {
     this.route.queryParams
     .subscribe(params => {
       this.locationscntyfips=Number(params.fips)
+      console.log("HERHERHERHERHEH")
+      console.log(this.locationscntyfips)
     });
 
     if(this.locationscntyfips!=null){
