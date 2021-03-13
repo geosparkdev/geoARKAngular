@@ -3391,11 +3391,12 @@ export class Categories2Component implements OnInit {
   else
   {
     for(let i=0; i<this.tot_table.length; i++){
-      if((Number(this.tot_table[i][this.filter1.name]) >=this.filter1.min_value) && (Number(this.tot_table[i][this.filter1.name]) <=this.filter1.max_value))
-      console.log('IN FILTER PART')
-      console.log((Number(this.tot_table[i][this.filter1.name])))
-      console.log(this.filter1.min_value)
-      
+
+      let filter_val=this.filters_obj.find(e=> e['cnty_fips']===this.tot_table[i]['countyFIPS'])
+      console.log('HEREHEHREHRHEHRHERHEHREH***')
+      console.log(filter_val)
+
+      if((Number(filter_val[this.filter1.name]) >=this.filter1.min_value) && (Number(filter_val[this.filter1.name]) <=this.filter1.max_value))      
       
       {
         let color=this.getColor(Number(this.tot_table[i].total_risk),0, 50, colors, range)
