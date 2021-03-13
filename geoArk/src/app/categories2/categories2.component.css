@@ -277,14 +277,14 @@ EDIT ON
     overflow-y: scroll;
     overflow-x: hidden;
     padding:0px;
-    width:800px;
+    width:80vh;
 
 }
 
 
 .bars_title
 {
-    text-align:center;
+    text-align:left;
     font-size:1.0rem;
     margin-left:10%;
 
