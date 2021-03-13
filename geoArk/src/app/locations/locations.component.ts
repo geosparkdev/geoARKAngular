@@ -3375,12 +3375,12 @@ export class LocationsComponent implements OnInit {
     risk_map = L.map("risk_map").setView([38.573936, -92.603760], 6.2);
 
 
-    this.getStatsBar(this.counties[0].cnty_fips);
-    this.getRiskFactors(this.counties[0].cnty_fips,this.current_risk_factor);
+    this.getStatsBar(this.selectcntyfip);
+    this.getRiskFactors(this.selectcntyfip,this.current_risk_factor);
     this.factorsMapData(this.current_risk_factor);
-    this.getCovidData(this.counties[0].cnty_fips);
+    this.getCovidData(this.selectcntyfip);
     this.getWindrose
-    this.getWindrosedata(this.counties[0].cnty_fips);
+    this.getWindrosedata(this.selectcntyfip);
     this.getCovidDate();
 
 
