@@ -100,7 +100,8 @@ export class ModelingComponent implements OnInit {
         this.value=this.date_attr.length-1;
         this.slider_togg=true;
         
-
+        geoJSON_model.clearLayers();
+        geoJSON_actual.clearLayers();
         this.model_map()
         this.actual_map()
 
@@ -126,8 +127,10 @@ export class ModelingComponent implements OnInit {
 
 onUserChange(changeContext: ChangeContext): void {
   this.current_date=this.date_attr[changeContext.value]
-  model_map.removeLayer(L.GeoJSON);
-  actual_map.removeLayer(L.GeoJSON);
+  //model_map.removeLayer(L.GeoJSON);
+  //actual_map.removeLayer(L.GeoJSON);
+  geoJSON_model.clearLayers();
+  geoJSON_actual.clearLayers();
   this.model_map()
   this.actual_map()
 
@@ -148,8 +151,11 @@ newCategory(category:any){
   }
 
 
-  model_map.removeLayer(L.GeoJSON);
-  actual_map.removeLayer(L.GeoJSON);
+  geoJSON_model.clearLayers();
+  geoJSON_actual.clearLayers();
+
+  //model_map.removeLayer(L.GeoJSON);
+ // actual_map.removeLayer(L.GeoJSON);
   this.model_map()
   this.actual_map()
 
@@ -160,8 +166,11 @@ newModel(mobility:any){
   this.mobility=mobility
   this.model_attr=this.mobility+'_'+this.category+'_'
 
-  model_map.removeLayer(L.GeoJSON);
-  actual_map.removeLayer(L.GeoJSON);
+
+  geoJSON_model.clearLayers();
+ geoJSON_actual.clearLayers();
+ // model_map.removeLayer(L.GeoJSON);
+ // actual_map.removeLayer(L.GeoJSON);
   this.model_map()
   this.actual_map()
 
