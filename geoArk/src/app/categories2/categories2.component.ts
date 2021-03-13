@@ -3542,7 +3542,6 @@ export class Categories2Component implements OnInit {
   dropFilter(){
     this.filter1=new filter();
     cat_geoJSON.clearLayers();
-    this.spinnertogg=true;
     this.map();
     this.getTotalsGraph();
   }
