@@ -3361,17 +3361,13 @@ export class LocationsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.route.paramMap.subscribe(params=>{
-      this.locationscntyfips=params.get("id");
-      console.log(this.locationscntyfips)
-    })
-    // let id= +this.route.snapshot.params['id']
-    // if(this.route.params!=null){
-    //   this.route.params.subscribe((params:Params)=>{
-    //     this.locationscntyfips=params["id"]
-    //     console.log(this.locationscntyfips)
-    //   })
-    // }
+
+    this.route.queryParams
+    .filter(params => params.tags)
+    .subscribe(params => {
+      console.log(params); // { order: "popular" }
+    });
+
     this.spinner.show();
 
     map_status=0
