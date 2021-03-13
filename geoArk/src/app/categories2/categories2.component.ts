@@ -3397,6 +3397,9 @@ export class Categories2Component implements OnInit {
 
     let tot_temp1=this.initial_tot_table.find(e=> e[this.filter1.name] >= this.filter1.min_value)
     let tot_temp2=tot_temp1.find(e=> e[this.filter1.name]<= this.filter1.max_value)
+    console.log(tot_temp2)
+
+
   
     for(let i=0; i<this.tot_table.length; i++){
       
