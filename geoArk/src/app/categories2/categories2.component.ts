@@ -3395,20 +3395,18 @@ export class Categories2Component implements OnInit {
     let factor_max=this.metadata.find(e=> e['factor']===current_fact)
     let range=this.getBins(0,factor_max.max,50)
 
-    let tot_temp2=this.initial_tot_table.filter(e=> e[this.filter1.name] >= this.filter1.min_value && e[this.filter1.name] <= this.filter1.max_value )
-
-    console.log(tot_temp2)
+    this.tot_table=this.initial_tot_table.filter(e=> e[this.filter1.name] >= this.filter1.min_value && e[this.filter1.name] <= this.filter1.max_value )
 
 
   
     for(let i=0; i<this.tot_table.length; i++){
       
-      let color=this.getColor(Number(tot_temp2[i].total_risk),0, 50, colors, range)
+      let color=this.getColor(Number(this.tot_table[i].total_risk),0, 50, colors, range)
 
       this.bar_bars.push({
         data: [
-            { x:[Number(tot_temp2[i]['total_risk'])], 
-              y:[tot_temp2[i]['County Name']],
+            { x:[Number(this.tot_table[i]['total_risk'])], 
+              y:[this.tot_table[i]['County Name']],
               type: 'bar', 
               orientation:'h',
               //mode: 'lines', 
