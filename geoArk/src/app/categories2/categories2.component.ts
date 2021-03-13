@@ -3351,87 +3351,87 @@ export class Categories2Component implements OnInit {
 
 
 
-  if(this.filter1.toggle==false){
+ // if(this.filter1.toggle==false){
 
-    for(let i=0; i<this.tot_table.length; i++){
-      
-      let color=this.getColor(Number(this.tot_table[i].total_risk),0, 50, colors, range)
+  for(let i=0; i<this.tot_table.length; i++){
+    
+    let color=this.getColor(Number(this.tot_table[i].total_risk),0, 50, colors, range)
 
-      this.bar_bars.push({
-        data: [
-            { x:[Number(this.tot_table[i]['total_risk'])], 
-              y:[this.tot_table[i]['County Name']],
-              type: 'bar', 
-              orientation:'h',
-              //mode: 'lines', 
-              name:'tot cases',
-              marker: {color: color}
-            },
-        ],
-        layout: {
-                width: 480, 
-                height: 25,
-                xaxis:{
-                  range: [Number(0), Number(factor_max.max)]
-                },
-                margin:{
-                  l:125, 
-                  r:0, 
-                  t:0, 
-                  b:0, 
-                  pad:0
-                },
-
-                size: 6,
-          }
-      });
-      }
-
-  }
-  else
-  {
-    for(let i=0; i<this.tot_table.length; i++){
-
-      let filter_val=this.filters_obj.find(e=> e['cnty_fips']===this.tot_table[i]['countyFIPS'])
-      console.log('HEREHEHREHRHEHRHERHEHREH***')
-      console.log(filter_val)
-
-      if((Number(filter_val[this.filter1.name]) >=this.filter1.min_value) && (Number(filter_val[this.filter1.name]) <=this.filter1.max_value))      
-      
-      {
-        let color=this.getColor(Number(this.tot_table[i].total_risk),0, 50, colors, range)
-
-        this.bar_bars.push({
-          data: [
-              { x:[Number(this.tot_table[i]['total_risk'])], 
-                y:[this.tot_table[i]['County Name']],
-                type: 'bar', 
-                orientation:'h',
-                //mode: 'lines', 
-                name:'tot cases',
-                marker: {color: color}
+    this.bar_bars.push({
+      data: [
+          { x:[Number(this.tot_table[i]['total_risk'])], 
+            y:[this.tot_table[i]['County Name']],
+            type: 'bar', 
+            orientation:'h',
+            //mode: 'lines', 
+            name:'tot cases',
+            marker: {color: color}
+          },
+      ],
+      layout: {
+              width: 480, 
+              height: 25,
+              xaxis:{
+                range: [Number(0), Number(factor_max.max)]
               },
-          ],
-          layout: {
-                  width: 480, 
-                  height: 25,
-                  xaxis:{
-                    range: [Number(0), Number(factor_max.max)]
-                  },
-                  margin:{
-                    l:125, 
-                    r:0, 
-                    t:0, 
-                    b:0, 
-                    pad:0
-                  },
-  
-                  size: 6,
-            }
-        });
-      }
-    }
+              margin:{
+                l:125, 
+                r:0, 
+                t:0, 
+                b:0, 
+                pad:0
+              },
+
+              size: 6,
+        }
+    });
+      //}
+
   }
+  // else
+  // {
+  //   for(let i=0; i<this.tot_table.length; i++){
+
+  //     let filter_val=this.filters_obj.find(e=> e['cnty_fips']===this.tot_table[i]['countyFIPS'])
+  //     console.log('HEREHEHREHRHEHRHERHEHREH***')
+  //     console.log(filter_val)
+
+  //     if((Number(filter_val[this.filter1.name]) >=this.filter1.min_value) && (Number(filter_val[this.filter1.name]) <=this.filter1.max_value))      
+      
+  //     {
+  //       let color=this.getColor(Number(this.tot_table[i].total_risk),0, 50, colors, range)
+
+  //       this.bar_bars.push({
+  //         data: [
+  //             { x:[Number(this.tot_table[i]['total_risk'])], 
+  //               y:[this.tot_table[i]['County Name']],
+  //               type: 'bar', 
+  //               orientation:'h',
+  //               //mode: 'lines', 
+  //               name:'tot cases',
+  //               marker: {color: color}
+  //             },
+  //         ],
+  //         layout: {
+  //                 width: 480, 
+  //                 height: 25,
+  //                 xaxis:{
+  //                   range: [Number(0), Number(factor_max.max)]
+  //                 },
+  //                 margin:{
+  //                   l:125, 
+  //                   r:0, 
+  //                   t:0, 
+  //                   b:0, 
+  //                   pad:0
+  //                 },
+  
+  //                 size: 6,
+  //           }
+  //       });
+  //     }
+  //   }
+  // }
 
 
   
@@ -3576,6 +3576,27 @@ export class Categories2Component implements OnInit {
 
 
 
+  FilterUpdate(){
+
+
+    const customheaders= new HttpHeaders()
+          .set('Content-Type', 'application/json');
+  
+    this.http.post(environment.base_url+"/FilterUpdate",JSON.stringify(this.initial_tot_table), {headers: customheaders}).subscribe(
+      response=> {
+        console.log(response)
+
+        //this.getTotalsGraph();
+
+  
+      },
+      error => {
+        console.log(error)
+      }
+    )
+  
+  }
+
 
 
 
@@ -3615,6 +3636,7 @@ export class Categories2Component implements OnInit {
 
     this.map();
     //this.updateTotalsFilter();
+    this.FilterUpdate()
     this.getTotalsGraph();
   
   
