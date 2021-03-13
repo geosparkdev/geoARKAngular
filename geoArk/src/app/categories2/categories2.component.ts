@@ -3208,7 +3208,6 @@ export class Categories2Component implements OnInit {
   //filter objects
   public filters_data:any;
   public filters_obj:any;
-  public filter_controller:filterBar;
 
   //filter 1  
   public filter1:filter;
@@ -3219,7 +3218,6 @@ export class Categories2Component implements OnInit {
 
     this.spinner.show();
 
-    this.filter_controller=new filterBar();
     this.filter1=new filter();
    
 
@@ -3497,7 +3495,6 @@ export class Categories2Component implements OnInit {
         this.filters_data=response[1];
 
   
-  
       },
       error => {
         console.log(error)
@@ -3524,8 +3521,6 @@ export class Categories2Component implements OnInit {
       this.filter1.options.floor=Number(curr_data.min);
       this.filter1.display=curr_data.display;
 
-      this.filter_controller.filter1_on=1;
-      this.filter_controller.filter1_var=filter.target.value;
       this.filter1.toggle=true;
       
       //this.filterHistogram()
@@ -3546,33 +3541,11 @@ export class Categories2Component implements OnInit {
     this.getTotalsGraph();
   }
 
-
-
-  updateTotalsFilter(){
-
-    this.filter_controller.risk_factors=[this.risk_factors.Accessibility,this.risk_factors.Exposure,this.risk_factors.Health_resources,this.risk_factors.Socioeconomic,this.risk_factors.Susceptibility,this.risk_factors.Transmission]
-
-    const customheaders= new HttpHeaders()
-          .set('Content-Type', 'application/json');
-  
-    this.http.post(environment.base_url+"/getTotalsFilter",JSON.stringify(this.filter_controller), {headers: customheaders}).subscribe(
-      response=> {
-        this.bar_name=response[0];
-        this.bar_data=response[1];
-        this.tot_table=response[2];
-        this.metadata=response[3];
-
-        this.getTotalsGraph();
-
-  
-      },
-      error => {
-        console.log(error)
-      }
-    )
-  
+  updateTable(){
+    this.getTotalsGraph();
   }
 
+  
 
 
 
@@ -3606,13 +3579,8 @@ export class Categories2Component implements OnInit {
     this.filter1.min_value=Number(changeContext.value);
     this.filter1.max_value=Number(changeContext.highValue);
 
-    this.filter_controller.filter1_min=Number(changeContext.value);
-    this.filter_controller.filter1_max=Number(changeContext.highValue);
-
     this.map();
-    //this.updateTotalsFilter();
-   // this.FilterUpdate()
-    this.getTotalsGraph();
+    //this.getTotalsGraph();
   
   
   }
