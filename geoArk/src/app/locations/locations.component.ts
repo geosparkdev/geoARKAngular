@@ -3376,7 +3376,7 @@ export class LocationsComponent implements OnInit {
       console.log(this.locationscntyfips)
     });
 
-    if(this.locationscntyfips!=null && this.locationscntyfips!=NaN){
+    if(this.locationscntyfips!=null && isNaN(this.locationscntyfips)==false){
       this.selectcntyfip=this.locationscntyfips
       let temp=this.counties.find(e=> e['cnty_fips']===this.locationscntyfips)
       this.county_name=temp.cnty_name;
