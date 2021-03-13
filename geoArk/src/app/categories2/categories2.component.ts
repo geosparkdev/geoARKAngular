@@ -3229,7 +3229,7 @@ export class Categories2Component implements OnInit {
     this.risk_factors= new risk_factors();
 
     let factors_list=[this.risk_factors.Accessibility,this.risk_factors.Exposure,this.risk_factors.Health_resources,this.risk_factors.Socioeconomic,this.risk_factors.Susceptibility,this.risk_factors.Transmission]
-    console.log(factors_list)
+
 
 
    // this.getTotalsGraph()
@@ -3392,6 +3392,11 @@ export class Categories2Component implements OnInit {
   {
     for(let i=0; i<this.tot_table.length; i++){
       if((Number(this.tot_table[i][this.filter1.name]) >=this.filter1.min_value) && (Number(this.tot_table[i][this.filter1.name]) <=this.filter1.max_value))
+      console.log('IN FILTER PART')
+      console.log((Number(this.tot_table[i][this.filter1.name])))
+      console.log(this.filter1.min_value)
+      
+      
       {
         let color=this.getColor(Number(this.tot_table[i].total_risk),0, 50, colors, range)
 
@@ -3436,7 +3441,6 @@ export class Categories2Component implements OnInit {
 
 
     let xlist=[]
-    console.log(this.filters_obj)
 
 
     for (var i=0; i<this.filters_obj.length; i+=1)
@@ -3444,11 +3448,6 @@ export class Categories2Component implements OnInit {
       xlist.push(Number(this.filters_obj[i][this.filter1.name]))
     }
 
-
-
-
-    console.log('HISTOGRAM FXN')
-    console.log(xlist)
 
     this.histogram={
         data:[
@@ -3535,8 +3534,6 @@ export class Categories2Component implements OnInit {
 
     
     cat_geoJSON.clearLayers();
-    console.log("select Filter fxn")
-    console.log(filter)
     this.map()
   }
 
@@ -3722,10 +3719,6 @@ export class Categories2Component implements OnInit {
   //data look up for info box
     function getInfo(fips){
       let temp=data.find(e=> e['countyFIPS']===String(fips))
-      console.log('IN LEGEND')
-      console.log(data)
-
-      console.log(fips)
       return temp[current_fact]
     }
 
@@ -3780,7 +3773,6 @@ export class Categories2Component implements OnInit {
       if(temp[current_fact] >=ranges[i])
       {
         color= colorrange[i];
-        console.log(color)
         break;
       }
     }
@@ -3791,11 +3783,8 @@ export class Categories2Component implements OnInit {
 
   function filterOpacity(value){
 
-    console.log("IN FILTER OPACITY")
-    console.log(value)
   
     if(filter1_togg==false){
-      console.log('In filter false loop of filter opacity')
       return 1.0
     }
     else{
@@ -3808,7 +3797,6 @@ export class Categories2Component implements OnInit {
       }
       else
       {
-        console.log("in the filter loop else statement")
         return 0.2
      
       }
@@ -3821,12 +3809,9 @@ export class Categories2Component implements OnInit {
 
 
   function filterLine(value){
-
-    console.log("IN FILTER Line")
-    console.log(value)
   
     if(filter1_togg==false){
-      console.log('In filter false loop of filter opacity')
+
       return 0.5
     }
     else{
@@ -3839,9 +3824,7 @@ export class Categories2Component implements OnInit {
       }
       else
       {
-        console.log("in the filter loop else statement")
         return 0.0
-     
       }
 
     }
