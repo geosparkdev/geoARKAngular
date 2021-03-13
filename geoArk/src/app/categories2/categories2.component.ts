@@ -3337,7 +3337,7 @@ export class Categories2Component implements OnInit {
 
 
     var current_fact='total_risk'
-    let factor_max=this.metadata.find(e=> e['factor']===current_fact)
+
     let colors = colormap({
       colormap:'autumn',
       nshades: 50,
@@ -3347,45 +3347,90 @@ export class Categories2Component implements OnInit {
 
   colors.reverse()
 
-  let range=this.getBins(0,factor_max.max,50)
 
 
+  if(this.filter1.toggle==false){
 
- // if(this.filter1.toggle==false){
+    let factor_max=this.metadata.find(e=> e['factor']===current_fact)
+    let range=this.getBins(0,factor_max.max,50)
 
-  for(let i=0; i<this.tot_table.length; i++){
-    
-    let color=this.getColor(Number(this.tot_table[i].total_risk),0, 50, colors, range)
+    for(let i=0; i<this.initial_tot_table.length; i++){
 
-    this.bar_bars.push({
-      data: [
-          { x:[Number(this.tot_table[i]['total_risk'])], 
-            y:[this.tot_table[i]['County Name']],
-            type: 'bar', 
-            orientation:'h',
-            //mode: 'lines', 
-            name:'tot cases',
-            marker: {color: color}
-          },
-      ],
-      layout: {
-              width: 480, 
-              height: 25,
-              xaxis:{
-                range: [Number(0), Number(factor_max.max)]
-              },
-              margin:{
-                l:125, 
-                r:0, 
-                t:0, 
-                b:0, 
-                pad:0
-              },
+      let color=this.getColor(Number(this.initial_tot_table[i].total_risk),0, 50, colors, range)
 
-              size: 6,
+      this.bar_bars.push({
+        data: [
+            { x:[Number(this.initial_tot_table[i]['total_risk'])], 
+              y:[this.initial_tot_table[i]['County Name']],
+              type: 'bar', 
+              orientation:'h',
+              //mode: 'lines', 
+              name:'tot cases',
+              marker: {color: color}
+            },
+        ],
+        layout: {
+                width: 480, 
+                height: 25,
+                xaxis:{
+                  range: [Number(0), Number(factor_max.max)]
+                },
+                margin:{
+                  l:125, 
+                  r:0, 
+                  t:0, 
+                  b:0, 
+                  pad:0
+                },
+
+                size: 6,
+          }
+      });
         }
-    });
-      //}
+
+  }
+  else
+  {
+
+    let factor_max=this.metadata.find(e=> e['factor']===current_fact)
+    let range=this.getBins(0,factor_max.max,50)
+
+    let tot_temp1=this.initial_tot_table.find(e=> e[this.filter1.name] >= this.filter1.min_value)
+    let tot_temp2=tot_temp1.find(e=> e[this.filter1.name]<= this.filter1.max_value)
+  
+    for(let i=0; i<this.tot_table.length; i++){
+      
+      let color=this.getColor(Number(tot_temp2[i].total_risk),0, 50, colors, range)
+
+      this.bar_bars.push({
+        data: [
+            { x:[Number(tot_temp2[i]['total_risk'])], 
+              y:[tot_temp2[i]['County Name']],
+              type: 'bar', 
+              orientation:'h',
+              //mode: 'lines', 
+              name:'tot cases',
+              marker: {color: color}
+            },
+        ],
+        layout: {
+                width: 480, 
+                height: 25,
+                xaxis:{
+                  range: [Number(0), Number(factor_max.max)]
+                },
+                margin:{
+                  l:125, 
+                  r:0, 
+                  t:0, 
+                  b:0, 
+                  pad:0
+                },
+
+                size: 6,
+          }
+      });
+        }
 
   }
   // else
@@ -3636,7 +3681,7 @@ export class Categories2Component implements OnInit {
 
     this.map();
     //this.updateTotalsFilter();
-    this.FilterUpdate()
+   // this.FilterUpdate()
     this.getTotalsGraph();
   
   
