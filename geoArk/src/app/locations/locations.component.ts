@@ -151,7 +151,7 @@ export class LocationsComponent implements OnInit {
 
   //Current county-- variables needed to pull in data from database 
   public county_name:any=this.counties[0].cnty_name;
-  public county_fips:any=this.counties[1].cnty_fips;
+  public county_fips:any=this.counties[0].cnty_fips;
 
   //County Quick  Facts
   public county_pop:string;
@@ -3351,8 +3351,8 @@ export class LocationsComponent implements OnInit {
 
 
 
-  public selectcntyfip:any=29003;
-  public locationscntyfips:any=0;
+  public selectcntyfip:number=29003;
+  public locationscntyfips:number=0;
 
   constructor(public http: HttpClient,private spinner: NgxSpinnerService,public route: ActivatedRoute) {
     
@@ -3367,7 +3367,10 @@ export class LocationsComponent implements OnInit {
     });
 
     if(this.locationscntyfips!=0){
-      this.selectcntyfip=this.locationscntyfips;
+      this.selectcntyfip=this.locationscntyfips
+      let temp=this.counties.find(e=> e['cnty_fips']===this.locationscntyfips)
+      this.county_name=temp.cnty_name;
+      this.county_fips=this.locationscntyfips
     }
     this.spinner.show();
 
