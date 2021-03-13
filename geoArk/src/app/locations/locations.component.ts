@@ -3374,7 +3374,7 @@ export class LocationsComponent implements OnInit {
       this.locationscntyfips=Number(params.fips)
     });
 
-    if(this.locationscntyfips==null){
+    if(this.locationscntyfips!=null){
       this.selectcntyfip=this.locationscntyfips
       let temp=this.counties.find(e=> e['cnty_fips']===this.locationscntyfips)
       this.county_name=temp.cnty_name;
