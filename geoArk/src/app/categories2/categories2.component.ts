@@ -3395,8 +3395,8 @@ export class Categories2Component implements OnInit {
     let factor_max=this.metadata.find(e=> e['factor']===current_fact)
     let range=this.getBins(0,factor_max.max,50)
 
-    let tot_temp1=this.initial_tot_table.find(e=> e[this.filter1.name] >= this.filter1.min_value)
-    let tot_temp2=tot_temp1.find(e=> e[this.filter1.name]<= this.filter1.max_value)
+    let tot_temp2=this.initial_tot_table.filter(e=> e[this.filter1.name] >= this.filter1.min_value && e[this.filter1.name] <= this.filter1.max_value )
+
     console.log(tot_temp2)
 
 
