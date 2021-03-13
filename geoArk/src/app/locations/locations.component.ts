@@ -3361,9 +3361,8 @@ export class LocationsComponent implements OnInit {
 
   ngOnInit(): void {
 
-
+    console.log("here-----**")
     this.route.queryParams
-    .filter(params => params.tags)
     .subscribe(params => {
       console.log(params); // { order: "popular" }
     });
