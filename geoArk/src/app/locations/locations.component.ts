@@ -3,10 +3,13 @@ import { HttpHeaders } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { environment} from 'src/environments/environment';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+
 
 //Third Party Packages 
 import * as L from 'leaflet';
 import * as colormap from 'colormap';
+import { trimTrailingNulls } from '@angular/compiler/src/render3/view/util';
 
 
 
@@ -3349,10 +3352,20 @@ export class LocationsComponent implements OnInit {
 
 
   public selectcntyfip:any=29003;
+  public locationscntyfips:number=0;
 
-  constructor(public http: HttpClient,private spinner: NgxSpinnerService) { }
+  constructor(public http: HttpClient,private spinner: NgxSpinnerService,public route: ActivatedRoute) {
+    
+    if(this.route.params!=null){
+      this.route.params.subscribe((params:Params)=>{
+        this.locationscntyfips=params["county_fips"]
+        console.log(this.locationscntyfips)
+      })
+    }
+   }
 
   ngOnInit(): void {
+
     
     this.spinner.show();
 

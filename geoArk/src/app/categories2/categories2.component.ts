@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { environment} from 'src/environments/environment';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Options,ChangeContext } from 'ng5-slider';
+import { Router } from '@angular/router';
+
 
 //Third Party Packages 
 import * as L from 'leaflet';
@@ -3212,7 +3214,7 @@ export class Categories2Component implements OnInit {
   //filter 1  
   public filter1:filter;
   public spinnertogg:boolean=true;
-  constructor(public http: HttpClient,private spinner: NgxSpinnerService) { }
+  constructor(public http: HttpClient,private spinner: NgxSpinnerService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -3846,6 +3848,8 @@ onOutlineEachFeature(feature, layer: L.Layer) {
 countyView(event){
   let county_fips=Number(event.target.feature.properties.fips);
   console.log(county_fips)
+  this.router.navigate(['/counties/' + county_fips]);
+
 }
 
 
