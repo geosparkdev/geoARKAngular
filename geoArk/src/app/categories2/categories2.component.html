@@ -72,7 +72,7 @@
                             <div class="close" (click)="dropFilter()"><i class="mdi mdi-close-box-outline" ></i></div>
                             <ng5-slider [(value)]="filter1.min_value" [(highValue)]="filter1.max_value" [options]="filter1.options" (userChange)="onUserChange($event)"></ng5-slider>
                         </div>
-                       
+                        <span class='updatetable' (click)="updateTable()"> <i class="mdi mdi-cached" ></i> Update Table</span>
                     </div>
            
 
@@ -89,7 +89,7 @@
         <div class="column">
            
                 <div class='bars_title'>Counties ordered by the highest risk total &nbsp;&nbsp;&nbsp;
-                    <span class='updatetable' (click)="updateTable()"> <i class="mdi mdi-cached" ></i> Update Table</span>
+                   
                 </div> 
                 <div class="bar_header">
                     <div class="bar_header1">
