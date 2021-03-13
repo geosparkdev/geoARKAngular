@@ -3359,7 +3359,7 @@ export class Categories2Component implements OnInit {
 
       this.bar_bars.push({
         data: [
-            { x:[Number(this.bar_data[i])], 
+            { x:[Number(this.tot_table[i]['total_risk'])], 
               y:[this.tot_table[i]['County Name']],
               type: 'bar', 
               orientation:'h',
@@ -3388,14 +3388,18 @@ export class Categories2Component implements OnInit {
       }
 
   }
-  //else
-  //{
+  // else
+  // {
+  //   for(let i=0; i<this.tot_table.length; i++){
+  //     if((Number(this.filters_obj) >=this.filter1.min_value) && (Number(this.[filter1_name]) <=this.filter1.max_value))
+  //     {
+   
+  //     }
+  //   }
+  // }
 
-  //  if((Number(this.filters_obj) >=filter1_min) && (Number(filter_val[filter1_name]) <=filter1_max))
-  //  {
 
-  //  }
-  //}
+  
 
 }
 
