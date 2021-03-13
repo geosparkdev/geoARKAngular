@@ -168,7 +168,7 @@ newModel(mobility:any){
 
 
   geoJSON_model.clearLayers();
- geoJSON_actual.clearLayers();
+  geoJSON_actual.clearLayers();
  // model_map.removeLayer(L.GeoJSON);
  // actual_map.removeLayer(L.GeoJSON);
   this.model_map()
@@ -250,7 +250,7 @@ newModel(mobility:any){
         weight: 0.5,
         //fillColor:getcolor(feature.id),
         fillColor:getcolor3(feature.properties[attribute]),
-        fillOpacity:0.8,
+        fillOpacity:1.0,
       }
     },
     onEachFeature: (feature, layer) => this.onEachFeature(feature, layer)
@@ -420,7 +420,7 @@ geoJSON_actual= L.geoJSON(this.model_map_obj, {
       weight: 0.5,
       //fillColor:getcolor(feature.id),
       fillColor:getcolor3(feature.properties[attribute]),
-      fillOpacity:0.8,
+      fillOpacity:1.0,
     }
   },
   onEachFeature: (feature, layer) => this.onEachFeature_actual(feature, layer)
