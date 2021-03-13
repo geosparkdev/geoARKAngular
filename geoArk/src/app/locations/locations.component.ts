@@ -3356,17 +3356,17 @@ export class LocationsComponent implements OnInit {
 
   constructor(public http: HttpClient,private spinner: NgxSpinnerService,public route: ActivatedRoute) {
     
+
+   }
+
+  ngOnInit(): void {
+
     if(this.route.params!=null){
       this.route.params.subscribe((params:Params)=>{
         this.locationscntyfips=params["county_fips"]
         console.log(this.locationscntyfips)
       })
     }
-   }
-
-  ngOnInit(): void {
-
-    
     this.spinner.show();
 
     map_status=0
