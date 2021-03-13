@@ -100,8 +100,8 @@ export class ModelingComponent implements OnInit {
         this.value=this.date_attr.length-1;
         this.slider_togg=true;
         
-        geoJSON_model.clearLayers();
-        geoJSON_actual.clearLayers();
+       // geoJSON_model.clearLayers();
+       // geoJSON_actual.clearLayers();
         this.model_map()
         this.actual_map()
 
