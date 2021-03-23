@@ -18,7 +18,7 @@
 .main_container{
   padding:10px;
   min-height:15vh;
-  margin-bottom:50px;
+  margin-bottom:5px;
 }
 
 
@@ -261,7 +261,7 @@ EDIT ON
 .bars_plot{
     height:25px;
    /* width: 63vh; */
-   width: 20vh;
+   width: 25vh;
 
 }
 
@@ -278,7 +278,7 @@ EDIT ON
     overflow-y: scroll;
     overflow-x: hidden;
     padding:0px;
-    width:100vh;
+    width:30vh;
 
 }
 
@@ -296,7 +296,7 @@ EDIT ON
 }
 .bar_header1{
    /* width: 63vh;*/
-   width:20vh;
+   width:25vh;
     display : inline-flex;
 }
 .bar_header2{
