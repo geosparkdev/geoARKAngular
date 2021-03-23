@@ -3366,7 +3366,8 @@ export class Categories2Component implements OnInit {
               orientation:'h',
               //mode: 'lines', 
               name:'tot cases',
-              marker: {color: color}
+              marker: {color: color},
+              text: ["Covid Cases:"+this.tot_table.total_cases[i]]
             },
         ],
         layout: {
