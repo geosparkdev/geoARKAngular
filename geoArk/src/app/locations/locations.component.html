@@ -63,7 +63,7 @@ Geo-Context and COVID-19 in Missouri
     <div class='columns'>
         <div class='column'>
             <div class='columns'>
-                <div class='column zindex'>
+                <div class='column'>
 
 
                     <span class='SB_2'>
@@ -78,8 +78,12 @@ Geo-Context and COVID-19 in Missouri
                     <div *ngIf='current_factor!="total"'>
                         {{current_factor}}
                     </div>
+
+
+                    <div id="risk_map" class="risk_map"></div>   
+
+
                 </div>
-                <div id="risk_map" class="risk_map"></div>   
 
                 <div class='column'>
                     <div class='aligncenter'>
@@ -147,7 +151,7 @@ Geo-Context and COVID-19 in Missouri
 
 
             <div class='columns'>
-                <div class='column test'>
+                <div class='column'>
 
               
 
@@ -176,7 +180,7 @@ Geo-Context and COVID-19 in Missouri
 
 
                 </div>
-                <div class='column is-4 '>
+                <div class='column'>
 
                     <div class='windrose'>
                         <plotly-plot [data]="windrose.data" [layout]="windrose.data.layout"></plotly-plot>
