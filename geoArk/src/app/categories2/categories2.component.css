@@ -274,11 +274,11 @@ EDIT ON
 
 .bars_scroll
 {
-    max-height:220px;
+    max-height:25vh;
     overflow-y: scroll;
     overflow-x: hidden;
     padding:0px;
-    width:30vh;
+    /*width:30vh;*/
 
 }
 
