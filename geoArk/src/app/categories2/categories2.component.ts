@@ -3369,7 +3369,7 @@ export class Categories2Component implements OnInit {
               marker: {color: color},
               hoverinfo:'text',
               hovertemplate:'here comes my custom tooltip',
-              text:['Covid Cases: Test']
+              text:'Covid Cases: Test'
             },
         ],
         layout: {
