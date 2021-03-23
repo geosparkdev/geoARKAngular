@@ -83,18 +83,6 @@
                 Counties ordered by the highest risk total &nbsp;&nbsp;&nbsp;
 
             </div> 
-
-            <div class="bar_header">
-                <div class="bar_header1">
-                    &nbsp;
-                </div>
-                <div class="bar_header2">
-                    Cases to date
-                </div>
-                <div class="bar_header2">
-                    Deaths to date
-                </div>
-            </div>
             <div class="bars_scroll">
                 <div class="columns">
                     <div class="column">
@@ -103,20 +91,6 @@
                                 <plotly-plot [data]="factors.data" [layout]="factors.layout"></plotly-plot>
                             </div>
                         
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div *ngFor="let data of tot_table">
-                            <div class='bars_plot_text'>
-                                {{data.total_cases}}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div *ngFor="let data of tot_table">
-                            <div class='bars_plot_text'>
-                                {{data.total_deaths}}
-                            </div> 
                         </div>
                     </div>
                 </div>
