@@ -259,9 +259,9 @@ EDIT ON
 
 
 .bars_plot{
-    height:25px;
+    height:20px;
    /* width: 63vh; */
-   width: 25vh;
+   width: 40vh;
 
 }
 
@@ -274,7 +274,7 @@ EDIT ON
 
 .bars_scroll
 {
-    max-height:25vh;
+    max-height:40vh;
     overflow-y: scroll;
     overflow-x: hidden;
     padding:0px;
