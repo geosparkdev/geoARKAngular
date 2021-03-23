@@ -3413,6 +3413,7 @@ export class Categories2Component implements OnInit {
               type: 'bar', 
               orientation:'h',
               //mode: 'lines', 
+              text: ['Text A'],
               name:'tot cases',
               marker: {color: color}
             },
