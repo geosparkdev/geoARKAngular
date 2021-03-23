@@ -3367,7 +3367,7 @@ export class Categories2Component implements OnInit {
               //mode: 'lines', 
               name:'tot cases',
               marker: {color: color},
-              text: ["Covid Cases: Test"]
+              text: ['Covid Cases: Test']
             },
         ],
         layout: {
@@ -3377,7 +3377,7 @@ export class Categories2Component implements OnInit {
                   range: [Number(0), Number(factor_max.max)]
                 },
                 margin:{
-                  l:125, 
+                  l:110, 
                   r:0, 
                   t:0, 
                   b:0, 
