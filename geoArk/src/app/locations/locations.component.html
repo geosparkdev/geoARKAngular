@@ -65,61 +65,26 @@ Geo-Context and COVID-19 in Missouri
             <div class='columns'>
                 <div class='column zindex'>
 
-                    <div *ngIf='spinnertogg' class='loading'>
-                        <ngx-spinner bdColor = "rgba(0,0,0,0)" size = "medium" color = "#ff8700" type = "ball-spin-clockwise-fade-rotating" [fullScreen] = "false">
-                        </ngx-spinner>
+
+                    <span class='SB_2'>
+                        {{current_risk_factor}} risk factors
+                    </span>
+
+                    <div *ngIf='current_factor=="total"'>
+
+                        Total {{current_risk_factor}} risk
                     </div>
-                    <br>
-                    <div *ngIf='!spinnertogg'>
-                        <div class='covid_plot'>
-                            <plotly-plot [data]="covid_county_cases.data" [layout]="covid_county_cases.layout"></plotly-plot>
-                        </div>
-                        <div class='covid_plot'>
-                            <plotly-plot [data]="covid_county_deaths.data" [layout]="covid_county_deaths.layout"></plotly-plot>
-                        </div>
-                        <div class='covid_plot'>
-                            <plotly-plot [data]="covid_cases.data" [layout]="covid_cases.layout"></plotly-plot>
-                        </div>
 
-                        <div class='covid_plot'>
-                            <plotly-plot [data]="covid_deaths.data" [layout]="covid_deaths.layout"></plotly-plot>
-                        </div>
-                    </div> 
+                    <div *ngIf='current_factor!="total"'>
+                        {{current_factor}}
+                    </div>
+                </div>
+                <div id="risk_map" class="risk_map"></div>   
 
-                    <span class='guidance'>Cases and Deaths last updated {{this.update_date}}</span>
+
                 </div>
                 <div class='column'>
                     <div class='aligncenter'>
-                        <span class='SB_2'>
-                            {{current_risk_factor}} risk factors
-                        </span>
-
-                        <div *ngIf='current_factor=="total"'>
-
-                            Total {{current_risk_factor}} risk
-                        </div>
-
-                        <div *ngIf='current_factor!="total"'>
-                            {{current_factor}}
-                        </div>
-                    </div>
-                    <div id="risk_map" class="risk_map"></div>   
-                </div>
-            </div>
-
-
-            <div class='columns'>
-                <div class='column test'>
-
-                    <div class='windrose'>
-                        <plotly-plot [data]="windrose.data" [layout]="windrose.data.layout"></plotly-plot>
-                    </div>
-
-                </div>
-                <div class='column is-4 zindex'>
-
-
-                    <div class='alignright'>
 
                         <span class='guidance'>Click on a risk category to see risk factors.</span>
                         <br>
@@ -176,6 +141,49 @@ Geo-Context and COVID-19 in Missouri
                             <div class='main_button button_blue' (click)='getFactorsData("transmission")'>Transmission</div>
                         </div>
                     </div>
+                    
+
+                    
+                </div>
+            </div>
+
+
+            <div class='columns'>
+                <div class='column test'>
+
+              
+
+                    <div *ngIf='spinnertogg' class='loading'>
+                        <ngx-spinner bdColor = "rgba(0,0,0,0)" size = "medium" color = "#ff8700" type = "ball-spin-clockwise-fade-rotating" [fullScreen] = "false">
+                        </ngx-spinner>
+                    </div>
+                    <br>
+                    <div *ngIf='!spinnertogg'>
+                        <div class='covid_plot'>
+                            <plotly-plot [data]="covid_county_cases.data" [layout]="covid_county_cases.layout"></plotly-plot>
+                        </div>
+                        <div class='covid_plot'>
+                            <plotly-plot [data]="covid_county_deaths.data" [layout]="covid_county_deaths.layout"></plotly-plot>
+                        </div>
+                        <div class='covid_plot'>
+                            <plotly-plot [data]="covid_cases.data" [layout]="covid_cases.layout"></plotly-plot>
+                        </div>
+
+                        <div class='covid_plot'>
+                            <plotly-plot [data]="covid_deaths.data" [layout]="covid_deaths.layout"></plotly-plot>
+                        </div>
+                    </div> 
+
+                    <span class='guidance'>Cases and Deaths last updated {{this.update_date}}</span>
+
+
+                </div>
+                <div class='column is-4 '>
+
+                    <div class='windrose'>
+                        <plotly-plot [data]="windrose.data" [layout]="windrose.data.layout"></plotly-plot>
+                    </div>
+                   
                 </div>
             </div>
 
