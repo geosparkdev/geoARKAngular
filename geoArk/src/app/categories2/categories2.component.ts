@@ -3367,7 +3367,7 @@ export class Categories2Component implements OnInit {
               //mode: 'lines', 
               name:'tot cases',
               marker: {color: color},
-              text: ['Covid Cases: Test']
+              text:'Covid Cases: Test'
             },
         ],
         layout: {
