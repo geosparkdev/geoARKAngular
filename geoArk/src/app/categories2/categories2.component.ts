@@ -3371,12 +3371,12 @@ export class Categories2Component implements OnInit {
         ],
         layout: {
                 //width: 520, 
-                height: 25,
+                height: 10,
                 xaxis:{
                   range: [Number(0), Number(factor_max.max)]
                 },
                 margin:{
-                  l:125, 
+                  l:10, 
                   r:0, 
                   t:0, 
                   b:0, 
