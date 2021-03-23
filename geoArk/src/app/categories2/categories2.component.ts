@@ -3367,7 +3367,8 @@ export class Categories2Component implements OnInit {
               //mode: 'lines', 
               name:'tot cases',
               marker: {color: color},
-              hovertemplate: '<b>%{text}</b>',
+              hoverinfo:'text',
+              hovertemplate:'here comes my custom tooltip',
               text:['Covid Cases: Test']
             },
         ],
