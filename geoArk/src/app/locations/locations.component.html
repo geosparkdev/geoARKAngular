@@ -97,7 +97,9 @@ Geo-Context and COVID-19 in Missouri
                         
 
                         <div *ngIf='current_risk_factor=="accessibility"'>
-                            <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("accessibility")'>Accessibility</div><span><hr class='new1'></span>
+                            <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("accessibility")'>Accessibility</div>
+                            
+                            <!-- <span><hr class='new1'></span> -->
                         </div>
                         <div *ngIf='current_risk_factor!="accessibility"'>
                             <div class='main_button button_blue' (click)='getFactorsData("accessibility")'>Accessibility</div>
@@ -106,7 +108,7 @@ Geo-Context and COVID-19 in Missouri
                   
 
                         <div *ngIf='current_risk_factor=="healthresources"'>
-                            <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("healthresources")'>Health Resources</div><span><hr class='new1'></span>
+                            <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("healthresources")'>Health Resources</div>
                         </div>
                         <div *ngIf='current_risk_factor!="healthresources"'>
                             <div class='main_button button_blue' (click)='getFactorsData("healthresources")'>Health Resources</div>
@@ -115,7 +117,7 @@ Geo-Context and COVID-19 in Missouri
 
                         
                         <div *ngIf='current_risk_factor=="exposure"'>
-                            <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("exposure")'>Exposure</div><span><hr class='new1'></span>
+                            <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("exposure")'>Exposure</div>
                         </div>
                         <div *ngIf='current_risk_factor!="exposure"'>
                             <div class='main_button button_blue' (click)='getFactorsData("exposure")'>Exposure</div>
@@ -123,7 +125,7 @@ Geo-Context and COVID-19 in Missouri
 
 
                         <div *ngIf='current_risk_factor=="socioeconomic"'>
-                            <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("socioeconomic")'>Socioeconomic</div><span><hr class='new1'></span>
+                            <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("socioeconomic")'>Socioeconomic</div>
                         </div>
                         <div *ngIf='current_risk_factor!="socioeconomic"'>
                             <div class='main_button button_blue' (click)='getFactorsData("socioeconomic")'>Socioeconomic</div>
@@ -132,7 +134,7 @@ Geo-Context and COVID-19 in Missouri
 
 
                         <div *ngIf='current_risk_factor=="susceptibility"'>
-                            <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("susceptibility")'>Susceptibility</div><span><hr class='new1'></span>
+                            <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("susceptibility")'>Susceptibility</div>
                         </div>
                         <div *ngIf='current_risk_factor!="susceptibility"'>
                             <div class='main_button button_blue' (click)='getFactorsData("susceptibility")'>Susceptibility</div>
@@ -140,7 +142,7 @@ Geo-Context and COVID-19 in Missouri
 
 
                         <div *ngIf='current_risk_factor=="transmission"'>
-                            <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("transmission")'>Transmission</div><span><hr class='new1'></span>
+                            <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("transmission")'>Transmission</div><span>
                         </div>
                         <div *ngIf='current_risk_factor!="transmission"'>
                             <div class='main_button button_blue' (click)='getFactorsData("transmission")'>Transmission</div>

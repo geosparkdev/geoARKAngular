@@ -259,7 +259,7 @@ EDIT ON
 .risk_map{
   height:50vh;
   width: 55vh;
-  margin:5px;
+  margin-left:3rem;
   }
 
 
@@ -299,7 +299,7 @@ EDIT ON
 
 .button_blue {
     background-color: #2872b2;
-    width: 220px;
+    width: 20rem;
     font-family:"Euphemia UCAS";
     font-weight: bold;
     font-size: 1.2rem;
