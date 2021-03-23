@@ -3380,7 +3380,7 @@ export class Categories2Component implements OnInit {
                 },
                 margin:{
                   l:110, 
-                  r:0, 
+                  r:10, 
                   t:0, 
                   b:0, 
                   pad:0
