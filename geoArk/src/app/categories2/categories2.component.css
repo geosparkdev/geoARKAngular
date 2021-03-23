@@ -260,7 +260,8 @@ EDIT ON
 
 .bars_plot{
     height:25px;
-    width: 63vh;
+   /* width: 63vh; */
+   width: 20vh;
 
 }
 
@@ -286,7 +287,7 @@ EDIT ON
 {
     text-align:left;
     font-size:1.0rem;
-    margin-left:25%;
+    /*margin-left:25%;*/
 
 }
 
@@ -294,11 +295,12 @@ EDIT ON
     padding:0px;
 }
 .bar_header1{
-    width: 63vh;
+   /* width: 63vh;*/
+   width:20vh;
     display : inline-flex;
 }
 .bar_header2{
-    width:90px;
+    /*width:90px;*/
     margin-left:3px;
     padding-left:0px;
     display : inline-flex;
@@ -309,7 +311,7 @@ EDIT ON
 
 /*----------- Map -----------*/
 .cat_map{
-    height:40vh;
+    height:80vh;
     width: 80vh;
     margin:5px;
     z-index:1;
