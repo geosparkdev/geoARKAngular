@@ -91,11 +91,13 @@ Geo-Context and COVID-19 in Missouri
                 <div class='column'>
                     <div class='aligncenter'>
                         <br>
-                        <br>
-                        <span class='guidance'>Click on a risk category to see risk factors.</span>
-                        <br>
-                        <span class='guidance'>Click on a risk factor bar to update map visual.</span>
-                        
+                        <div class="instructions">
+                            <span class='guidance'>Click on a risk category to see risk factors.</span>
+                            <br>
+                            <span class='guidance'>Click on a risk factor bar to update map visual.</span>
+                            
+                        </div>
+            
 
                         <div *ngIf='current_risk_factor=="accessibility"'>
                             <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("accessibility")'>Accessibility</div>
