@@ -3297,10 +3297,9 @@ export class Categories2Component implements OnInit {
   
     this.http.post(environment.base_url+"/getTotals",JSON.stringify(risk_factors), {headers: customheaders}).subscribe(
       response=> {
-        //this.bar_name=response[0];
-        //this.bar_data=response[1];
         this.tot_table=response[0];
         this.metadata=response[1];
+        this.filters_data=response[2]
 
         this.initial_tot_table=response[0];
         this.initial_metadata=response[1];
@@ -3313,7 +3312,7 @@ export class Categories2Component implements OnInit {
           cat_geoJSON.clearLayers();
         }
 
-        this.getFilters();
+        //this.getFilters();
         this.map();
         this.getTotalsGraph();
 
@@ -3364,12 +3363,8 @@ export class Categories2Component implements OnInit {
               y:[this.initial_tot_table[i]['County Name']],
               type: 'bar', 
               orientation:'h',
-              //mode: 'lines', 
-              name:'tot cases',
               marker: {color: color},
-             // hoverinfo:'text',
-             // hovertemplate:'here comes my custom tooltip',
-              //text:'Covid Cases: Test'
+
             },
         ],
         layout: {
@@ -3412,9 +3407,6 @@ export class Categories2Component implements OnInit {
               y:[this.tot_table[i]['County Name']],
               type: 'bar', 
               orientation:'h',
-              //mode: 'lines', 
-              text: ['Text A'],
-              name:'tot cases',
               marker: {color: color}
             },
         ],
@@ -3442,51 +3434,6 @@ export class Categories2Component implements OnInit {
 
 }
 
-  filterHistogram(){
-
-
-    let xlist=[]
-
-
-    for (var i=0; i<this.filters_obj.length; i+=1)
-    {
-      xlist.push(Number(this.filters_obj[i][this.filter1.name]))
-    }
-
-
-    this.histogram={
-        data:[
-          {
-              x:xlist,
-              type:'histogram',
-              marker: {color: 'orange'} 
-          } 
-      ],
-      layout : {
-        autosize:true, 
-              height: 250, 
-
-              title: {
-                text: this.filter1.display,
-                font: {
-                  size: 12
-                },
-                standoff: -5
-              },
-  
-              margin:{
-                l:50, 
-                r:20, 
-                t:20, 
-                b:30, 
-                pad:0,
-              },
-      }
-    }
-
-
-
-  }
 
 
 
@@ -3629,10 +3576,8 @@ export class Categories2Component implements OnInit {
 
 
     var filter1_togg=this.filter1.toggle
-    var filters_obj=this.filters_obj
-  // var value1=this.minValue
-   // var value2=this.maxValue
-   
+    var filters_obj=this.initial_tot_table
+
    
 
 
@@ -3761,7 +3706,7 @@ export class Categories2Component implements OnInit {
     }
     else{
 
-      let filter_val=filters_obj.find(e=> e['cnty_fips']===value)
+      let filter_val=filters_obj.find(e=> e['countyFIPS']===value)
 
       if((Number(filter_val[filter1_name]) >=filter1_min) && (Number(filter_val[filter1_name]) <=filter1_max))
       {
@@ -3788,7 +3733,7 @@ export class Categories2Component implements OnInit {
     }
     else{
 
-      let filter_val=filters_obj.find(e=> e['cnty_fips']===value)
+      let filter_val=filters_obj.find(e=> e['countyFIPS']===value)
 
       if((Number(filter_val[filter1_name]) >=filter1_min) && (Number(filter_val[filter1_name]) <=filter1_max))
       {
