@@ -48,6 +48,7 @@
                     Transmission
                     <span *ngIf='risk_factors.Transmission==1'><i class="mdi mdi-check-bold" ></i></span>
                 </div>
+                <br>
                 <div class="sel_de" (click)='selectAll()'><i class="mdi mdi-checkbox-multiple-marked" ></i>SELECT ALL </div>
                 <div class="sel_de" (click)='unselectAll()'><i class="mdi  mdi-checkbox-multiple-blank" ></i>UNSELECT ALL </div>
                
@@ -95,11 +96,16 @@
                     <div style='height:280px' *ngIf='filter1.toggle'>
                         <div class='custom-slider'>
                             
-                            {{this.filter1.display}}
+                            <span class='filter_title'>{{this.filter1.display}}</span>
                             
                             <div class="close" (click)="dropFilter()"><i class="mdi mdi-close-box-outline" ></i></div>
                             <ng5-slider [(value)]="filter1.min_value" [(highValue)]="filter1.max_value" [options]="filter1.options" (userChange)="onUserChange($event)"></ng5-slider>
                         </div>
+
+                        "ERS Rural-Urban Continuum Codes distinguish metropolitan (metro) counties 
+                        by the population size of their metro area, and nonmetropolitan (nonmetro) 
+                        counties by degree of urbanization and adjacency to metro areas" (ERS <a href="https://www.ers.usda.gov/data-products/rural-urban-continuum-codes/documentation/">Link</a>) 
+                        <br>
                         <span class='updatetable' (click)="updateTable()"> <i class="mdi mdi-cached" ></i> Update Table</span>
                     </div>
                 </td>
