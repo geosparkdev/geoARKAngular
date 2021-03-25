@@ -104,7 +104,7 @@
   padding:8px;
   margin-right:10px;
   cursor:pointer;
-  width: 14rem;
+
   
 
 }
@@ -123,6 +123,7 @@
   text-align:center;
   margin-right:10px;
   border-radius: 9px;
+  width: 14rem;
 }
 
 .filter_title{
