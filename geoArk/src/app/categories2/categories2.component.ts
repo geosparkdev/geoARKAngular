@@ -3601,10 +3601,10 @@ unselectAll(){
 
     let factor_max=metadata.find(e=> e['factor']===current_fact)
 
-    var min=factor_max.min;
-   // if (factor_max.min<0){
-   //   min=-2;
-   // }
+    var min=0;
+    if (factor_max.min<0){
+      min=-2;
+    }
   
     var threshold=200;
 
