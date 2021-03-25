@@ -3222,12 +3222,13 @@ export class Categories2Component implements OnInit {
 
     this.filter1=new filter();
    
-
+    //initial create map
     cat_map_status=0;
     cat_map = L.map("cat_map").setView([38.573936, -92.603760], 7);
 
-    this.risk_factors= new risk_factors();
 
+    //create risk factors button with accessibility selected first
+    this.risk_factors= new risk_factors();
     let factors_list=[this.risk_factors.Accessibility,this.risk_factors.Exposure,this.risk_factors.Health_resources,this.risk_factors.Socioeconomic,this.risk_factors.Susceptibility,this.risk_factors.Transmission]
 
 

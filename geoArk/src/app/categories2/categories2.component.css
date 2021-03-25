@@ -94,7 +94,18 @@
 
 }
 
-/* Table */
+.sel_de{
+  color:black;
+  font-weight:bolder;
+  font-size: 1.2rem;
+  font-family:"Euphemia UCAS";
+  text-align:center;
+  padding:8px;
+
+}
+
+
+/* --------Table-------- */
 
 table, td, th {  
   border: 1px solid #ddd;

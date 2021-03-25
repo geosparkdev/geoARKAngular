@@ -1,9 +1,9 @@
 export class risk_factors{
-        public Susceptibility:Number=1;
-        public Transmission:Number=1;
-        public Socioeconomic:Number=1;
-        public Exposure:Number=1;
+        public Susceptibility:Number=0;
+        public Transmission:Number=0;
+        public Socioeconomic:Number=0;
+        public Exposure:Number=0;
         public Accessibility:Number=1;
-        public Health_resources :Number=1;
+        public Health_resources :Number=0;
     
  }
