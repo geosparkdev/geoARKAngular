@@ -3245,6 +3245,8 @@ export class Categories2Component implements OnInit {
 
 
 
+
+
 //Update selected or aggregated risk factor data (add or remove risk category from risk total calculations)
   updateTotals(risk:string){
     this.spinnertogg=true;
@@ -3331,6 +3333,36 @@ export class Categories2Component implements OnInit {
   
   }
 
+
+
+
+//aggregate all risk factors
+selectAll(){
+  this.spinnertogg=true;
+
+  this.risk_factors.Accessibility=1
+  this.risk_factors.Exposure=1
+  this.risk_factors.Health_resources=1
+  this.risk_factors.Socioeconomic=1
+  this.risk_factors.Susceptibility=1
+  this.risk_factors.Transmission=1
+
+  let factors_list=[this.risk_factors.Accessibility,this.risk_factors.Exposure,this.risk_factors.Health_resources,this.risk_factors.Socioeconomic,this.risk_factors.Susceptibility,this.risk_factors.Transmission]
+
+  this.getTotals(factors_list);
+}
+
+
+//unselect all risk factors
+unselectAll(){
+  this.spinnertogg=true;
+
+  this.risk_factors = new risk_factors();
+
+  let factors_list=[this.risk_factors.Accessibility,this.risk_factors.Exposure,this.risk_factors.Health_resources,this.risk_factors.Socioeconomic,this.risk_factors.Susceptibility,this.risk_factors.Transmission]
+
+  this.getTotals(factors_list);
+}
 
 
 
@@ -3524,6 +3556,7 @@ export class Categories2Component implements OnInit {
   }
 
 
+  
 
   //Creates color gradient -- works with outpu of getBins  
   getColor(value,min, threshold, colorrange, binrange){
