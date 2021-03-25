@@ -15,9 +15,11 @@
     <div class='columns'>
         <div class='column is-3'>
             <div class="alignright">
-                Select/ Deselect risk categories
-                <br> to see aggregated/single view
-                <br>
+                <div class="instructions">
+                    Select/ Deselect risk categories
+                    <br> to see aggregated/single view
+                </div>
+
                 <div class='main_button button_blue' [ngClass]="{'main_button1 button_blue_selected' : risk_factors.Accessibility==1}" (click)='updateTotals("Accessibility")'>
                     Accessibility
                     <span *ngIf='risk_factors.Accessibility==1'><i class="mdi mdi-check-bold" ></i></span>
@@ -46,8 +48,8 @@
                     Transmission
                     <span *ngIf='risk_factors.Transmission==1'><i class="mdi mdi-check-bold" ></i></span>
                 </div>
-                <div class="sel_de" (click)='selectAll()'><i class="mdi mdi-checkbox-multiple-marked" ></i>Select All </div>
-                <div class="sel_de" (click)='unselectAll()'><i class="mdi  mdi-checkbox-multiple-blank" ></i>Unselect All </div>
+                <div class="sel_de" (click)='selectAll()'><i class="mdi mdi-checkbox-multiple-marked" ></i>SELECT ALL </div>
+                <div class="sel_de" (click)='unselectAll()'><i class="mdi  mdi-checkbox-multiple-blank" ></i>UNSELECT ALL </div>
                
                 
             </div>

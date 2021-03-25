@@ -97,11 +97,12 @@
 .sel_de{
   color:black;
   font-weight:bolder;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-family:"Euphemia UCAS";
   text-align:right;
   padding:8px;
   margin-right:10px;
+  cursor:pointer;
 
 }
 
@@ -109,6 +110,12 @@
   color:#fb6308;
 }
 
+
+
+.instructions{
+  border: 1px line #033554;
+  background-color: #fbba08;
+}
 
 
 /* --------Table-------- */
