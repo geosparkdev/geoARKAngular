@@ -14,11 +14,15 @@
 
     <div class='columns'>
         <div class='column is-3'>
-            <div class="alignright">
+
+            <div class="aligncenter">
                 <div class="instructions">
                     Select/ Deselect risk categories
                     <br> to see aggregated/single view
                 </div>
+            </div>
+            <div class="alignright">
+            
 
                 <div class='main_button button_blue' [ngClass]="{'main_button1 button_blue_selected' : risk_factors.Accessibility==1}" (click)='updateTotals("Accessibility")'>
                     Accessibility
