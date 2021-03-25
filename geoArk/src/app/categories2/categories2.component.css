@@ -99,10 +99,16 @@
   font-weight:bolder;
   font-size: 1.2rem;
   font-family:"Euphemia UCAS";
-  text-align:center;
+  text-align:right;
   padding:8px;
+  margin-right:10px;
 
 }
+
+.sel_de:hover{
+  color:#fb6308;
+}
+
 
 
 /* --------Table-------- */

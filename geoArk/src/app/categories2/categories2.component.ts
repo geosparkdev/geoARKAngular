@@ -17,6 +17,7 @@ import {filter } from '../models/filterBase';
 import {filterBar} from '../models/filterBar';
 
 
+//Map Objects
 var cat_map:any;
 var cat_info:any;
 var cat_map_status:any;
@@ -3220,9 +3221,12 @@ export class Categories2Component implements OnInit {
 
     this.spinner.show();
 
+
+    //create filter1 controller-- the chosen filter information is stored in this object
+    //When a filter is selected it is given a "name" -- which is the switch to turn on filter functions/views
     this.filter1=new filter();
    
-    //initial create map
+    //create category map and set coordinates for Missouri
     cat_map_status=0;
     cat_map = L.map("cat_map").setView([38.573936, -92.603760], 7);
 
@@ -3241,7 +3245,7 @@ export class Categories2Component implements OnInit {
 
 
 
-
+//Update selected or aggregated risk factor data (add or remove risk category from risk total calculations)
   updateTotals(risk:string){
     this.spinnertogg=true;
    if (this.risk_factors[risk]==11){
@@ -3290,6 +3294,8 @@ export class Categories2Component implements OnInit {
   }
 
   
+
+  //get risk factor totals and filters data (risk factors array determines what risk categories are chosen )
   getTotals(risk_factors:any){
 
 
@@ -3309,7 +3315,7 @@ export class Categories2Component implements OnInit {
         this.spinnertogg=false;
 
 
-        if(cat_map_status==1){
+        if(cat_map_status==1){ //if map has a geoJSON object being displayed, remove and update
           cat_geoJSON.clearLayers();
         }
 
@@ -3328,7 +3334,7 @@ export class Categories2Component implements OnInit {
 
 
 
-
+//Create Totals Bar Graphs per county -- takes into consideration filters 
   getTotalsGraph(){
     this.bar_bars=[];
 
@@ -3440,7 +3446,7 @@ export class Categories2Component implements OnInit {
 
 
   
-
+// when a filter is selected, update filter object
   selectFilter(filter){
 
 
@@ -3456,17 +3462,14 @@ export class Categories2Component implements OnInit {
 
       this.filter1.toggle=true;
       
-      //this.filterHistogram()
     }
     
-
-
     
     cat_geoJSON.clearLayers();
     this.map()
   }
 
-
+// remove filter -- trigger toggle of filter views and removing filter from map
   dropFilter(){
     this.filter1=new filter();
     cat_geoJSON.clearLayers();
@@ -3474,6 +3477,8 @@ export class Categories2Component implements OnInit {
     this.getTotalsGraph();
   }
 
+
+  //update bar graphs with current data * triggered after filter is set *
   updateTable(){
     this.getTotalsGraph();
   }
@@ -3483,7 +3488,7 @@ export class Categories2Component implements OnInit {
 
 
 
-
+//create bins for legends 
   getBins(min,max,threshold){
 
       var multiple=max/threshold
@@ -3520,7 +3525,7 @@ export class Categories2Component implements OnInit {
 
 
 
-    
+  //Creates color gradient -- works with outpu of getBins  
   getColor(value,min, threshold, colorrange, binrange){
     
     var color;
@@ -3540,6 +3545,8 @@ export class Categories2Component implements OnInit {
 
 
 
+
+  //Create Categories Map-- variables trigger what color, opacity, and lines to use
   map(){
 
     var data=this.initial_tot_table;
@@ -3769,7 +3776,7 @@ onOutlineEachFeature(feature, layer: L.Layer) {
 }
 
 
-
+// be directed to counties dashbaord with selected county
 countyView(event){
   let county_fips=Number(event.target.feature.properties.fips);
   console.log(county_fips)
