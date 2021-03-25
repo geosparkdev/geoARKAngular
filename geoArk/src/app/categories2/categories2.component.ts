@@ -3312,7 +3312,6 @@ export class Categories2Component implements OnInit {
           cat_geoJSON.clearLayers();
         }
 
-        //this.getFilters();
         this.map();
         this.getTotalsGraph();
 
@@ -3374,7 +3373,7 @@ export class Categories2Component implements OnInit {
                   range: [Number(0), Number(factor_max.max)]
                 },
                 margin:{
-                  l:110, 
+                  l:115, 
                   r:10, 
                   t:0, 
                   b:0, 
@@ -3435,26 +3434,6 @@ export class Categories2Component implements OnInit {
 }
 
 
-
-
-  getFilters(){
-    const customheaders= new HttpHeaders()
-          .set('Content-Type', 'application/json');
-  
-    this.http.get(environment.base_url+"/getFilters", {headers: customheaders}).subscribe(
-      response=> {
-
-        this.filters_obj=response[0];
-        this.filters_data=response[1];
-
-  
-      },
-      error => {
-        console.log(error)
-      }
-    )
-  
-  }
 
 
 
@@ -3562,8 +3541,6 @@ export class Categories2Component implements OnInit {
 
   map(){
 
-
-
     var data=this.initial_tot_table;
     var metadata=this.initial_metadata;
     var current_fact='total_risk'
@@ -3645,9 +3622,7 @@ export class Categories2Component implements OnInit {
     style: function (feature) {
       return{
         color: 'black',
-        //weight: getLineWidth(feature.id),
         weight:filterLine(feature.id),
-        //fillColor:getcolor(feature.id),
         fillColor:getcolor3(feature.id),
         fillOpacity:filterOpacity(feature.id),
       }
