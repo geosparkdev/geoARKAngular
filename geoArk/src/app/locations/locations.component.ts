@@ -4020,11 +4020,10 @@ triggerFactor(factor){
 
       let factor_max=metadata.find(e=> e['factor']===current_fact)
 
-        var min = Number(factor_max.min)
-      // var min=0;
-      // if (factor_max.min<0){
-      //   min=-2;
-      // }
+      var min=0;
+      if (factor_max.min<0){
+        min=-2;
+      }
     
       var threshold=200;
 
