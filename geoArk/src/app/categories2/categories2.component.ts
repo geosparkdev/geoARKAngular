@@ -3376,8 +3376,8 @@ unselectAll(){
     var current_fact='total_risk'
 
     let colors = colormap({
-      colormap:'autumn',
-      nshades: 50,
+      colormap:'portland',
+      nshades: 200,
       format: 'hex',
       alpha: 1
   })
