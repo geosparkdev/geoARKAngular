@@ -123,6 +123,7 @@
   text-align:center;
   border-radius: 9px;
   width: 14rem;
+  display: inline-block;
 }
 
 .filter_title{
