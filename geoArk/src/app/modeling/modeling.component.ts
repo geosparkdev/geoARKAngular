@@ -36,7 +36,7 @@ export class ModelingComponent implements OnInit {
   public covid_category='covid_cases'
 
   public covid_attr:any='covid_cases_'
-  public model_attr:any= this.mobility+'_'+this.category+'_'
+  public model_attr:any= this.category+'_'
 
   public current_date:any;
 
@@ -139,7 +139,7 @@ onUserChange(changeContext: ChangeContext): void {
 
 newCategory(category:any){
   this.category=category
-  this.model_attr=this.mobility+'_'+this.category+'_'
+  this.model_attr=this.category+'_'
 
   if(this.category=='Deceased'){
     this.covid_category='covid_deaths'
@@ -185,9 +185,9 @@ newModel(mobility:any){
   model_map(){
 
     console.log("IN MODEL MAP")
-    let mob_data=this.map_metadata.filter(e=> e['mobility']===this.mobility)
+    //let mob_data=this.map_metadata.filter(e=> e['mobility']===this.mobility)
  
-    let filtered=mob_data.filter(e=> e['category']===this.category)
+    let filtered=this.map_metadata.filter(e=> e['category']===this.category)
     
     var attribute=this.model_attr+this.current_date
     console.log("ATTRIBUTE")
