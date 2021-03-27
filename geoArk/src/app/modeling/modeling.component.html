@@ -79,22 +79,7 @@
         <div class='column is-2'>
             <br>
             <br>
-            <table>
-                <tr>
-                  <th>Model</th>
-                </tr>
-                <tr>
-                    <td [class.highlighted]="'yes'==mobility" (click)='newModel("yes")'>
-                        Mobility
-                    </td>
-                </tr>
-            <tr>
-                    <td [class.highlighted]="'no'==mobility" (click)='newModel("no")'>
-                        Nonmobility
-                    </td>
-                </tr>
-            </table>
-    
+  
             <table>
                 <tr>
                   <th>Category</th>
@@ -105,13 +90,13 @@
                     </td>
                 </tr>
                 <tr>
-                    <td [class.highlighted]="'Asymptomatic infectious'==category" (click)='newCategory("Asymptomatic infectious")' >
+                    <td [class.highlighted]="'Asymptomatic infectious'==category" (click)='newCategory("Asymptomatic")' >
                         Asymptomatic (A)
                     </td>
                 </tr>
                 <tr>
-                    <td [class.highlighted]="'Symptomatic infectious'==category" (click)='newCategory("Symptomatic infectious")'  >
-                        Symptomatic (I)
+                    <td [class.highlighted]="'Symptomatic infectious'==category" (click)='newCategory("Infectious")'  >
+                        Infectious (I)
                     </td>
                 </tr>
                 <tr>
