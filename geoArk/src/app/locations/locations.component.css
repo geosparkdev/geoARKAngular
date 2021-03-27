@@ -348,6 +348,7 @@ select{
     text-align:center;
     border-radius: 9px;
     width: 17rem;
+    display: inline-block;
   }
 
 
