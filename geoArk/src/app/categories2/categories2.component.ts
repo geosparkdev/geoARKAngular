@@ -3703,12 +3703,15 @@ unselectAll(){
     let temp=data.find(e=> e['countyFIPS']===value)
     var color;
 
-    console.log(temp[current_fact])
-    console.log(ranges[i])
     //light to dark
       
     for(var i=(threshold-1); i>=0; i--)
     {
+
+
+    console.log(temp[current_fact])
+    console.log(ranges[i])
+    
       if(temp[current_fact] >=ranges[i])
       {
         color= colorrange[i];
