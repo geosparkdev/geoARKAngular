@@ -61,6 +61,7 @@ export class LocationsComponent implements OnInit {
   // Spinner 
   public spinnertogg:boolean=true;
   public spinnertogg2:boolean=false;
+  public initial_covid_plots:boolean=true;
 
 
 
@@ -3436,7 +3437,7 @@ export class LocationsComponent implements OnInit {
  
 //trigger data pull and visual creation for new selected county -- by map 
   getCountyDataClick(event){
-    this.spinnertogg=true;
+    this.spinnertogg2=true;
     this.county_fips=Number(event.target.feature.properties.fips);
     this.current_factor='total'
 
@@ -3517,7 +3518,17 @@ export class LocationsComponent implements OnInit {
         this.covid=response;
         this.getCovidPlots();
 
-        this.spinnertogg=false;
+        if (this.initial_covid_plots==true)
+        {
+          this.spinnertogg=false;
+          this.initial_covid_plots=false;
+        }
+        else
+        {
+          this.spinnertogg2=false;
+        }
+
+
 
       },
       error => {
