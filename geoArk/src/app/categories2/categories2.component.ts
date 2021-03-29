@@ -3377,7 +3377,7 @@ unselectAll(){
 
     let colors = colormap({
       colormap:'portland',
-      nshades: 200,
+      nshades: 50,
       format: 'hex',
       alpha: 1
   })
@@ -3703,7 +3703,7 @@ unselectAll(){
 
     //light to dark
       
-    for(var i=(threshold-1); i>=min; i--)
+    for(var i=(threshold-1); i>=0; i--)
     {
       if(temp[current_fact] >=ranges[i])
       {
