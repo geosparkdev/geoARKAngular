@@ -3668,7 +3668,10 @@ export class LocationsComponent implements OnInit {
          }
      };
 
-     ///MO covid cases plots
+
+
+     if(this.initial_covid_plots==true){
+             ///MO covid cases plots
     this.covid_cases = {
       data: [
           { x: this.covid[0], 
@@ -3746,6 +3749,9 @@ export class LocationsComponent implements OnInit {
               }
          }
      };
+
+     }
+
 
 
 
