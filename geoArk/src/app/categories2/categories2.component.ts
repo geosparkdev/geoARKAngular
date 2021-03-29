@@ -3607,8 +3607,10 @@ unselectAll(){
     // }
 
     var min = Number(factor_max.min)
+    console.log('MIN VALUE HERE')
+    console.log(min)
   
-    var threshold=200;
+    var threshold=50;
 
     var colorrange=colormap({
       colormap:'portland',
@@ -3620,6 +3622,7 @@ unselectAll(){
  
 
   var ranges= getBin(min,factor_max.max,50);
+  console.log(ranges)
 
   L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
   {
@@ -3700,7 +3703,8 @@ unselectAll(){
     let temp=data.find(e=> e['countyFIPS']===value)
     var color;
 
-
+    console.log(temp[current_fact])
+    console.log(ranges[i])
     //light to dark
       
     for(var i=(threshold-1); i>=0; i--)
