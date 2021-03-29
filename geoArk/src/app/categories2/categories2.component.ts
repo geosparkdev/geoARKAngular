@@ -3621,7 +3621,7 @@ unselectAll(){
 
  
 
-  var ranges= getBin(min,factor_max.max,50);
+  var ranges= getBin(min,factor_max.max,threshold);
   console.log(ranges)
 
   L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
@@ -3684,7 +3684,7 @@ unselectAll(){
     function getBin(min,max,threshold)
     {
     
-      var multiple=max/threshold
+      var multiple=(max-min)/threshold
       var bins=[];
       for (var i=min; i<max; i+=multiple)
       {
@@ -3711,7 +3711,7 @@ unselectAll(){
 
     console.log(temp[current_fact])
     console.log(ranges[i])
-    
+
       if(temp[current_fact] >=ranges[i])
       {
         color= colorrange[i];
