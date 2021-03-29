@@ -3389,7 +3389,7 @@ unselectAll(){
   if(this.filter1.toggle==false){
 
     let factor_max=this.metadata.find(e=> e['factor']===current_fact)
-    let range=this.getBins(0,factor_max.max,50)
+    let range=this.getBins(factor_max.min,factor_max.max,50)
 
     for(let i=0; i<this.initial_tot_table.length; i++){
 
@@ -3429,7 +3429,7 @@ unselectAll(){
   {
 
     let factor_max=this.metadata.find(e=> e['factor']===current_fact)
-    let range=this.getBins(0,factor_max.max,50)
+    let range=this.getBins(factor_max.min,factor_max.max,50)
 
     this.tot_table=this.initial_tot_table.filter(e=> e[this.filter1.name] >= this.filter1.min_value && e[this.filter1.name] <= this.filter1.max_value )
 
@@ -3523,7 +3523,7 @@ unselectAll(){
 //create bins for legends 
   getBins(min,max,threshold){
 
-      var multiple=max/threshold
+      var multiple=(max-min)/threshold
       var bins=[];
       for (var i=min; i<max; i+=multiple)
       {
