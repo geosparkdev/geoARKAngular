@@ -167,6 +167,7 @@ Geo-Context and COVID-19 in Missouri
                         <ngx-spinner bdColor = "rgba(0,0,0,0)" size = "medium" color = "#ff8700" type = "ball-spin-clockwise-fade-rotating" [fullScreen] = "false">
                         </ngx-spinner>
                     </div>
+
                     <br>
                     <div *ngIf='!spinnertogg'>
                         <div class='covid_plot'>
@@ -175,13 +176,24 @@ Geo-Context and COVID-19 in Missouri
                         <div class='covid_plot'>
                             <plotly-plot [data]="covid_county_deaths.data" [layout]="covid_county_deaths.layout"></plotly-plot>
                         </div>
-                        <div class='covid_plot'>
-                            <plotly-plot [data]="covid_cases.data" [layout]="covid_cases.layout"></plotly-plot>
+
+
+                        <div *ngIf='spinnertogg2'>
+                            <ngx-spinner bdColor = "rgba(0,0,0,0)" size = "medium" color = "#ff8700" type = "ball-spin-clockwise-fade-rotating" [fullScreen] = "false">
+                            </ngx-spinner>
                         </div>
 
-                        <div class='covid_plot'>
-                            <plotly-plot [data]="covid_deaths.data" [layout]="covid_deaths.layout"></plotly-plot>
+
+                        <div *ngIf='!spinnertogg2'>
+                            <div class='covid_plot'>
+                                <plotly-plot [data]="covid_cases.data" [layout]="covid_cases.layout"></plotly-plot>
+                            </div>
+    
+                            <div class='covid_plot'>
+                                <plotly-plot [data]="covid_deaths.data" [layout]="covid_deaths.layout"></plotly-plot>
+                            </div>
                         </div>
+                
                     </div> 
 
                     <span class='guidance'>Cases and Deaths last updated {{this.update_date}}</span>

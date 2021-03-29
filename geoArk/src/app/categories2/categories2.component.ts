@@ -3530,6 +3530,8 @@ unselectAll(){
         bins.push(i)
       }
     
+      console.log('BIN FXN')
+      console.log(bins)
       return bins
   
   }
@@ -3562,10 +3564,15 @@ unselectAll(){
   getColor(value,min, threshold, colorrange, binrange){
     
     var color;
+    console.log('COLOR FXN')
+    
 
       
     for(var i=(threshold-1); i>=min; i--)
     {
+
+      console.log(value)
+      console.log(binrange[i])
       if(value >=binrange[i])
       {
         color= colorrange[i];
@@ -3708,9 +3715,6 @@ unselectAll(){
     for(var i=(threshold-1); i>=0; i--)
     {
 
-
-    console.log(temp[current_fact])
-    console.log(ranges[i])
 
       if(temp[current_fact] >=ranges[i])
       {

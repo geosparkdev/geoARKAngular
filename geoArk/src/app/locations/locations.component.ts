@@ -60,6 +60,7 @@ export class LocationsComponent implements OnInit {
 
   // Spinner 
   public spinnertogg:boolean=true;
+  public spinnertogg2:boolean=false;
 
 
 
