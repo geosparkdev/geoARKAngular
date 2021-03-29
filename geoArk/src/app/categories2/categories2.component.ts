@@ -3382,7 +3382,7 @@ unselectAll(){
       alpha: 1
   })
 
-  colors.reverse()
+  //colors.reverse()
 
 
 
@@ -3558,7 +3558,7 @@ unselectAll(){
 
   
 
-  //Creates color gradient -- works with outpu of getBins  
+  //Creates color gradient -- works with output of getBins  
   getColor(value,min, threshold, colorrange, binrange){
     
     var color;
@@ -3703,7 +3703,7 @@ unselectAll(){
 
     //light to dark
       
-    for(var i=(threshold-1); i>=0; i--)
+    for(var i=(threshold); i>=0; i--)
     {
       if(temp[current_fact] >=ranges[i])
       {
