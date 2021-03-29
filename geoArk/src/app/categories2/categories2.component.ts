@@ -3389,7 +3389,7 @@ unselectAll(){
   if(this.filter1.toggle==false){
 
     let factor_max=this.metadata.find(e=> e['factor']===current_fact)
-    let range=this.getBins(factor_max.min,factor_max.max,50)
+    let range=this.getBins(Number(factor_max.min),Number(factor_max.max),50)
 
     for(let i=0; i<this.initial_tot_table.length; i++){
 
