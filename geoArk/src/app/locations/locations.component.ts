@@ -4033,6 +4033,7 @@ triggerFactor(factor){
   map(){
 
       var data=this.factors;
+      var display=this.current_factor+' risk value'
      // var metadata=this.factors_meta;
       var current_fact=this.current_factor+'_Q5';
       console.log('IN MAP FUNCTION')
@@ -4089,7 +4090,7 @@ triggerFactor(factor){
      //info box display
       info.update = function (props: any) {
         this._div.innerHTML =
-          (props ? "<b>County: </b>"+props.NAME+"<br><b>Total Risk: </b>"+getInfo(props['fips'])+"</b><br />" : "<h4>Click to see details of another county.</h4>");
+          (props ? "<b>County: </b>"+props.NAME+"<br><b>"+display+" </b>"+getInfo(props['fips'])+"</b><br />" : "<h4>Click to see details of another county.</h4>");
       };
       info.addTo(risk_map);
 
