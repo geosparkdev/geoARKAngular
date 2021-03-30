@@ -4090,7 +4090,7 @@ triggerFactor(factor){
      //info box display
       info.update = function (props: any) {
         this._div.innerHTML =
-          (props ? "<b>County: </b>"+props.NAME+"<br><b>"+display+" </b>"+getInfo(props['fips'])+"</b><br />" : "<h4>Click to see details of another county.</h4>");
+          (props ? "<b>County: </b>"+props.NAME+"<br><b>"+display+":</b>"+getInfo(props['fips'])+"</b><br />" : "<h4>Click to see details of another county.</h4>");
       };
       info.addTo(risk_map);
 
