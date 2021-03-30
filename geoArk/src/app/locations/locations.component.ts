@@ -4035,6 +4035,8 @@ triggerFactor(factor){
       var data=this.factors;
      // var metadata=this.factors_meta;
       var current_fact=this.current_factor+'_Q5';
+      console.log('IN MAP FUNCTION')
+      console.log(current_fact)
       
 
      // let factor_max=metadata.find(e=> e['factor']===current_fact)
@@ -4138,16 +4140,19 @@ triggerFactor(factor){
   
       let temp=data.find(e=> e['cnty_fips']===value)
 
-      if (temp[current_fact]<=1){
+      console.log('getcolorQ5')
+      console.log(Number(temp[current_fact]))
+
+      if (Number(temp[current_fact])<=1){
         return '#2c7bb6'
       }
-      else if (temp[current_fact] ==2){
+      else if (Number(temp[current_fact] ==2)){
         return '#8ec9d6'
       }
-      else if (temp[current_fact]==3){
+      else if (Number(temp[current_fact]==3)){
         return '#ffe600'
       }
-      else if (temp[current_fact] ==4){
+      else if (Number(temp[current_fact] ==4)){
         return '#e89438'
       }
       else {
