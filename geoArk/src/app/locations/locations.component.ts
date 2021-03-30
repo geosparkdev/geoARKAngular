@@ -4000,7 +4000,7 @@ factorsMapData(risk:any){
     response=> {
 
      
-    this.factors=response[0];
+    this.factors=response;
     //this.factors_meta=response[1];
 
     this.map();
