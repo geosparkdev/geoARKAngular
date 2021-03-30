@@ -4138,7 +4138,8 @@ triggerFactor(factor){
 
     function getcolorQ5(value){
 
-  
+      console.log('getcolorQ5')
+      console.log(data)
       let temp=data.find(e=> e['cnty_fips']===value)
 
       console.log('getcolorQ5')
