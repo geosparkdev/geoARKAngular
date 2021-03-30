@@ -10,6 +10,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import * as L from 'leaflet';
 import * as colormap from 'colormap';
 import { trimTrailingNulls } from '@angular/compiler/src/render3/view/util';
+import { stringify } from '@angular/compiler/src/util';
 
 
 
@@ -75,7 +76,7 @@ export class LocationsComponent implements OnInit {
 
   //Risk Factors Map
   public factors:any;
-  public factors_meta:any;
+  //public factors_meta:any;
 
   public current_factor:any='total';
 
@@ -4000,7 +4001,7 @@ factorsMapData(risk:any){
 
      
     this.factors=response[0];
-    this.factors_meta=response[1];
+    //this.factors_meta=response[1];
 
     this.map();
 
@@ -4032,30 +4033,30 @@ triggerFactor(factor){
   map(){
 
       var data=this.factors;
-      var metadata=this.factors_meta;
-      var current_fact=this.current_factor;
+     // var metadata=this.factors_meta;
+      var current_fact=this.current_factor+'_A';
       
 
-      let factor_max=metadata.find(e=> e['factor']===current_fact)
+     // let factor_max=metadata.find(e=> e['factor']===current_fact)
 
-      var min=0;
-      if (factor_max.min<0){
-        min=-2;
-      }
+     // var min=0;
+      //if (factor_max.min<0){
+      //  min=-2;
+      //}
     
-      var threshold=200;
+    //   var threshold=200;
 
-      var colorrange=colormap({
-        colormap:'portland',
-        nshades:threshold,
-        format: 'hex',
-        alpha: 1
-    })
+    //   var colorrange=colormap({
+    //     colormap:'portland',
+    //     nshades:threshold,
+    //     format: 'hex',
+    //     alpha: 1
+    // })
 
     
     var current=this.county_fips
 
-    var ranges= getBin(min,factor_max.max,200);
+    //var ranges= getBin(min,factor_max.max,200);
 
     L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
 		{
@@ -4103,7 +4104,7 @@ triggerFactor(factor){
           color: 'black',
           weight: getLineWidth(feature.id),
           //fillColor:getcolor(feature.id),
-          fillColor:getcolor3(feature.id),
+          fillColor:getcolorQ5(feature.id),
           fillOpacity:0.8,
         }
       },
@@ -4131,51 +4132,52 @@ triggerFactor(factor){
       }
 
 
-    function getcolor(value){
 
-      let temp=data[1].find(e=> e['cnty_fips']===Number(value))
-
-      let colors = colormap({
-          colormap:'portland',
-          nshades: data[0],
-          format: 'hex',
-          alpha: 1
-      })
-
-      return colors[temp.total]
-    }
-
-
-    function getcolor2(value){
-
-      let temp=data.find(e=> e['cnty_fips']===value)
- 
+    function getcolorQ5(value){
 
   
-      return colorrange[temp[current_fact]]
-    }
-
-
-    function getcolor3(value){
-
-
       let temp=data.find(e=> e['cnty_fips']===value)
-			var color;
+
+      if (temp[current_fact]<=1){
+        return '#2c7bb6'
+      }
+      else if (temp[current_fact] ==2){
+        return '#8ec9d6'
+      }
+      else if (temp[current_fact]==3){
+        return '#ffe600'
+      }
+      else if (temp[current_fact] ==4){
+        return '#e89438'
+      }
+      else {
+        return '#d7191c'
+      }
 
 
-			//light to dark
+
+    }
+   
+    // function getcolor3(value){
+
+
+    //   let temp=data.find(e=> e['cnty_fips']===value)
+		// 	var color;
+
+
+		// 	//light to dark
 				
-			for(var i=(threshold-1); i>=min; i--)
-			{
-				if(temp[current_fact] >=ranges[i])
-				{
-					color= colorrange[i];
-					break;
-				}
-			}
+		// 	for(var i=(threshold-1); i>=min; i--)
+		// 	{
+		// 		if(temp[current_fact] >=ranges[i])
+		// 		{
+		// 			color= colorrange[i];
+		// 			break;
+		// 		}
+		// 	}
 
-			return color
-		}
+		// 	return color
+		// }
 
 
 
