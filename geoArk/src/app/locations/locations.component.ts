@@ -4034,7 +4034,7 @@ triggerFactor(factor){
 
       var data=this.factors;
      // var metadata=this.factors_meta;
-      var current_fact=this.current_factor+'_A';
+      var current_fact=this.current_factor+'_Q5';
       
 
      // let factor_max=metadata.find(e=> e['factor']===current_fact)
