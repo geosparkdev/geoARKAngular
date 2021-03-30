@@ -4036,6 +4036,7 @@ triggerFactor(factor){
      // var metadata=this.factors_meta;
       var current_fact=this.current_factor+'_Q5';
       console.log('IN MAP FUNCTION')
+      console.log(this.factors)
       console.log(current_fact)
       
 
