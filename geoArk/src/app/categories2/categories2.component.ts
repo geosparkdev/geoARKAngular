@@ -48,7 +48,7 @@ export class Categories2Component implements OnInit {
   public initial_metadata:any;
   public metadata:any;
 
-  public map_title:any=''
+  public map_title:any='Accessibility '
 
 
 
@@ -3360,7 +3360,7 @@ unselectAll(){
   this.risk_factors = new risk_factors();
 
   let factors_list=[this.risk_factors.Accessibility,this.risk_factors.Exposure,this.risk_factors.Health_resources,this.risk_factors.Socioeconomic,this.risk_factors.Susceptibility,this.risk_factors.Transmission]
-
+  this.map_title='Accessibility '
   this.getTotals(factors_list);
 }
 
