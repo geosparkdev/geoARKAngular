@@ -3348,7 +3348,7 @@ selectAll(){
   this.risk_factors.Transmission=1
 
   let factors_list=[this.risk_factors.Accessibility,this.risk_factors.Exposure,this.risk_factors.Health_resources,this.risk_factors.Socioeconomic,this.risk_factors.Susceptibility,this.risk_factors.Transmission]
-
+  this.map_title=''
   this.getTotals(factors_list);
 }
 
