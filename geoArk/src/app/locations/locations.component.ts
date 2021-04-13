@@ -4150,7 +4150,7 @@ triggerFactor(factor){
       console.log('getcolorQ5')
       console.log(Number(temp[current_fact]))
       if (current_risk_factor=='accessibility'){
-        palette=['#4d2100','#b34d00','#ff6f00','#ffb84d','#fff5b3']
+        palette=['#640204', '#af0406', '#c7384b', '#e580a3', '#ffb3ed']
       }
       else if (current_risk_factor=='healthresources'){
         palette=['#4d2100','#b34d00','#ff6f00','#ffb84d','#fff5b3']
