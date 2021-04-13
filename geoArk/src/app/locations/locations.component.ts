@@ -4039,6 +4039,9 @@ triggerFactor(factor){
       console.log('IN MAP FUNCTION')
       console.log(this.factors)
       console.log(current_fact)
+
+
+      var current_risk_factor=this.current_risk_factor;
       
 
      // let factor_max=metadata.find(e=> e['factor']===current_fact)
@@ -4142,24 +4145,45 @@ triggerFactor(factor){
       console.log('getcolorQ5')
       console.log(data)
       let temp=data.find(e=> e['cnty_fips']===value)
+      let palette=[]
 
       console.log('getcolorQ5')
       console.log(Number(temp[current_fact]))
+      if (current_risk_factor=='accessibility'){
+        palette=['#4d2100','#b34d00','#ff6f00','#ffb84d','#fff5b3']
+      }
+      else if (current_risk_factor=='healthresources'){
+        palette=['#4d2100','#b34d00','#ff6f00','#ffb84d','#fff5b3']
+      }
+      else if (current_risk_factor=='exposure'){
+        palette=['#404040', '#676767','#8c8c8c', '#b3b3b3','#d9d9d9']
+      }
+      else if (current_risk_factor=='socioeconomic'){
+        palette=['#470544','#7b2b88','#a05fb9','#a192d3','#b5c6fc']
+      }
+      else if (current_risk_factor=='susceptibility'){
+        palette=['#004c0e','#019A1E','#83ec13','#e5fc4f','#fbffb3']
+      } 
+      else if (current_risk_factor=='transmission'){
+        palette=['#000f4d','#0e388b','#51a4c8','#8fd1d6','#b5fdf8']
+      }
+    
+
 
       if (Number(temp[current_fact])<=1){
-        return '#2c7bb6'
+        return palette[0]
       }
       else if (Number(temp[current_fact] ==2)){
-        return '#8ec9d6'
+        return palette[1]
       }
       else if (Number(temp[current_fact]==3)){
-        return '#ffe600'
+        return palette[2]
       }
       else if (Number(temp[current_fact] ==4)){
-        return '#e89438'
+        return palette[3]
       }
       else {
-        return '#d7191c'
+        return palette[4]
       }
 
 
