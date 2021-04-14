@@ -3590,6 +3590,8 @@ export class LocationsComponent implements OnInit {
     }  
 }
 
+
+
 //Create Covid County and State plots
   getCovidPlots(){
 
@@ -3601,7 +3603,7 @@ export class LocationsComponent implements OnInit {
             type: 'bar', 
             //mode: 'lines', 
             name:'county cases',
-            marker: {color: 'orange'} 
+            marker: {color: '#676767'} 
           },
       ],
       layout: {
@@ -3638,7 +3640,7 @@ export class LocationsComponent implements OnInit {
             type: 'bar', 
             //mode: 'lines', 
             name:'county deaths',
-            marker: {color: 'red'} 
+            marker: {color: '#d9d9d9'} 
           },
       ],
       layout: {
@@ -3680,7 +3682,7 @@ export class LocationsComponent implements OnInit {
             type: 'bar', 
             //mode: 'lines', 
             name:'county cases',
-            marker: {color: 'orange'} 
+            marker: {color: '#676767'} 
           },
       ],
       layout: {
@@ -3719,7 +3721,7 @@ export class LocationsComponent implements OnInit {
             type: 'bar', 
             //mode: 'lines', 
             name:'county cases',
-            marker: {color: 'red'} 
+            marker: {color: '#d9d9d9'} 
           },
       ],
       layout: {
