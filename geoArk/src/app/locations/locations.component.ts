@@ -4173,19 +4173,19 @@ triggerFactor(factor){
 
 
       if (Number(temp[current_fact])<=1){
-        return palette[0]
+        return palette[4]
       }
       else if (Number(temp[current_fact] ==2)){
-        return palette[1]
+        return palette[3]
       }
       else if (Number(temp[current_fact]==3)){
         return palette[2]
       }
       else if (Number(temp[current_fact] ==4)){
-        return palette[3]
+        return palette[1]
       }
       else {
-        return palette[4]
+        return palette[0]
       }
 
 

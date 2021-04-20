@@ -220,8 +220,43 @@ Geo-Context and COVID-19 in Missouri
                     <br>as compared to the mean  <img src="../../assets/mean.png"> of other MO counties
         
                     <br>
-        
+
+
+                    <div class='aligncenter'>
+
+                        <div *ngIf='current_risk_factor=="accessibility"'>
+                            <img src="../../assets/accessibility_legend.png">
+                        </div>
+            
+                        <div *ngIf='current_risk_factor=="healthresources"'>
+                            <img src="../../assets/healthresources_legend.png">
+                        </div>
+                        
+                        <div *ngIf='current_risk_factor=="exposure"'>
+                            <img src="../../assets/exposure_legend.png">
+                        </div>
+               
+
+                        <div *ngIf='current_risk_factor=="socioeconomic"'>
+                            <img src="../../assets/socioeconomic_legend.png">
+                        </div>
+
+
+
+
+                        <div *ngIf='current_risk_factor=="susceptibility"'>
+                            <img src="../../assets/susceptibility_legend.png">
+                        </div>
+                    
+
+
+                        <div *ngIf='current_risk_factor=="transmission"'>
+                            <img src="../../assets/transmission_legend.png">
+                        </div>
  
+                    </div>
+
+
                 </div>
               
                 <div id='risk_factors'>
