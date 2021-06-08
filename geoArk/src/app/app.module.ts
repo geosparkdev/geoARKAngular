@@ -29,6 +29,10 @@ import { DatasourcesComponent } from './datasources/datasources.component';
 import { GuideComponent } from './guide/guide.component';
 import { MainComponent } from './main/main.component';
 import { LoginComponent } from './login/login.component';
+import { SurveyStartComponent } from './survey-start/survey-start.component';
+import { FirstsurveyComponent } from './firstsurvey/firstsurvey.component';
+import { Survey2Component } from './survey2/survey2.component';
+import { Survey3Component } from './survey3/survey3.component';
 
  
 
@@ -52,6 +56,10 @@ import { LoginComponent } from './login/login.component';
     GuideComponent,
     MainComponent,
     LoginComponent,
+    SurveyStartComponent,
+    FirstsurveyComponent,
+    Survey2Component,
+    Survey3Component,
   ],
   imports: [
     BrowserModule,

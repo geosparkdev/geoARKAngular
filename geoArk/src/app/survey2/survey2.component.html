@@ -1,0 +1,26 @@
+<div class='header'> 
+    Geo-Context and COVID-19 in Missouri 
+    <div class='subheader'>
+        Counties Dashboard Survey
+    </div>
+</div>
+<div class='body'>
+    <span class='title'>About the Participant:</span>
+
+    <table>
+        <tr>
+        <th>Field</th>
+
+
+        </tr>
+        <tr *ngFor='let question of survey'>
+        <td>{{question.Question}}</td>
+
+        </tr>
+    </table>
+
+
+
+<div class='main_button button_red' routerLink="/counties" routerLinkActive="active">
+    Start Test #1
+</div>

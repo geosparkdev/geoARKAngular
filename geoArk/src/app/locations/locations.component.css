@@ -12,7 +12,11 @@
     color:white;
     text-align:center;
     padding: 10px 200px;
+    position: relative;
+
 }
+
+
 
 
 .main_container{
@@ -356,3 +360,57 @@ select{
   .covid_plot{
     width: 100%;
   }
+
+
+
+
+  /*----Tasks----*/
+  .task_container {
+    width: 25%;
+    height: 100px;
+    position: absolute;
+    background-color:#eeedeb;
+    color: black;
+
+    top: 1rem;
+    left: 1rem;
+    font-size: 0.8rem;
+    text-align: left;
+    border: 1px solid black;
+    border-radius: 9px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 5px;
+  
+  }
+
+  .task_start{
+    width:25%;
+    background-color:rgb(104, 245, 104);
+    border-radius: 5px;
+    margin-top:5px;
+    border: 1px solid black;
+    text-align:center;
+    cursor: pointer;
+  }
+
+
+  .task_stop{
+    width:35%;
+    background-color:rgb(245, 189, 104);
+    border-radius: 5px;
+    margin-top:5px;
+    border: 1px solid black;
+    text-align:center;
+    cursor: pointer;
+  }
+
+  .survey_start{
+    width:45%;
+    background-color:rgb(241, 98, 98);
+    border-radius: 5px;
+    margin-top:5px;
+    border: 1px solid black;
+    text-align:center;
+    cursor: pointer;
+  }
+

@@ -1,0 +1,67 @@
+
+.header{
+
+    background-image: url('../../assets/MO_graphic_MO_size_1366X374.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+
+
+    font-size:3rem;
+    font-weight: bolder;
+    color:black;
+    text-align:center;
+}
+
+
+.subheader{
+    font-size:2rem;
+    color:black;
+    text-align:center;
+}
+
+
+.body{
+    padding-left:6rem;
+    padding-right:6rem;
+    padding-top:2rem;
+    font-size:1rem;
+}
+
+
+
+.main_button{
+
+    color: white;
+    margin:20px;
+    display: inline-block;
+    border-radius:15px;
+    padding-top:2px;
+    padding-bottom:5px;
+    cursor:pointer;
+
+
+
+    font-family:"Euphemia UCAS";
+    font-weight: bold;
+    font-size: 2rem;
+    text-align:center;
+
+}
+
+.main_button:hover{
+    background-color:black;
+}
+
+.button_red {
+    background-color: #d81f20;
+    padding-left:20px;
+    padding-right:20px;
+}
+
+
+.title{
+    color:#d81f20;
+    font-size:1.5rem;
+    font-weight: bolder;
+}

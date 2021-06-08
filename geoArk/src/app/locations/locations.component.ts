@@ -3243,6 +3243,44 @@ export class LocationsComponent implements OnInit {
   public selectcntyfip:number;
   public locationscntyfips:number;
 
+
+
+  //task -- analysis
+  public task1:boolean=true;
+  public task2:boolean=false;
+  public task3:boolean=false;
+  public task4:boolean=false;
+  public task5:boolean=false;
+  public task6:boolean=false;
+
+  public exploration:boolean=false;
+
+
+  public task1_start:boolean=true;
+  public task1_stop:boolean=false;
+
+  public task2_start:boolean=false;
+  public task2_stop:boolean=false;
+
+  public task3_start:boolean=false;
+  public task3_stop:boolean=false;
+
+  public task4_start:boolean=false;
+  public task4_stop:boolean=false;
+
+  public task5_start:boolean=false;
+  public task5_stop:boolean=false;
+
+  public task6_start:boolean=false;
+  public task6_stop:boolean=false;
+
+  public exploration_start:boolean=false;
+  public exploration_stop:boolean=false;
+
+  public survey:boolean=false;
+
+
+
   constructor(public http: HttpClient,private spinner: NgxSpinnerService,public route: ActivatedRoute) {
     
 
@@ -3251,6 +3289,8 @@ export class LocationsComponent implements OnInit {
   ngOnInit(): void {
     this.selectcntyfip=29003;
     this.locationscntyfips=null;
+
+
 
    this.counties=[{'cnty_fips': 29003, 'cnty_name': 'Andrew'},
    {'cnty_fips': 29005, 'cnty_name': 'Atchison'},
@@ -3402,6 +3442,120 @@ export class LocationsComponent implements OnInit {
 
   }
   
+
+
+
+
+
+  // ---------- Task Analysis --------------//
+
+
+  start_task1(task_id:any){
+    this.task1_start=false;
+    this.task1_stop=true;
+    console.log(task_id);
+
+  }
+
+  stop_task1(task_id:any){
+    this.task1_stop=false;
+    this.task1=false;
+    this.task2=true;
+    this.task2_start=true;
+    console.log(task_id);
+
+  }
+
+  start_task2(task_id:any){
+    this.task2_start=false;
+    this.task2_stop=true;
+    console.log(task_id);
+  }
+
+  stop_task2(task_id:any){
+    this.task2_stop=false;
+    this.task2=false;
+    this.task3=true;
+    this.task3_start=true;
+    console.log(task_id);
+
+  }
+
+  start_task3(task_id:any){
+    this.task3_start=false;
+    this.task3_stop=true;
+    console.log(task_id);
+  }
+
+  stop_task3(task_id:any){
+    this.task3_stop=false;
+    this.task3=false;
+    this.task4=true;
+    this.task4_start=true;
+    console.log(task_id);
+
+  }
+
+  start_task4(task_id:any){
+    this.task4_start=false;
+    this.task4_stop=true;
+    console.log(task_id);
+  }
+
+  stop_task4(task_id:any){
+    this.task4_stop=false;
+    this.task4=false;
+    this.task5=true;
+    this.task5_start=true;
+    console.log(task_id);
+
+  }
+
+  start_task5(task_id:any){
+    this.task5_start=false;
+    this.task5_stop=true;
+    console.log(task_id);
+  }
+
+  stop_task5(task_id:any){
+    this.task5_stop=false;
+    this.task5=false;
+    this.task6=true;
+    this.task6_start=true;
+    console.log(task_id);
+
+  }
+
+
+  start_task6(task_id:any){
+    this.task6_start=false;
+    this.task6_stop=true;
+    console.log(task_id);
+  }
+
+  stop_task6(task_id:any){
+    this.task6_stop=false;
+    this.task6=false;
+    this.exploration=true;
+    this.exploration_start=true;
+    console.log(task_id);
+
+  }
+
+  start_exploration(task_id:any){
+    this.exploration_start=false;
+    this.exploration_stop=true;
+    console.log(task_id);
+  }
+
+  stop_exploration(task_id:any){
+    this.exploration_stop=false;
+    this.exploration=false;
+    this.survey=true;
+    console.log(task_id);
+
+  }
+
 
 
 // get Data for Selected Risk Factor

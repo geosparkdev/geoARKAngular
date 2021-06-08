@@ -16,6 +16,9 @@ import { GuideComponent } from '../app/guide/guide.component';
 import { MainComponent } from './main/main.component';
 import { OktaCallbackComponent, OktaAuthGuard, OktaAuthModule } from '@okta/okta-angular';
 import { LoginComponent} from '../app/login/login.component';
+import { SurveyStartComponent } from '../app/survey-start/survey-start.component';
+import { FirstsurveyComponent } from '../app/firstsurvey/firstsurvey.component';
+import {Survey2Component} from '../app/survey2/survey2.component';
 
 
 
@@ -175,10 +178,10 @@ const routes: Routes = [
   {
     path: 'counties',
     component: LocationsComponent,
-    canActivate: [ OktaAuthGuard ],
-    data: {
-      onAuthRequired
-    }
+    //canActivate: [ OktaAuthGuard ],
+   // data: {
+   //   onAuthRequired
+//}
   },
   {
     path: 'datasources',
@@ -197,7 +200,22 @@ const routes: Routes = [
       onAuthRequired
     }
   },
-  
+  {
+    path: 'surveystart',
+    component: SurveyStartComponent,
+    //canActivate: [ OktaAuthGuard ],
+    //data: {
+     // onAuthRequired
+    //}
+  },
+  {
+    path: 'survey1',
+    component: FirstsurveyComponent,
+  },
+  {
+    path:'survey2',
+    component: Survey2Component,
+  },
     
 ];
 
