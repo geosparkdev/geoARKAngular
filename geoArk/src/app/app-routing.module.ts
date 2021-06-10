@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CategoriesComponent } from '../app/categories/categories.component';
+//import { CategoriesComponent } from '../app/categories/categories.component';
 import {HomeComponent} from '../app/home/home.component';
 import {DashboardComponent } from '../app/dashboard/dashboard.component';
 import { GeoarkdataHomeComponent } from './geoarkdata-home/geoarkdata-home.component';
@@ -33,6 +33,9 @@ const routes: Routes = [
     path:"GeoArkHome",
     component: MainComponent,
   },
+
+
+  // Covid Dashboard Routes
   {
     path: 'rapidHome',
     component: HomeComponent,
@@ -42,9 +45,22 @@ const routes: Routes = [
     component: Categories2Component,
    },
    {
-    path: 'dashboard',
-    component: DashboardComponent,
-   },
+    path: 'counties',
+    component: LocationsComponent,
+  },
+  {
+    path: 'datasources',
+    component: DatasourcesComponent,
+    
+  },
+  {
+    path: 'howtouse',
+    component: GuideComponent,
+
+  },
+
+
+  //geoARKData
   {
     path:'geoARKData',
     component: GeoarkdataHomeComponent,
@@ -63,24 +79,11 @@ const routes: Routes = [
     path:'upcomingData',
     component: UpcomingComponent,
   },
-  {
+  /*{
     path:'predictions',
     component: ModelingComponent,
-  },
-  {
-    path: 'counties',
-    component: LocationsComponent,
-  },
-  {
-    path: 'datasources',
-    component: DatasourcesComponent,
-    
-  },
-  {
-    path: 'howtouse',
-    component: GuideComponent,
+  },*/
 
-  },
   
     
 ];

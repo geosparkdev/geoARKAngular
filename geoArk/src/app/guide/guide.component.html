@@ -4,9 +4,10 @@
     
 <div class='nav_bar'>
     <ul class='tabrow'>
-        <li routerLink="/predictions" routerLinkActive="active" > Predictions</li>
-        <li routerLink="/categories" routerLinkActive="active" > Risk Categories</li>
-        <li routerLink="/counties" routerLinkActive="active"  > Counties</li>
+        <li routerLink="/categories" routerLinkActive="active" class="selected"> Risk Categories</li>
+        <li routerLink="/counties" routerLinkActive="active" > Counties</li>
+        <li routerLink="/howtouse" routerLinkActive="active" > Data Sources</li>
+        <li routerLink="/datasources" routerLinkActive="active" > How to use</li>
     </ul> 
 </div> 
 
@@ -166,11 +167,5 @@
 
 
 <div class='footer'>
-    <div class='footer_links' routerLink="/howtouse" routerLinkActive="active">
-        How to use this dashboard
-    </div>
-   <div class='footer_links' routerLink="/datasources" routerLinkActive="active">
-       Data Sources
-   </div>
     &copy;
 </div>
