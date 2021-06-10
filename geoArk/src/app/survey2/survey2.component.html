@@ -5,16 +5,28 @@
     </div>
 </div>
 <div class='body'>
-    <span class='title'>About the Participant:</span>
-
     <table>
         <tr>
-        <th>Field</th>
+            <th></th>
+            <th align="center">Strongly Disagree</th>
+            <th align="center">Disagree</th>
+            <th align="center">Neutral</th>
+            <th align="center">Agree</th>
+            <th align="center">Strongly Agree</th>
 
 
         </tr>
         <tr *ngFor='let question of survey'>
-        <td>{{question.Question}}</td>
+            <td style="width:50%">{{question.Question}}</td>
+            <td align="center"> <input type="radio" name="StronglyDisagree"/></td>
+            <td align="center">  <input type="radio" name="Disagree"/></td>
+            <td align="center">  <input type="radio" name="Neutral"/></td>
+            <td align="center">  <input type="radio" name="Agree"></td>
+            <td align="center">  <input type="radio" name="StronglyAgree"/></td>
+
+
+            
+            
 
         </tr>
     </table>

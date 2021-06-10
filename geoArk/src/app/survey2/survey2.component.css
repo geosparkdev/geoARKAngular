@@ -65,3 +65,21 @@
     font-size:1.5rem;
     font-weight: bolder;
 }
+
+
+table {
+    border-collapse: collapse;
+ 
+}
+
+th {
+    padding: 3px;
+}
+
+td { 
+    padding: 3px;
+    padding-bottom:10px;
+    
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}

@@ -3246,6 +3246,8 @@ export class LocationsComponent implements OnInit {
 
 
   //task -- analysis
+
+  public evaluation:boolean=false;
   public task1:boolean=true;
   public task2:boolean=false;
   public task3:boolean=false;
