@@ -116,3 +116,12 @@
     border: 1px solid black;
 
 }
+
+
+
+.geo_map{
+  height:80vh;
+  width: 150vh;
+  margin:5px;
+  z-index:1;
+}
