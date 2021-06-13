@@ -19,6 +19,7 @@ import { LoginComponent} from '../app/login/login.component';
 import { SurveyStartComponent } from '../app/survey-start/survey-start.component';
 import { FirstsurveyComponent } from '../app/firstsurvey/firstsurvey.component';
 import {Survey2Component} from '../app/survey2/survey2.component';
+import { GeoarkComponent } from './geoark/geoark.component';
 
 
 
@@ -84,7 +85,10 @@ const routes: Routes = [
     component: ModelingComponent,
   },*/
 
-  
+  {
+    path:'geoark',
+    component: GeoarkComponent,
+  },
     
 ];
 

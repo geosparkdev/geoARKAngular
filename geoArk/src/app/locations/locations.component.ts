@@ -4212,7 +4212,7 @@ triggerFactor(factor){
     //   var threshold=200;
 
     //   var colorrange=colormap({
-    //     colormap:'portland',
+    //     colormap:'portland',~
     //     nshades:threshold,
     //     format: 'hex',
     //     alpha: 1

@@ -1,0 +1,118 @@
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 25rem; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: rgb(18, 24, 43); /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 5px; /* Place content 60px from the top */
+    padding-left: 2rem;
+    padding-right:2rem;
+
+
+    color:white;
+    font-size:1.0rem;
+    font-family: "Georgia", serif;
+  }
+  
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 8px 8px 8px 8px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    text-align:center;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color: #ffffff;
+
+  }
+  
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+  .main {
+    padding-left: 25rem;
+    color:black;
+    background-color:#f0f0f0;
+    height:90vh;
+  }
+
+
+
+  .top_nav{
+        width:100%;
+        background-color:#ffffff;
+        padding-left:25rem;
+        height:5rem;
+  }
+
+
+
+
+
+
+  table, td, th {  
+    border: 1px solid #ddd;
+    text-align: left;
+    width:100%;
+    
+    
+    }
+    
+    table {
+    border-collapse: collapse;
+    
+    }
+    
+    th{
+    background: #3a3a3a;
+    color:white;
+    padding: 5px;
+    text-align:center;
+    font-weight:bold;
+    }
+    
+    td{
+    background: #eaeaea;
+    padding: 5px;
+    font-size:12px;
+    }
+    
+    
+    .highlighted{
+    background-color: #8abeec;
+    color:white;
+    }
+  
+
+
+.isocategory_select{
+    font-size:0.8rem;
+    width:100%;
+    height:2rem;
+    background-color:white;
+    border: 1px solid black;
+}
+
+
+.search{
+    font-size:0.8rem;
+    width:90%;
+    height:2rem;
+    background-color:white;
+    border: 1px solid black;
+}
+
+.search_button{
+    font-size:0.8rem;
+    height:2rem;
+    width:10%;
+    background-color:rgb(240, 240, 240);
+    border: 1px solid black;
+
+}
