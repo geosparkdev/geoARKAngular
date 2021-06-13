@@ -25,7 +25,7 @@ export class GeoarkComponent implements OnInit {
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
   
-    this.http.post(environment.base_url+"/getattributes", {headers: customheaders}).subscribe(
+    this.http.get(environment.base_url+"/getattributes", {headers: customheaders}).subscribe(
       response=> {
         console.log(response)
         this.attributes=response;
