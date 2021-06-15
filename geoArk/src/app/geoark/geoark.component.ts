@@ -38,8 +38,10 @@ export class GeoarkComponent implements OnInit {
   getAttributes(){
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
+
+    console.log(environment.base_url);
   
-    this.http.get(environment.base_url+"/getattributes", {headers: customheaders}).subscribe(
+    this.http.get(environment.base_url + "/getattributes", {headers: customheaders}).subscribe(
       response=> {
         console.log(response)
         this.attributes=response;
