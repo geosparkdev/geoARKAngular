@@ -31,17 +31,18 @@ export class GeoarkComponent implements OnInit {
     geo_map_status=0;
     geo_map = L.map("geo_map").setView([38.573936, -92.603760], 7);
 
-    this.getAttributes();
   }
 
 
-  getAttributes(){
+  getAttributes(value:any){
+
+    let iso_key=Number(value.target.value);
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
 
     console.log(environment.base_url);
   
-    this.http.get(environment.base_url + "/getattributes", {headers: customheaders}).subscribe(
+    this.http.post(environment.base_url + "/getattributes",JSON.stringify(iso_key), {headers: customheaders}).subscribe(
       response=> {
         console.log(response)
         this.attributes=response;
