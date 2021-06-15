@@ -21,6 +21,7 @@ export class GeoarkComponent implements OnInit {
 
 
   public attributes:any;
+  public data:any;
 
   constructor(public http: HttpClient) { }
 
@@ -54,6 +55,30 @@ export class GeoarkComponent implements OnInit {
       }
     )
   
+  }
+
+
+
+  getData(index:any){
+
+  let request=[this.attributes.dataset_id, this.attributes.attr_label]
+
+
+  const customheaders= new HttpHeaders()
+  .set('Content-Type', 'application/json');
+
+  this.http.post(environment.base_url + "/getgeoarkdata",JSON.stringify(request), {headers: customheaders}).subscribe(
+  response=> {
+  console.log(response)
+  this.data=response;
+
+  },
+  error => {
+    console.log("inside error=--GetData fxn")
+    console.log(error)
+  }
+)
+
   }
 
 

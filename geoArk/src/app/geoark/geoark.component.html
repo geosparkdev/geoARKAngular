@@ -34,8 +34,8 @@
         <tr>
             <th>Select an attribute:</th>
         </tr>
-        <tr *ngFor='let attribute of attributes'>
-            <td>{{attribute.attr_desc}}</td>
+        <tr *ngFor='let attribute of attributes; let i=index'>
+            <td (click)='getData(i)'>{{attribute.attr_desc}} </td>
         </tr>
     </table>
   </div>
