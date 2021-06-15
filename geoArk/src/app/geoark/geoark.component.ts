@@ -61,7 +61,7 @@ export class GeoarkComponent implements OnInit {
 
   getData(index:any){
 
-  let request=[this.attributes.dataset_id, this.attributes.attr_label]
+  let request=[this.attributes[index].dataset_id, this.attributes[index].attr_label]
 
 
   const customheaders= new HttpHeaders()
