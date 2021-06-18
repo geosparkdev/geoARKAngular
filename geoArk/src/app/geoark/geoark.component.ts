@@ -102,7 +102,7 @@ export class GeoarkComponent implements OnInit {
     this.countiesJSON=response;
 
     geo_map_status=0;
-    geo_map = L.map("geo_map").setView([38.573936, -92.603760], 7);
+    geo_map = L.map("geo_map").setView([37.8, -96], 4);
   
     },
     error => {
@@ -140,7 +140,7 @@ export class GeoarkComponent implements OnInit {
   geo_info = new L.Control({position: 'bottomleft'});
   geo_info.onAdd = function () {
     if(geo_map_status==0){
-      this._div = L.DomUtil.create("div", "info");
+      this._div = L.DomUtil.create("div", "geo_info");
       geo_map_status=1;
     }
     else
@@ -163,7 +163,7 @@ export class GeoarkComponent implements OnInit {
 
 
   //geoJSON object and coloring of county
-  geo_geoJSON= L.geoJSON(this.countiesJSON.geoJSONcounties, {
+  geo_geoJSON= L.geoJSON(this.countiesJSON, {
     style: function (feature) {
       return{
         color: 'black',
