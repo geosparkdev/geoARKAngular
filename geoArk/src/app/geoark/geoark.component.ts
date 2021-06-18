@@ -5,7 +5,6 @@ import { environment} from 'src/environments/environment';
 import * as L from 'leaflet';
 
 
-import {uscounties} from '../models/uscounties';
 
 
 
@@ -27,7 +26,7 @@ export class GeoarkComponent implements OnInit {
   public attributes:any;
   public data:any;
 
-  public countiesJSON:uscounties;
+  public countiesJSON:any;
   
 
 
@@ -38,8 +37,6 @@ export class GeoarkComponent implements OnInit {
 
   ngOnInit(): void {
 
-
-    this.countiesJSON=new uscounties()
     geo_map_status=0;
     geo_map = L.map("geo_map").setView([38.573936, -92.603760], 7);
 
@@ -93,7 +90,28 @@ export class GeoarkComponent implements OnInit {
   }
 
 
+  getJSON(){
 
+  
+    const customheaders= new HttpHeaders()
+    .set('Content-Type', 'application/json');
+  
+    this.http.get(environment.base_url + "/getuscountiesjson", {headers: customheaders}).subscribe(
+    response=> {
+    console.log(response)
+    this.countiesJSON=response;
+  
+    },
+    error => {
+      console.log("inside error=--getJSON fxn")
+      console.log(error)
+    }
+  )
+  
+    }
+  
+
+  
 
 
 
