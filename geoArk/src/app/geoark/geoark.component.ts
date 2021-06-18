@@ -99,7 +99,7 @@ export class GeoarkComponent implements OnInit {
     this.http.get(environment.base_url + "/getuscountiesjson", {headers: customheaders}).subscribe(
     response=> {
     console.log(response)
-    this.countiesJSON=response;
+    this.countiesJSON=[response];
 
     geo_map_status=0;
     geo_map = L.map("geo_map").setView([37.8, -96], 4);
