@@ -37,6 +37,7 @@ export class GeoarkComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.getJSON();
     geo_map_status=0;
     geo_map = L.map("geo_map").setView([38.573936, -92.603760], 7);
 
