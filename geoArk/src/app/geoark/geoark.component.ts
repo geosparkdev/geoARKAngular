@@ -103,6 +103,7 @@ export class GeoarkComponent implements OnInit {
 
     geo_map_status=0;
     geo_map = L.map("geo_map").setView([37.8, -96], 4);
+    this.map()
   
     },
     error => {
