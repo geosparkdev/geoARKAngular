@@ -184,7 +184,7 @@ export class GeoarkComponent implements OnInit {
     let value= state+county
     console.log('in getcolor fxn within map fxn')
     console.log(value)
-    let temp=data.find(e=> e['cnty_fips']===value)
+    let temp=data.find(e=> e['fips']===value)
     console.log(temp)
     console.log(temp.color)
 
