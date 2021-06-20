@@ -170,7 +170,7 @@ export class GeoarkComponent implements OnInit {
       return{
         color: 'black',
         weight: 1,
-        fillColor:getcolor(feature.id),
+        fillColor:getcolor(feature.properties['STATE'],feature.properties['COUNTY']),
        // fillColor:'#ffffff',
         fillOpacity:0.8,
       }
@@ -179,9 +179,11 @@ export class GeoarkComponent implements OnInit {
   }).addTo(geo_map);
 
 
-  function getcolor(value){
+  function getcolor(state, county){
 
+    let value= state+county
     console.log('in getcolor fxn within map fxn')
+    console.log(value)
     let temp=data.find(e=> e['cnty_fips']===value)
     console.log(temp)
     console.log(temp.color)
