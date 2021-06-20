@@ -38,21 +38,20 @@ export class GeoarkComponent implements OnInit {
 
   ngOnInit(): void {
 
+    
     this.getJSON();
-  
+    
 
   }
 
 
-  getAttributes(value:any){
-
-    let iso_key=Number(value.target.value);
+  getAttributes(){
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
 
     console.log(environment.base_url);
   
-    this.http.post(environment.base_url + "/getattributes",JSON.stringify(iso_key), {headers: customheaders}).subscribe(
+    this.http.post(environment.base_url + "/getattributes", {headers: customheaders}).subscribe(
       response=> {
         console.log(response)
         this.attributes=response;
@@ -81,7 +80,7 @@ export class GeoarkComponent implements OnInit {
   console.log(response)
   this.data=response;
 
-  if(this.first_data=false){
+  if(this.first_data==false){
     geo_geoJSON.clearLayers();
   }
   this.first_data=false;
@@ -111,6 +110,8 @@ export class GeoarkComponent implements OnInit {
     geo_map_status=0;
     geo_map = L.map("geo_map").setView([37.8, -96], 4);
    // this.map()
+
+   this.getAttributes()
   
     },
     error => {
