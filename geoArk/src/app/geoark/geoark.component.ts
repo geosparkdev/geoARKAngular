@@ -170,7 +170,7 @@ export class GeoarkComponent implements OnInit {
     style: function (feature) {
       return{
         color: 'black',
-        weight: 1,
+        weight: 0,
         fillColor:getcolor(feature.properties['STATE'],feature.properties['COUNTY']),
        // fillColor:'#ffffff',
         fillOpacity:0.8,
@@ -193,7 +193,7 @@ export class GeoarkComponent implements OnInit {
     
     if (temp==null) {
       // the variable is defined
-      return '#ffffff'
+      return '#000000'
   }
    else{
     
@@ -218,7 +218,7 @@ highlightFeature(e) {
   layer.setStyle({
     weight: 2,
     color: "black",
-    fillOpacity: 1.0
+    fillOpacity: 0.8
   });
   if (!L.Browser.ie && !L.Browser.edge) {
     //layer.bringToFront();
