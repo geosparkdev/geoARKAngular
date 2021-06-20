@@ -186,8 +186,8 @@ export class GeoarkComponent implements OnInit {
     console.log(value)
     let temp=data.find(e=> e['fips']===value)
 
-    console.log(temp)
-    console.log(temp.color)
+    //console.log(temp)
+    //console.log(temp.color)
 
     
     if (temp==null) {
