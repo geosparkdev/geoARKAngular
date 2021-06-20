@@ -185,10 +185,18 @@ export class GeoarkComponent implements OnInit {
     console.log('in getcolor fxn within map fxn')
     console.log(value)
     let temp=data.find(e=> e['fips']===value)
+
     console.log(temp)
     console.log(temp.color)
 
-    return temp.color
+    
+    if (typeof temp.color !== 'undefined') {
+      // the variable is defined
+      return temp.color
+  }
+   else{
+    return '#ffffff'
+   } 
   }
 
 
