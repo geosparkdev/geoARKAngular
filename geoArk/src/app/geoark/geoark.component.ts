@@ -79,6 +79,7 @@ export class GeoarkComponent implements OnInit {
   response=> {
   console.log(response)
   this.data=response;
+  geo_geoJSON.clearLayers();
   this.map()
 
   },
