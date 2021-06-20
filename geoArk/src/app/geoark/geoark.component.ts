@@ -190,12 +190,13 @@ export class GeoarkComponent implements OnInit {
     console.log(temp.color)
 
     
-    if (typeof temp.color !== 'undefined') {
+    if (temp==null) {
       // the variable is defined
-      return temp.color
+      return '#ffffff'
   }
    else{
-    return '#ffffff'
+    
+    return temp.color
    } 
   }
 
