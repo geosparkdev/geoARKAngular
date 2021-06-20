@@ -76,12 +76,13 @@
     padding: 5px;
     text-align:center;
     font-weight:bold;
+    font-size:0.5rem;
     }
     
     td{
     background: #eaeaea;
     padding: 5px;
-    font-size:12px;
+    font-size:0.8rem;
     color:black;
     }
     
@@ -104,7 +105,7 @@
 
 .search{
     font-size:0.8rem;
-    width:90%;
+    width:95%;
     height:2rem;
     background-color:white;
     border: 1px solid black;
@@ -122,8 +123,8 @@
 
 
 .geo_map{
-  height:80vh;
-  width: 100vh;
+  height:100vh;
+  width: 150vh;
   margin:5px;
   z-index:1;
 }

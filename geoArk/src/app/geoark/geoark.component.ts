@@ -28,6 +28,8 @@ export class GeoarkComponent implements OnInit {
 
   public countiesJSON:any;
   public first_data:boolean=true;
+
+  public data_title:any;
   
 
 
@@ -79,6 +81,7 @@ export class GeoarkComponent implements OnInit {
   response=> {
   console.log(response)
   this.data=response;
+
 
   if(this.first_data==false){
     geo_geoJSON.clearLayers();
