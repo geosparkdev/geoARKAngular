@@ -79,6 +79,7 @@ export class GeoarkComponent implements OnInit {
   response=> {
   console.log(response)
   this.data=response;
+  this.map()
 
   },
   error => {
@@ -103,7 +104,7 @@ export class GeoarkComponent implements OnInit {
 
     geo_map_status=0;
     geo_map = L.map("geo_map").setView([37.8, -96], 4);
-    this.map()
+   // this.map()
   
     },
     error => {
@@ -169,13 +170,25 @@ export class GeoarkComponent implements OnInit {
       return{
         color: 'black',
         weight: 1,
-        //fillColor:getcolor(feature.id),
-        fillColor:'#ffffff',
+        fillColor:getcolor(feature.id),
+       // fillColor:'#ffffff',
         fillOpacity:0.8,
       }
     },
     onEachFeature: (feature, layer) => this.onEachFeature(feature, layer)
   }).addTo(geo_map);
+
+
+  function getcolor(value){
+
+    console.log('in getcolor fxn within map fxn')
+    let temp=data.find(e=> e['cnty_fips']===value)
+    console.log(temp)
+    console.log(temp.color)
+
+    return temp.color
+  }
+
 
 
 
