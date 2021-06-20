@@ -25,6 +25,7 @@ export class GeoarkComponent implements OnInit {
 
   public attributes:any;
   public data:any;
+  public attributes_display:any;
 
   public countiesJSON:any;
   public first_data:boolean=true;
@@ -57,6 +58,7 @@ export class GeoarkComponent implements OnInit {
       response=> {
         console.log(response)
         this.attributes=response;
+        this.attributes_display=response;
       
       },
       error => {
