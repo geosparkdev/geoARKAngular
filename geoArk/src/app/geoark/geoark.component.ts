@@ -34,6 +34,7 @@ export class GeoarkComponent implements OnInit {
   
   public p: number = 1;
 
+  public selected: any;
 
   
 
@@ -72,6 +73,8 @@ export class GeoarkComponent implements OnInit {
 
 
   getData(index:any){
+
+  this.selected=this.attributes[index].attr_label
 
   let request=[this.attributes[index].dataset_id, this.attributes[index].attr_label]
 
