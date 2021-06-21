@@ -122,9 +122,11 @@
   font-size:0.7rem;
   font-family: "Georgia", serif;
   font-weight:bolder;
-  background-color:#78c679;
+  background-color:#a2eca3;
   padding:2px;
   border: 1px solid black;
+  width:25%;
+  margin:2px;
 }
 
 
