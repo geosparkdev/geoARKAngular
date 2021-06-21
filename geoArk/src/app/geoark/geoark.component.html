@@ -3,7 +3,12 @@
 
     <img src="../../assets/geoark.png">
 
+
     <div class='filterbox'>
+
+      <div class="filtertitle">
+        Filters:
+      </div>
       Iso-Category:
       <div>
           <select class='isocategory_select'>
@@ -53,7 +58,7 @@
         <tr>
             <th>Select an attribute:</th>
         </tr>
-        <tr *ngFor='let attribute of attributes_display | paginate: { itemsPerPage: 5, currentPage: p}; let i=index'>
+        <tr *ngFor='let attribute of attributes_display | paginate: { itemsPerPage: 10, currentPage: p}; let i=index'>
             <td (click)='getData(i)'>{{attribute.attr_desc}} </td>
         </tr>
     </table>

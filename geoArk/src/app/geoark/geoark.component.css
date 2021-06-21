@@ -102,9 +102,15 @@
     border: 1px solid black;
 }
 
+.filtertitle{
+  color:white;
+  font-size:0.8rem;
+  font-family: "Georgia", serif;
+  font-weight:bolder;
+}
 
 .filterbox{
-  background-color:rgb(35, 43, 75);
+  background-color:#3a3a3a;
   border-radius: 8px;
   border:1px solid black;
   padding:5px;
@@ -153,27 +159,25 @@ my-pagination /deep/ .ngx-pagination {
 
 .my-pagination /deep/ .ngx-pagination .current{
   color:#cbfff5;
-  background-color:#f8f8f8;
   font-weight:bold;
   border-radius:10px;
   padding:4px;
 }
 
 .my-pagination /deep/ .ngx-pagination a{
-  color: black !important;
+  color: white !important;
   padding: 0 !important;
   border: none;
 }
 
 .my-pagination /deep/ .ngx-pagination a:hover{
-  background-color:rgb(243, 248, 252);
-  color: black !important;
+  color: white !important;
   padding: 0 !important;
   border: none;
 }
 
 .my-pagination /deep/ .ngx-pagination .pagination-previous{
-  color: black !important;
+  color:white; !important;
   padding: 0 !important;
   border: none;
   margin-right: 10px;
@@ -182,7 +186,7 @@ my-pagination /deep/ .ngx-pagination {
 }
 
 .my-pagination /deep/ .ngx-pagination .pagination-next{
-  color: black !important;
+  color: white !important;
   padding: 0 !important;
   border: none;
   margin-top: 10px;
