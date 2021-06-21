@@ -165,19 +165,19 @@ my-pagination /deep/ .ngx-pagination {
 }
 
 .my-pagination /deep/ .ngx-pagination a{
-  color: white !important;
+  color: #ffffff !important;
   padding: 0 !important;
   border: none;
 }
 
 .my-pagination /deep/ .ngx-pagination a:hover{
-  color: white !important;
+  color: #ffffff !important;
   padding: 0 !important;
   border: none;
 }
 
 .my-pagination /deep/ .ngx-pagination .pagination-previous{
-  color:white; !important;
+  color:#ffffff !important;
   padding: 0 !important;
   border: none;
   margin-right: 10px;
