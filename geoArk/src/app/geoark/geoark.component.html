@@ -53,7 +53,7 @@
         <tr>
             <th>Select an attribute:</th>
         </tr>
-        <tr *ngFor='let attribute of attributes_display; let i=index | paginate: { itemsPerPage: 5, currentPage: p}'>
+        <tr *ngFor='let attribute of attributes_display | paginate: { itemsPerPage: 5, currentPage: p}; let i=index'>
             <td (click)='getData(i)'>{{attribute.attr_desc}} </td>
         </tr>
     </table>
