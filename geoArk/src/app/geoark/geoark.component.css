@@ -104,9 +104,10 @@
 
 
 .filterbox{
-  background-color:rgb(23, 34, 73);
+  background-color:rgb(35, 43, 75);
   border-radius: 8px;
   border:1px solid black;
+  padding:5px;
 }
 
 
@@ -134,4 +135,75 @@
   width: 150vh;
   margin:5px;
   z-index:1;
+}
+
+
+
+
+
+my-pagination /deep/ .ngx-pagination {
+  text-align: center;
+}
+
+.my-pagination /deep/ .ngx-pagination li{
+  padding: 5px;
+  margin-top:3px;
+
+}
+
+.my-pagination /deep/ .ngx-pagination .current{
+  color:#cbfff5;
+  background-color:#f8f8f8;
+  font-weight:bold;
+  border-radius:10px;
+  padding:4px;
+}
+
+.my-pagination /deep/ .ngx-pagination a{
+  color: black !important;
+  padding: 0 !important;
+  border: none;
+}
+
+.my-pagination /deep/ .ngx-pagination a:hover{
+  background-color:rgb(243, 248, 252);
+  color: black !important;
+  padding: 0 !important;
+  border: none;
+}
+
+.my-pagination /deep/ .ngx-pagination .pagination-previous{
+  color: black !important;
+  padding: 0 !important;
+  border: none;
+  margin-right: 10px;
+  font-size:12px;
+  margin-top: 10px;
+}
+
+.my-pagination /deep/ .ngx-pagination .pagination-next{
+  color: black !important;
+  padding: 0 !important;
+  border: none;
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size:12px;
+}
+
+.my-pagination /deep/ .ngx-pagination .pagination-previous .disabled{
+  color: white !important;
+  padding: 0 !important;
+  border: none;
+  margin-right: 10px;
+  margin-top: 10px;
+  font-size:12px;
+}
+
+.my-pagination /deep/ .ngx-pagination .pagination-next .disabled{
+  color: white !important;
+  padding: 0 !important;
+  border: none;
+  margin-left: 10px;
+  margin-top: 10px;
+  font-size:12px;
 }

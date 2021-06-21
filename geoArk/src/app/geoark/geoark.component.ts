@@ -32,7 +32,7 @@ export class GeoarkComponent implements OnInit {
 
   public data_title:any;
   
-
+  public p: number = 1;
 
 
   
