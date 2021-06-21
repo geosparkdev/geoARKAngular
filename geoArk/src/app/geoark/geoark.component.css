@@ -103,6 +103,13 @@
 }
 
 
+.filterbox{
+  background-color:rgb(23, 34, 73);
+  border-radius: 8px;
+  border:1px solid black;
+}
+
+
 .search{
     font-size:0.8rem;
     width:100%;
