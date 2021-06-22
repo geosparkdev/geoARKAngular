@@ -25,15 +25,25 @@ export class GeoarkComponent implements OnInit {
 
   public attributes:any;
   public data:any;
-  public attributes_display:any;
+
+  public attributes_filtered:any;
+  
 
   public countiesJSON:any;
   public first_data:boolean=true;
 
   public data_title:any;
   
-  public p: number = 1;
 
+
+
+  //Filters
+  public geographic_filter:any='None';
+  public isokey_filter:any='None';
+
+
+  // Pagination
+  public p: number = 1;
   public selected: any;
 
   
@@ -59,7 +69,7 @@ export class GeoarkComponent implements OnInit {
       response=> {
         console.log(response)
         this.attributes=response;
-        this.attributes_display=response;
+        this.attributes_filtered=response;
       
       },
       error => {
@@ -103,6 +113,7 @@ export class GeoarkComponent implements OnInit {
 
   }
 
+  
 
   getJSON(){
 
@@ -129,10 +140,32 @@ export class GeoarkComponent implements OnInit {
   )
   
     }
-  
 
-  
+    setFilter(filter_type:any,filter:any){
+      console.log('IN SET FILTER()')
+      if(filter_type=='GEOGRAPHIC'){
+        this.geographic_filter=filter.target.value
+      }
+      
+      if(filter_type=='ISOKEY'){
+        this.isokey_filter=filter.target.value
+      }
 
+      this.attributes_filtered=this.attributes_filtered
+
+
+      if(this.geographic_filter!='None'){
+        this.attributes_filtered= this.attributes_filtered.find(e=> e['iso_key']===String(this.geographic_filter))
+
+      }
+  
+      if(this.isokey_filter!='None'){
+        this.attributes_filtered= this.attributes_filtered.find(e=> e['entity_type']===String(this.isokey_filter))
+      }
+
+
+    }
+     
 
 
 
