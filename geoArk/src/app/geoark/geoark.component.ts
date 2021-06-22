@@ -146,16 +146,18 @@ export class GeoarkComponent implements OnInit {
 
       console.log(filter_type)
       console.log(filter.target.value)
-
+      console.log(this.attributes_filtered)
 
       if(filter_type=='GEOGRAPHIC'){
         this.geographic_filter=filter.target.value
         console.log('inside geo')
+        console.log(this.geographic_filter)
       }
       
       if(filter_type=='ISOKEY'){
         this.isokey_filter=filter.target.value
         console.log('inside iso')
+        console.log(this.isokey_filter)
       }
 
       this.attributes_filtered=this.attributes_filtered
