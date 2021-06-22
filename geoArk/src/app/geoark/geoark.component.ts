@@ -164,14 +164,14 @@ export class GeoarkComponent implements OnInit {
 
 
       if(this.geographic_filter!='None'){
-        this.attributes_filtered= this.attributes_filtered.find(e=> e['iso_key']===this.geographic_filter)
+        this.attributes_filtered= this.attributes_filtered.filter(e=> e['iso_key']===this.geographic_filter)
         console.log('geo')
         console.log(this.attributes_filtered)
 
       }
   
       if(this.isokey_filter!='None'){
-        this.attributes_filtered= this.attributes_filtered.find(e=> e['entity_type']===this.isokey_filter)
+        this.attributes_filtered= this.attributes_filtered.filter(e=> e['entity_type']===this.isokey_filter)
         console.log(this.attributes_filtered)
         console.log('iso')
       }
