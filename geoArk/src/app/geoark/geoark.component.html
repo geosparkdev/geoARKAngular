@@ -58,7 +58,7 @@
             <th>Select an attribute:</th>
         </tr>
         <tr *ngFor='let attribute of attributes_filtered | paginate: { itemsPerPage: 15, currentPage: p}; let i=index'>
-            <td [class.highlighted]="attribute.attr_label==selected" (click)='getData(i)'>{{attribute.attr_desc}} </td>
+            <td [class.highlighted]="attribute.attr_label==selected" (click)='getData(i); this.selected={{attribute.attr_label}}'>{{attribute.attr_desc}} </td>
         </tr>
     </table>
 

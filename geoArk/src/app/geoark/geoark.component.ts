@@ -84,7 +84,6 @@ export class GeoarkComponent implements OnInit {
 
   getData(index:any){
 
-  this.selected=this.attributes_filtered[index].attr_label
 
   let request=[this.attributes_filtered[index].dataset_id, this.attributes_filtered[index].attr_label]
 
