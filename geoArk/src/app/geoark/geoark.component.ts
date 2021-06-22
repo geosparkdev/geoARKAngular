@@ -146,7 +146,7 @@ export class GeoarkComponent implements OnInit {
 
       console.log(filter_type)
       console.log(filter.target.value)
-      console.log(this.attributes)
+      console.log(this.attributes_filtered)
 
       if(filter_type=='GEOGRAPHIC'){
         this.geographic_filter=filter.target.value
@@ -164,14 +164,14 @@ export class GeoarkComponent implements OnInit {
 
 
       if(this.geographic_filter!='None'){
-        this.attributes_filtered= this.attributes_filtered.find(e=> e['iso_key']===String(this.geographic_filter))
+        this.attributes_filtered= this.attributes_filtered.find(e=> e['iso_key']===this.geographic_filter)
         console.log('geo')
         console.log(this.attributes_filtered)
 
       }
   
       if(this.isokey_filter!='None'){
-        this.attributes_filtered= this.attributes_filtered.find(e=> e['entity_type']===String(this.isokey_filter))
+        this.attributes_filtered= this.attributes_filtered.find(e=> e['entity_type']===this.isokey_filter)
         console.log(this.attributes_filtered)
         console.log('iso')
       }
