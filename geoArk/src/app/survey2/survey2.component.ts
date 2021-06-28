@@ -37,7 +37,7 @@ export class Survey2Component implements OnInit {
           .set('Content-Type', 'application/json');
   
     //this.http.get(environment.base_url+"/getsurvey2", {headers: customheaders}).subscribe(
-    this.http.get("http://localhost:5000/getsurvey2", {headers: customheaders}).subscribe(
+    this.http.get(environment.base_url+"/getsurvey2", {headers: customheaders}).subscribe(
       response=> {
 
         this.survey=response;

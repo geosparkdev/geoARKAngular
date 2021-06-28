@@ -3417,8 +3417,6 @@ export class LocationsComponent implements OnInit {
     this.route.queryParams
     .subscribe(params => {
       this.locationscntyfips=Number(params.fips)
-      console.log("HERHERHERHERHEH")
-      console.log(this.locationscntyfips)
     });
 
     if(this.locationscntyfips!=null && isNaN(this.locationscntyfips)==false){
@@ -3677,7 +3675,6 @@ export class LocationsComponent implements OnInit {
 
     this.http.post(environment.base_url+"/getcovidcasesdeaths",JSON.stringify(covid_fips), {headers: customheaders}).subscribe(
       response=> {
-        console.log(response)
         this.covid=response;
         this.getCovidPlots();
 
@@ -4202,9 +4199,7 @@ triggerFactor(factor){
       var display=this.current_factor+' risk value'
      // var metadata=this.factors_meta;
       var current_fact=this.current_factor+'_Q5';
-      console.log('IN MAP FUNCTION')
-      console.log(this.factors)
-      console.log(current_fact)
+
 
 
       var current_risk_factor=this.current_risk_factor;
@@ -4308,13 +4303,10 @@ triggerFactor(factor){
 
     function getcolorQ5(value){
 
-      console.log('getcolorQ5')
-      console.log(data)
+
       let temp=data.find(e=> e['cnty_fips']===value)
       let palette=[]
 
-      console.log('getcolorQ5')
-      console.log(Number(temp[current_fact]))
       if (current_risk_factor=='accessibility'){
         palette=['#640204', '#af0406', '#c7384b', '#e580a3', '#ffb3ed']
       }
