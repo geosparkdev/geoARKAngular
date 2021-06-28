@@ -1,1 +1,40 @@
-<p>survey3 works!</p>
+<div class='header'> 
+    Geo-Context and COVID-19 in Missouri 
+    <div class='subheader'>
+        Risk Categories Dashboard Survey
+    </div>
+</div>
+<div class='body'>
+
+    <form (ngSubmit)='sendForm()' #questionform="ngForm">
+        <table>
+            <tr>
+                <th></th>
+                <th align="center">Strongly Disagree</th>
+                <th align="center">Disagree</th>
+                <th align="center">Neutral</th>
+                <th align="center">Agree</th>
+                <th align="center">Strongly Agree</th>
+
+
+            </tr>
+            <tr *ngFor="let question of survey;let i = index"> 
+                <td style="width:50%">{{question.Question}}</td>
+                <td align="center"> <input type="radio" name="{{question.ID}}"  value="0" [(ngModel)]="this.survey[i].Answer" required/></td>
+                <td align="center">  <input type="radio" name="{{question.ID}}" value="1" [(ngModel)]="this.survey[i].Answer" required/></td>
+                <td align="center">  <input type="radio" name="{{question.ID}}" value="2" [(ngModel)]="this.survey[i].Answer" required/></td>
+                <td align="center">  <input type="radio" name="{{question.ID}}" value="3" [(ngModel)]="this.survey[i].Answer" required/></td>
+                <td align="center">  <input type="radio" name="{{question.ID}}" value="4" [(ngModel)]="this.survey[i].Answer" required/></td>
+            </tr>
+            
+        </table>
+
+        <div class='aligncenter'>
+            <button class="main_button button_red" [disabled]="!questionform.form.valid">Submit Form</button>
+        </div>
+  
+    </form>
+</div>
+
+
+

@@ -19,6 +19,7 @@ import { LoginComponent} from '../app/login/login.component';
 import { SurveyStartComponent } from '../app/survey-start/survey-start.component';
 import { FirstsurveyComponent } from '../app/firstsurvey/firstsurvey.component';
 import {Survey2Component} from '../app/survey2/survey2.component';
+import {Survey3Component} from '../app/survey3/survey3.component';
 import { GeoarkComponent } from './geoark/geoark.component';
 
 
@@ -89,7 +90,32 @@ const routes: Routes = [
     path:'geoark',
     component: GeoarkComponent,
   },
-    
+
+
+
+
+  /*evaluation*/
+  {
+  path: 'surveystart',
+  component: SurveyStartComponent,
+  //canActivate: [ OktaAuthGuard ],
+  //data: {
+    // onAuthRequired
+  //}
+  },
+  {
+    path: 'survey1',
+    component: FirstsurveyComponent,
+  },
+  {
+    path:'survey2',
+    component: Survey2Component,
+  },
+  {
+    path:'survey3',
+    component: Survey3Component,
+  },
+
 ];
 
 @NgModule({

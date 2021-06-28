@@ -5,34 +5,36 @@
     </div>
 </div>
 <div class='body'>
-    <table>
-        <tr>
-            <th></th>
-            <th align="center">Strongly Disagree</th>
-            <th align="center">Disagree</th>
-            <th align="center">Neutral</th>
-            <th align="center">Agree</th>
-            <th align="center">Strongly Agree</th>
+
+    <form (ngSubmit)='sendForm()' #questionform="ngForm">
+        <table>
+            <tr>
+                <th></th>
+                <th align="center">Strongly Disagree</th>
+                <th align="center">Disagree</th>
+                <th align="center">Neutral</th>
+                <th align="center">Agree</th>
+                <th align="center">Strongly Agree</th>
 
 
-        </tr>
-        <tr *ngFor='let question of survey'>
-            <td style="width:50%">{{question.Question}}</td>
-            <td align="center"> <input type="radio" name="StronglyDisagree"/></td>
-            <td align="center">  <input type="radio" name="Disagree"/></td>
-            <td align="center">  <input type="radio" name="Neutral"/></td>
-            <td align="center">  <input type="radio" name="Agree"></td>
-            <td align="center">  <input type="radio" name="StronglyAgree"/></td>
-
-
+            </tr>
+            <tr *ngFor="let question of survey;let i = index"> 
+                <td style="width:50%">{{question.Question}}</td>
+                <td align="center"> <input type="radio" name="{{question.ID}}"  value="0" [(ngModel)]="this.survey[i].Answer" required/></td>
+                <td align="center">  <input type="radio" name="{{question.ID}}" value="1" [(ngModel)]="this.survey[i].Answer" required/></td>
+                <td align="center">  <input type="radio" name="{{question.ID}}" value="2" [(ngModel)]="this.survey[i].Answer" required/></td>
+                <td align="center">  <input type="radio" name="{{question.ID}}" value="3" [(ngModel)]="this.survey[i].Answer" required/></td>
+                <td align="center">  <input type="radio" name="{{question.ID}}" value="4" [(ngModel)]="this.survey[i].Answer" required/></td>
+            </tr>
             
-            
+        </table>
 
-        </tr>
-    </table>
-
-
-
-<div class='main_button button_red' routerLink="/counties" routerLinkActive="active">
-    Start Test #1
+        <div class='aligncenter'>
+            <button class="main_button button_red" [disabled]="!questionform.form.valid">Submit Form</button>
+        </div>
+  
+    </form>
 </div>
+
+
+

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { environment} from 'src/environments/environment';
+import { analyzeAndValidateNgModules, NONE_TYPE } from '@angular/compiler';
 
 @Component({
   selector: 'app-survey2',
@@ -12,10 +13,20 @@ export class Survey2Component implements OnInit {
 
   public survey:any;
 
+
+
+
+
+
   constructor(public http: HttpClient) { }
 
   ngOnInit(): void {
     this.getSurvey();
+
+
+
+
+
   }
 
 
@@ -42,6 +53,15 @@ export class Survey2Component implements OnInit {
     )
   
   }
+
+
+  sendForm(){
+
+
+    console.log(this.survey)
+  }
+
+
 
 
 

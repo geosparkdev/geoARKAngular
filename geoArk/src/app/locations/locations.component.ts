@@ -3558,6 +3558,10 @@ export class LocationsComponent implements OnInit {
 
   }
 
+  getClickEvent(divname:string){
+    console.log(divname)
+  }
+
 
 
 // get Data for Selected Risk Factor
@@ -3566,6 +3570,8 @@ export class LocationsComponent implements OnInit {
     this.current_factor='total'
 
     geoJSON.clearLayers();
+
+    this.getClickEvent(factor+'button');
 
     this.getRiskFactors(this.county_fips,factor);
     this.factorsMapData(factor);
@@ -4181,6 +4187,8 @@ factorsMapData(risk:any){
 
 
 triggerFactor(factor){
+
+  this.getClickEvent(factor)
   this.current_factor=factor[0];
   geoJSON.clearLayers();
   this.map();
