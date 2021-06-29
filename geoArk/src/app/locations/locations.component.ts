@@ -3281,6 +3281,8 @@ export class LocationsComponent implements OnInit {
 
   public survey:boolean=false;
 
+  public userid:any;
+
 
 
   constructor(public http: HttpClient,private spinner: NgxSpinnerService,public route: ActivatedRoute) {
@@ -3417,6 +3419,10 @@ export class LocationsComponent implements OnInit {
     this.route.queryParams
     .subscribe(params => {
       this.locationscntyfips=Number(params.fips)
+      this.userid=params.userid;
+      console.log('USERIDUSERIDUSERID!***@*#*@#')
+      console.log(this.userid)
+
     });
 
     if(this.locationscntyfips!=null && isNaN(this.locationscntyfips)==false){
@@ -3569,7 +3575,7 @@ export class LocationsComponent implements OnInit {
 
     geoJSON.clearLayers();
 
-    this.getClickEvent(factor+'button');
+    this.getClickEvent(factor+'_buttonclick');
 
     this.getRiskFactors(this.county_fips,factor);
     this.factorsMapData(factor);
@@ -3578,6 +3584,9 @@ export class LocationsComponent implements OnInit {
 
   //trigger data pull and visual creation for new selected county -- by drop down 
   getCountyData(fips:any){
+
+
+    this.getClickEvent('countyselectclick')
     this.spinnertogg=true;
     this.county_fips=Number(fips.target.value);
     this.current_factor='total'
@@ -3598,6 +3607,7 @@ export class LocationsComponent implements OnInit {
  
 //trigger data pull and visual creation for new selected county -- by map 
   getCountyDataClick(event){
+    this.getClickEvent('mapclick')
     this.spinnertogg2=true;
     this.county_fips=Number(event.target.feature.properties.fips);
     this.current_factor='total'
@@ -4185,7 +4195,7 @@ factorsMapData(risk:any){
 
 triggerFactor(factor){
 
-  this.getClickEvent(factor)
+  this.getClickEvent(factor+'_riskfactorclick')
   this.current_factor=factor[0];
   geoJSON.clearLayers();
   this.map();

@@ -125,7 +125,7 @@ Geo-Context and COVID-19 in Missouri
                     <span class='SB_2'>Quick Facts</span>
             </div>
             <div class='column'>
-                <div class='stat_shift'>
+                <div class='stat_shift' (click)='getClickEvent("countypop_statsbarclick")'>
                     <span class='SB_1'>{{county_pop}}</span>
                     <br>
                     Population
@@ -133,28 +133,28 @@ Geo-Context and COVID-19 in Missouri
              
             </div>
             <div class='column'>
-                <div class='stat_shift'>
+                <div class='stat_shift' (click)='getClickEvent("county65_statsbarclick")'>
                     <span class='SB_1'>{{county_65}}</span>
                     <br>
                     People aged 65+
                 </div>
             </div>
             <div class='column'>
-                <div class='stat_shift'>
+                <div class='stat_shift' (click)='getClickEvent("countycovcase_statsbarclick")'>
                     <span class='SB_1'>{{county_cov_case}}</span>
                     <br>
                     Cases Total
                 </div>
             </div>
             <div class='column'>
-                <div class='stat_shift'>
+                <div class='stat_shift' (click)='getClickEvent("countycovdeaths_statsbarclick")'>
                     <span class='SB_1'>{{county_cov_deaths}}</span>
                     <br>
                     Deaths Total
                 </div>
             </div>
             <div class='column'>
-                <div class='stat_shift'>
+                <div class='stat_shift' (click)='getClickEvent("countytotrisk_statsbarclick")'>
                     <span class='SB_1'>{{county_total_risk}}</span>
                     <br>
                     Risk Total
@@ -276,19 +276,19 @@ Geo-Context and COVID-19 in Missouri
                     <div *ngIf='!spinnertogg'>
 
                         <div *ngIf='!spinnertogg2'>
-                            <div class='covid_plot' (click)='getClickEvent("covidcountycases")'>
+                            <div class='covid_plot' (click)='getClickEvent("covidcountycasesclick")'>
                                 <plotly-plot [data]="covid_county_cases.data" [layout]="covid_county_cases.layout"></plotly-plot>
                             </div>
-                            <div class='covid_plot'(click)='getClickEvent("covidcountydeaths")'>
+                            <div class='covid_plot'(click)='getClickEvent("covidcountydeathsclick")'>
                                 <plotly-plot [data]="covid_county_deaths.data" [layout]="covid_county_deaths.layout"></plotly-plot>
                             </div>
                         </div>
                        
-                            <div class='covid_plot' (click)='getClickEvent("covidcases")'>
+                            <div class='covid_plot' (click)='getClickEvent("covidcasesclick")'>
                                 <plotly-plot [data]="covid_cases.data" [layout]="covid_cases.layout"></plotly-plot>
                             </div>
     
-                            <div class='covid_plot' (click)='getClickEvent("coviddeaths")'>
+                            <div class='covid_plot' (click)='getClickEvent("coviddeathsclick")'>
                                 <plotly-plot [data]="covid_deaths.data" [layout]="covid_deaths.layout"></plotly-plot>
                             </div>
                      
@@ -303,7 +303,7 @@ Geo-Context and COVID-19 in Missouri
                 </div>
                 <div class='column'>
 
-                    <div class='windrose' (click)='getClickEvent("windrose")'>
+                    <div class='windrose' (click)='getClickEvent("windroseclick")'>
                         <plotly-plot [data]="windrose.data" [layout]="windrose.data.layout"></plotly-plot>
                     </div>
                    

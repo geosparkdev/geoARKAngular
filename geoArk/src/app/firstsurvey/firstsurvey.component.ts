@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { environment} from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-firstsurvey',
@@ -13,7 +14,7 @@ export class FirstsurveyComponent implements OnInit {
 
   public survey:any;
 
-  constructor(public http: HttpClient) { }
+  constructor(public http: HttpClient,private router: Router) { }
 
   ngOnInit(): void {
 
@@ -62,6 +63,7 @@ export class FirstsurveyComponent implements OnInit {
 
 
     console.log(this.survey)
+    this.router.navigate(['/counties'], { queryParams: { userid: this.survey.userID}})
   }
 
 }
