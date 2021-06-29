@@ -3660,13 +3660,15 @@ export class LocationsComponent implements OnInit {
   getCountyData(fips:any){
 
 
-    this.getClickEvent('countyselectclick')
     this.spinnertogg=true;
     this.county_fips=Number(fips.target.value);
     this.current_factor='total'
 
     let temp=this.counties.find(e=> e['cnty_fips']===Number(fips.target.value))
     this.county_name=temp.cnty_name
+
+
+  
 
     geoJSON.clearLayers();
     this.map();
@@ -3675,7 +3677,7 @@ export class LocationsComponent implements OnInit {
     this.getCovidData(Number(fips.target.value));
     this.getWindrosedata(Number(fips.target.value));
 
-
+    this.getClickEvent('countyselectclick')
 
   }
  
