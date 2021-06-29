@@ -61,9 +61,28 @@ export class FirstsurveyComponent implements OnInit {
 
   sendForm(){
 
-
     console.log(this.survey)
+
+    const customheaders= new HttpHeaders()
+    .set('Content-Type', 'application/json');
+
+    this.http.post(environment.base_url+"/postusersurvey",JSON.stringify(this.survey), {headers: customheaders}).subscribe(
+    response=> {
+
+      console.log(response)
+ 
+    },
+    error => {
+      console.log(error)
+    }
+    )
+    
+
     this.router.navigate(['/counties'], { queryParams: { userid: this.survey.userID}})
   }
+
+
+
+
 
 }
