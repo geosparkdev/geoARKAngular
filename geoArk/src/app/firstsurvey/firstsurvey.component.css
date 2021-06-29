@@ -66,3 +66,9 @@
     font-size:1.5rem;
     font-weight: bolder;
 }
+
+.warning{
+    color:#5f0808;
+    font-size:1.0rem;
+    font-weight: bolder;
+}

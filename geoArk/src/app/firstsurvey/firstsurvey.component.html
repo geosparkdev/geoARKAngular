@@ -13,36 +13,31 @@
     <span class='title'>About the Participant:</span>
     <br>
     <br>
-    1. How would you categorize the organization you belong to? 
+    1. What type of organization do you b elong to?
     <select id="USQ1" name="USQ1" [(ngModel)]="this.survey.USQ1">
         <option value='-1'>Select an answer...</option>
+        <option value="0">Planning</option>
+        <option value="1">Academic</option>
+    </select>
+
+    3. How would you categorize your organization?
+    <select id="USQ2" name="USQ2" [(ngModel)]="this.survey.USQ2">
+        <option value='-1'>Select an answer...</option>
         <option value="0">Health Care</option>
-        <option value="1">Educator</option>
-        <option value="2">Government</option>
-        <option value="3">Assisted Living</option>
-        <option value="4">Social Services</option>
+        <option value="1">Government</option>
+        <option value="2">Social Services</option>
     </select>
     <br>
     <br>
-    2. Have you used a dashboard before?
-    <select id="USQ2" name="USQ2" [(ngModel)]="this.survey.USQ2">
+    3. Have you used a dashboard before?
+    <select id="USQ3" name="USQ3" [(ngModel)]="this.survey.USQ3">
         <option value='-1'>Select an answer...</option>
         <option value="1">Yes</option>
         <option value="0">No</option>
     </select>
     <br>
     <br>
-    3. If so, how many dashboards have you used?
-    <select id="USQ3" name="USQ3" [(ngModel)]="this.survey.USQ3">
-        <option value='-1'>Select an answer...</option>
-        <option value="0">I have not used a dashboard before.</option>
-        <option value="1">1-5 Dashboards</option>
-        <option value="2">5-10 Dashboards</option>
-        <option value="3">10+ Dashboards</option>
-    </select>
-    <br>
-    <br>
-    4. Do you use dashboards to gain insight for projects (work, community, organization)?
+    4. Do you use dashboards regulary (work, community, organization)?
     <select id="USQ4" name="USQ4" [(ngModel)]="this.survey.USQ4">
         <option value='-1'>Select an answer...</option>
         <option value="0">I have not used a dashboard before.</option>
@@ -68,7 +63,9 @@
     <br>
     <br>
     <br>
-    Once you click "submit" you will start the evaluation. Please make sure you have 30-45min to complete the evaluation. Sessions cannot be saved.
+    <span class='warning'>
+        Once you click "submit" you will start the evaluation. Please make sure you have 30-45min to complete the evaluation. Sessions cannot be saved.
+    </span>
     <div class='aligncenter'>
         <button class="main_button button_red" >Submit & Start Evaluation</button>
     </div>
