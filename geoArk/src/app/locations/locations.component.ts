@@ -3285,6 +3285,8 @@ export class LocationsComponent implements OnInit {
 
   public current_task:any='Not Started'
 
+  public black_out:boolean=true;
+
 
 
   constructor(public http: HttpClient,private spinner: NgxSpinnerService,public route: ActivatedRoute,private router: Router) {
@@ -3464,6 +3466,7 @@ export class LocationsComponent implements OnInit {
     this.task1_start=false;
     this.task1_stop=true;
     this.current_task=task_id;
+    this.black_out=false;
 
 
 
@@ -3478,6 +3481,8 @@ export class LocationsComponent implements OnInit {
     console.log(task_id);
     this.sendClick(task_id,'end')
 
+    this.black_out=true;
+
   }
 
   start_task2(task_id:any){
@@ -3486,6 +3491,7 @@ export class LocationsComponent implements OnInit {
     this.task2_stop=true;
     console.log(task_id);
     this.current_task=task_id;
+    this.black_out=false;
   }
 
   stop_task2(task_id:any){
@@ -3495,6 +3501,7 @@ export class LocationsComponent implements OnInit {
     this.task3=true;
     this.task3_start=true;
     console.log(task_id);
+    this.black_out=true;
 
   }
 
@@ -3504,6 +3511,7 @@ export class LocationsComponent implements OnInit {
     this.task3_stop=true;
     console.log(task_id);
     this.current_task=task_id;
+    this.black_out=false;
   }
 
   stop_task3(task_id:any){
@@ -3513,6 +3521,7 @@ export class LocationsComponent implements OnInit {
     this.task4=true;
     this.task4_start=true;
     console.log(task_id);
+    this.black_out=true;
 
   }
 
@@ -3522,6 +3531,7 @@ export class LocationsComponent implements OnInit {
     this.task4_stop=true;
     console.log(task_id);
     this.current_task=task_id;
+    this.black_out=false;
   }
 
   stop_task4(task_id:any){
@@ -3531,6 +3541,7 @@ export class LocationsComponent implements OnInit {
     this.task5=true;
     this.task5_start=true;
     console.log(task_id);
+    this.black_out=true;
 
   }
 
@@ -3540,6 +3551,7 @@ export class LocationsComponent implements OnInit {
     this.task5_stop=true;
     console.log(task_id);
     this.current_task=task_id;
+    this.black_out=false;
   }
 
   stop_task5(task_id:any){
@@ -3549,6 +3561,7 @@ export class LocationsComponent implements OnInit {
     this.task6=true;
     this.task6_start=true;
     console.log(task_id);
+    this.black_out=true;
 
   }
 
@@ -3559,6 +3572,7 @@ export class LocationsComponent implements OnInit {
     this.task6_stop=true;
     console.log(task_id);
     this.current_task=task_id;
+    this.black_out=false;
   }
 
   stop_task6(task_id:any){
@@ -3568,6 +3582,7 @@ export class LocationsComponent implements OnInit {
     this.exploration=true;
     this.exploration_start=true;
     console.log(task_id);
+    this.black_out=true;
 
   }
 
@@ -3577,6 +3592,7 @@ export class LocationsComponent implements OnInit {
     this.exploration_stop=true;
     console.log(task_id);
     this.current_task=task_id;
+    this.black_out=false;
   }
 
   stop_exploration(task_id:any){
@@ -3585,6 +3601,7 @@ export class LocationsComponent implements OnInit {
     this.exploration=false;
     this.survey=true;
     console.log(task_id);
+    this.black_out=true;
 
   }
 
