@@ -3287,7 +3287,7 @@ export class LocationsComponent implements OnInit {
 
 
 
-  constructor(public http: HttpClient,private spinner: NgxSpinnerService,public route: ActivatedRoute) {
+  constructor(public http: HttpClient,private spinner: NgxSpinnerService,public route: ActivatedRoute,private router: Router) {
     
 
    }
@@ -3594,6 +3594,10 @@ export class LocationsComponent implements OnInit {
   }
 
 
+  startSurvey(){
+    this.router.navigate(['/survey2'], { queryParams: { userid: this.userid}})
+  }
+
   sendClick(task:any,event:any){
 
     let click_data={
@@ -3601,6 +3605,7 @@ export class LocationsComponent implements OnInit {
       event:event,
       taskID:task
     }
+
 
     const customheaders= new HttpHeaders()
     .set('Content-Type', 'application/json');

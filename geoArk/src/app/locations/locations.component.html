@@ -90,7 +90,7 @@ Geo-Context and COVID-19 in Missouri
 
         <div *ngIf='this.survey'>
             You have completed the task analysis for the counties dashboard.
-            <div class='survey_start' routerLink="/survey2" routerLinkActive="active">
+            <div class='survey_start' (click)='startSurvey()'>
                 Start Counties Survey
             </div>
         </div>
