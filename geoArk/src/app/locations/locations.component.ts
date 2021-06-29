@@ -3283,6 +3283,8 @@ export class LocationsComponent implements OnInit {
 
   public userid:any;
 
+  public current_task:any='Not Started'
+
 
 
   constructor(public http: HttpClient,private spinner: NgxSpinnerService,public route: ActivatedRoute) {
@@ -3457,9 +3459,14 @@ export class LocationsComponent implements OnInit {
 
 
   start_task1(task_id:any){
+
+    this.sendClick(task_id,'start')
     this.task1_start=false;
     this.task1_stop=true;
-    console.log(task_id);
+    this.current_task=task_id;
+
+
+
 
   }
 
@@ -3469,16 +3476,20 @@ export class LocationsComponent implements OnInit {
     this.task2=true;
     this.task2_start=true;
     console.log(task_id);
+    this.sendClick(task_id,'end')
 
   }
 
   start_task2(task_id:any){
+    this.sendClick(task_id,'start')
     this.task2_start=false;
     this.task2_stop=true;
     console.log(task_id);
+    this.current_task=task_id;
   }
 
   stop_task2(task_id:any){
+    this.sendClick(task_id,'end')
     this.task2_stop=false;
     this.task2=false;
     this.task3=true;
@@ -3488,12 +3499,15 @@ export class LocationsComponent implements OnInit {
   }
 
   start_task3(task_id:any){
+    this.sendClick(task_id,'start')
     this.task3_start=false;
     this.task3_stop=true;
     console.log(task_id);
+    this.current_task=task_id;
   }
 
   stop_task3(task_id:any){
+    this.sendClick(task_id,'end')
     this.task3_stop=false;
     this.task3=false;
     this.task4=true;
@@ -3503,12 +3517,15 @@ export class LocationsComponent implements OnInit {
   }
 
   start_task4(task_id:any){
+    this.sendClick(task_id,'start')
     this.task4_start=false;
     this.task4_stop=true;
     console.log(task_id);
+    this.current_task=task_id;
   }
 
   stop_task4(task_id:any){
+    this.sendClick(task_id,'end')
     this.task4_stop=false;
     this.task4=false;
     this.task5=true;
@@ -3518,12 +3535,15 @@ export class LocationsComponent implements OnInit {
   }
 
   start_task5(task_id:any){
+    this.sendClick(task_id,'start')
     this.task5_start=false;
     this.task5_stop=true;
     console.log(task_id);
+    this.current_task=task_id;
   }
 
   stop_task5(task_id:any){
+    this.sendClick(task_id,'end')
     this.task5_stop=false;
     this.task5=false;
     this.task6=true;
@@ -3534,12 +3554,15 @@ export class LocationsComponent implements OnInit {
 
 
   start_task6(task_id:any){
+    this.sendClick(task_id,'start')
     this.task6_start=false;
     this.task6_stop=true;
     console.log(task_id);
+    this.current_task=task_id;
   }
 
   stop_task6(task_id:any){
+    this.sendClick(task_id,'end')
     this.task6_stop=false;
     this.task6=false;
     this.exploration=true;
@@ -3549,12 +3572,15 @@ export class LocationsComponent implements OnInit {
   }
 
   start_exploration(task_id:any){
+    this.sendClick(task_id,'start')
     this.exploration_start=false;
     this.exploration_stop=true;
     console.log(task_id);
+    this.current_task=task_id;
   }
 
   stop_exploration(task_id:any){
+    this.sendClick(task_id,'end')
     this.exploration_stop=false;
     this.exploration=false;
     this.survey=true;
@@ -3564,6 +3590,32 @@ export class LocationsComponent implements OnInit {
 
   getClickEvent(divname:string){
     console.log(divname)
+    this.sendClick(this.current_task,divname)
+  }
+
+
+  sendClick(task:any,event:any){
+
+    let click_data={
+      userID:this.userid,
+      event:event,
+      taskID:task
+    }
+
+    const customheaders= new HttpHeaders()
+    .set('Content-Type', 'application/json');
+
+    this.http.post(environment.base_url+"/countiesclicks",JSON.stringify(click_data), {headers: customheaders}).subscribe(
+    response=> {
+
+      console.log(response)
+ 
+    },
+    error => {
+      console.log(error)
+    }
+    )
+    
   }
 
 
