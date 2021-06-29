@@ -39,7 +39,7 @@ export class FirstsurveyComponent implements OnInit {
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
   
-    this.http.get("http://localhost:5000/getuserID", {headers: customheaders}).subscribe(
+    this.http.get(environment.base_url+"/getuserID", {headers: customheaders}).subscribe(
       response=> {
 
         this.survey.userID=response;
