@@ -276,19 +276,19 @@ Geo-Context and COVID-19 in Missouri
                     <div *ngIf='!spinnertogg'>
 
                         <div *ngIf='!spinnertogg2'>
-                            <div class='covid_plot'>
+                            <div class='covid_plot' (click)='getClickEvent("covidcountycases")'>
                                 <plotly-plot [data]="covid_county_cases.data" [layout]="covid_county_cases.layout"></plotly-plot>
                             </div>
-                            <div class='covid_plot'>
+                            <div class='covid_plot'(click)='getClickEvent("covidcountydeaths")'>
                                 <plotly-plot [data]="covid_county_deaths.data" [layout]="covid_county_deaths.layout"></plotly-plot>
                             </div>
                         </div>
                        
-                            <div class='covid_plot'>
+                            <div class='covid_plot' (click)='getClickEvent("covidcases")'>
                                 <plotly-plot [data]="covid_cases.data" [layout]="covid_cases.layout"></plotly-plot>
                             </div>
     
-                            <div class='covid_plot'>
+                            <div class='covid_plot' (click)='getClickEvent("coviddeaths")'>
                                 <plotly-plot [data]="covid_deaths.data" [layout]="covid_deaths.layout"></plotly-plot>
                             </div>
                      
@@ -303,7 +303,7 @@ Geo-Context and COVID-19 in Missouri
                 </div>
                 <div class='column'>
 
-                    <div class='windrose'>
+                    <div class='windrose' (click)='getClickEvent("windrose")'>
                         <plotly-plot [data]="windrose.data" [layout]="windrose.data.layout"></plotly-plot>
                     </div>
                    
