@@ -3553,9 +3553,10 @@ unselectAll(){
 
     this.map();
 
-    setTimeout(this.getTotalsGraph, 1000);
   
-  
+    setTimeout(() => {
+      this.getTotalsGraph();
+  }, 1000);
   }
 
 
