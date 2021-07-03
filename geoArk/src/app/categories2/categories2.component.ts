@@ -3552,7 +3552,7 @@ unselectAll(){
     this.filter1.max_value=Number(changeContext.highValue);
 
     this.map();
-    //this.getTotalsGraph();
+    this.getTotalsGraph();
   
   
   }
