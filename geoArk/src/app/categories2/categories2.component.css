@@ -379,7 +379,9 @@ color: #777;
 
 }
 
-
+.bold_font{
+  font-weight:bold;
+}
 
 .histogram_container{
  width:80%
