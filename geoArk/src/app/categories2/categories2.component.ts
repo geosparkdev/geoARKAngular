@@ -3217,6 +3217,59 @@ export class Categories2Component implements OnInit {
   public spinnertogg:boolean=true;
   constructor(public http: HttpClient,private spinner: NgxSpinnerService, private router: Router) { }
 
+
+
+
+
+
+  //task -- analysis
+
+  public evaluation:boolean=false;
+  public task1:boolean=true;
+  public task2:boolean=false;
+  public task3:boolean=false;
+  public task4:boolean=false;
+  public task5:boolean=false;
+  public task6:boolean=false;
+
+  public exploration:boolean=false;
+
+
+  public task1_start:boolean=true;
+  public task1_stop:boolean=false;
+
+  public task2_start:boolean=false;
+  public task2_stop:boolean=false;
+
+  public task3_start:boolean=false;
+  public task3_stop:boolean=false;
+
+  public task4_start:boolean=false;
+  public task4_stop:boolean=false;
+
+  public task5_start:boolean=false;
+  public task5_stop:boolean=false;
+
+  public task6_start:boolean=false;
+  public task6_stop:boolean=false;
+
+  public exploration_start:boolean=false;
+  public exploration_stop:boolean=false;
+
+  public survey:boolean=false;
+
+  public userid:any;
+
+  public current_task:any='Not Started'
+
+  public black_out:boolean=true;
+
+
+
+
+
+
+
   ngOnInit(): void {
 
     this.spinner.show();
@@ -3830,6 +3883,202 @@ countyView(event){
   console.log(county_fips)
   this.router.navigate(['/counties'], { queryParams: { fips: county_fips} })
 }
+
+
+
+
+
+
+
+
+
+
+
+  // ---------- Task Analysis --------------//
+
+
+  start_task1(task_id:any){
+
+    this.sendClick(task_id,'start')
+    this.task1_start=false;
+    this.task1_stop=true;
+    this.current_task=task_id;
+    this.black_out=false;
+
+
+
+
+  }
+
+  stop_task1(task_id:any){
+    this.task1_stop=false;
+    this.task1=false;
+    this.task2=true;
+    this.task2_start=true;
+    console.log(task_id);
+    this.sendClick(task_id,'end')
+
+    this.black_out=true;
+
+  }
+
+  start_task2(task_id:any){
+    this.sendClick(task_id,'start')
+    this.task2_start=false;
+    this.task2_stop=true;
+    console.log(task_id);
+    this.current_task=task_id;
+    this.black_out=false;
+  }
+
+  stop_task2(task_id:any){
+    this.sendClick(task_id,'end')
+    this.task2_stop=false;
+    this.task2=false;
+    this.task3=true;
+    this.task3_start=true;
+    console.log(task_id);
+    this.black_out=true;
+
+  }
+
+  start_task3(task_id:any){
+    this.sendClick(task_id,'start')
+    this.task3_start=false;
+    this.task3_stop=true;
+    console.log(task_id);
+    this.current_task=task_id;
+    this.black_out=false;
+  }
+
+  stop_task3(task_id:any){
+    this.sendClick(task_id,'end')
+    this.task3_stop=false;
+    this.task3=false;
+    this.task4=true;
+    this.task4_start=true;
+    console.log(task_id);
+    this.black_out=true;
+
+  }
+
+  start_task4(task_id:any){
+    this.sendClick(task_id,'start')
+    this.task4_start=false;
+    this.task4_stop=true;
+    console.log(task_id);
+    this.current_task=task_id;
+    this.black_out=false;
+  }
+
+  stop_task4(task_id:any){
+    this.sendClick(task_id,'end')
+    this.task4_stop=false;
+    this.task4=false;
+    this.task5=true;
+    this.task5_start=true;
+    console.log(task_id);
+    this.black_out=true;
+
+  }
+
+  start_task5(task_id:any){
+    this.sendClick(task_id,'start')
+    this.task5_start=false;
+    this.task5_stop=true;
+    console.log(task_id);
+    this.current_task=task_id;
+    this.black_out=false;
+  }
+
+  stop_task5(task_id:any){
+    this.sendClick(task_id,'end')
+    this.task5_stop=false;
+    this.task5=false;
+    this.task6=true;
+    this.task6_start=true;
+    console.log(task_id);
+    this.black_out=true;
+
+  }
+
+
+  start_task6(task_id:any){
+    this.sendClick(task_id,'start')
+    this.task6_start=false;
+    this.task6_stop=true;
+    console.log(task_id);
+    this.current_task=task_id;
+    this.black_out=false;
+  }
+
+  stop_task6(task_id:any){
+    this.sendClick(task_id,'end')
+    this.task6_stop=false;
+    this.task6=false;
+    this.exploration=true;
+    this.exploration_start=true;
+    console.log(task_id);
+    this.black_out=true;
+
+  }
+
+  start_exploration(task_id:any){
+    this.sendClick(task_id,'start')
+    this.exploration_start=false;
+    this.exploration_stop=true;
+    console.log(task_id);
+    this.current_task=task_id;
+    this.black_out=false;
+  }
+
+  stop_exploration(task_id:any){
+    this.sendClick(task_id,'end')
+    this.exploration_stop=false;
+    this.exploration=false;
+    this.survey=true;
+    console.log(task_id);
+    this.black_out=true;
+
+  }
+
+  getClickEvent(divname:string){
+    console.log(divname)
+    this.sendClick(this.current_task,divname)
+  }
+
+
+  startSurvey(){
+    this.router.navigate(['/survey2'], { queryParams: { userid: this.userid}})
+  }
+
+  sendClick(task:any,event:any){
+
+    let click_data={
+      userID:this.userid,
+      event:event,
+      taskID:task
+    }
+
+
+    const customheaders= new HttpHeaders()
+    .set('Content-Type', 'application/json');
+
+    this.http.post(environment.base_url+"/countiesclicks",JSON.stringify(click_data), {headers: customheaders}).subscribe(
+    response=> {
+
+      console.log(response)
+ 
+    },
+    error => {
+      console.log(error)
+    }
+    )
+    
+  }
+
+
+
 
 
 
