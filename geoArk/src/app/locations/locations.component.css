@@ -83,6 +83,15 @@
   position: relative;
 }
 
+
+
+
+.zindex_select{
+  z-index:10px;
+  position: relative;
+  top:15px;
+}
+
 /* -----------Quick Facts and headers -----------*/
 .stat_shift{
   padding-left:50px;

@@ -194,7 +194,7 @@ Geo-Context and COVID-19 in Missouri
                 </div>
 
                 <div class='column'>
-                    <div class='aligncenter'>
+                    <div>
                         <br>
                         <br>
                         <div class="instructions">
@@ -226,7 +226,7 @@ Geo-Context and COVID-19 in Missouri
 
                         
                         <div *ngIf='current_risk_factor=="exposure"'>
-                            <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("exposure")'>Exposure</div>
+                            <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("exposure")'>Exposure</div>  <img src="../../assets/selectfactor.png">
                         </div>
                         <div *ngIf='current_risk_factor!="exposure"'>
                             <div class='main_button button_blue' (click)='getFactorsData("exposure")'>Exposure</div>
@@ -304,7 +304,7 @@ Geo-Context and COVID-19 in Missouri
 
                 </div>
                 <div class='column'>
-                    <div class='zindex'>
+                    <div class='zindex_select'>
                         County Risk Assessment
                     </div>
                     <div class='windrose' (click)='getClickEvent("windroseclick")'>
