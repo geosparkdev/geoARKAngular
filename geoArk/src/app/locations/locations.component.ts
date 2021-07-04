@@ -4221,7 +4221,7 @@ getWindrosedata(covid_fips:any){
         ],
         
         layout:{
-          title: "Total Risk per Risk Category",
+          title: "County Risk Assessment",
           font: {size: 16},
           width: 300, 
           height: 200, 
