@@ -198,15 +198,15 @@ Geo-Context and COVID-19 in Missouri
                         <br>
                         <br>
                         <div class="instructions">
-                            <span class='guidance'>Click on a risk category to see risk factors.</span>
-                            <br>
-                            <span class='guidance'>Click on a risk factor bar to update map visual.</span>
+                            <span class='guidance'>Select a Risk Category.</span>
+
                             
                         </div>
             
 
                         <div *ngIf='current_risk_factor=="accessibility"'>
-                            <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("accessibility")'>Accessibility</div> Click on factor to visualize on map.<i class="mdi mdi-arrow-right-thick" ></i>
+                            <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("accessibility")'>Accessibility</div> 
+                            <br>Click on factor to visualize on map.<i class="mdi mdi-arrow-right-thick" ></i>
                             
                             <!-- <span><hr class='new1'></span> -->
                         </div>
@@ -218,6 +218,7 @@ Geo-Context and COVID-19 in Missouri
 
                         <div *ngIf='current_risk_factor=="healthresources"'>
                             <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("healthresources")'>Health Resources</div>
+                            <br>Click on factor to visualize on map.<i class="mdi mdi-arrow-right-thick" ></i>
                         </div>
                         <div *ngIf='current_risk_factor!="healthresources"'>
                             <div class='main_button button_blue' (click)='getFactorsData("healthresources")'>Health Resources</div>
@@ -227,6 +228,7 @@ Geo-Context and COVID-19 in Missouri
                         
                         <div *ngIf='current_risk_factor=="exposure"'>
                             <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("exposure")'>Exposure</div>  
+                            <br>Click on factor to visualize on map.<i class="mdi mdi-arrow-right-thick" ></i>
                         </div>
                         <div *ngIf='current_risk_factor!="exposure"'>
                             <div class='main_button button_blue' (click)='getFactorsData("exposure")'>Exposure</div>
@@ -235,6 +237,7 @@ Geo-Context and COVID-19 in Missouri
 
                         <div *ngIf='current_risk_factor=="socioeconomic"'>
                             <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("socioeconomic")'>Socioeconomic</div>
+                            <br>Click on factor to visualize on map.<i class="mdi mdi-arrow-right-thick" ></i>
                         </div>
                         <div *ngIf='current_risk_factor!="socioeconomic"'>
                             <div class='main_button button_blue' (click)='getFactorsData("socioeconomic")'>Socioeconomic</div>
@@ -244,6 +247,7 @@ Geo-Context and COVID-19 in Missouri
 
                         <div *ngIf='current_risk_factor=="susceptibility"'>
                             <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("susceptibility")'>Susceptibility</div>
+                            <br>Click on factor to visualize on map.<i class="mdi mdi-arrow-right-thick" ></i>
                         </div>
                         <div *ngIf='current_risk_factor!="susceptibility"'>
                             <div class='main_button button_blue' (click)='getFactorsData("susceptibility")'>Susceptibility</div>
@@ -252,6 +256,7 @@ Geo-Context and COVID-19 in Missouri
 
                         <div *ngIf='current_risk_factor=="transmission"'>
                             <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("transmission")'>Transmission</div>
+                            <br>Click on factor to visualize on map.<i class="mdi mdi-arrow-right-thick" ></i>
                         </div>
                         <div *ngIf='current_risk_factor!="transmission"'>
                             <div class='main_button button_blue' (click)='getFactorsData("transmission")'>Transmission</div>
