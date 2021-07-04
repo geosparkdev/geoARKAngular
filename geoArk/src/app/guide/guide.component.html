@@ -14,8 +14,7 @@
 <div class='main_container'>
     <div class='columns'>
         <div class='column is-3 alignright'>
-            Select a dashboard to see guidelines
-            <div class='main_button button_blue' [ngClass]="{'main_button1 button_blue_selected' : models_selected}"  (click)="selectButton('model')">Predictions</div>
+            <div class='main_button button_blue' [ngClass]="{'main_button1 button_blue_selected' : models_selected}" (click)="selectButton('model')">Overview</div>
             <div class='main_button button_blue' [ngClass]="{'main_button1 button_blue_selected' : categories_selected}" (click)="selectButton('categories')" >Risk Categories</div>
             <div class='main_button button_blue' [ngClass]="{'main_button1 button_blue_selected' : location_selected}" (click)="selectButton('counties')">Counties</div>
         </div>
@@ -23,149 +22,40 @@
 
         <div class="column">
 
+            <div *ngIf="models_selected">
+                The risk assessment looks at risk factors in 6 categories:
 
-
-            <div class='aligncenter' *ngIf="location_selected">
+                <div class='tab'>
+                    <br>
+                    <span class='bold'>Susceptibility (Individual) Risk:</span> How susceptible an individual in a county might be to COVID-19. The inclusion of known and possible co-morbidities and age breaks were assessed.
+                    <br><br><span class='bold'>Transmission (Community) Risk:</span> What the potential transmission risk of COVID-19 within a county might be.  The inclusion of commuting, migration, worker types, group gatherings, and living situation. 
+                    <br><br><span class='bold'>Socioeconomic Risk:</span>What might be some socioeconomic / demographic variables that would capture and describe the associated social context risk within that county. The inclusion of race, ethnicity, disability, insurance status, veteran status, and education level.
+                    <br><br><span class='bold'>Accessibility Risk:</span> What infrastructure components could be included to provide an assessment of accessibility and establish differences between counties in terms of their access to health options and care. The development and inclusion of various hospital, nursing home, and telehealth access measures as well as broadband metrics.
+                    <br><br><span class='bold'>Health Resource Risk:</span> What health resources are available to a county’s population to mitigate and aid in the response to the epidemic. The typical health resource measures included beds, ICU, and professional staffing measures.
+                    <br><br><span class='bold'>Exposure Risk:</span>Incorporated existing exposure metrics (cases, testing, deaths) as temporally collected to aid in the development of associations, correlations, and trends.
+                </div>
+            </div>
+            <div *ngIf="location_selected">
                 <div class="type1">How to use Counties Dashboard</div>
-                <img src="../../assets/counties_howto.png">
+                The Counties Dashboard lets users deep-dive into the risk assessment of each Missouri county. 
+                <br>
+                <img src="../../assets/howtouse_location.png">
             </div>
-
-            <div class='aligncenter' *ngIf="categories_selected">
-                <div class="type1">How to use Risk Categories Dashboard</div>
-                <img src="../../assets/categorieshowto.png">
-            </div>
-
-            <div class='aligncenter' *ngIf="models_selected">
-                <div class="type1">How to use Predictions Dashboard</div>
-
-            </div>
-
-
-
-        </div>
-
-
-
-
-        <div class="column is-4">
-
-
-
-
-
 
             <div *ngIf="categories_selected">
-                <span class='howtoText howtoB howtoL' >
-                    The risk categories dashboard allows users to explore aggregated total risk values of selected
-                    risk categories.
-                    </span>
-                <div class='scroll'>
-                    <br>
-                    <span class='howtoText howtoB howtoL' >1)</span> 
-                    <span class='howtoText'>
-                        Upon viewing the Risk Categories Dashbaord, all risk categories are selected. To de-select 
-                        a risk category, click on corresponding button. Buttons of unselected categories will be light blue. 
-                        When risk categories are selected, the sum of the total risk values per county is reflected on the 
-                        map.
-                    </span>
-                    <br>
-                    <br>
-                    <span class='howtoText howtoB howtoL' >2)</span>
-                    
-                    <span class='howtoText'>
-                     The table module consists of all counties ordered by the highest risk total. The bar chart reports the
-                     risk value total and the other columns report covid cases and deaths to date. When a filter is applied,
-                     this table can be updated by click the "update table" button and only counties that fall within the 
-                     specified filter range, will appear.
-                     </span>
-                     <br>
-                     <br>
-                     <span class='howtoText howtoB howtoL' >3)</span> 
-                    <span class='howtoText'>
-                    To apply a filter, click on the drop down menu and select the desired filter. A range slider will appear 
-                    with the min and max value of the filter. When the slider is updated, the counties that do not fall within
-                    the range will not be prominant on the map. The table module (2) will also update if the "update table" button is clicked.
-                    </span>
-                    <br>
-                    <br>
-                    <span class='howtoText howtoB howtoL' >4)</span> 
-                
-                    <span class='howtoText'>
-                         Hover over a county to see more details. Click a county to see risk factor categories in detail.
-                    </span>
-                    <br>
-                    <br>
-                </div>
+                <div class="type1">How to use Risk Categories Dashboard</div>
+                The Risk Categories Dashboard gives a high-level view of risk throughout the counties of Missouri. Users can generate a customized
+                risk assessment by selecting different combinations of risk categories. A rural-urban contiuum filter can be applied to visualize
+                the relationship between risk and how rural or urban a county is. 
+                <br>
+                <img src="../../assets/howtouse_categories.png">
             </div>
 
-
-
-            <div *ngIf="location_selected">
-                <span class='howtoText howtoB howtoL' >
-                    The counties dashboard allows users to view risk category
-                    factors and covid cases and deaths at the county level.
-                    </span>
-                <div class='scroll'>
-                    <br>
-                    <span class='howtoText howtoB howtoL' >1)</span> 
-                    <span class='howtoText'>
-                        There are two ways a user can select a county: from the drop down menu 
-                         clicking the county on the map.
-                    </span>
-                    <br>
-                    <br>
-                    <span class='howtoText howtoB howtoL' >2)</span>
-                    
-                    <span class='howtoText'>
-                    To view factors of a risk category, click on the risk category button.
-                    <br><span class='howtoB'> Bar chart module:</span>
-                    <br>The risk factors will appear in the bar chart module on the right. Each 
-                    bar displays the risk factor value of the selected county and how this value
-                    compares to the mean and max value of all MO counties.
-                    The colors of the bar represent what quantile the county value falls in.
-                    <br><span class='howtoB'>Map:</span>
-                    <br>To view a risk factor geospatially, click on the bar of the factor from 
-                        the bar chart module.
-                    <br>
-                     </span>
-                     <br>
-                     <span class='howtoText howtoB howtoL' >3)</span> 
-                    <span class='howtoText'>
-                        The windrose plot reports the total risk factor value per category. To view
-                         the value, hover over the band.
-                    </span>
-                    <br>
-                    <br>
-                    <span class='howtoText howtoB howtoL' >4)</span> 
-                    
-                    <span class='howtoText'>
-                        Cases and Deaths are reported as weekly counts. Hover over the bars of the 
-                         plot to see weekly counts.
-                    </span>
-                    <br>
-                    <br>
-                    <span class='howtoText howtoB howtoL' > 5) </span>
-                    <span class='howtoText'>
-                         Hover over a county to see more details. 
-                    </span>
-                    <br>
-                    <br>
-                    <span class='howtoText howtoB howtoL' >6) </span>
-                    <span class='howtoText'>
-                        This module displays an overview of the
-                        selected county.
-                    </span>
-                </div>
-            </div>
-    
-            
         </div>
-    </div>
-   
-   
+
+
+
 </div>
-
-
 <div class='footer'>
     &copy;
 </div>

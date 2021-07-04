@@ -10,7 +10,7 @@ export class GuideComponent implements OnInit {
 
   public categories_selected:boolean=false;
   public location_selected:boolean=false;
-  public models_selected:boolean=false;
+  public models_selected:boolean=true;
 
   constructor() { }
 
