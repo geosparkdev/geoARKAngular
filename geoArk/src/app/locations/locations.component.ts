@@ -3661,7 +3661,7 @@ export class LocationsComponent implements OnInit {
 
     console.log('GET COUNTY DATA')
     console.log(fips)
-    this.spinnertogg=true;
+    this.spinnertogg2=true;
     this.county_fips=Number(fips.target.value);
     this.current_factor='total'
 
