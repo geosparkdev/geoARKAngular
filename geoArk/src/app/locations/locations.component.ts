@@ -4225,7 +4225,7 @@ getWindrosedata(covid_fips:any){
           font: {size: 16},
           width: 300, 
           height: 200, 
-          margin: {t:0,r:0,b:0,l:20},
+          margin: {t:10,r:0,b:0,l:20},
           plot_bgcolor: 'rgba(245,246,249,1)',
           polar:{
             barmode:"overlay",
