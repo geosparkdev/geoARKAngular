@@ -78,7 +78,7 @@ export class FirstsurveyComponent implements OnInit {
     )
     
 
-    this.router.navigate(['/counties'], { queryParams: { userid: this.survey.userID}})
+    this.router.navigate(['/part1start'], { queryParams: { userid: this.survey.userID}})
   }
 
 

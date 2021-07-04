@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment} from 'src/environments/environment';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Options,ChangeContext } from 'ng5-slider';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 
 //Third Party Packages 
@@ -3215,7 +3215,7 @@ export class Categories2Component implements OnInit {
   //filter 1  
   public filter1:filter;
   public spinnertogg:boolean=true;
-  constructor(public http: HttpClient,private spinner: NgxSpinnerService, private router: Router) { }
+  constructor(public http: HttpClient,private spinner: NgxSpinnerService, public route: ActivatedRoute,private router: Router) { }
 
 
 
@@ -3228,9 +3228,6 @@ export class Categories2Component implements OnInit {
   public task1:boolean=true;
   public task2:boolean=false;
   public task3:boolean=false;
-  public task4:boolean=false;
-  public task5:boolean=false;
-  public task6:boolean=false;
 
   public exploration:boolean=false;
 
@@ -3243,15 +3240,6 @@ export class Categories2Component implements OnInit {
 
   public task3_start:boolean=false;
   public task3_stop:boolean=false;
-
-  public task4_start:boolean=false;
-  public task4_stop:boolean=false;
-
-  public task5_start:boolean=false;
-  public task5_stop:boolean=false;
-
-  public task6_start:boolean=false;
-  public task6_stop:boolean=false;
 
   public exploration_start:boolean=false;
   public exploration_stop:boolean=false;
@@ -3271,6 +3259,17 @@ export class Categories2Component implements OnInit {
 
 
   ngOnInit(): void {
+
+
+
+      this.route.queryParams
+      .subscribe(params => {
+        this.userid=params.userid;
+        console.log('USERIDUSERIDUSERID!***@*#*@#')
+        console.log(this.userid)
+
+      });
+
 
     this.spinner.show();
 
@@ -3302,6 +3301,11 @@ export class Categories2Component implements OnInit {
 
 //Update selected or aggregated risk factor data (add or remove risk category from risk total calculations)
   updateTotals(risk:string){
+
+
+    this.getClickEvent(risk+'_buttonclick');
+    
+
     this.spinnertogg=true;
    if (this.risk_factors[risk]==11){
      this.risk_factors[risk]=1
@@ -3391,6 +3395,9 @@ export class Categories2Component implements OnInit {
 
 //aggregate all risk factors
 selectAll(){
+
+
+  this.getClickEvent('selectall_buttonclick');
   this.spinnertogg=true;
 
   this.risk_factors.Accessibility=1
@@ -3408,6 +3415,9 @@ selectAll(){
 
 //unselect all risk factors
 unselectAll(){
+
+
+  this.getClickEvent('unselect_buttonclick');
   this.spinnertogg=true;
 
   this.risk_factors = new risk_factors();
@@ -3535,6 +3545,7 @@ unselectAll(){
   selectFilter(filter){
 
 
+    this.getClickEvent('filter_buttonclick');
     let curr_data=this.filters_data.find(e=> e['filter']===filter.target.value)
 
     if(this.filter1.name==null){
@@ -3556,6 +3567,10 @@ unselectAll(){
 
 // remove filter -- trigger toggle of filter views and removing filter from map
   dropFilter(){
+
+
+    this.getClickEvent('dropFilterButton');
+
     this.filter1=new filter();
     cat_geoJSON.clearLayers();
     this.map();
@@ -3595,6 +3610,12 @@ unselectAll(){
   onUserChange(changeContext: ChangeContext): void {
     console.log(changeContext)
     // ADD THIS TO SEE WHAT THIS.FILTER IS
+
+
+
+    this.getClickEvent('slider_buttonclick');
+
+
     if(this.filter1.toggle==true){
       cat_geoJSON.clearLayers();
     }
@@ -3881,7 +3902,10 @@ onOutlineEachFeature(feature, layer: L.Layer) {
 countyView(event){
   let county_fips=Number(event.target.feature.properties.fips);
   console.log(county_fips)
-  this.router.navigate(['/counties'], { queryParams: { fips: county_fips} })
+ // this.router.navigate(['/counties'], { queryParams: { fips: county_fips} })
+
+
+ this.getClickEvent('map_buttonclick');
 }
 
 
@@ -3952,76 +3976,17 @@ countyView(event){
   }
 
   stop_task3(task_id:any){
+
     this.sendClick(task_id,'end')
     this.task3_stop=false;
     this.task3=false;
-    this.task4=true;
-    this.task4_start=true;
-    console.log(task_id);
-    this.black_out=true;
-
-  }
-
-  start_task4(task_id:any){
-    this.sendClick(task_id,'start')
-    this.task4_start=false;
-    this.task4_stop=true;
-    console.log(task_id);
-    this.current_task=task_id;
-    this.black_out=false;
-  }
-
-  stop_task4(task_id:any){
-    this.sendClick(task_id,'end')
-    this.task4_stop=false;
-    this.task4=false;
-    this.task5=true;
-    this.task5_start=true;
-    console.log(task_id);
-    this.black_out=true;
-
-  }
-
-  start_task5(task_id:any){
-    this.sendClick(task_id,'start')
-    this.task5_start=false;
-    this.task5_stop=true;
-    console.log(task_id);
-    this.current_task=task_id;
-    this.black_out=false;
-  }
-
-  stop_task5(task_id:any){
-    this.sendClick(task_id,'end')
-    this.task5_stop=false;
-    this.task5=false;
-    this.task6=true;
-    this.task6_start=true;
-    console.log(task_id);
-    this.black_out=true;
-
-  }
-
-
-  start_task6(task_id:any){
-    this.sendClick(task_id,'start')
-    this.task6_start=false;
-    this.task6_stop=true;
-    console.log(task_id);
-    this.current_task=task_id;
-    this.black_out=false;
-  }
-
-  stop_task6(task_id:any){
-    this.sendClick(task_id,'end')
-    this.task6_stop=false;
-    this.task6=false;
     this.exploration=true;
     this.exploration_start=true;
     console.log(task_id);
     this.black_out=true;
 
   }
+
 
   start_exploration(task_id:any){
     this.sendClick(task_id,'start')
@@ -4049,7 +4014,7 @@ countyView(event){
 
 
   startSurvey(){
-    this.router.navigate(['/survey2'], { queryParams: { userid: this.userid}})
+    this.router.navigate(['/survey3'], { queryParams: { userid: this.userid}})
   }
 
   sendClick(task:any,event:any){
@@ -4064,7 +4029,7 @@ countyView(event){
     const customheaders= new HttpHeaders()
     .set('Content-Type', 'application/json');
 
-    this.http.post(environment.base_url+"/countiesclicks",JSON.stringify(click_data), {headers: customheaders}).subscribe(
+    this.http.post(environment.base_url+"/riskcatclicks",JSON.stringify(click_data), {headers: customheaders}).subscribe(
     response=> {
 
       console.log(response)
