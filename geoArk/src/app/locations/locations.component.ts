@@ -3659,7 +3659,8 @@ export class LocationsComponent implements OnInit {
   //trigger data pull and visual creation for new selected county -- by drop down 
   getCountyData(fips:any){
 
-
+    console.log('GET COUNTY DATA')
+    console.log(fips)
     this.spinnertogg=true;
     this.county_fips=Number(fips.target.value);
     this.current_factor='total'
