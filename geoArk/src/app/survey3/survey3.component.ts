@@ -64,6 +64,31 @@ export class Survey3Component implements OnInit {
 
 
     console.log(this.survey)
+
+    let together={
+      userID:this.userid,
+      survey:this.survey
+    }
+
+    console.log(together)
+
+    const customheaders= new HttpHeaders()
+    .set('Content-Type', 'application/json');
+
+    this.http.post(environment.base_url+"/postcountiessurvey",JSON.stringify(together), {headers: customheaders}).subscribe(
+    response=> {
+
+      console.log(response)
+ 
+    },
+    error => {
+      console.log(error)
+    }
+    )
+    
+
+   this.router.navigate(['/completed'], { queryParams: { userid: this.survey.userID}})
+  }
   }
 
 

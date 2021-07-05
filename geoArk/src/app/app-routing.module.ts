@@ -23,6 +23,7 @@ import {Survey3Component} from '../app/survey3/survey3.component';
 import { GeoarkComponent } from './geoark/geoark.component';
 import { Survey2doneComponent } from './survey2done/survey2done.component';
 import { Part1startComponent } from './part1start/part1start.component';
+import { SurveyfinishedComponent } from './surveyfinished/surveyfinished.component';
 
 
 
@@ -125,6 +126,10 @@ const routes: Routes = [
     path:'part1start',
     component: Part1startComponent,
   },
+  {
+    path:'completed',
+    component: SurveyfinishedComponent,
+  }
 
 ];
 
