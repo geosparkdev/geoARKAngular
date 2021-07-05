@@ -127,6 +127,11 @@
   margin-right:10px;
 }
 
+.loadtime{
+  font-size: 0.5rem;
+  font-family:"Tahoma";
+}
+
 .filter_title{
   font-weight:bold;
 }
