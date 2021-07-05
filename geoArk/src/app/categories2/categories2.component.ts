@@ -3250,7 +3250,7 @@ export class Categories2Component implements OnInit {
 
   public current_task:any='Not Started'
 
-  public black_out:boolean=true;
+  public black_out:boolean=false;
 
 
 

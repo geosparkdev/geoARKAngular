@@ -3601,7 +3601,7 @@ export class LocationsComponent implements OnInit {
     this.exploration=false;
     this.survey=true;
     console.log(task_id);
-    this.black_out=true;
+    this.black_out=false;
 
   }
 

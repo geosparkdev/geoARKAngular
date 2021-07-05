@@ -28,139 +28,6 @@ import { SurveyfinishedComponent } from './surveyfinished/surveyfinished.compone
 
 
 
-const routes: Routes = [
-  {
-    path:"",
-    redirectTo: 'GeoArkHome',
-    pathMatch: 'full'
-  },
-  {
-    path:"GeoArkHome",
-    component: MainComponent,
-  },
-
-
-  // Covid Dashboard Routes
-  {
-    path: 'rapidHome',
-    component: HomeComponent,
-   },
-  {
-    path: 'categories',
-    component: Categories2Component,
-   },
-   {
-    path: 'counties',
-    component: LocationsComponent,
-  },
-  {
-    path: 'datasources',
-    component: DatasourcesComponent,
-    
-  },
-  {
-    path: 'howtouse',
-    component: GuideComponent,
-
-  },
-
-
-  //geoARKData
-  {
-    path:'geoARKData',
-    component: GeoarkdataHomeComponent,
-  },
-  {
-    path:'uploadData',
-    component:UploaddataComponent,
-    
-  },
-  {
-    path:'dbDesign',
-    component:DbDesignComponent,
-
-  },
-  {
-    path:'upcomingData',
-    component: UpcomingComponent,
-  },
-  /*{
-    path:'predictions',
-    component: ModelingComponent,
-  },*/
-
-  {
-    path:'geoark',
-    component: GeoarkComponent,
-  },
-
-
-
-
-  /*evaluation*/
-  {
-  path: 'surveystart',
-  component: SurveyStartComponent,
-  //canActivate: [ OktaAuthGuard ],
-  //data: {
-    // onAuthRequired
-  //}
-  },
-  {
-    path: 'survey1',
-    component: FirstsurveyComponent,
-  },
-  {
-    path:'survey2',
-    component: Survey2Component,
-  },
-  {
-    path:'survey3',
-    component: Survey3Component,
-  },
-  {
-    path:'part2start',
-    component: Survey2doneComponent,
-  },
-  {
-    path:'part1start',
-    component: Part1startComponent,
-  },
-  {
-    path:'completed',
-    component: SurveyfinishedComponent,
-  }
-
-];
-
-@NgModule({
-  imports: [
-    RouterModule.forRoot(routes),
-  ],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
-
-
-
-
-
-
-
-
-
-// export function onAuthRequired({ oktaAuth, router }) {
-//   // Redirect the user to your custom login page
-//   router.navigate(['/login']);
-// }
-// const config = {
-//   issuer: 'https://dev-26889104.okta.com/oauth2/default',
-//   redirectUri: 'https://geoark.missouri.edu/implicit/callback',
-//   clientId: '0oaab263mIdkXfafx5d6',
-//   cacheMaxAge: 1000,
-//   pkce: true
-// }
-
 // const routes: Routes = [
 //   {
 //     path:"",
@@ -168,93 +35,76 @@ export class AppRoutingModule { }
 //     pathMatch: 'full'
 //   },
 //   {
-//     path: 'implicit/callback',
-//     component: OktaCallbackComponent
-//   },
-//   {
-//     path: 'login',
-//     component: LoginComponent
-//   },
-//   {
 //     path:"GeoArkHome",
 //     component: MainComponent,
-//     canActivate: [ OktaAuthGuard ],
-//     data: {
-//       onAuthRequired
-//     }
 //   },
+
+
+//   Covid Dashboard Routes
 //   {
 //     path: 'rapidHome',
 //     component: HomeComponent,
-//     canActivate: [ OktaAuthGuard ],
-//     data: {
-//       onAuthRequired
-//     }
 //    },
 //   {
 //     path: 'categories',
 //     component: Categories2Component,
-//     canActivate: [ OktaAuthGuard ],
-//     data: {
-//       onAuthRequired
-//     }
 //    },
 //    {
-//     path: 'dashboard',
-//     component: DashboardComponent,
-//     canActivate: [ OktaAuthGuard ],
-//     data: {
-//       onAuthRequired
-//     }
-//    },
-//   {
-//     path:'geoARKData',
-//     component: GeoarkdataHomeComponent,
-//     canActivate: [ OktaAuthGuard ],
-//     data: {
-//       onAuthRequired
-//     }
-//   },
-//   {
-//     path:'predictions',
-//     component: ModelingComponent,
-//     canActivate: [ OktaAuthGuard ],
-//     data: {
-//       onAuthRequired
-//     }
-//   },
-//   {
 //     path: 'counties',
 //     component: LocationsComponent,
-//     //canActivate: [ OktaAuthGuard ],
-//    // data: {
-//    //   onAuthRequired
-// //}
 //   },
 //   {
 //     path: 'datasources',
 //     component: DatasourcesComponent,
-//     canActivate: [ OktaAuthGuard ],
-//     data: {
-//       onAuthRequired
-//     }
     
 //   },
 //   {
 //     path: 'howtouse',
 //     component: GuideComponent,
-//     canActivate: [ OktaAuthGuard ],
-//     data: {
-//       onAuthRequired
-//     }
+
+//   },
+
+
+//   geoARKData
+//   {
+//     path:'geoARKData',
+//     component: GeoarkdataHomeComponent,
 //   },
 //   {
-//     path: 'surveystart',
-//     component: SurveyStartComponent,
-//     //canActivate: [ OktaAuthGuard ],
-//     //data: {
-//      // onAuthRequired
-//     //}
+//     path:'uploadData',
+//     component:UploaddataComponent,
+    
+//   },
+//   {
+//     path:'dbDesign',
+//     component:DbDesignComponent,
+
+//   },
+//   {
+//     path:'upcomingData',
+//     component: UpcomingComponent,
+//   },
+//   /*{
+//     path:'predictions',
+//     component: ModelingComponent,
+//   },*/
+
+//   {
+//     path:'geoark',
+//     component: GeoarkComponent,
+//   },
+
+
+
+
+//   /*evaluation*/
+//   {
+//   path: 'surveystart',
+//   component: SurveyStartComponent,
+//   canActivate: [ OktaAuthGuard ],
+//   data: {
+//     onAuthRequired
+//   }
 //   },
 //   {
 //     path: 'survey1',
@@ -264,17 +114,144 @@ export class AppRoutingModule { }
 //     path:'survey2',
 //     component: Survey2Component,
 //   },
-    
+//   {
+//     path:'survey3',
+//     component: Survey3Component,
+//   },
+//   {
+//     path:'part2start',
+//     component: Survey2doneComponent,
+//   },
+//   {
+//     path:'part1start',
+//     component: Part1startComponent,
+//   },
+//   {
+//     path:'completed',
+//     component: SurveyfinishedComponent
+//   }
+
 // ];
 
 // @NgModule({
 //   imports: [
 //     RouterModule.forRoot(routes),
-//     OktaAuthModule.initAuth(config)
 //   ],
 //   exports: [RouterModule]
 // })
 // export class AppRoutingModule { }
+
+
+
+
+
+
+
+
+
+export function onAuthRequired({ oktaAuth, router }) {
+  // Redirect the user to your custom login page
+  router.navigate(['/login']);
+}
+const config = {
+  issuer: 'https://dev-26889104.okta.com/oauth2/default',
+  redirectUri: 'https://geoark.missouri.edu/implicit/callback',
+  clientId: '0oaab263mIdkXfafx5d6',
+  cacheMaxAge: 1000,
+  pkce: true
+}
+
+const routes: Routes = [
+  {
+    path:"",
+    redirectTo: 'GeoArkHome',
+    pathMatch: 'full'
+  },
+  {
+    path: 'implicit/callback',
+    component: OktaCallbackComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path:"GeoArkHome",
+    component: MainComponent,
+    canActivate: [ OktaAuthGuard ],
+    data: {
+      onAuthRequired
+    }
+  },
+  {
+    path: 'rapidHome',
+    component: HomeComponent,
+    canActivate: [ OktaAuthGuard ],
+    data: {
+      onAuthRequired
+    }
+   },
+  {
+    path: 'categories',
+    component: Categories2Component,
+    canActivate: [ OktaAuthGuard ],
+    data: {
+      onAuthRequired
+    }
+   },
+  //  {
+  //   path: 'dashboard',
+  //   component: DashboardComponent,
+  //   canActivate: [ OktaAuthGuard ],
+  //   data: {
+  //     onAuthRequired
+  //   }
+  // },
+  // {
+  //   path:'geoARKData',
+  //   component: GeoarkdataHomeComponent,
+  //   canActivate: [ OktaAuthGuard ],
+  //   data: {
+  //     onAuthRequired
+  //   }
+  // },
+  {
+    path: 'counties',
+    component: LocationsComponent,
+    canActivate: [ OktaAuthGuard ],
+   data: {
+     onAuthRequired
+}
+  },
+  {
+    path: 'datasources',
+    component: DatasourcesComponent,
+    canActivate: [ OktaAuthGuard ],
+    data: {
+      onAuthRequired
+    }
+    
+  },
+  {
+    path: 'howtouse',
+    component: GuideComponent,
+    canActivate: [ OktaAuthGuard ],
+    data: {
+      onAuthRequired
+    }
+  },
+
+    
+];
+
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes),
+    OktaAuthModule.initAuth(config)
+  ],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
 
 
 

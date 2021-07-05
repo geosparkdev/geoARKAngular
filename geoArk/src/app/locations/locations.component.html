@@ -4,7 +4,7 @@
 Geo-Context and COVID-19 in Missouri
 
 
-    <div class='task_container' >
+    <div class='task_container'  *ngIf='this.evaluation'>
 
         <div *ngIf='this.task1'>
             Task 1/6:<br>
@@ -108,16 +108,16 @@ Geo-Context and COVID-19 in Missouri
 
 <div class='nav_bar'>
     <ul class='tabrow'>
-        <!-- <li routerLink="/categories" routerLinkActive="active" > Risk Categories</li>
+        <li routerLink="/categories" routerLinkActive="active" > Risk Categories</li>
         <li routerLink="/counties" routerLinkActive="active" class="selected"> Counties</li>
         <li routerLink="/datasources" routerLinkActive="active" > Data Sources</li>
-        <li routerLink="/howtouse" routerLinkActive="active" > How to use</li> -->
+        <li routerLink="/howtouse" routerLinkActive="active" > How to use</li>
 
-
+<!-- 
         <li routerLink="/categories" > Risk Categories</li>
         <li routerLink="/counties" class="selected" > Counties</li>
         <li routerLink="/datasources" > Data Sources</li>
-        <li routerLink="/howtouse" > How to use</li>
+        <li routerLink="/howtouse" > How to use</li> -->
     </ul> 
 </div>  
 <div class='main_container'>
