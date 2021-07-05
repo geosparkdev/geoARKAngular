@@ -89,7 +89,7 @@ export class Survey3Component implements OnInit {
 
    this.router.navigate(['/completed'], { queryParams: { userid: this.survey.userID}})
   }
-  }
+
 
 
 
