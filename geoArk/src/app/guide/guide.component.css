@@ -17,7 +17,7 @@
 
 .main_container{
   padding:10px;
-  min-height:15vh;
+  min-height:40vh;
   margin-bottom:5px;
 }
 
@@ -26,12 +26,12 @@
 
 .footer{
   background-color:#c4c4c4;
-  position:relative;
+  position:fixed;
   left:0;
   bottom:0;
   width:100%;
-  overflow:hidden;
-  margin-top:0px;
+  margin-bottom:0px;
+
 
   padding: 10px 200px;
 }
