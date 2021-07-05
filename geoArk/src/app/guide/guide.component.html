@@ -6,7 +6,7 @@
     <ul class='tabrow'>
         <li routerLink="/categories" routerLinkActive="active"> Risk Categories</li>
         <li routerLink="/counties" routerLinkActive="active" > Counties</li>
-        <li routerLink="/datsources" routerLinkActive="active" > Data Sources</li>
+        <li routerLink="/datasources" routerLinkActive="active" > Data Sources</li>
         <li routerLink="/howtouse" routerLinkActive="active" class="selected"> How to use</li>
     </ul> 
 </div> 
@@ -23,7 +23,7 @@
         <div class="column">
 
             <div *ngIf="models_selected">
-                The risk assessment looks at risk factors in 6 categories:
+                Each Missouri county has a risk assessment made up of 6 categories:
 
                 <div class='tab'>
                     <br>
@@ -34,7 +34,28 @@
                     <br><br><span class='bold'>Health Resource Risk:</span> What health resources are available to a county’s population to mitigate and aid in the response to the epidemic. The typical health resource measures included beds, ICU, and professional staffing measures.
                     <br><br><span class='bold'>Exposure Risk:</span>Incorporated existing exposure metrics (cases, testing, deaths) as temporally collected to aid in the development of associations, correlations, and trends.
                 </div>
+
+                <br>
+                The risk assessment is represented by the windrose plot below:
+                <br>
+                <img src="../../assets/riskassessment.png">
+                <br>
+                Each county will be evaluated and given a risk score for each category. Risk scores are made up of risk values of the risk factors within each category. For example,
+                in the Susceptibilty category, there is a risk factor called "Diagnosed Diabetes %". Boone county has 7.8% Diagnosed Diabetes. This value lies within the first quantile of all Missouri counties, thus the risk value = 1.
+                Risk values range from 1 to 5.
+                <br>
+                <br>
+                
+                Risk Category Score = Sum of risk values of risk factors within category.
+                <br>
+                Risk values = Quantile 1-5 of risk factor amongst Missouri County Population
+                <br>
+                Total Risk value = Sum of Risk Category Scores (normalized on a scale of 1-5 on counties dashboard)
             </div>
+
+
+
+
             <div *ngIf="location_selected">
                 <div class="type1">How to use Counties Dashboard</div>
                 The Counties Dashboard lets users deep-dive into the risk assessment of each Missouri county. 
