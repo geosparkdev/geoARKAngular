@@ -75,7 +75,7 @@ export class Survey3Component implements OnInit {
     const customheaders= new HttpHeaders()
     .set('Content-Type', 'application/json');
 
-    this.http.post(environment.base_url+"/postcountiessurvey",JSON.stringify(together), {headers: customheaders}).subscribe(
+    this.http.post(environment.base_url+"/postrisksurvey",JSON.stringify(together), {headers: customheaders}).subscribe(
     response=> {
 
       console.log(response)
