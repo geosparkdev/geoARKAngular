@@ -83,6 +83,9 @@ export class Survey2Component implements OnInit {
     response=> {
 
       console.log(response)
+      console.log('SENDING')
+      console.log(this.userid)
+       this.router.navigate(['/part2start'], { queryParams: { userid: this.userid}})
  
     },
     error => {
@@ -90,9 +93,7 @@ export class Survey2Component implements OnInit {
     }
     )
     
-  console.log('SENDING')
-  console.log(this.userid)
-   this.router.navigate(['/part2start'], { queryParams: { userid: this.userid}})
+
   }
 
 
