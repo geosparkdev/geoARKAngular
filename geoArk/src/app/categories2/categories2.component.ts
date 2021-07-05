@@ -3902,7 +3902,7 @@ onOutlineEachFeature(feature, layer: L.Layer) {
 countyView(event){
   let county_fips=Number(event.target.feature.properties.fips);
   console.log(county_fips)
- // this.router.navigate(['/counties'], { queryParams: { fips: county_fips} })
+  this.router.navigate(['/counties'], { queryParams: { fips: county_fips} })
 
 
  this.getClickEvent('map_buttonclick');
