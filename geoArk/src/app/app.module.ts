@@ -37,6 +37,7 @@ import { GeoarkComponent } from './geoark/geoark.component';
 import { Survey2doneComponent } from './survey2done/survey2done.component';
 import { Part1startComponent } from './part1start/part1start.component';
 import { SurveyfinishedComponent } from './surveyfinished/surveyfinished.component';
+import { TestComponent } from './test/test.component';
 
  
 
@@ -68,6 +69,7 @@ import { SurveyfinishedComponent } from './surveyfinished/surveyfinished.compone
     Survey2doneComponent,
     Part1startComponent,
     SurveyfinishedComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,
