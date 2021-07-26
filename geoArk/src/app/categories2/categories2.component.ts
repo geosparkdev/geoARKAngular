@@ -3458,7 +3458,7 @@ unselectAll(){
 
 
 clickBarsCounty(index){
-  console.log(index)
+  this.current_fips=index;
 }
 
 
@@ -3543,7 +3543,7 @@ clickBarsCounty(index){
               type: 'bar', 
               orientation:'h',
               marker: {color: color},
-              fips:'test'
+              fips: this.initial_tot_table[i]['countyFIPS'],
             },
         ],
         layout: {
