@@ -3394,6 +3394,8 @@ export class Categories2Component implements OnInit {
 
 
         this.initial_tot_table=response[0];
+        console.log('INITIAL TOT TABLE')
+        console.log(response[0])
         this.initial_metadata=response[1];
 
         
@@ -3455,6 +3457,11 @@ unselectAll(){
 
 
 
+clickBarsCounty(index){
+  console.log(this.bar_bars[index].data.fips)
+}
+
+
 //Create Totals Bar Graphs per county -- takes into consideration filters 
   getTotalsGraph(){
     this.bar_bars=[];
@@ -3491,6 +3498,7 @@ unselectAll(){
               type: 'bar', 
               orientation:'h',
               marker: {color: color},
+              fips:'fips_in_bars'
 
             },
         ],
