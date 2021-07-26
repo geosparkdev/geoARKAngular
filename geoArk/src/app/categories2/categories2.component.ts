@@ -3542,7 +3542,8 @@ clickBarsCounty(index){
               y:[this.tot_table[i]['County Name']],
               type: 'bar', 
               orientation:'h',
-              marker: {color: color}
+              marker: {color: color},
+              fips:'test'
             },
         ],
         layout: {
