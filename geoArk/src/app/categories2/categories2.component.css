@@ -48,7 +48,7 @@
   .main_button{
 
     color: white;
-    margin-top:17px;
+    margin-top:10px;
     margin-right:10px;
     display: inline-block;
     border-radius:8px;
@@ -66,7 +66,7 @@
     width: 14rem;
     font-family:"Euphemia UCAS";
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-align:center;
 }
 .button_blue:hover{
@@ -76,7 +76,7 @@
     width: 14rem;
     font-family:"Euphemia UCAS";
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-align:center;
   background-color:#033554;
 }
