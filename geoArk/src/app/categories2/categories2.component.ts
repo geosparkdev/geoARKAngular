@@ -50,6 +50,8 @@ export class Categories2Component implements OnInit {
 
   public map_title:any='Accessibility '
 
+  public current_fips:any=0;
+
 
 
 
@@ -3694,6 +3696,7 @@ unselectAll(){
     var data=this.initial_tot_table;
     var metadata=this.initial_metadata;
     var current_fact='total_risk'
+    var current_fips=this.current_fips;
 
     var filter1_name=this.filter1.name
     var filter1_max=this.filter1.max_value
@@ -3868,7 +3871,14 @@ unselectAll(){
 
       if((Number(filter_val[filter1_name]) >=filter1_min) && (Number(filter_val[filter1_name]) <=filter1_max))
       {
-        return 0.5
+        
+        if (value==current_fips){
+          return 4
+        }
+        else{
+          return 0.5
+        }
+    
       }
       else
       {
