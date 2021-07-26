@@ -3856,7 +3856,15 @@ clickBarsCounty(index){
 
       if((Number(filter_val[filter1_name]) >=filter1_min) && (Number(filter_val[filter1_name]) <=filter1_max))
       {
-        return 1.0
+
+
+        if (value==current_fips){
+          return 1.0
+        }
+        else{
+          return 0.8
+        }
+
       }
       else
       {
