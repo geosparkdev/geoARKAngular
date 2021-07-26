@@ -3361,21 +3361,6 @@ export class Categories2Component implements OnInit {
   getTotals(risk_factors:any){
 
 
-  let curr_data=this.filters_data.find(e=> e['filter']==='RUCC_2013')
-
-    if(this.filter1.name==null){
-      this.filter1.name='RUCC_2013'
-      this.filter1.max_value=Number(curr_data.max);
-      this.filter1.min_value=Number(curr_data.min);
-      this.filter1.options.ceil=Number(curr_data.max);
-      this.filter1.options.floor=Number(curr_data.min);
-      this.filter1.display=curr_data.display;
-
-      this.filter1.toggle=true;
-      
-    }
-
-    console.log('GETTING HERE RIGHT NEOW')
 
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
@@ -3385,6 +3370,26 @@ export class Categories2Component implements OnInit {
         this.tot_table=response[0];
         this.metadata=response[1];
         this.filters_data=response[2]
+
+
+
+
+        let curr_data=this.filters_data.find(e=> e['filter']==='RUCC_2013')
+
+        if(this.filter1.name==null){
+          this.filter1.name='RUCC_2013'
+          this.filter1.max_value=Number(curr_data.max);
+          this.filter1.min_value=Number(curr_data.min);
+          this.filter1.options.ceil=Number(curr_data.max);
+          this.filter1.options.floor=Number(curr_data.min);
+          this.filter1.display=curr_data.display;
+
+          this.filter1.toggle=true;
+          
+        }
+
+
+
 
         this.initial_tot_table=response[0];
         this.initial_metadata=response[1];
