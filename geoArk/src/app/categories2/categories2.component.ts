@@ -3458,7 +3458,7 @@ unselectAll(){
 
 
 clickBarsCounty(index){
-  console.log(this.bar_bars.data[index].fips)
+  console.log(index)
 }
 
 
