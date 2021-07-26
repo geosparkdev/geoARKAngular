@@ -3274,13 +3274,25 @@ export class Categories2Component implements OnInit {
 
     // ***** NOTE :25Jul21 -- the filter controller was created so that  multiple filters could be selected.
     // As of right now.. no other filters will be used, so UI has been adjusted to accomodate for that change
-    // filter structure will be kept in case multiple filters are to be added one day.. thus will call "selectFilter" fxn here
-    // which would originally be triggered by a drop down (html commented out)
+    // filter structure will be kept in case multiple filters are to be added one day..
 
     //create filter1 controller-- the chosen filter information is stored in this object
     //When a filter is selected it is given a "name" -- which is the switch to turn on filter functions/views
     this.filter1=new filter();
-    this.selectFilter('RUCC_2013');
+  
+    let curr_data=this.filters_data.find(e=> e['filter']==='RUCC_2013')
+
+    if(this.filter1.name==null){
+      this.filter1.name='RUCC_2013'
+      this.filter1.max_value=Number(curr_data.max);
+      this.filter1.min_value=Number(curr_data.min);
+      this.filter1.options.ceil=Number(curr_data.max);
+      this.filter1.options.floor=Number(curr_data.min);
+      this.filter1.display=curr_data.display;
+
+      this.filter1.toggle=true;
+      
+    }
    
     
 
