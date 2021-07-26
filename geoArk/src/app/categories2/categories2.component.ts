@@ -3459,6 +3459,9 @@ unselectAll(){
 
 clickBarsCounty(index){
   this.current_fips=index;
+
+  cat_geoJSON.clearLayers();
+  this.map();
 }
 
 
