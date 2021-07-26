@@ -3278,23 +3278,7 @@ export class Categories2Component implements OnInit {
 
     //create filter1 controller-- the chosen filter information is stored in this object
     //When a filter is selected it is given a "name" -- which is the switch to turn on filter functions/views
-    this.filter1=new filter();
-  
-    let curr_data=this.filters_data.find(e=> e['filter']==='RUCC_2013')
-
-    if(this.filter1.name==null){
-      this.filter1.name='RUCC_2013'
-      this.filter1.max_value=Number(curr_data.max);
-      this.filter1.min_value=Number(curr_data.min);
-      this.filter1.options.ceil=Number(curr_data.max);
-      this.filter1.options.floor=Number(curr_data.min);
-      this.filter1.display=curr_data.display;
-
-      this.filter1.toggle=true;
-      
-    }
-   
-    
+    this.filter1=new filter();  
 
 
     //create category map and set coordinates for Missouri
@@ -3376,6 +3360,22 @@ export class Categories2Component implements OnInit {
   //get risk factor totals and filters data (risk factors array determines what risk categories are chosen )
   getTotals(risk_factors:any){
 
+
+  let curr_data=this.filters_data.find(e=> e['filter']==='RUCC_2013')
+
+    if(this.filter1.name==null){
+      this.filter1.name='RUCC_2013'
+      this.filter1.max_value=Number(curr_data.max);
+      this.filter1.min_value=Number(curr_data.min);
+      this.filter1.options.ceil=Number(curr_data.max);
+      this.filter1.options.floor=Number(curr_data.min);
+      this.filter1.display=curr_data.display;
+
+      this.filter1.toggle=true;
+      
+    }
+
+    console.log('GETTING HERE RIGHT NEOW')
 
     const customheaders= new HttpHeaders()
           .set('Content-Type', 'application/json');
