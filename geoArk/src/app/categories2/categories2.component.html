@@ -133,17 +133,9 @@
                 </div>
                 <br>
                 <br>
-
-                <div class='columns'>
-                    <div class='column'>
-                        <div class="sel_de" (click)='selectAll()'><i class="mdi mdi-checkbox-multiple-marked" ></i>&nbsp;Select All </div>
-                    </div>
-                    <div class='column'>
-                        <div class="sel_de" (click)='unselectAll()'><i class="mdi  mdi-checkbox-multiple-blank" ></i>&nbsp;Reset </div>
-                    </div>
-                </div>
                 
-               
+                <div class="sel_de" (click)='selectAll()'><i class="mdi mdi-checkbox-multiple-marked" ></i>&nbsp;Select All </div>
+                <div class="sel_de" (click)='unselectAll()'><i class="mdi  mdi-checkbox-multiple-blank" ></i>&nbsp;Unselect All </div>
                
                 
             </div>
@@ -157,9 +149,9 @@
             <div class='columns'>
                 <div class='column'>
                     <span class='bold_font'>Risk Factors:</span>  {{map_title}}
-                    <div *ngIf="this.filter1.toggle">
-                        <span class='bold_font'>Filter:</span> {{this.filter1.display}} values between {{this.filter1.min_value}} and {{this.filter1.max_value}} 
-                    </div>
+           
+                    {{this.filter1.display}} values between {{this.filter1.min_value}} and {{this.filter1.max_value}} 
+              
                 </div>
                 <div class='column is-4'>
                     <img src="../../assets/legend.png">
@@ -186,23 +178,23 @@
             </div>
             <table>
                 <tr>
-                  <th>Filtered by:</th>
+                  <th>Rural Urban Continuum</th>
                 </tr>
                 <tr>
                   <td>
-                    <div *ngIf='!filter1.toggle' style='height:280px'>
+                    <!-- <div *ngIf='!filter1.toggle' style='height:280px'>
                         Choose a filter:
                         <select id="filter_select" (change)="selectFilter($event)" >
                             <option value=''>Select a Filter</option>
                             <option value='RUCC_2013'>Rural-Urban Continuum</option>
                         </select>
-                    </div>
+                    </div> -->
                     <div style='height:280px' *ngIf='filter1.toggle'>
                         <div class='custom-slider'>
                             
                             <span class='filter_title'>{{this.filter1.display}}</span>
                             
-                            <div class="close" (click)="dropFilter()"><i class="mdi mdi-close-box-outline" ></i></div>
+                            <!-- <div class="close" (click)="dropFilter()"><i class="mdi mdi-close-box-outline" ></i></div> -->
                             <ng5-slider [(value)]="filter1.min_value" [(highValue)]="filter1.max_value" [options]="filter1.options" (userChange)="onUserChange($event)"></ng5-slider>
                         </div>
 

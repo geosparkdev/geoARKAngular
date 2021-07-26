@@ -3265,7 +3265,6 @@ export class Categories2Component implements OnInit {
       this.route.queryParams
       .subscribe(params => {
         this.userid=params.userid;
-        console.log('USERIDUSERIDUSERID!***@*#*@#')
         console.log(this.userid)
 
       });
@@ -3273,11 +3272,19 @@ export class Categories2Component implements OnInit {
 
     this.spinner.show();
 
+    // ***** NOTE :25Jul21 -- the filter controller was created so that  multiple filters could be selected.
+    // As of right now.. no other filters will be used, so UI has been adjusted to accomodate for that change
+    // filter structure will be kept in case multiple filters are to be added one day.. thus will call "selectFilter" fxn here
+    // which would originally be triggered by a drop down (html commented out)
 
     //create filter1 controller-- the chosen filter information is stored in this object
     //When a filter is selected it is given a "name" -- which is the switch to turn on filter functions/views
     this.filter1=new filter();
+    this.selectFilter('RUCC_2013');
    
+    
+
+
     //create category map and set coordinates for Missouri
     cat_map_status=0;
     cat_map = L.map("cat_map").setView([38.573936, -92.603760], 7);
@@ -3545,8 +3552,10 @@ unselectAll(){
   selectFilter(filter){
 
 
-    this.getClickEvent('filter_buttonclick');
-    let curr_data=this.filters_data.find(e=> e['filter']===filter.target.value)
+  //  this.getClickEvent('filter_buttonclick');
+    //let curr_data=this.filters_data.find(e=> e['filter']===filter.target.value)
+
+    let curr_data=this.filters_data.find(e=> e['filter']===filter)
 
     if(this.filter1.name==null){
       this.filter1.name=filter.target.value
@@ -3561,8 +3570,8 @@ unselectAll(){
     }
     
     
-    cat_geoJSON.clearLayers();
-    this.map()
+   // cat_geoJSON.clearLayers();
+   // this.map()
   }
 
 // remove filter -- trigger toggle of filter views and removing filter from map
