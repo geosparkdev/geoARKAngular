@@ -3498,7 +3498,7 @@ clickBarsCounty(index){
               type: 'bar', 
               orientation:'h',
               marker: {color: color},
-              fips:'fips_in_bars'
+              fips: this.initial_tot_table[i]['countyFIPS'],
 
             },
         ],
