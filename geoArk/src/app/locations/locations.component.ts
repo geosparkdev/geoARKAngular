@@ -3826,7 +3826,7 @@ export class LocationsComponent implements OnInit {
             x1: this.risk_factors[i].mean,
             y1: 1,
             line: {
-              color: 'black',
+              color: '#676767',
               width: 1,
               dash: 'dot'
             }
@@ -4179,42 +4179,42 @@ getWindrosedata(covid_fips:any){
       data: [
           { 
             r: [Number(this.windrose_data[0])],
-            theta: ["Susceptibility"],
+            theta: ["%Susceptibility Risk"],
             marker: {color: "#019A1E"},
             showlegend:false,
             type: "barpolar",
           },
           {
             r: [Number(this.windrose_data[3])],
-            theta: ["Socioeconomic",],
+            theta: ["%Socioeconomic Risk",],
             marker: {color: "#470544"},
             showlegend:false,
             type: "barpolar"
           },
           {
             r: [Number(this.windrose_data[1])],
-            theta: ["Transmission",],
+            theta: ["%Transmission Risk",],
             marker: {color: "#1041a2"},
             showlegend:false,
             type: "barpolar"
           },
           {
             r: [Number(this.windrose_data[2])],
-            theta: ["Exposure",],
+            theta: ["%Exposure Risk",],
             marker: {color: "#676767"},
             showlegend:false,
             type: "barpolar"
           },
           {
             r: [Number(this.windrose_data[4])],
-            theta: ["Accessibility",],
+            theta: ["%Accessibility Risk",],
             marker: {color: "#A60306"},
             showlegend:false,
             type: "barpolar"
           },
           {
             r: [Number(this.windrose_data[5])],
-            theta: ["Health Resources",],
+            theta: ["%Health Resources Risk",],
             marker: {color: "#FB6D00"},
             showlegend:false,
             type: "barpolar"
