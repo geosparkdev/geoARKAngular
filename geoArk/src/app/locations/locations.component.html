@@ -275,13 +275,14 @@ Geo-Context and COVID-19 in Missouri
                             {{current_risk_factor}} Risk Factors
                         </span>
     
-                        <div *ngIf='current_factor=="total"'>
+                        <div class='HATitle' *ngIf='current_factor=="total"'>
     
                             Total {{current_risk_factor}} risk
                         </div>
     
-                        <div *ngIf='current_factor!="total"'>
-                            {{current_factor}}
+                        <div class='HATitle' *ngIf='current_factor!="total"'>
+                            <!-- {{current_factor}} -->
+                            {{current_description}}
                         </div>
     
     

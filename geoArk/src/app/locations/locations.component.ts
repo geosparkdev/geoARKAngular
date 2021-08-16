@@ -71,6 +71,8 @@ export class LocationsComponent implements OnInit {
   public risk_factors_bars:any=[];
   public risk_factors:any=[];
 
+  public current_description:any;
+
 
 
 
@@ -4232,8 +4234,8 @@ getWindrosedata(covid_fips:any){
         ],
         
         layout:{
-          title: "County Risk Assessment",
-          font: {size: 16},
+         // title: "County Risk Assessment",
+         // font: {size: 16},
           width: 150, 
           height: 100, 
         //  margin: {t:0,r:0,b:0,l:20},
@@ -4288,6 +4290,12 @@ triggerFactor(factor){
   this.current_factor=factor[0];
   geoJSON.clearLayers();
   this.map();
+
+
+  let temp=this.risk_factors.find(e=> e['factor']===String(factor))
+  this.current_description=temp.description;
+
+
 }
 
 
