@@ -94,7 +94,6 @@
 
 .windrose{
  /*margin-right:-50px;*/
- background-color: black;
  position:relative;
  width:20rem;
  /*top:-10px;*/
@@ -292,9 +291,6 @@ EDIT ON
 
 }
 
-.plot-container .plotly .main-svg{
-  background-color: black !important; 
-}
 
 .risk_button{
   cursor:pointer;
