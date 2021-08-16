@@ -101,7 +101,7 @@
 }
 
 
-.main-svg{
+::ng-deep .main-svg{
   background:red !important;
 }
 
