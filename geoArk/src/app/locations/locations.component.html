@@ -112,17 +112,13 @@ Geo-Context and COVID-19 in Missouri
         <li routerLink="/counties" routerLinkActive="active" class="selected"> Counties</li>
         <li routerLink="/datasources" routerLinkActive="active" > Data Sources</li>
         <li routerLink="/howtouse" routerLinkActive="active" > How to use</li>
-
-<!-- 
-        <li routerLink="/categories" > Risk Categories</li>
-        <li routerLink="/counties" class="selected" > Counties</li>
-        <li routerLink="/datasources" > Data Sources</li>
-        <li routerLink="/howtouse" > How to use</li> -->
     </ul> 
 </div>  
+
+
 <div class='main_container'>
 
-    <div class='statsblock'>
+    <!-- <div class='statsblock'>
         <div class='columns'>
             <div class='column is-3'>
                 <select id="county drop down" [ngModel]="selectcntyfip" name="county"(change)="getCountyData($event)" >
@@ -169,14 +165,86 @@ Geo-Context and COVID-19 in Missouri
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     
     <div class='columns'>
         <div class='column'>
             <div class='columns'>
                 <div class='column'>
 
-                    <div class="aligncenter">
+                    <div class='healthassessment'>
+                        <div class='HATitle'>County:</div>
+                        <select id="county drop down" [ngModel]="selectcntyfip" name="county"(change)="getCountyData($event)" >
+                            <option *ngFor='let county of counties' value={{county.cnty_fips}} >{{county.cnty_name}} County</option> 
+                        </select>
+
+                        <div class='HAspace'>
+                            <span class='HAcontent'><span class='HAbold'>Population:</span>{{county_pop}}</span>
+                            <br>
+                            <span class='HAcontent'><span class='HAbold'>People aged 65+:</span>{{county_65}}</span>
+                            <br>
+                            <span class='HAcontent'><span class='HAbold'>Total COVID-19 Cases:</span>{{county_cov_case}}</span>
+                            <br>
+                            <span class='HAcontent'><span class='HAbold'>Total COVID-19 Deaths:</span>{{county_cov_deaths}}</span>
+                        </div>
+
+                        <div class='HATitle'>Risk Category:</div> 
+
+
+                        <select  name="riskcategory"(change)="getFactorsData($event)" >
+                            <option value='susceptibility' >Susceptibility</option> 
+                            <option value='transmission' >Transmission</option> 
+                            <option value='exposure' >Exposure</option> 
+                            <option value='healthresources' >Health Resources</option> 
+                            <option value='socioeconomic' >Socioeconomic</option> 
+                            <option value='accessibility' >Accessibility</option> 
+                        </select>
+                        <div class='HAspace'>
+
+                            <div *ngIf="current_risk_factor=='susceptibility'">
+                                <span class='HAcontent'>
+                                    How susceptible an individual in a county might be to COVID-19. The inclusion of known and possible co-morbidities and age breaks were assessed.
+                                </span>
+                            </div>
+                            <div *ngIf="current_risk_factor=='transmission'">
+                                <span class='HAcontent'>
+                                    What the potential transmission risk of COVID-19 within a county might be. The inclusion of commuting, migration, worker types, group gatherings, and living situation.
+                                </span>
+                                
+                            </div>
+                            <div *ngIf="current_risk_factor=='healthresources'">
+                                <span class='HAcontent'>
+                                    What health resources are available to a county’s population to mitigate and aid in the response to the epidemic. The typical health resource measures included beds, ICU, and professional staffing measures.
+                                </span>
+                            </div>
+                            <div *ngIf="current_risk_factor=='exposure'">
+                                <span class='HAcontent'>
+                                    Incorporated existing exposure metrics (cases, testing, deaths) as temporally collected to aid in the development of associations, correlations, and trends.
+                                </span>
+                            </div>
+                            <div *ngIf="current_risk_factor=='socioeconomic'">
+                                <span class='HAcontent'>
+                                    What might be some socioeconomic / demographic variables that would capture and describe the associated social context risk within that county. The inclusion of race, ethnicity, disability, insurance status, veteran status, and education level.
+                                </span>
+                            </div>
+                            <div *ngIf="current_risk_factor=='accessibility'">
+                                <span class='HAcontent'>
+                                    What infrastructure components could be included to provide an assessment of accessibility and establish differences between counties in terms of their access to health options and care. The development and inclusion of various hospital, nursing home, and telehealth access measures as well as broadband metrics.
+                                </span>
+                                
+                            </div>
+
+                        </div>
+
+
+                        <div class='HATitle'>Risk Assessment:</div> 
+                        <br>
+                        <div class='windrose' (click)='getClickEvent("windroseclick")'>
+                            <plotly-plot [data]="windrose.data" [layout]="windrose.data.layout"></plotly-plot>
+                        </div>
+                       
+                    </div>
+                    <!-- <div class="aligncenter">
 
                         <span class='SB_2'>
                             {{current_risk_factor}} risk factors
@@ -195,12 +263,66 @@ Geo-Context and COVID-19 in Missouri
                         <div id="risk_map" class="risk_map"></div>   
     
                     </div>
-                
+                 -->
 
                 </div>
 
                 <div class='column'>
-                    <div class='aligncenter'>
+
+                    <div class="aligncenter">
+
+                        <span class='SB_2'>
+                            {{current_risk_factor}} Risk Factors
+                        </span>
+    
+                        <div *ngIf='current_factor=="total"'>
+    
+                            Total {{current_risk_factor}} risk
+                        </div>
+    
+                        <div *ngIf='current_factor!="total"'>
+                            {{current_factor}}
+                        </div>
+    
+    
+                        <div id="risk_map" class="risk_map"></div>   
+    
+                    </div>
+
+                    <br>
+                    <div *ngIf='spinnertogg' class='loading'>
+                        <ngx-spinner bdColor = "rgba(0,0,0,0)" size = "medium" color = "#ff8700" type = "ball-spin-clockwise-fade-rotating" [fullScreen] = "false">
+                        </ngx-spinner>
+                    </div>
+
+                    <br>
+                    <div *ngIf='!spinnertogg'>
+
+                        <div *ngIf='!spinnertogg2'>
+                            <div class='covid_plot' (click)='getClickEvent("covidcountycasesclick")'>
+                                <plotly-plot [data]="covid_county_cases.data" [layout]="covid_county_cases.layout"></plotly-plot>
+                            </div>
+                            <div class='covid_plot'(click)='getClickEvent("covidcountydeathsclick")'>
+                                <plotly-plot [data]="covid_county_deaths.data" [layout]="covid_county_deaths.layout"></plotly-plot>
+                            </div>
+                        </div>
+                       
+                            <div class='covid_plot' (click)='getClickEvent("covidcasesclick")'>
+                                <plotly-plot [data]="covid_cases.data" [layout]="covid_cases.layout"></plotly-plot>
+                            </div>
+    
+                            <div class='covid_plot' (click)='getClickEvent("coviddeathsclick")'>
+                                <plotly-plot [data]="covid_deaths.data" [layout]="covid_deaths.layout"></plotly-plot>
+                            </div>
+                     
+                
+                    </div> 
+
+                    <span class='guidance'>Cases and Deaths last updated {{this.update_date}}</span>
+                    <br>
+                    <span class='guidance'>*Cases/Deaths set to 0 if negative</span>
+
+                    <!-- <div class='aligncenter'>
                         <br>
                         <span class='SB_2'>
                             Select a risk category:
@@ -210,8 +332,6 @@ Geo-Context and COVID-19 in Missouri
                         <div *ngIf='current_risk_factor=="accessibility"'>
                             <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("accessibility")'>Accessibility</div> 
                             <br>Click on factor to visualize on map.<i class="mdi mdi-arrow-right-thick" ></i>
-                            
-                            <!-- <span><hr class='new1'></span> -->
                         </div>
                         <div *ngIf='current_risk_factor!="accessibility"'>
                             <div class='main_button button_blue' (click)='getFactorsData("accessibility")'>Accessibility</div>
@@ -264,7 +384,7 @@ Geo-Context and COVID-19 in Missouri
                         <div *ngIf='current_risk_factor!="transmission"'>
                             <div class='main_button button_blue' (click)='getFactorsData("transmission")'>Transmission</div>
                         </div>
-                    </div>
+                    </div> -->
                     
 
                     
@@ -272,12 +392,11 @@ Geo-Context and COVID-19 in Missouri
             </div>
 
 
-            <div class='columns'>
-                <div class='column'>
+            <!-- <div class='columns'>
+                <div class='column'> -->
 
-              
 
-                    <div *ngIf='spinnertogg' class='loading'>
+                    <!-- <div *ngIf='spinnertogg' class='loading'>
                         <ngx-spinner bdColor = "rgba(0,0,0,0)" size = "medium" color = "#ff8700" type = "ball-spin-clockwise-fade-rotating" [fullScreen] = "false">
                         </ngx-spinner>
                     </div>
@@ -307,10 +426,10 @@ Geo-Context and COVID-19 in Missouri
 
                     <span class='guidance'>Cases and Deaths last updated {{this.update_date}}</span>
                     <br>
-                    <span class='guidance'>*Cases/Deaths set to 0 if negative</span>
+                    <span class='guidance'>*Cases/Deaths set to 0 if negative</span> -->
 
 
-                </div>
+                <!-- </div>
                 <div class='column'>
                     <br>
                     <div class='windrose' (click)='getClickEvent("windroseclick")'>
@@ -318,7 +437,7 @@ Geo-Context and COVID-19 in Missouri
                     </div>
                    
                 </div>
-            </div>
+            </div> -->
 
 
 
@@ -327,14 +446,10 @@ Geo-Context and COVID-19 in Missouri
         <div class='column is-4 test'>
             <div class='factors_container'>
                 <div class='aligncenter'>
-                    <span class='SB_3'>
+                    <!-- <span class='SB_3'>
                         {{county_name}} County {{current_risk_factor}} risk factors
-                    </span>
-                    <br> (ordered descending by risk value)
-                    <br>as compared to the mean  <img src="../../assets/mean.png"> of other MO counties
-        
-                    <br>
-
+                    </span> -->
+                    <!-- <br> (ordered descending by risk value) -->
 
                     <div class='aligncenter'>
 
@@ -370,6 +485,12 @@ Geo-Context and COVID-19 in Missouri
  
                     </div>
 
+                    <br>as compared to the mean  <img src="../../assets/mean.png"> of other MO counties
+                    (ordered descending by risk value)
+                    <br>
+
+
+          
 
                 </div>
               
