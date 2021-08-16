@@ -3828,7 +3828,7 @@ export class LocationsComponent implements OnInit {
           autosize:true, 
           height: 45, 
          // margin:{l:100, r:25, t:15, b:15, pad:1},
-          margin:{l:1, r:25, t:15, b:15, pad:0},
+          margin:{l:5, r:25, t:15, b:15, pad:0},
           size: 6,
           shapes: [{
             name:'test',
@@ -4240,6 +4240,8 @@ getWindrosedata(covid_fips:any){
           height: 100, 
         //  margin: {t:0,r:0,b:0,l:20},
           //plot_bgcolor: 'rgba(245,246,249,0)',
+          paper_bgcolor:'#00000',
+          plot_bgcolor:'#00000',
 
           polar:{
             barmode:"overlay",
@@ -4249,11 +4251,7 @@ getWindrosedata(covid_fips:any){
           }
         },
 
-        style:{
-          paper_bgcolor:'rgba(0,0,0,0)',
-          plot_bgcolor:'rgba(0,0,0,0)',
-          width:'5rem'
-        }
+
     }
 }
 
