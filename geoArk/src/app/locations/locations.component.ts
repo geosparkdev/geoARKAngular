@@ -3797,7 +3797,7 @@ export class LocationsComponent implements OnInit {
           {
             x: [Number(this.risk_factors[i].factors_values)],
             //y: [this.risk_factors[i].factors],
-            y:[this.risk_factors[i].description],
+            y:[""],
             orientation: 'h',
             type: 'bar',
             width:2,
@@ -3807,6 +3807,14 @@ export class LocationsComponent implements OnInit {
           },
          ],
          layout: {
+
+          title: {
+            text: this.risk_factors[i].description,
+            font: {
+              size: 7
+            },
+            standoff: -5
+          },
           plot_bgcolor: '#f5f6f9',
            xaxis:{
             range: [Number(this.risk_factors[i].min_2), Number(this.risk_factors[i].max)],
@@ -3818,7 +3826,7 @@ export class LocationsComponent implements OnInit {
           autosize:true, 
           height: 45, 
          // margin:{l:100, r:25, t:15, b:15, pad:1},
-          margin:{l:200, r:25, t:15, b:15, pad:0},
+          margin:{l:25, r:25, t:15, b:15, pad:0},
           size: 6,
           shapes: [{
             name:'test',
