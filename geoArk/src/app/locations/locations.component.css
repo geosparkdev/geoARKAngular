@@ -95,7 +95,8 @@
 .windrose{
  /*margin-right:-50px;*/
  position:relative;
- width:20rem;
+ width:100%;
+ height:20rem;
  /*top:-10px;*/
 }
 
