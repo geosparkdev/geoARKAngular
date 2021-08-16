@@ -97,7 +97,7 @@
  position:relative;
  width:20rem;
  height:20rem;
- top:-10px;
+ top:-10px !important;
 }
 
 
