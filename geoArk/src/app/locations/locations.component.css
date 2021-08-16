@@ -101,7 +101,7 @@
 }
 
 
-::ng-deep .plot-container .main-svg{
+::ng-deep .windrose .plot-container .main-svg{
   background:red !important;
 }
 
