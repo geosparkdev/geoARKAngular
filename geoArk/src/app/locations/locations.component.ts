@@ -3798,7 +3798,7 @@ export class LocationsComponent implements OnInit {
         data: [
           {
             x: [Number(this.risk_factors[i].factors_values)],
-            y: [this.risk_factors[i].factors],
+            y: [String(this.risk_factors[i].factors)+'      '],
             //y:[""],
             orientation: 'h',
             type: 'bar',
