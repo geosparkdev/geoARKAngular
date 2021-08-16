@@ -292,7 +292,7 @@ EDIT ON
 
 }
 
-.main-svg{
+.plot-container .plotly .main-svg{
   background-color: black !important; 
 }
 
