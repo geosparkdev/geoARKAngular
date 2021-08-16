@@ -3797,7 +3797,7 @@ export class LocationsComponent implements OnInit {
           {
             x: [Number(this.risk_factors[i].factors_values)],
             //y: [this.risk_factors[i].factors],
-            y:[" "],
+            y:[this.risk_factors[i].description],
             orientation: 'h',
             type: 'bar',
             width:2,
@@ -3816,9 +3816,9 @@ export class LocationsComponent implements OnInit {
 
            },
           autosize:true, 
-          height: 45, 
+          height: 40, 
          // margin:{l:100, r:25, t:15, b:15, pad:1},
-          margin:{l:25, r:25, t:15, b:15, pad:1},
+          margin:{l:150, r:25, t:15, b:15, pad:0},
           size: 6,
           shapes: [{
             name:'test',
