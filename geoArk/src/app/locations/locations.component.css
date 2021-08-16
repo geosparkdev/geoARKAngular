@@ -292,6 +292,9 @@ EDIT ON
 
 }
 
+.main-svg{
+  background-color: black !important; 
+}
 
 .risk_button{
   cursor:pointer;
