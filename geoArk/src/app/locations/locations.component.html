@@ -498,7 +498,7 @@ Geo-Context and COVID-19 in Missouri
                 <div id='risk_factors'>
                     <div *ngFor='let factors of risk_factors_bars;let i=index'>
                  
-                        <div class='risk_button' (click)="triggerFactor(factors.data[0].y)" tooltip="{{risk_factors[i].description}}" placement="left" show-delay="0" hide-delay="0">
+                        <div class='risk_button' (click)="triggerFactor(factors.data[0].y, i)" tooltip="{{risk_factors[i].description}}" placement="left" show-delay="0" hide-delay="0">
 
                             <!-- <div class='main_button button_blue'>{{risk_factors[i].description}}</div> -->
             

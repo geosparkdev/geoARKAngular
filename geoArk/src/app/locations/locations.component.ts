@@ -3828,7 +3828,7 @@ export class LocationsComponent implements OnInit {
           autosize:true, 
           height: 45, 
          // margin:{l:100, r:25, t:15, b:15, pad:1},
-          margin:{l:0, r:25, t:15, b:15, pad:0},
+          margin:{l:1, r:25, t:15, b:15, pad:0},
           size: 6,
           shapes: [{
             name:'test',
@@ -4289,7 +4289,7 @@ factorsMapData(risk:any){
 // -------------------- MAP FUNCTIONS ------------------ //
 
 
-triggerFactor(factor){
+triggerFactor(factor, index){
 
   this.getClickEvent(factor+'_riskfactorclick')
   this.current_factor=factor[0];
@@ -4297,8 +4297,7 @@ triggerFactor(factor){
   this.map();
 
 
-  let temp=this.risk_factors.find(e=> e['factor']===String(factor))
-  this.current_description=temp.description;
+  this.current_description=this.risk_factors[index].description;
 
 
 }
