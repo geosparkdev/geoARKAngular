@@ -4240,8 +4240,8 @@ getWindrosedata(covid_fips:any){
           height: 100, 
         //  margin: {t:0,r:0,b:0,l:20},
           //plot_bgcolor: 'rgba(245,246,249,0)',
-          paper_bgcolor:'#00000',
-          plot_bgcolor:'#00000',
+          paper_bgcolor:'black',
+          plot_bgcolor:'black',
 
           polar:{
             barmode:"overlay",
