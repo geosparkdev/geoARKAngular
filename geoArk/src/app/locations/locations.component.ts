@@ -3796,7 +3796,8 @@ export class LocationsComponent implements OnInit {
         data: [
           {
             x: [Number(this.risk_factors[i].factors_values)],
-            y: [this.risk_factors[i].factors],
+            //y: [this.risk_factors[i].factors],
+            y:[" "],
             orientation: 'h',
             type: 'bar',
             width:2,
@@ -3806,7 +3807,7 @@ export class LocationsComponent implements OnInit {
           },
          ],
          layout: {
-          plot_bgcolor: 'rgba(245,246,249,1)',
+          plot_bgcolor: '#f5f6f9',
            xaxis:{
             range: [Number(this.risk_factors[i].min_2), Number(this.risk_factors[i].max)],
           // dtick: this.temp[i].max,
