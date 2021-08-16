@@ -4193,7 +4193,7 @@ getWindrosedata(covid_fips:any){
             r: [Number(this.windrose_data[0])],
             theta: ["%Susceptibility Risk"],
             marker: {color: "#019A1E"},
-            showlegend:false,
+            showlegend:true,
             type: "barpolar",
           },
           {
