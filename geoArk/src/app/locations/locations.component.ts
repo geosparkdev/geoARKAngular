@@ -3796,8 +3796,8 @@ export class LocationsComponent implements OnInit {
         data: [
           {
             x: [Number(this.risk_factors[i].factors_values)],
-            //y: [this.risk_factors[i].factors],
-            y:[""],
+            y: [this.risk_factors[i].factors],
+            //y:[""],
             orientation: 'h',
             type: 'bar',
             width:2,
@@ -3811,7 +3811,7 @@ export class LocationsComponent implements OnInit {
           title: {
             text: this.risk_factors[i].description,
             font: {
-              size: 7
+              size: 8
             },
             standoff: -5
           },
