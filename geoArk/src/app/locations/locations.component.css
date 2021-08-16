@@ -102,7 +102,7 @@
 
 
 ::ng-deep .windrose .plot-container .main-svg{
-  background:red !important;
+  background:transparent !important;
 }
 
 .test{

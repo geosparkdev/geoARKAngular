@@ -239,11 +239,11 @@ Geo-Context and COVID-19 in Missouri
 
                         <div class='HATitle'>Risk Assessment:</div> 
                         <br>
-                                          
+                        <div class='windrose' (click)='getClickEvent("windroseclick")'>
+                            <plotly-plot [data]="windrose.data" [layout]="windrose.data.layout"></plotly-plot>
+                        </div>                
                     </div>
-                    <div class='windrose' (click)='getClickEvent("windroseclick")'>
-                        <plotly-plot [data]="windrose.data" [layout]="windrose.data.layout"></plotly-plot>
-                    </div>
+              
                     <!-- <div class="aligncenter">
 
                         <span class='SB_2'>
