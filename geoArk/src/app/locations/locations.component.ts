@@ -4224,10 +4224,10 @@ getWindrosedata(covid_fips:any){
         layout:{
           title: "County Risk Assessment",
           font: {size: 16},
-          width: 200, 
-          height: 150, 
+          width: 150, 
+          height: 100, 
         //  margin: {t:0,r:0,b:0,l:20},
-          plot_bgcolor: 'rgba(245,246,249,0)',
+          //plot_bgcolor: 'rgba(245,246,249,0)',
           polar:{
             barmode:"overlay",
             bargap:0,
