@@ -3811,7 +3811,7 @@ export class LocationsComponent implements OnInit {
           title: {
             text: this.risk_factors[i].description,
             font: {
-              size: 8
+              size: 10
             },
             standoff: -5
           },
@@ -3826,7 +3826,7 @@ export class LocationsComponent implements OnInit {
           autosize:true, 
           height: 45, 
          // margin:{l:100, r:25, t:15, b:15, pad:1},
-          margin:{l:25, r:25, t:15, b:15, pad:0},
+          margin:{l:0, r:25, t:15, b:15, pad:0},
           size: 6,
           shapes: [{
             name:'test',
