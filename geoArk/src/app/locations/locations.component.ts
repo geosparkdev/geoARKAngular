@@ -4193,7 +4193,7 @@ getWindrosedata(covid_fips:any){
             r: [Number(this.windrose_data[0])],
             theta: ["%Susceptibility Risk"],
             marker: {color: "#019A1E"},
-            showlegend:true,
+            showlegend:false,
             type: "barpolar",
           },
           {
@@ -4240,12 +4240,12 @@ getWindrosedata(covid_fips:any){
           height: 100, 
         //  margin: {t:0,r:0,b:0,l:20},
           //plot_bgcolor: 'rgba(245,246,249,0)',
-        
+          //paper_bgcolor:'black',
+          //plot_bgcolor:'black',
 
           polar:{
             barmode:"overlay",
-            paper_bgcolor:'black',
-            plot_bgcolor:'black',
+            bgcolor:'black',
             bargap:0,
             radialaxis: {ticksuffix: "%", angle: 45, dtick: 20},
             angularaxis: {direction: "clockwise"}
