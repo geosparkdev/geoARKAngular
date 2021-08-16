@@ -328,12 +328,11 @@ EDIT ON
   .main_button{
 
     color: white;
-    margin-top:1.2rem;
+    /*margin-top:1.2rem;*/
     width: 100%;
     display: inline-block;
     border-radius:8px;
-    padding-top:3px;
-    padding-bottom:8px;
+    padding:0.5px;
     cursor:pointer;
 
     list-style: none;
@@ -342,12 +341,11 @@ EDIT ON
 
 .button_blue {
     background-color: #2872b2;
-    width: 17rem;
+    width: 100%;
     font-family:"Euphemia UCAS";
     font-weight: bold;
     font-size: 0.5rem;
     text-align:center;
-    margin-top:1.2rem;
 }
 .button_blue:hover{
   background-color:#033554;
