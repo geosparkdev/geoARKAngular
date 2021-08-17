@@ -48,6 +48,13 @@ export class LocationsComponent implements OnInit {
   public county_total_risk:string;
   public county_total_risk_all:string;
 
+  public county_accessibility:string;
+  public county_socioeconomic:string;
+  public county_transmission:string;
+  public county_exposure:string;
+  public county_healthresources:string;
+  public county_susceptibility:string;
+
 
   // Covid deaths and cases graphs
   public covid_county_cases:any={};
@@ -3728,6 +3735,12 @@ export class LocationsComponent implements OnInit {
         this.county_total_risk=response[4];
         this.county_total_risk_all=response[5];
 
+        this.county_accessibility=response[6];
+        this.county_socioeconomic=response[7];
+        this.county_transmission=response[8];
+        this.county_susceptibility=response[9];
+        this.county_healthresources=response[10];
+        this.county_exposure=response[11];
 
 
       },
@@ -3819,6 +3832,12 @@ export class LocationsComponent implements OnInit {
             },
             standoff: -5
           },
+
+          yaxis: {
+            showticklabels: false
+          },
+
+
           plot_bgcolor: '#f5f6f9',
            xaxis:{
             range: [Number(this.risk_factors[i].min_2), Number(this.risk_factors[i].max)],
@@ -3830,7 +3849,7 @@ export class LocationsComponent implements OnInit {
           autosize:true, 
           height: 48, 
          // margin:{l:100, r:25, t:15, b:15, pad:1},
-          margin:{l:2, r:25, t:20, b:15, pad:0},
+          margin:{l:6, r:25, t:20, b:15, pad:0},
           size: 6,
           shapes: [{
             name:'test',
