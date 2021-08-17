@@ -182,13 +182,13 @@ Geo-Context and COVID-19 in Missouri
                         </select>
 
                         <div class='HAspace'>
-                            <span class='HAcontent'><span class='HAbold'>Population:</span>{{county_pop}}</span>
+                            <span class='HAcontent'><span class='HAbold'>Population:&nbsp;</span>{{county_pop}}</span>
                             <br>
-                            <span class='HAcontent'><span class='HAbold'>People aged 65+:</span>{{county_65}}</span>
+                            <span class='HAcontent'><span class='HAbold'>People aged 65+:&nbsp;</span>{{county_65}}</span>
                             <br>
-                            <span class='HAcontent'><span class='HAbold'>Total COVID-19 Cases:</span>{{county_cov_case}}</span>
+                            <span class='HAcontent'><span class='HAbold'>Total COVID-19 Cases:&nbsp;</span>{{county_cov_case}}</span>
                             <br>
-                            <span class='HAcontent'><span class='HAbold'>Total COVID-19 Deaths:</span>{{county_cov_deaths}}</span>
+                            <span class='HAcontent'><span class='HAbold'>Total COVID-19 Deaths:&nbsp;</span>{{county_cov_deaths}}</span>
                         </div>
 
                         <div class='HATitle'>
@@ -244,8 +244,7 @@ Geo-Context and COVID-19 in Missouri
 
 
                         <div class='HATitle'>Risk Assessment:</div> 
-                        {{county_name}} County's {{current_risk_factor}} total risk is <span class='HAbold HAblue'>{{county_total_risk_all}}</span> with a risk score of 
-                        
+                        {{county_name}} County's {{current_risk_factor}} risk score is 
                         <span *ngIf="current_risk_factor=='susceptibilty'" class='HAbold HAblue'>{{county_susceptibility}}.</span>
                         <span *ngIf="current_risk_factor=='accessibility'" class='HAbold HAblue'>{{county_accessibility}}.</span>
                         <span *ngIf="current_risk_factor=='transmission'" class='HAbold HAblue'>{{county_transmission}}.</span>
@@ -254,22 +253,29 @@ Geo-Context and COVID-19 in Missouri
                         <span *ngIf="current_risk_factor=='exposure'" class='HAbold HAblue'>{{county_exposure}}.</span>
 
                         <br><br>
-                        Risk Score = risk category total risk normalized between 0-5
-                        <br>
-                        Risk category total risk=&Sigma; risk factor risk values
-                        <br>
-                        Risk values = risk factor quantile rank in missouri population
-                        <br>
-                        where quantile ranks:
-                        <br> 1 - 0.0-0.2
-                        <br> 2 - 0.2-0.4
-                        <br> 3 - 0.4-0.6
-                        <br> 4 - 0.6-0.8
-                        <br> 5 - 0.8 -1.0
-                        <br>
-                        <br>
-                        <br> <span class='HAbold HAblue'>{{county_name}} County's %Total Risk</span>
-                        <br> of all risk categories. Normalized between 0-100.
+
+
+
+                        <div class='HAspace'>
+                            <span class='HAcontent'><span class='HAbold'>Risk Cateogry Risk Score=</span>&Sigma; risk factor risk values</span>
+                            <br>
+                            <span class='HAcontent'><span class='HAbold'>Risk Factor Risk Value=</span>risk factor quantile rank in missouri population</span>
+
+                            <br>
+                            <span class='HAcontent'>where quantile ranks:
+                                <br><span class='HAbold'>1 - </span>0.0-0.2
+                                <br><span class='HAbold'>2 - </span>0.2-0.4
+                                <br><span class='HAbold'>3 - </span>0.4-0.6
+                                <br><span class='HAbold'>4 - </span>0.6-0.8
+                                <br><span class='HAbold'>5 - </span>0.8 -1.0
+
+                            </span>
+                            <br>
+                        </div>
+
+                        <br> <span class='HAbold'>{{county_name}} County's Total Risk Score:</span>
+                        <span class='HAbold HAblue'>{{county_total_risk_all}"</span><br>
+                        <br> %Risk of all risk categories*
                         <div class='windrose' (click)='getClickEvent("windroseclick")'>
                             <plotly-plot [data]="windrose.data" [layout]="windrose.data.layout"></plotly-plot>
                         </div>                
