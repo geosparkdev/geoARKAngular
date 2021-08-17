@@ -245,37 +245,37 @@ Geo-Context and COVID-19 in Missouri
 
                         <div class='HATitle'>Risk Assessment:</div> 
                         {{county_name}} County's {{current_risk_factor}} risk score is 
-                        <span *ngIf="current_risk_factor=='susceptibilty'" class='HAbold HAblue'>{{county_susceptibility}}.</span>
-                        <span *ngIf="current_risk_factor=='accessibility'" class='HAbold HAblue'>{{county_accessibility}}.</span>
-                        <span *ngIf="current_risk_factor=='transmission'" class='HAbold HAblue'>{{county_transmission}}.</span>
-                        <span *ngIf="current_risk_factor=='healthresources'" class='HAbold HAblue'>{{county_healthresources}}.</span>
-                        <span *ngIf="current_risk_factor=='socioeconomic'" class='HAbold HAblue'>{{county_socioeconomic}}.</span>
-                        <span *ngIf="current_risk_factor=='exposure'" class='HAbold HAblue'>{{county_exposure}}.</span>
+                        <div *ngIf="current_risk_factor=='susceptibilty'" class='HAbold HAblue'>{{county_susceptibility}}.</div>
+                        <div *ngIf="current_risk_factor=='accessibility'" class='HAbold HAblue'>{{county_accessibility}}.</div>
+                        <div *ngIf="current_risk_factor=='transmission'" class='HAbold HAblue'>{{county_transmission}}.</div>
+                        <div *ngIf="current_risk_factor=='healthresources'" class='HAbold HAblue'>{{county_healthresources}}.</div>
+                        <div *ngIf="current_risk_factor=='socioeconomic'" class='HAbold HAblue'>{{county_socioeconomic}}.</div>
+                        <div *ngIf="current_risk_factor=='exposure'" class='HAbold HAblue'>{{county_exposure}}.</div>
 
                         <br><br>
 
 
 
                         <div class='HAspace'>
-                            <span class='HAcontent'><span class='HAbold'>Risk Cateogry Risk Score=</span>&Sigma; risk factor risk values</span>
+                            <span class='HAcontent HAsmaller'><span class='HAbold HAsmaller'>Risk Cateogry Risk Score=</span>&Sigma; risk factor risk values</span>
                             <br>
-                            <span class='HAcontent'><span class='HAbold'>Risk Factor Risk Value=</span>risk factor quantile rank in missouri population</span>
+                            <span class='HAcontent HAsmaller'><span class='HAbold HAsmaller'>Risk Factor Risk Value=</span>risk factor quantile rank in missouri population</span>
 
                             <br>
-                            <span class='HAcontent'>where quantile ranks:
-                                <br><span class='HAbold'>1 - </span>0.0-0.2
-                                <br><span class='HAbold'>2 - </span>0.2-0.4
-                                <br><span class='HAbold'>3 - </span>0.4-0.6
-                                <br><span class='HAbold'>4 - </span>0.6-0.8
-                                <br><span class='HAbold'>5 - </span>0.8 -1.0
+                            <span class='HAcontent HAsmaller'>where quantile ranks:
+                                <br><span class='HAbold HAsmaller'>1 - </span>0.0-0.2
+                                <br><span class='HAbold HAsmaller'>2 - </span>0.2-0.4
+                                <br><span class='HAbold HAsmaller'>3 - </span>0.4-0.6
+                                <br><span class='HAbold HAsmaller'>4 - </span>0.6-0.8
+                                <br><span class='HAbold HAsmaller'>5 - </span>0.8 -1.0
 
                             </span>
                             <br>
                         </div>
 
                         <br> <span class='HAbold'>{{county_name}} County's Total Risk Score:</span>
-                        <span class='HAbold HAblue'>{{county_total_risk_all}"</span><br>
-                        <br> %Risk of all risk categories*
+                        <span class='HAbold HAblue'>{{county_total_risk_all}}</span><br>
+                        <br> % of MAX Risk Category Risk Score
                         <div class='windrose' (click)='getClickEvent("windroseclick")'>
                             <plotly-plot [data]="windrose.data" [layout]="windrose.data.layout"></plotly-plot>
                         </div>                
@@ -324,6 +324,7 @@ Geo-Context and COVID-19 in Missouri
     
     
                         <div id="risk_map" class="risk_map"></div>   
+                        <span class='SB_4'>Click on risk factor to visualize on map.<i class="mdi mdi-arrow-right-thick" ></i></span>
     
                     </div>
 

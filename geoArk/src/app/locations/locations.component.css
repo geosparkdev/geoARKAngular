@@ -81,6 +81,12 @@
   font-family:"Euphemia UCAS";
 }
 
+.HAsmaller{
+  color:black;
+  font-size:0.5rem;
+  font-family:"Euphemia UCAS";
+}
+
 .HAspace{
   margin:0.2rem;
   margin-bottom:0.4rem;
