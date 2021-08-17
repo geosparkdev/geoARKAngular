@@ -4292,8 +4292,13 @@ factorsMapData(risk:any){
 
 triggerFactor(factor, index){
 
+  console.log('TRIGGER TRIGGER')
+  console.log(factor)
+
   this.getClickEvent(factor+'_riskfactorclick')
   this.current_factor=factor[0];
+
+  console.log(this.current_factor)
   geoJSON.clearLayers();
   this.map();
 
