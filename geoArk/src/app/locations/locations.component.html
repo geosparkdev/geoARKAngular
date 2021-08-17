@@ -173,7 +173,10 @@ Geo-Context and COVID-19 in Missouri
                 <div class='column'>
 
                     <div class='healthassessment'>
-                        <div class='HATitle'>County:</div>
+                        <div class='HATitle'>
+                            <span class='HAcontent'><span class='HAbold'>Select a </span></span>
+                            County:
+                        </div>
                         <select id="county drop down" [ngModel]="selectcntyfip" name="county"(change)="getCountyData($event)" >
                             <option *ngFor='let county of counties' value={{county.cnty_fips}} >{{county.cnty_name}} County</option> 
                         </select>
@@ -188,7 +191,10 @@ Geo-Context and COVID-19 in Missouri
                             <span class='HAcontent'><span class='HAbold'>Total COVID-19 Deaths:</span>{{county_cov_deaths}}</span>
                         </div>
 
-                        <div class='HATitle'>Risk Category:</div> 
+                        <div class='HATitle'>
+                            <span class='HAcontent'><span class='HAbold'>Select a </span></span>
+                            Risk Category:
+                        </div> 
 
 
                         <select  name="riskcategory"(change)="getFactorsData($event)" >

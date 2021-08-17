@@ -3813,7 +3813,7 @@ export class LocationsComponent implements OnInit {
           title: {
             text: this.risk_factors[i].description,
             font: {
-              size: 10
+              size: 12
             },
             standoff: -5
           },
