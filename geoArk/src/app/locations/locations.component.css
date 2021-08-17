@@ -67,6 +67,10 @@
 .HAbold{
   font-weight:bolder;
 }
+
+.HAblue{
+  color:#2c70b2;
+}
 .HAcontent{
   color:black;
   font-size:0.9rem;
