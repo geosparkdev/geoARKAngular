@@ -4193,42 +4193,42 @@ getWindrosedata(covid_fips:any){
       data: [
           { 
             r: [Number(this.windrose_data[0])],
-            theta: ["%Susceptibility Risk"],
+            theta: ["Susceptibility"],
             marker: {color: "#019A1E"},
             showlegend:false,
             type: "barpolar",
           },
           {
             r: [Number(this.windrose_data[3])],
-            theta: ["%Socioeconomic Risk",],
+            theta: ["Socioeconomic",],
             marker: {color: "#470544"},
             showlegend:false,
             type: "barpolar"
           },
           {
             r: [Number(this.windrose_data[1])],
-            theta: ["%Transmission Risk",],
+            theta: ["Transmission",],
             marker: {color: "#1041a2"},
             showlegend:false,
             type: "barpolar"
           },
           {
             r: [Number(this.windrose_data[2])],
-            theta: ["%Exposure Risk",],
+            theta: ["Exposure",],
             marker: {color: "#676767"},
             showlegend:false,
             type: "barpolar"
           },
           {
             r: [Number(this.windrose_data[4])],
-            theta: ["%Accessibility Risk",],
+            theta: ["Accessibility",],
             marker: {color: "#A60306"},
             showlegend:false,
             type: "barpolar"
           },
           {
             r: [Number(this.windrose_data[5])],
-            theta: ["%Health Resources Risk",],
+            theta: ["Health Resources",],
             marker: {color: "#FB6D00"},
             showlegend:false,
             type: "barpolar"
