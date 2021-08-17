@@ -288,6 +288,13 @@ Geo-Context and COVID-19 in Missouri
                                 <span class='HAblue'>{{county_exposure}} .</span>
                             </span>
                         </div>
+
+                        <br> <span class='HAbold'>{{county_name}} County's Total Risk Score:</span>
+                        <span class='HAbold HAblue'>{{county_total_risk_all}}</span><br>
+                        % of MAX Risk Category Risk Score
+                        <div class='windrose' (click)='getClickEvent("windroseclick")'>
+                            <plotly-plot [data]="windrose.data" [layout]="windrose.data.layout"></plotly-plot>
+                        </div>    
                         <br><br>
 
 
@@ -295,26 +302,12 @@ Geo-Context and COVID-19 in Missouri
                         <div class='HAspace'>
                             <span class='HAcontent HAsmaller'><span class='HAbold HAsmaller'>Risk Cateogry Risk Score=</span>&Sigma; risk factor risk values</span>
                             <br>
-                            <span class='HAcontent HAsmaller'><span class='HAbold HAsmaller'>Risk Factor Risk Value=</span>risk factor &quantile rank in missouri population</span>
+                            <span class='HAcontent HAsmaller'><span class='HAbold HAsmaller'>Risk Factor Risk Value=</span>Risk factor quantile rank</span>
 
-                            <br>
-                            <span class='HAcontent HAsmaller'>&nbsp;&nbsp;&nbsp;where quantile ranks:
-                                <br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='HAbold HAsmaller'>1 - </span>0.0-0.2
-                                <br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='HAbold HAsmaller'>2 - </span>0.2-0.4
-                                <br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='HAbold HAsmaller'>3 - </span>0.4-0.6
-                                <br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='HAbold HAsmaller'>4 - </span>0.6-0.8
-                                <br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='HAbold HAsmaller'>5 - </span>0.8 -1.0
-
-                            </span>
-                            <br>
+               
                         </div>
 
-                        <br> <span class='HAbold'>{{county_name}} County's Total Risk Score:</span>
-                        <span class='HAbold HAblue'>{{county_total_risk_all}}</span><br>
-                        % of MAX Risk Category Risk Score
-                        <div class='windrose' (click)='getClickEvent("windroseclick")'>
-                            <plotly-plot [data]="windrose.data" [layout]="windrose.data.layout"></plotly-plot>
-                        </div>                
+                    
                     </div>
               
                     <!-- <div class="aligncenter">
