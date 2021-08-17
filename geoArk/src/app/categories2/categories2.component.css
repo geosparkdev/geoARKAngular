@@ -48,14 +48,14 @@
   .main_button{
 
     color: white;
-    margin-top:17px;
-    margin-right:10px;
+    margin-top:0.9rem;
+    margin-right:0.8rem;
     display: inline-block;
     border-radius:8px;
     padding-top:3px;
     padding-bottom:8px;
     cursor:pointer;
-    width: 14rem;
+    width: 0.8rem;
 
     list-style: none;
 
@@ -63,20 +63,20 @@
 
 .button_blue {
     background-color: #2872b2;
-    width: 14rem;
+    width: 0.8rem;
     font-family:"Euphemia UCAS";
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     text-align:center;
 }
 .button_blue:hover{
   background-color:#033554;
 }
 .button_blue_selected{
-    width: 14rem;
+    width: 0.8rem;
     font-family:"Euphemia UCAS";
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     text-align:center;
   background-color:#033554;
 }
