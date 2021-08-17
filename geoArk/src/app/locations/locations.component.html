@@ -244,7 +244,11 @@ Geo-Context and COVID-19 in Missouri
 
 
                         <div class='HATitle'>Risk Assessment:</div> 
-                        Test Test Test Test
+                        {{county_name}}'s {{current_risk_factor}} risk value is <span class='HAbold HAblue'>{{county_total_risk_all}}.</span>
+                        <br>
+                        A Risk category risk value = SUM(risk factor risk values)
+                        <br>
+                        Risk values are determined based on where a risk factor's value ranks in the population.
                         <br>
                         <div class='windrose' (click)='getClickEvent("windroseclick")'>
                             <plotly-plot [data]="windrose.data" [layout]="windrose.data.layout"></plotly-plot>

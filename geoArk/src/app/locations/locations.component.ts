@@ -46,6 +46,7 @@ export class LocationsComponent implements OnInit {
   public county_cov_case:string;
   public county_cov_deaths:string;
   public county_total_risk:string;
+  public county_total_risk_all:string;
 
 
   // Covid deaths and cases graphs
@@ -3725,6 +3726,7 @@ export class LocationsComponent implements OnInit {
         this.county_cov_case=response[2];
         this.county_cov_deaths=response[3];
         this.county_total_risk=response[4];
+        this.county_total_risk_all=response[5];
 
 
 
@@ -3826,7 +3828,7 @@ export class LocationsComponent implements OnInit {
 
            },
           autosize:true, 
-          height: 45, 
+          height: 48, 
          // margin:{l:100, r:25, t:15, b:15, pad:1},
           margin:{l:5, r:25, t:25, b:15, pad:0},
           size: 6,
