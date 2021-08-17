@@ -3800,7 +3800,7 @@ export class LocationsComponent implements OnInit {
         data: [
           {
             x: [Number(this.risk_factors[i].factors_values)],
-            y: [String(this.risk_factors[i].factors)+'       '],
+            y: [String(this.risk_factors[i].factors)],
             //y:[""],
             orientation: 'h',
             type: 'bar',
@@ -3830,7 +3830,7 @@ export class LocationsComponent implements OnInit {
           autosize:true, 
           height: 48, 
          // margin:{l:100, r:25, t:15, b:15, pad:1},
-          margin:{l:5, r:25, t:20, b:15, pad:0},
+          margin:{l:2, r:25, t:20, b:15, pad:0},
           size: 6,
           shapes: [{
             name:'test',
@@ -4292,13 +4292,10 @@ factorsMapData(risk:any){
 
 triggerFactor(factor, index){
 
-  console.log('TRIGGER TRIGGER')
-  console.log(factor)
 
   this.getClickEvent(factor+'_riskfactorclick')
   this.current_factor=factor[0];
 
-  console.log(this.current_factor)
   geoJSON.clearLayers();
   this.map();
 
