@@ -3849,7 +3849,7 @@ export class LocationsComponent implements OnInit {
           autosize:true, 
           height: 48, 
          // margin:{l:100, r:25, t:15, b:15, pad:1},
-          margin:{l:6, r:25, t:20, b:15, pad:0},
+          margin:{l:8, r:25, t:20, b:15, pad:0},
           size: 6,
           shapes: [{
             name:'test',
