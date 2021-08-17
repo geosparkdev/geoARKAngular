@@ -244,11 +244,11 @@ Geo-Context and COVID-19 in Missouri
 
 
                         <div class='HATitle'>Risk Assessment:</div> 
-                        {{county_name}} County's {{current_risk_factor}} total risk count is <span class='HAbold HAblue'>{{county_total_risk_all}}</span> which translates to a risk score of <span class='HAbold HAblue'>{{county_total_risk}}.</span>
+                        {{county_name}} County's {{current_risk_factor}} total risk is <span class='HAbold HAblue'>{{county_total_risk_all}}</span> with a risk score of <span class='HAbold HAblue'>{{county_total_risk}}.</span>
                         <br><br>
-                        Risk Score = quantile rank of risk category total risk count
+                        Risk Score = quantile rank of risk category total risk 
                         <br>
-                        Risk category total risk count =&Sigma; risk factor risk values
+                        Risk category total risk=&Sigma; risk factor risk values
                         <br>
                         Risk values = risk factor quantile rank in missouri population
                         <br>
@@ -295,12 +295,12 @@ Geo-Context and COVID-19 in Missouri
                             {{current_risk_factor}} Risk Factors
                         </span>
     
-                        <div class='HATitle' *ngIf='current_factor=="total"'>
+                        <div class='SB_4' *ngIf='current_factor=="total"'>
     
                             Total {{current_risk_factor}} risk
                         </div>
     
-                        <div class='HATitle' *ngIf='current_factor!="total"'>
+                        <div class='SB_4' *ngIf='current_factor!="total"'>
                             <!-- {{current_factor}} -->
                             {{current_description}}
                         </div>

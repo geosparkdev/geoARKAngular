@@ -3868,7 +3868,7 @@ export class LocationsComponent implements OnInit {
       ],
       layout: {
               autosize:true, 
-              height: 100, 
+              height: 120, 
 
               title: {
                 text: this.county_name+' County Weekly Cases',
@@ -3905,7 +3905,7 @@ export class LocationsComponent implements OnInit {
       ],
       layout: {
               autosize:true, 
-              height: 100, 
+              height: 120, 
 
               title: {
                 text: this.county_name+' County Weekly Deaths',
@@ -3947,7 +3947,7 @@ export class LocationsComponent implements OnInit {
       ],
       layout: {
               autosize:true,
-              height:100,
+              height:120,
 
               title: {
                 automargin: true,
@@ -3986,7 +3986,7 @@ export class LocationsComponent implements OnInit {
       ],
       layout: {
               autosize:true, 
-              height: 100, 
+              height: 120, 
 
               title: {
                 text:'Missouri Total Weekly Deaths',

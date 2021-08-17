@@ -36,7 +36,7 @@
   width:100%;
   overflow:hidden;
 
-  margin-top:0px;
+  margin-top:2rem;
 
   padding: 10px 200px;
 }
@@ -59,10 +59,14 @@
 
 .HATitle{
   color:#2c70b2;
-  font-size:1.2rem;
+  font-size:1.4rem;
   font-weight:bolder;
   font-family:"Euphemia UCAS";
 }
+
+
+
+
 
 .HAbold{
   font-weight:bolder;
@@ -162,6 +166,15 @@
     font-family:"Euphemia UCAS";
     font-weight: bolder;
     font-size: 1rem;
+  }
+
+  .SB_4{
+ 
+    color:#2c70b2;
+    font-size:1rem;
+    font-weight:bolder;
+    font-family:"Euphemia UCAS";
+    
   }
   
   
