@@ -194,48 +194,48 @@ Geo-Context and COVID-19 in Missouri
                         
                         <div *ngIf="current_risk_factor=='susceptibility'">
                             <span class='HAbold'>
-                                {{county_name}} County's {{current_risk_factor}} risk score:&nbsp;  
-                                <span class='HAblue'>{{county_susceptibility}} .</span>
+                                {{county_name}} County's {{current_risk_factor}} risk score: 
+                                <span class='HAblue'>{{county_susceptibility}}</span>
                             </span>
                         </div>
 
                         <div *ngIf="current_risk_factor=='accessibility'">
                             <span class='HAbold'>
-                                {{county_name}} County's {{current_risk_factor}} risk score:&nbsp;
-                                <span class='HAblue'>{{county_accessibility}} .</span>
+                                {{county_name}} County's {{current_risk_factor}} risk score:
+                                <span class='HAblue'>{{county_accessibility}}</span>
                             </span>
                         </div>
 
                         <div *ngIf="current_risk_factor=='transmission'">
                             <span class='HAbold'>
-                                {{county_name}} County's {{current_risk_factor}} risk score:&nbsp;
-                                <span class='HAblue'>{{county_transmission}} .</span>
+                                {{county_name}} County's {{current_risk_factor}} risk score:
+                                <span class='HAblue'>{{county_transmission}} </span>
                             </span>
                         </div>
                 
                         <div *ngIf="current_risk_factor=='healthresources'">
                             <span class='HAbold'>
-                                {{county_name}} County's {{current_risk_factor}} risk score:&nbsp;
-                                <span class='HAblue'>{{county_healthresources}} .</span>
+                                {{county_name}} County's {{current_risk_factor}} risk score:
+                                <span class='HAblue'>{{county_healthresources}} </span>
                             </span>
                         </div>
 
                         <div *ngIf="current_risk_factor=='socioeconomic'">
                             <span class='HAbold'>
-                                {{county_name}} County's {{current_risk_factor}} risk score:&nbsp;
-                                <span class='HAblue'>{{county_socioeconomic}} .</span>
+                                {{county_name}} County's {{current_risk_factor}} risk score:
+                                <span class='HAblue'>{{county_socioeconomic}} </span>
                             </span>
                         </div>
                         
                         
                         <div *ngIf="current_risk_factor=='exposure'">
                             <span class='HAbold'>
-                                {{county_name}} County's {{current_risk_factor}} risk score:&nbsp;
+                                {{county_name}} County's {{current_risk_factor}} risk score:
  
-                                <span class='HAblue'>{{county_exposure}} .</span>
+                                <span class='HAblue'>{{county_exposure}} </span>
                             </span>
                         </div>
-                        <span class='HAbold'>{{county_name}} County's Total Risk Score:</span>
+                        <span class='HAbold'>{{county_name}} County's Total Risk Score:&nbsp;</span>
                         <span class='HAbold HAblue'>{{county_total_risk_all}}</span><br><br>
                        <span class='HAblue'>% of MAX Risk Category Risk Score</span> 
                         <div class='windrose' (click)='getClickEvent("windroseclick")'>
