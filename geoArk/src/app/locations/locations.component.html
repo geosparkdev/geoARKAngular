@@ -173,8 +173,23 @@ Geo-Context and COVID-19 in Missouri
                 <div class='column'>
 
                     <div class='healthassessment'>
-                        
-                        <div class='HATitle'>Risk Assessment:</div> 
+                        <div class='HATitle'>
+                            <span class='HAcontent'><span class='HAbold HAblue'>Select a </span></span>
+                            County:
+                        </div>
+                        <select id="county drop down" [ngModel]="selectcntyfip" name="county"(change)="getCountyData($event)" >
+                            <option *ngFor='let county of counties' value={{county.cnty_fips}} >{{county.cnty_name}} County</option> 
+                        </select>
+
+                        <div class='HAspace'>
+                            <span class='HAcontent'><span class='HAbold'>Population:&nbsp;</span>{{county_pop}}</span>
+                            <br>
+                            <span class='HAcontent'><span class='HAbold'>People aged 65+:&nbsp;</span>{{county_65}}</span>
+                            <br>
+                            <span class='HAcontent'><span class='HAbold'>Total COVID-19 Cases:&nbsp;</span>{{county_cov_case}}</span>
+                            <br>
+                            <span class='HAcontent'><span class='HAbold'>Total COVID-19 Deaths:&nbsp;</span>{{county_cov_deaths}}</span>
+                        </div>
                         
                         <div *ngIf="current_risk_factor=='susceptibility'">
                             <span class='HAbold'>
@@ -211,7 +226,7 @@ Geo-Context and COVID-19 in Missouri
                             </span>
                         </div>
                         
-
+                        <div class='HATitle'>Risk Assessment:</div> 
                         <div *ngIf="current_risk_factor=='exposure'">
                             <span class='HAbold'>
                                 {{county_name}} County's {{current_risk_factor}} risk score is&nbsp;
@@ -226,24 +241,6 @@ Geo-Context and COVID-19 in Missouri
                             <plotly-plot [data]="windrose.data" [layout]="windrose.data.layout"></plotly-plot>
                         </div>    
 
-
-                        <div class='HATitle'>
-                            <span class='HAcontent'><span class='HAbold HAblue'>Select a </span></span>
-                            County:
-                        </div>
-                        <select id="county drop down" [ngModel]="selectcntyfip" name="county"(change)="getCountyData($event)" >
-                            <option *ngFor='let county of counties' value={{county.cnty_fips}} >{{county.cnty_name}} County</option> 
-                        </select>
-
-                        <div class='HAspace'>
-                            <span class='HAcontent'><span class='HAbold'>Population:&nbsp;</span>{{county_pop}}</span>
-                            <br>
-                            <span class='HAcontent'><span class='HAbold'>People aged 65+:&nbsp;</span>{{county_65}}</span>
-                            <br>
-                            <span class='HAcontent'><span class='HAbold'>Total COVID-19 Cases:&nbsp;</span>{{county_cov_case}}</span>
-                            <br>
-                            <span class='HAcontent'><span class='HAbold'>Total COVID-19 Deaths:&nbsp;</span>{{county_cov_deaths}}</span>
-                        </div>
 
                         <div class='HATitle'>
                             <span class='HAcontent'><span class='HAbold HAblue'>Select a </span></span>
