@@ -295,11 +295,6 @@ Geo-Context and COVID-19 in Missouri
                         </div> -->
 
 
-                        
-                        <br><br>
-
-
-
                         <div class='HAspace'>
                             <span class='HAcontent HAsmaller'><span class='HAbold HAsmaller'>Risk Cateogry Risk Score=</span>&Sigma; risk factor risk values</span>
                             <br>
@@ -377,11 +372,15 @@ Geo-Context and COVID-19 in Missouri
                         <div id="risk_map" class="risk_map"></div>   
                         <span class='SB_4'>Click on risk factor to visualize on map.<i class="mdi mdi-arrow-right-thick" ></i></span>
 
-                        <div class='columns'>
-                            <div class='column'><div class='aligncenter'>
-                                <br>
-            
-        
+
+                    </div>
+
+                    <div class='columns'>
+                        <div class='column'>
+                            
+                            <div class='aligncenter'>
+
+
                                 <div *ngIf='current_risk_factor=="accessibility"'>
                                     <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("accessibility")'>Accessibility</div> 
                                 </div>
@@ -389,7 +388,7 @@ Geo-Context and COVID-19 in Missouri
                                     <div class='main_button button_blue' (click)='getFactorsData("accessibility")'>Accessibility</div>
                                 </div>
         
-                          
+                        
         
                                 <div *ngIf='current_risk_factor=="healthresources"'>
                                     <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("healthresources")'>Health Resources</div>
@@ -407,42 +406,42 @@ Geo-Context and COVID-19 in Missouri
                                     <div class='main_button button_blue' (click)='getFactorsData("exposure")'>Exposure</div>
                                 </div>
         
-        
+    
                             </div>
 
-                            </div>
-                            <div class='column'>
-                                <div class='aligncenter'>
-                                    <div *ngIf='current_risk_factor=="socioeconomic"'>
-                                        <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("socioeconomic")'>Socioeconomic</div>
-                                    </div>
-                                    <div *ngIf='current_risk_factor!="socioeconomic"'>
-                                        <div class='main_button button_blue' (click)='getFactorsData("socioeconomic")'>Socioeconomic</div>
-                                    </div>
-            
-            
-            
-                                    <div *ngIf='current_risk_factor=="susceptibility"'>
-                                        <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("susceptibility")'>Susceptibility</div>
-                                    </div>
-                                    <div *ngIf='current_risk_factor!="susceptibility"'>
-                                        <div class='main_button button_blue' (click)='getFactorsData("susceptibility")'>Susceptibility</div>
-                                    </div>
-            
-            
-                                    <div *ngIf='current_risk_factor=="transmission"'>
-                                        <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("transmission")'>Transmission</div>
-                                    </div>
-                                    <div *ngIf='current_risk_factor!="transmission"'>
-                                        <div class='main_button button_blue' (click)='getFactorsData("transmission")'>Transmission</div>
-                                    </div>
-                                </div>
-                                
-                            </div>
                         </div>
+                        <div class='column'>
+                            <div class='aligncenter'>
+                                <div *ngIf='current_risk_factor=="socioeconomic"'>
+                                    <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("socioeconomic")'>Socioeconomic</div>
+                                </div>
+                                <div *ngIf='current_risk_factor!="socioeconomic"'>
+                                    <div class='main_button button_blue' (click)='getFactorsData("socioeconomic")'>Socioeconomic</div>
+                                </div>
+        
+        
+        
+                                <div *ngIf='current_risk_factor=="susceptibility"'>
+                                    <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("susceptibility")'>Susceptibility</div>
+                                </div>
+                                <div *ngIf='current_risk_factor!="susceptibility"'>
+                                    <div class='main_button button_blue' (click)='getFactorsData("susceptibility")'>Susceptibility</div>
+                                </div>
+        
+        
+                                <div *ngIf='current_risk_factor=="transmission"'>
+                                    <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("transmission")'>Transmission</div>
+                                </div>
+                                <div *ngIf='current_risk_factor!="transmission"'>
+                                    <div class='main_button button_blue' (click)='getFactorsData("transmission")'>Transmission</div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
 
     
-                    </div>
+  
 
                     <br>
                     <div *ngIf='spinnertogg' class='loading'>

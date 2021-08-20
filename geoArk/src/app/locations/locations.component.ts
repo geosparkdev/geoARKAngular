@@ -3654,15 +3654,20 @@ export class LocationsComponent implements OnInit {
 
 // get Data for Selected Risk Factor
   getFactorsData(factor:any){
-    this.current_risk_factor=factor.target.value
+    //this.current_risk_factor=factor.target.value
+    this.current_risk_factor=factor
     this.current_factor='total'
 
     geoJSON.clearLayers();
 
-    this.getClickEvent(factor.target.value+'_buttonclick');
+    //this.getClickEvent(factor.target.value+'_buttonclick');
 
-    this.getRiskFactors(this.county_fips,factor.target.value);
-    this.factorsMapData(factor.target.value);
+    this.getClickEvent(factor+'_buttonclick');
+
+    //this.getRiskFactors(this.county_fips,factor.target.value);
+    this.getRiskFactors(this.county_fips,factor);
+    //this.factorsMapData(factor.target.value);
+    this.factorsMapData(factor.value);
   }
 
 
