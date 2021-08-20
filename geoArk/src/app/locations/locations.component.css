@@ -51,7 +51,7 @@
 .healthassessment{
   background-color:#f5f6f9;
   border-radius: 25px;
-  margin:2rem;
+  margin:1rem;
  /* height: 100%;*/
   padding:1rem;
   margin-bottom:1rem;
@@ -435,12 +435,13 @@ select{
 
 
   .covid_outlines{
-    margin:0.2rem;
+    margin:0.4rem;
     font-family:"Euphemia UCAS";
-    font-size: 1.3rem;
+    font-size: 1rem;
     border: 1px solid black;
     width: 100%;
     text-align:center;
+    padding:0.3rem;
   
   }
   
