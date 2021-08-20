@@ -3667,7 +3667,7 @@ export class LocationsComponent implements OnInit {
     //this.getRiskFactors(this.county_fips,factor.target.value);
     this.getRiskFactors(this.county_fips,factor);
     //this.factorsMapData(factor.target.value);
-    this.factorsMapData(factor.value);
+    this.factorsMapData(factor);
   }
 
 
