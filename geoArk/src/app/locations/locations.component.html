@@ -173,6 +173,61 @@ Geo-Context and COVID-19 in Missouri
                 <div class='column'>
 
                     <div class='healthassessment'>
+                        
+                        <div class='HATitle'>Risk Assessment:</div> 
+                        
+                        <div *ngIf="current_risk_factor=='susceptibility'">
+                            <span class='HAbold'>
+                                {{county_name}} County's {{current_risk_factor}} risk score is 
+                                <span class='HAblue'>{{county_susceptibility}} .</span>
+                            </span>
+                        </div>
+
+                        <div *ngIf="current_risk_factor=='accessibility'">
+                            <span class='HAbold'>
+                                {{county_name}} County's {{current_risk_factor}} risk score is 
+                                <span class='HAblue'>{{county_accessibility}} .</span>
+                            </span>
+                        </div>
+
+                        <div *ngIf="current_risk_factor=='transmission'">
+                            <span class='HAbold'>
+                                {{county_name}} County's {{current_risk_factor}} risk score is 
+                                <span class='HAblue'>{{county_transmission}} .</span>
+                            </span>
+                        </div>
+                
+                        <div *ngIf="current_risk_factor=='healthresources'">
+                            <span class='HAbold'>
+                                {{county_name}} County's {{current_risk_factor}} risk score is 
+                                <span class='HAblue'>{{county_healthresources}} .</span>
+                            </span>
+                        </div>
+
+                        <div *ngIf="current_risk_factor=='socioeconomic'">
+                            <span class='HAbold'>
+                                {{county_name}} County's {{current_risk_factor}} risk score is 
+                                <span class='HAblue'>{{county_socioeconomic}} .</span>
+                            </span>
+                        </div>
+                        
+
+                        <div *ngIf="current_risk_factor=='exposure'">
+                            <span class='HAbold'>
+                                {{county_name}} County's {{current_risk_factor}} risk score is&nbsp;
+ 
+                                <span class='HAblue'>{{county_exposure}} .</span>
+                            </span>
+                        </div>
+
+                        <br> <span class='HAbold'>{{county_name}} County's Total Risk Score:</span>
+                        <span class='HAbold HAblue'>{{county_total_risk_all}}</span><br>
+                        % of MAX Risk Category Risk Score
+                        <div class='windrose' (click)='getClickEvent("windroseclick")'>
+                            <plotly-plot [data]="windrose.data" [layout]="windrose.data.layout"></plotly-plot>
+                        </div>    
+
+
                         <div class='HATitle'>
                             <span class='HAcontent'><span class='HAbold HAblue'>Select a </span></span>
                             County:
@@ -243,58 +298,7 @@ Geo-Context and COVID-19 in Missouri
                         </div>
 
 
-                        <div class='HATitle'>Risk Assessment:</div> 
                         
-                        <div *ngIf="current_risk_factor=='susceptibility'">
-                            <span class='HAbold'>
-                                {{county_name}} County's {{current_risk_factor}} risk score is 
-                                <span class='HAblue'>{{county_susceptibility}} .</span>
-                            </span>
-                        </div>
-
-                        <div *ngIf="current_risk_factor=='accessibility'">
-                            <span class='HAbold'>
-                                {{county_name}} County's {{current_risk_factor}} risk score is 
-                                <span class='HAblue'>{{county_accessibility}} .</span>
-                            </span>
-                        </div>
-
-                        <div *ngIf="current_risk_factor=='transmission'">
-                            <span class='HAbold'>
-                                {{county_name}} County's {{current_risk_factor}} risk score is 
-                                <span class='HAblue'>{{county_transmission}} .</span>
-                            </span>
-                        </div>
-                
-                        <div *ngIf="current_risk_factor=='healthresources'">
-                            <span class='HAbold'>
-                                {{county_name}} County's {{current_risk_factor}} risk score is 
-                                <span class='HAblue'>{{county_healthresources}} .</span>
-                            </span>
-                        </div>
-
-                        <div *ngIf="current_risk_factor=='socioeconomic'">
-                            <span class='HAbold'>
-                                {{county_name}} County's {{current_risk_factor}} risk score is 
-                                <span class='HAblue'>{{county_socioeconomic}} .</span>
-                            </span>
-                        </div>
-                        
-
-                        <div *ngIf="current_risk_factor=='exposure'">
-                            <span class='HAbold'>
-                                {{county_name}} County's {{current_risk_factor}} risk score is&nbsp;
- 
-                                <span class='HAblue'>{{county_exposure}} .</span>
-                            </span>
-                        </div>
-
-                        <br> <span class='HAbold'>{{county_name}} County's Total Risk Score:</span>
-                        <span class='HAbold HAblue'>{{county_total_risk_all}}</span><br>
-                        % of MAX Risk Category Risk Score
-                        <div class='windrose' (click)='getClickEvent("windroseclick")'>
-                            <plotly-plot [data]="windrose.data" [layout]="windrose.data.layout"></plotly-plot>
-                        </div>    
                         <br><br>
 
 
