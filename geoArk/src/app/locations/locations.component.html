@@ -377,58 +377,73 @@ Geo-Context and COVID-19 in Missouri
                         <div id="risk_map" class="risk_map"></div>   
                         <span class='SB_4'>Click on risk factor to visualize on map.<i class="mdi mdi-arrow-right-thick" ></i></span>
 
-
-
-                        <div class='HATitle'>
-                            <span class='HAcontent'><span class='HAbold HAblue'>Select a </span></span>
-                            Risk Category:
-                        </div> 
-
-
-                        <select  name="riskcategory"(change)="getFactorsData($event)" >
-                            <option value='susceptibility' >Susceptibility</option> 
-                            <option value='transmission' >Transmission</option> 
-                            <option value='exposure' >Exposure</option> 
-                            <option value='healthresources' >Health Resources</option> 
-                            <option value='socioeconomic' >Socioeconomic</option> 
-                            <option value='accessibility' >Accessibility</option> 
-                        </select>
-                        <div class='HAspace'>
-
-                            <div *ngIf="current_risk_factor=='susceptibility'">
-                                <span class='HAcontent'>
-                                    How susceptible an individual in a county might be to COVID-19. The inclusion of known and possible co-morbidities and age breaks were assessed.
+                        <div class='columns'>
+                            <div class='column'><div class='aligncenter'>
+                                <br>
+                                <span class='SB_2'>
+                                    Select a risk category:
                                 </span>
+            
+        
+                                <div *ngIf='current_risk_factor=="accessibility"'>
+                                    <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("accessibility")'>Accessibility</div> 
+                                </div>
+                                <div *ngIf='current_risk_factor!="accessibility"'>
+                                    <div class='main_button button_blue' (click)='getFactorsData("accessibility")'>Accessibility</div>
+                                </div>
+        
+                          
+        
+                                <div *ngIf='current_risk_factor=="healthresources"'>
+                                    <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("healthresources")'>Health Resources</div>
+                                </div>
+                                <div *ngIf='current_risk_factor!="healthresources"'>
+                                    <div class='main_button button_blue' (click)='getFactorsData("healthresources")'>Health Resources</div>
+                                </div>
+        
+        
+                                
+                                <div *ngIf='current_risk_factor=="exposure"'>
+                                    <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("exposure")'> Exposure</div>  
+                                </div>
+                                <div *ngIf='current_risk_factor!="exposure"'>
+                                    <div class='main_button button_blue' (click)='getFactorsData("exposure")'>Exposure</div>
+                                </div>
+        
+        
                             </div>
-                            <div *ngIf="current_risk_factor=='transmission'">
-                                <span class='HAcontent'>
-                                    What the potential transmission risk of COVID-19 within a county might be. The inclusion of commuting, migration, worker types, group gatherings, and living situation.
-                                </span>
+
+                            </div>
+                            <div class='column'>
+                                <div class='aligncenter'>
+                                    <div *ngIf='current_risk_factor=="socioeconomic"'>
+                                        <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("socioeconomic")'>Socioeconomic</div>
+                                    </div>
+                                    <div *ngIf='current_risk_factor!="socioeconomic"'>
+                                        <div class='main_button button_blue' (click)='getFactorsData("socioeconomic")'>Socioeconomic</div>
+                                    </div>
+            
+            
+            
+                                    <div *ngIf='current_risk_factor=="susceptibility"'>
+                                        <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("susceptibility")'>Susceptibility</div>
+                                    </div>
+                                    <div *ngIf='current_risk_factor!="susceptibility"'>
+                                        <div class='main_button button_blue' (click)='getFactorsData("susceptibility")'>Susceptibility</div>
+                                    </div>
+            
+            
+                                    <div *ngIf='current_risk_factor=="transmission"'>
+                                        <div class='main_button button_blue button_blue_selected' (click)='getFactorsData("transmission")'>Transmission</div>
+                                    </div>
+                                    <div *ngIf='current_risk_factor!="transmission"'>
+                                        <div class='main_button button_blue' (click)='getFactorsData("transmission")'>Transmission</div>
+                                    </div>
+                                </div>
                                 
                             </div>
-                            <div *ngIf="current_risk_factor=='healthresources'">
-                                <span class='HAcontent'>
-                                    What health resources are available to a county’s population to mitigate and aid in the response to the epidemic. The typical health resource measures included beds, ICU, and professional staffing measures.
-                                </span>
-                            </div>
-                            <div *ngIf="current_risk_factor=='exposure'">
-                                <span class='HAcontent'>
-                                    Incorporated existing exposure metrics (cases, testing, deaths) as temporally collected to aid in the development of associations, correlations, and trends.
-                                </span>
-                            </div>
-                            <div *ngIf="current_risk_factor=='socioeconomic'">
-                                <span class='HAcontent'>
-                                    What might be some socioeconomic / demographic variables that would capture and describe the associated social context risk within that county. The inclusion of race, ethnicity, disability, insurance status, veteran status, and education level.
-                                </span>
-                            </div>
-                            <div *ngIf="current_risk_factor=='accessibility'">
-                                <span class='HAcontent'>
-                                    What infrastructure components could be included to provide an assessment of accessibility and establish differences between counties in terms of their access to health options and care. The development and inclusion of various hospital, nursing home, and telehealth access measures as well as broadband metrics.
-                                </span>
-                                
-                            </div>
-
                         </div>
+
     
                     </div>
 
