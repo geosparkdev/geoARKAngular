@@ -184,12 +184,9 @@ Geo-Context and COVID-19 in Missouri
 
                         <div class='HAspace'>
                             <span class='HAcontent'><span class='HAbold'>Population:&nbsp;</span>{{county_pop}}</span>
-                            <br>
+                            <br><br>
                             <span class='HAcontent'><span class='HAbold'>People aged 65+:&nbsp;</span>{{county_65}}</span>
                             <br>
-                            <span class='HAcontent'><span class='HAbold'>Total COVID-19 Cases:&nbsp;</span>{{county_cov_case}}</span>
-                            <br>
-                            <span class='HAcontent'><span class='HAbold'>Total COVID-19 Deaths:&nbsp;</span>{{county_cov_deaths}}</span>
                         </div>
                         
                         <div *ngIf="current_risk_factor=='susceptibility'">
@@ -235,6 +232,7 @@ Geo-Context and COVID-19 in Missouri
                                 <span class='HAblue'>{{county_exposure}} </span>
                             </span>
                         </div>
+                        <br>
                         <span class='HAbold'>{{county_name}} County's Total Risk Score:&nbsp;</span>
                         <span class='HAbold HAblue'>{{county_total_risk_all}}</span><br><br>
                        <span class='HAblue'>% of MAX Risk Category Risk Score</span> 
