@@ -47,12 +47,26 @@
 
 
 .healthassessment{
+  font-family:"Euphemia UCAS";
   background-color:#f5f6f9;
   border-radius: 25px;
   margin:2rem;
  /* height: 100%;*/
   padding:1rem;
   margin-bottom:1rem;
+}
+
+.covid_outlines{
+  font-family:"Euphemia UCAS";
+  font-size: 1.3rem;
+  border: 1px solid black;
+  width: 100%;
+  text-align:center;
+
+}
+
+.covid_outlines_bold{
+  font-weight:bolder;
 }
 
 

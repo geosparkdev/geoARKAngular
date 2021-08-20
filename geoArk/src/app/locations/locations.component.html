@@ -508,11 +508,17 @@ Geo-Context and COVID-19 in Missouri
                     <div *ngIf='!spinnertogg'>
 
                         <div *ngIf='!spinnertogg2'>
+                            <div class='covid_outlines'>
+
+                                 {{county_name}} County total COVID-19 Cases:</span>{{county_cov_case}}
+
+                            </div>
                             <div class='covid_plot' (click)='getClickEvent("covidcountycasesclick")'>
                                 <plotly-plot [data]="covid_county_cases.data" [layout]="covid_county_cases.layout"></plotly-plot>
                             </div>
-                            <div class='covid_plot'(click)='getClickEvent("covidcountydeathsclick")'>
-                                <plotly-plot [data]="covid_county_deaths.data" [layout]="covid_county_deaths.layout"></plotly-plot>
+                    
+                            <div class='covid_plot' (click)='getClickEvent("covidcasesclick")'>
+                                <plotly-plot [data]="covid_cases.data" [layout]="covid_cases.layout"></plotly-plot>
                             </div>
                         </div>
                        
@@ -540,8 +546,9 @@ Geo-Context and COVID-19 in Missouri
                             </div>
                         </div> -->
                         <div *ngIf='!spinnertogg2'>
-                            <div class='covid_plot' (click)='getClickEvent("covidcasesclick")'>
-                                <plotly-plot [data]="covid_cases.data" [layout]="covid_cases.layout"></plotly-plot>
+                 
+                            <div class='covid_plot'(click)='getClickEvent("covidcountydeathsclick")'>
+                                <plotly-plot [data]="covid_county_deaths.data" [layout]="covid_county_deaths.layout"></plotly-plot>
                             </div>
     
                             <div class='covid_plot' (click)='getClickEvent("coviddeathsclick")'>
