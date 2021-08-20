@@ -3852,7 +3852,7 @@ export class LocationsComponent implements OnInit {
 
            },
           autosize:true, 
-          //height: 48, 
+          height: 48, 
          // margin:{l:100, r:25, t:15, b:15, pad:1},
           margin:{l:8, r:25, t:20, b:15, pad:0},
           size: 6,
@@ -3892,7 +3892,7 @@ export class LocationsComponent implements OnInit {
       ],
       layout: {
               autosize:true, 
-              height: 130, 
+              //height: 130, 
 
               title: {
                 text: this.county_name+' County Weekly Cases',
@@ -3929,7 +3929,7 @@ export class LocationsComponent implements OnInit {
       ],
       layout: {
               autosize:true, 
-              height: 130, 
+           //   height: 130, 
 
               title: {
                 text: this.county_name+' County Weekly Deaths',
@@ -3971,7 +3971,7 @@ export class LocationsComponent implements OnInit {
       ],
       layout: {
               autosize:true,
-              height:130,
+           //   height:130,
 
               title: {
                 automargin: true,
@@ -4010,7 +4010,7 @@ export class LocationsComponent implements OnInit {
       ],
       layout: {
               autosize:true, 
-              height: 130, 
+           //   height: 130, 
 
               title: {
                 text:'Missouri Total Weekly Deaths',
@@ -4063,8 +4063,9 @@ export class LocationsComponent implements OnInit {
           },
       ],
       layout: {
-              width: 400, 
-              height: 150, 
+        autosize:true, 
+        // width: 400, 
+            //  height: 150, 
 
               title: {
                 text: this.county_name+' County Weekly Cases',
@@ -4116,9 +4117,9 @@ export class LocationsComponent implements OnInit {
           },
       ],
       layout: {
-              width: 400, 
-              height: 150, 
-
+             // width: 400, 
+             // height: 150, 
+              autosize:true, 
               title: {
                 text: this.county_name+' County Weekly Deaths',
                 font: {
