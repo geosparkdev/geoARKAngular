@@ -305,27 +305,7 @@ Geo-Context and COVID-19 in Missouri
 
                     
                     </div>
-                    <div *ngIf='!spinnertogg'>
 
-                        <div *ngIf='!spinnertogg2'>
-                            <div class='covid_plot' (click)='getClickEvent("covidcountycasesclick")'>
-                                <plotly-plot [data]="covid_county_cases.data" [layout]="covid_county_cases.layout"></plotly-plot>
-                            </div>
-                            <div class='covid_plot'(click)='getClickEvent("covidcountydeathsclick")'>
-                                <plotly-plot [data]="covid_county_deaths.data" [layout]="covid_county_deaths.layout"></plotly-plot>
-                            </div>
-                        </div>
-                       
-                            <!-- <div class='covid_plot' (click)='getClickEvent("covidcasesclick")'>
-                                <plotly-plot [data]="covid_cases.data" [layout]="covid_cases.layout"></plotly-plot>
-                            </div>
-    
-                            <div class='covid_plot' (click)='getClickEvent("coviddeathsclick")'>
-                                <plotly-plot [data]="covid_deaths.data" [layout]="covid_deaths.layout"></plotly-plot>
-                            </div>
-                      -->
-                
-                    </div> 
               
                     <!-- <div class="aligncenter">
 
@@ -451,32 +431,7 @@ Geo-Context and COVID-19 in Missouri
                     </div>
 
                     <br>
-                    <div *ngIf='!spinnertogg'>
-
-                        <!-- <div *ngIf='!spinnertogg2'>
-                            <div class='covid_plot' (click)='getClickEvent("covidcountycasesclick")'>
-                                <plotly-plot [data]="covid_county_cases.data" [layout]="covid_county_cases.layout"></plotly-plot>
-                            </div>
-                            <div class='covid_plot'(click)='getClickEvent("covidcountydeathsclick")'>
-                                <plotly-plot [data]="covid_county_deaths.data" [layout]="covid_county_deaths.layout"></plotly-plot>
-                            </div>
-                        </div> -->
-                        <div *ngIf='!spinnertogg2'>
-                            <div class='covid_plot' (click)='getClickEvent("covidcasesclick")'>
-                                <plotly-plot [data]="covid_cases.data" [layout]="covid_cases.layout"></plotly-plot>
-                            </div>
     
-                            <div class='covid_plot' (click)='getClickEvent("coviddeathsclick")'>
-                                <plotly-plot [data]="covid_deaths.data" [layout]="covid_deaths.layout"></plotly-plot>
-                            </div>
-                        </div> 
-                     
-                
-                    </div> 
-
-                    <span class='guidance'>Cases and Deaths last updated {{this.update_date}}</span>
-                    <br>
-                    <span class='guidance'>*Cases/Deaths set to 0 if negative</span>
 
                     <!-- <div class='aligncenter'>
                         <br>
@@ -545,6 +500,64 @@ Geo-Context and COVID-19 in Missouri
 
                     
                 </div>
+            </div>
+
+
+            <div class='columns'>
+                <div class='column'>
+                    <div *ngIf='!spinnertogg'>
+
+                        <div *ngIf='!spinnertogg2'>
+                            <div class='covid_plot' (click)='getClickEvent("covidcountycasesclick")'>
+                                <plotly-plot [data]="covid_county_cases.data" [layout]="covid_county_cases.layout"></plotly-plot>
+                            </div>
+                            <div class='covid_plot'(click)='getClickEvent("covidcountydeathsclick")'>
+                                <plotly-plot [data]="covid_county_deaths.data" [layout]="covid_county_deaths.layout"></plotly-plot>
+                            </div>
+                        </div>
+                       
+                            <!-- <div class='covid_plot' (click)='getClickEvent("covidcasesclick")'>
+                                <plotly-plot [data]="covid_cases.data" [layout]="covid_cases.layout"></plotly-plot>
+                            </div>
+    
+                            <div class='covid_plot' (click)='getClickEvent("coviddeathsclick")'>
+                                <plotly-plot [data]="covid_deaths.data" [layout]="covid_deaths.layout"></plotly-plot>
+                            </div>
+                      -->
+                
+                    </div> 
+                </div>
+                <div class='column'>
+
+                    <div *ngIf='!spinnertogg'>
+
+                        <!-- <div *ngIf='!spinnertogg2'>
+                            <div class='covid_plot' (click)='getClickEvent("covidcountycasesclick")'>
+                                <plotly-plot [data]="covid_county_cases.data" [layout]="covid_county_cases.layout"></plotly-plot>
+                            </div>
+                            <div class='covid_plot'(click)='getClickEvent("covidcountydeathsclick")'>
+                                <plotly-plot [data]="covid_county_deaths.data" [layout]="covid_county_deaths.layout"></plotly-plot>
+                            </div>
+                        </div> -->
+                        <div *ngIf='!spinnertogg2'>
+                            <div class='covid_plot' (click)='getClickEvent("covidcasesclick")'>
+                                <plotly-plot [data]="covid_cases.data" [layout]="covid_cases.layout"></plotly-plot>
+                            </div>
+    
+                            <div class='covid_plot' (click)='getClickEvent("coviddeathsclick")'>
+                                <plotly-plot [data]="covid_deaths.data" [layout]="covid_deaths.layout"></plotly-plot>
+                            </div>
+                        </div> 
+                     
+                
+                    </div> 
+
+                    <span class='guidance'>Cases and Deaths last updated {{this.update_date}}</span>
+                    <br>
+                    <span class='guidance'>*Cases/Deaths set to 0 if negative</span>
+
+                </div>
+
             </div>
 
 
