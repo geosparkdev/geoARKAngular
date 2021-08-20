@@ -510,7 +510,9 @@ Geo-Context and COVID-19 in Missouri
                         <div *ngIf='!spinnertogg2'>
                             <div class='covid_outlines'>
 
-                                 {{county_name}} County's<span class='covid_outlines_bold'>Total COVID-19 Cases:{{county_cov_case}}</span>
+                                <span class='covid_outlines_bold'>
+                                    {{county_name}} County's Total COVID-19 Cases:<span class="covid_outlines_bold">{{county_cov_case}}</span>
+                                </span> 
 
                             </div>
                             <div class='covid_plot' (click)='getClickEvent("covidcountycasesclick")'>
@@ -546,7 +548,15 @@ Geo-Context and COVID-19 in Missouri
                             </div>
                         </div> -->
                         <div *ngIf='!spinnertogg2'>
-                            {{county_name}} County's<span class='covid_outlines_bold'>Total COVID-19 Deaths:{{county_cov_deaths}}</span>
+
+                            <div class='covid_outlines'>
+
+                                <span class='covid_outlines_bold'>
+                                    {{county_name}} County's Total COVID-19 Deaths:<span class="covid_outlines_bold">{{county_cov_deaths}</span>
+                                </span> 
+
+                            </div>
+                      
                  
                             <div class='covid_plot'(click)='getClickEvent("covidcountydeathsclick")'>
                                 <plotly-plot [data]="covid_county_deaths.data" [layout]="covid_county_deaths.layout"></plotly-plot>
