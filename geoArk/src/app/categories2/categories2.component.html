@@ -92,53 +92,58 @@
     <div class='columns'>
         <div class='column is-3'>
             <br>
-            <div class="alignright">
-                <div class="instructions">
-                    Select/ Deselect risk categories
-                    <br> and generate risk assessment.
-                </div>
-                <br><span class='loadtime'>Aggregation of risk categories may take a few seconds.</span>
-            </div>
 
-            <div class="alignright">
+            <div class='healthassessment'>
+                <div class="alignright">
+                    <div class="instructions">
+                        Select/ Deselect risk categories
+                        <br> and generate risk assessment.
+                    </div>
+                    <br><span class='loadtime'>Aggregation of risk categories may take a few seconds.</span>
+                </div>
+    
+                <div class="alignright">
+                
+    
+                    <div class='main_button button_blue' [ngClass]="{'main_button1 button_blue_selected' : risk_factors.Accessibility==1}" (click)='updateTotals("Accessibility")'>
+                        Accessibility
+                        <span *ngIf='risk_factors.Accessibility==1'><i class="mdi mdi-check-bold" ></i></span>
+                    </div>
+    
+                    <div class='main_button button_blue' [ngClass]="{'main_button1 button_blue_selected' : risk_factors.Exposure==1}" (click)='updateTotals("Exposure")'>
+                        Exposure
+                        <span *ngIf='risk_factors.Exposure==1'><i class="mdi mdi-check-bold" ></i></span>
+                    </div>
+    
+                    <div class='main_button button_blue' [ngClass]="{'main_button1 button_blue_selected' : risk_factors.Health_resources==1}" (click)='updateTotals("Health_resources")'>
+                        Health Resources
+                        <span *ngIf='risk_factors.Health_resources==1'><i class="mdi mdi-check-bold" ></i></span>
+                    </div>
+    
+                    <div  class='main_button button_blue' [ngClass]="{'main_button1 button_blue_selected' : risk_factors.Socioeconomic==1}" (click)='updateTotals("Socioeconomic")'>
+                        Socioeconomic  
+                        <span *ngIf='risk_factors.Socioeconomic==1'><i class="mdi mdi-check-bold" ></i></span>
+                    </div>
+    
+                    <div  class='main_button button_blue' [ngClass]="{'main_button1 button_blue_selected' : risk_factors.Susceptibility==1}" (click)='updateTotals("Susceptibility")'>
+                        Susceptibility
+                        <span *ngIf='risk_factors.Susceptibility==1'><i class="mdi mdi-check-bold" ></i></span>
+                    </div>
+                    <div class='main_button button_blue' [ngClass]="{'main_button1 button_blue_selected' : risk_factors.Transmission==1}" (click)='updateTotals("Transmission")'>
+                        Transmission
+                        <span *ngIf='risk_factors.Transmission==1'><i class="mdi mdi-check-bold" ></i></span>
+                    </div>
+                    <br>
+                    <br>
+                    
+                    <div class="sel_de" (click)='selectAll()'><i class="mdi mdi-checkbox-multiple-marked" ></i>&nbsp;Select All </div>
+                    <div class="sel_de" (click)='unselectAll()'><i class="mdi  mdi-checkbox-multiple-blank" ></i>&nbsp;Reset </div>
+                   
+                    
+                </div>
+
+            </div>
             
-
-                <div class='main_button button_blue' [ngClass]="{'main_button1 button_blue_selected' : risk_factors.Accessibility==1}" (click)='updateTotals("Accessibility")'>
-                    Accessibility
-                    <span *ngIf='risk_factors.Accessibility==1'><i class="mdi mdi-check-bold" ></i></span>
-                </div>
-
-                <div class='main_button button_blue' [ngClass]="{'main_button1 button_blue_selected' : risk_factors.Exposure==1}" (click)='updateTotals("Exposure")'>
-                    Exposure
-                    <span *ngIf='risk_factors.Exposure==1'><i class="mdi mdi-check-bold" ></i></span>
-                </div>
-
-                <div class='main_button button_blue' [ngClass]="{'main_button1 button_blue_selected' : risk_factors.Health_resources==1}" (click)='updateTotals("Health_resources")'>
-                    Health Resources
-                    <span *ngIf='risk_factors.Health_resources==1'><i class="mdi mdi-check-bold" ></i></span>
-                </div>
-
-                <div  class='main_button button_blue' [ngClass]="{'main_button1 button_blue_selected' : risk_factors.Socioeconomic==1}" (click)='updateTotals("Socioeconomic")'>
-                    Socioeconomic  
-                    <span *ngIf='risk_factors.Socioeconomic==1'><i class="mdi mdi-check-bold" ></i></span>
-                </div>
-
-                <div  class='main_button button_blue' [ngClass]="{'main_button1 button_blue_selected' : risk_factors.Susceptibility==1}" (click)='updateTotals("Susceptibility")'>
-                    Susceptibility
-                    <span *ngIf='risk_factors.Susceptibility==1'><i class="mdi mdi-check-bold" ></i></span>
-                </div>
-                <div class='main_button button_blue' [ngClass]="{'main_button1 button_blue_selected' : risk_factors.Transmission==1}" (click)='updateTotals("Transmission")'>
-                    Transmission
-                    <span *ngIf='risk_factors.Transmission==1'><i class="mdi mdi-check-bold" ></i></span>
-                </div>
-                <br>
-                <br>
-                
-                <div class="sel_de" (click)='selectAll()'><i class="mdi mdi-checkbox-multiple-marked" ></i>&nbsp;Select All </div>
-                <div class="sel_de" (click)='unselectAll()'><i class="mdi  mdi-checkbox-multiple-blank" ></i>&nbsp;Reset </div>
-               
-                
-            </div>
         
         </div>
         <div class='column'>

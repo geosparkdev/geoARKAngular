@@ -44,6 +44,18 @@
   cursor: pointer;
 }
 
+
+
+.healthassessment{
+  background-color:#f5f6f9;
+  border-radius: 25px;
+  margin:2rem;
+ /* height: 100%;*/
+  padding:1rem;
+  margin-bottom:1rem;
+}
+
+
   /*----------- Buttons -----------*/
   .main_button{
 
