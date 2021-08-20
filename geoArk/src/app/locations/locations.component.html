@@ -220,8 +220,8 @@ Geo-Context and COVID-19 in Missouri
                             </span>
                         </div>
                         <span class='HAbold'>{{county_name}} County's Total Risk Score:</span>
-                        <span class='HAbold HAblue'>{{county_total_risk_all}}</span><br>
-                       <span class='HAblue aligncenter'>% of MAX Risk Category Risk Score</span> 
+                        <span class='HAbold HAblue'>{{county_total_risk_all}}</span><br><br>
+                       <span class='HAblue'>% of MAX Risk Category Risk Score</span> 
                         <div class='windrose' (click)='getClickEvent("windroseclick")'>
                             <plotly-plot [data]="windrose.data" [layout]="windrose.data.layout"></plotly-plot>
                         </div>    
