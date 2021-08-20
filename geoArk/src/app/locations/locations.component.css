@@ -434,6 +434,20 @@ select{
   }
 
 
+  .covid_outlines{
+    margin:0.2rem;
+    font-family:"Euphemia UCAS";
+    font-size: 1.3rem;
+    border: 1px solid black;
+    width: 100%;
+    text-align:center;
+  
+  }
+  
+  .covid_outlines_bold{
+    font-weight:bolder;
+  }
+  
 
 
   /*----Tasks----*/

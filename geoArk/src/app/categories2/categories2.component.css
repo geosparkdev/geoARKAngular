@@ -56,19 +56,6 @@
   margin-bottom:1rem;
 }
 
-.covid_outlines{
-  font-family:"Euphemia UCAS";
-  font-size: 1.3rem;
-  border: 1px solid black;
-  width: 100%;
-  text-align:center;
-
-}
-
-.covid_outlines_bold{
-  font-weight:bolder;
-}
-
 
   /*----------- Buttons -----------*/
   .main_button{
