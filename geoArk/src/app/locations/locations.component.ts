@@ -3752,23 +3752,6 @@ export class LocationsComponent implements OnInit {
         this.county_exposure=response[11];
 
 
-        this.tot_risk_score = {
-          data: [
-              { 
-                domain: { x: [0, 1], y: [0, 1] },
-                value: response[5],
-                title: { text: "Total Risk Score" },
-                type: "indicator",
-                mode: "gauge+number",
-                delta: { reference: 400 },
-                gauge: { axis: { range: [null, 500] } }
-                
-              },
-          ],
-          layout: {
-                
-             }
-         };
 
 
 
