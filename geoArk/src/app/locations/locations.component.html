@@ -190,35 +190,35 @@ Geo-Context and COVID-19 in Missouri
                         </div>
                         
                         <div *ngIf="current_risk_factor=='susceptibility'">
-                            <span class='HAbold'>
+                            <span class='HAcontent HAbold'>
                                 {{county_name}} County's {{current_risk_factor}} risk score: 
                                 <span class='HAblue'>{{county_susceptibility}}</span>
                             </span>
                         </div>
 
                         <div *ngIf="current_risk_factor=='accessibility'">
-                            <span class='HAbold'>
+                            <span class='HAcontent HAbold'>
                                 {{county_name}} County's {{current_risk_factor}} risk score:
                                 <span class='HAblue'>{{county_accessibility}}</span>
                             </span>
                         </div>
 
                         <div *ngIf="current_risk_factor=='transmission'">
-                            <span class='HAbold'>
+                            <span class='HAcontent HAbold'>
                                 {{county_name}} County's {{current_risk_factor}} risk score:
                                 <span class='HAblue'>{{county_transmission}} </span>
                             </span>
                         </div>
                 
                         <div *ngIf="current_risk_factor=='healthresources'">
-                            <span class='HAbold'>
+                            <span class='HAcontent HAbold'>
                                 {{county_name}} County's {{current_risk_factor}} risk score:
                                 <span class='HAblue'>{{county_healthresources}} </span>
                             </span>
                         </div>
 
                         <div *ngIf="current_risk_factor=='socioeconomic'">
-                            <span class='HAbold'>
+                            <span class='HAcontent HAbold'>
                                 {{county_name}} County's {{current_risk_factor}} risk score:
                                 <span class='HAblue'>{{county_socioeconomic}} </span>
                             </span>
@@ -226,14 +226,14 @@ Geo-Context and COVID-19 in Missouri
                         
                         
                         <div *ngIf="current_risk_factor=='exposure'">
-                            <span class='HAbold'>
+                            <span class='HAcontent HAbold'>
                                 {{county_name}} County's {{current_risk_factor}} risk score:
  
                                 <span class='HAblue'>{{county_exposure}} </span>
                             </span>
                         </div>
                         <br>
-                        <span class='HAbold'>{{county_name}} County's Total Risk Score:&nbsp;</span>
+                        <span class='HAcontent HAbold'>{{county_name}} County's Total Risk Score:&nbsp;</span>
                         <span class='HAbold HAblue'>{{county_total_risk_all}}</span>
                         <br>
                         <br>
