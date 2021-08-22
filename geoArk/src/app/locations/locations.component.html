@@ -184,7 +184,7 @@ Geo-Context and COVID-19 in Missouri
 
                         <div class='HAspace'>
                             <span class='HAcontent'><span class='HAbold'>Population:&nbsp;</span>{{county_pop}}</span>
-                            <br><br>
+                            <br>
                             <span class='HAcontent'><span class='HAbold'>People aged 65+:&nbsp;</span>{{county_65}}</span>
                             <br>
                         </div>
@@ -234,8 +234,11 @@ Geo-Context and COVID-19 in Missouri
                         </div>
                         <br>
                         <span class='HAbold'>{{county_name}} County's Total Risk Score:&nbsp;</span>
-                        <span class='HAbold HAblue'>{{county_total_risk_all}}</span><br><br>
-                       <span class='HAblue'>% of MAX Risk Category Risk Score</span> 
+                        <span class='HAbold HAblue'>{{county_total_risk_all}}</span>
+                        <br>
+                        <br>
+                        <br>
+                       <span class='HAblue HAbold'>% of MAX Risk Category Risk Score</span> 
                         <div class='windrose' (click)='getClickEvent("windroseclick")'>
                             <plotly-plot [data]="windrose.data" [layout]="windrose.data.layout"></plotly-plot>
                         </div>    
