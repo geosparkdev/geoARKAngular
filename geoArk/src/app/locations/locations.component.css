@@ -54,7 +54,8 @@
   margin-top:2rem;
  /* height: 100%;*/
   padding:1rem;
-  margin-bottom:1rem;
+  /*margin-bottom:1rem;*/
+  height:100%;
 }
 
 .HATitle{
@@ -112,8 +113,8 @@
 .windrose{
  /*margin-right:-50px;*/
  position:relative;
- width:22rem;
- height:19rem;
+ width:100% !important;
+ height:100%;
  top:-5.1rem !important;
 }
 
@@ -334,7 +335,7 @@ EDIT ON
 /*----------- Map -----------*/
 .risk_map{
   height:50vh;
-  width: 55vh;
+  width: 100%;
   /*margin-left:3rem;*/
   }
 
