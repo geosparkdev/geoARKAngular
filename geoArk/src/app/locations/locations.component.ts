@@ -82,6 +82,10 @@ export class LocationsComponent implements OnInit {
   public current_description:any;
 
 
+  //indicator
+  public tot_risk_score:any;
+
+
 
 
   //Risk Factors Map
@@ -3748,6 +3752,29 @@ export class LocationsComponent implements OnInit {
         this.county_exposure=response[11];
 
 
+        this.tot_risk_score = {
+          data: [
+              { 
+                domain: { x: [0, 1], y: [0, 1] },
+                value: response[5],
+                title: { text: "Total Risk Score" },
+                type: "indicator",
+                mode: "gauge+number",
+                delta: { reference: 400 },
+                gauge: { axis: { range: [null, 500] } }
+                
+              },
+          ],
+          layout: {
+                
+             }
+         };
+
+
+
+        
+
+
       },
       error => {
         console.log(error)
@@ -3808,7 +3835,9 @@ export class LocationsComponent implements OnInit {
   }
 
 
-  
+
+
+
 // function to create risk factor bar plots
   RiskFactorsbarplot(){
     this.risk_factors_bars = [];

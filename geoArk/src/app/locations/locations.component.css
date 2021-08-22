@@ -435,6 +435,11 @@ select{
   }
 
 
+  .total_risk_indicator{
+    width:100%
+  }
+
+
   .covid_outlines{
     margin:0.4rem;
     font-family:"Euphemia UCAS";
