@@ -524,8 +524,8 @@ Geo-Context and COVID-19 in Missouri
                             <div class='covid_outlines'>
 
                                 <span class='covid_outlines_bold'>
-                                    {{county_name}} County's Total COVID-19 Cases:<span class="covid_outlines_bold">{{county_cov_case}}</span>
-                                </span> 
+                                    {{county_name}} County's Total COVID-19 Cases:</span> {{county_cov_case}}
+        
 
                             </div>
                             <div class='covid_plot' (click)='getClickEvent("covidcountycasesclick")'>
@@ -565,8 +565,9 @@ Geo-Context and COVID-19 in Missouri
                             <div class='covid_outlines'>
 
                                 <span class='covid_outlines_bold'>
-                                    {{county_name}} County's Total COVID-19 Deaths:<span class="covid_outlines_bold">{{county_cov_deaths}}</span>
-                                </span> 
+                                    {{county_name}} County's Total COVID-19 Deaths:
+                                </span>
+                                {{county_cov_deaths}}
 
                             </div>
                       
