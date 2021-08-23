@@ -16,13 +16,19 @@
 
 
 .main_container{
+  font-family:"Euphemia UCAS";
   padding:10px;
   min-height:40vh;
   margin-bottom:5px;
 }
 
+.indent{
+  padding-left:0.4rem;
+}
 
-
+.bold{
+  font-weight:bolder;
+}
 
 .footer{
   background-color:#c4c4c4;

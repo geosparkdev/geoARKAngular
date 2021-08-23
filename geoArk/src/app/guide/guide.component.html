@@ -23,39 +23,42 @@
         <div class="column">
 
             <div *ngIf="models_selected">
-                Each Missouri county has a risk assessment made up of 6 categories:
 
-                <div class='tab'>
-                    <br>
-                    <span class='bold'>Susceptibility (Individual) Risk:</span> How susceptible an individual in a county might be to COVID-19. The inclusion of known and possible co-morbidities and age breaks were assessed.
-                    <br><br><span class='bold'>Transmission (Community) Risk:</span> What the potential transmission risk of COVID-19 within a county might be.  The inclusion of commuting, migration, worker types, group gatherings, and living situation. 
-                    <br><br><span class='bold'>Socioeconomic Risk:</span>What might be some socioeconomic / demographic variables that would capture and describe the associated social context risk within that county. The inclusion of race, ethnicity, disability, insurance status, veteran status, and education level.
-                    <br><br><span class='bold'>Accessibility Risk:</span> What infrastructure components could be included to provide an assessment of accessibility and establish differences between counties in terms of their access to health options and care. The development and inclusion of various hospital, nursing home, and telehealth access measures as well as broadband metrics.
-                    <br><br><span class='bold'>Health Resource Risk:</span> What health resources are available to a county’s population to mitigate and aid in the response to the epidemic. The typical health resource measures included beds, ICU, and professional staffing measures.
-                    <br><br><span class='bold'>Exposure Risk:</span>Incorporated existing exposure metrics (cases, testing, deaths) as temporally collected to aid in the development of associations, correlations, and trends.
+                <div class='columns'>
+                    <div class='column'>
+                        <img src="../../assets/RiskCategoriesBubbles.png">
+
+                    </div>
+                    <div class='column'>
+                        Our website provides users with an interactive way to learn about the different risk factors throughout the counties of Missouri. 
+                        <div class='tab' style='font-size:0.8rem;'>
+                            <span class='bold'>Susceptibility (Individual) Risk:</span> How susceptible an individual in a county might be to COVID-19. The inclusion of known and possible co-morbidities and age breaks were assessed.
+                            <br><br><span class='bold'>Transmission (Community) Risk:</span> What the potential transmission risk of COVID-19 within a county might be.  The inclusion of commuting, migration, worker types, group gatherings, and living situation. 
+                            <br><br><span class='bold'>Socioeconomic Risk:</span>What might be some socioeconomic / demographic variables that would capture and describe the associated social context risk within that county. The inclusion of race, ethnicity, disability, insurance status, veteran status, and education level.
+                            <br><br><span class='bold'>Accessibility Risk:</span> What infrastructure components could be included to provide an assessment of accessibility and establish differences between counties in terms of their access to health options and care. The development and inclusion of various hospital, nursing home, and telehealth access measures as well as broadband metrics.
+                            <br><br><span class='bold'>Health Resource Risk:</span> What health resources are available to a county’s population to mitigate and aid in the response to the epidemic. The typical health resource measures included beds, ICU, and professional staffing measures.
+                            <br><br><span class='bold'>Exposure Risk:</span>Incorporated existing exposure metrics (cases, testing, deaths) as temporally collected to aid in the development of associations, correlations, and trends.
+                    
+                        </div>
+                    </div>
                 </div>
-
-                <br>
-                The risk assessment is represented by the windrose plot below:
-                <br>
-                <img src="../../assets/riskassessment.png">
-                <br>
-                Each county will be evaluated and given a risk score for each category. Risk scores are made up of risk values of the risk factors within each category. For example,
-                in the Susceptibilty category, there is a risk factor called "Diagnosed Diabetes %". Boone county has 7.8% Diagnosed Diabetes. This value lies within the first quantile of all Missouri counties, thus the risk value = 1.
-                Risk values range from 1 to 5.
-                <br>
-                <br>
                 
-                Risk Category Score = Sum of risk values of risk factors within category.
-                <br>
-                Risk values = Quantile 1-5 of risk factor amongst Missouri County Population
-                <br>
-                Total Risk value = Sum of Risk Category Scores (normalized on a scale of 1-5 on counties dashboard)
+               Each category is composed of various risk factors that are ranked from 1-5, based on quantile ranges(0.2 increment).
+               The sum of the risk factor ranks, create the <span class='bold'>risk category risk score.</span> 
+               Counties are given a final risk score which considers all risk categories (sum of risk category risk scores). The 
+               <span class='bold'>county's risk score</span> can be used to look at which areas of Missouri are most at risk.
+               <br><br>
+               <span class='bold'>County Risk Score=</span>&Sigma; risk category risk scores
+               <br>
+               <span class='bold'>Risk Cateogry Risk Score=</span>&Sigma; risk factor risk values
+               <br>
+               <span class='bold'>Risk Factor Risk Value=</span>Risk factor quantile rank
+               
 
-                <br>
-                <br>
-                <br>
-                <br>
+    
+                   
+                
+              
                 
             </div>
 
@@ -63,19 +66,40 @@
 
 
             <div *ngIf="location_selected">
-                <div class="type1">How to use Counties Dashboard</div>
-                The Counties Dashboard lets users deep-dive into the risk assessment of each Missouri county. 
-                <br>
-                <img src="../../assets/howtouse_location.png">
-            </div>
+                <div class="type1">How to use the Counties Dashboard</div>
+                The “Counties” dashboard allows users to dive-in to different risk 
+                categories and learn about the magnitude of risk factors in the 
+                individual counties of Missouri.
+                <div class='columns'>
+                    <div class='column'>
+                        <img src="../../assets/Final_countiesdash.png">
+                    </div>
+                    <div class='column'>
+                        <span class='bold'><br>How to navigate dashboard:</span>
+                        <div class='indent'>
+                            <br><span class='bold'>1)</span>	Select a county 
+                            <br><span class='bold'>2)</span>	Select a Risk Category
+                            <br><span class='bold'>3)</span>	Click on Risk Factors to geo-spatially visualize 
+                        </div>
+                        <br>
+                        <span class='bold'><br>Features of dashboard:</span>
+                        <div class='indent'>
+                            <br><span class='bold'>A)</span>	A COVID-19 risk assessment of each county which includes a risk score per category (sum of all risk factor values) and a total risk score (sum of all risk category scores). The wind rose plot reports the proportion of each risk category as compared to the max value of all Missouri counties.
+                            <br><span class='bold'>B)</span>	Risk factor bar plot that compares a county’s value to the average and max of all Missouri counties.
+                            <br><span class='bold'>C)</span>	A risk factor choropleth map.
+                            <br><span class='bold'>D)</span>	COVID-19 weekly Cases and Deaths (updated daily)
+                        </div>
+                    </div>
+                    
+                </div>
+             
 
             <div *ngIf="categories_selected">
-                <div class="type1">How to use Risk Categories Dashboard</div>
-                The Risk Categories Dashboard gives a high-level view of risk throughout the counties of Missouri. Users can generate a customized
-                risk assessment by selecting different combinations of risk categories. A rural-urban contiuum filter can be applied to visualize
-                the relationship between risk and how rural or urban a county is. 
-                <br>
-                <img src="../../assets/howtouse_categories.png">
+     
+  
+            
+ 
+
             </div>
 
         </div>
