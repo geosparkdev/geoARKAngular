@@ -147,7 +147,7 @@
                 <div class='bold_font' style='font-size:1.3rem;'>
                     Rural Urban Contiuum:
                 </div> 
-                <div style='font-size:0.8rem'>
+                <div style='font-size:0.7rem'>
                     "ERS Rural-Urban Continuum Codes distinguish metropolitan (metro) counties by the population size of their metro area, and nonmetropolitan (nonmetro) counties by degree of urbanization and adjacency to metro areas."
                 (ERS <a href="https://www.ers.usda.gov/data-products/rural-urban-continuum-codes/documentation/">Link</a>)
                 </div>
@@ -169,12 +169,18 @@
                 </div>
     
                     
-                    
-                 
-                   
-                    
-          
 
+            </div>
+
+
+            <div class='healthassessment' style='background-color:#cdced6;'>
+                <div class='bold_font' style='font-size:1.3rem;'>
+                    County:
+                </div> 
+                Highlight a county
+                <select style='width:100%;background-color:#f5f6f9;border-radius:10px;border:none;' name="county"(change)="clickBarsCounty($event)" >
+                    <option *ngFor='let county of counties' value={{county.cnty_fips}} >{{county.cnty_name}} County</option> 
+                </select>
             </div>
             
         
@@ -263,7 +269,7 @@
                     <div class="column">
                         <div *ngFor='let factors of bar_bars;let i=index'>
                             <div class='bars_plot'>
-                                <plotly-plot [data]="factors.data" [layout]="factors.layout" (plotlyClick)="clickBarsCounty(factors.data[0].fips)"></plotly-plot>
+                                <plotly-plot [data]="factors.data" [layout]="factors.layout"></plotly-plot>
                             </div>
                         
                         </div>
