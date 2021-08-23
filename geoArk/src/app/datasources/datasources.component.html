@@ -35,14 +35,18 @@
             
       
             <table>
-                <tr>
-                <th style="width: 70%;">Description</th>
-                <th style="width: 30%;"> Source URL</th>
-                </tr>
-                <tr *ngFor='let sources of data_sources'>
-                <td style="width: 70%;">{{sources.description}}</td>
-                <td style="width: 30%;"><a href="{{sources.source_url}}">Cick here</a></td>
-                </tr>
+              
+
+                    <tr>
+                        <th style="width: 70%;">Description</th>
+                        <th style="width: 30%;"> Source URL</th>
+                        </tr>
+                        <tr *ngFor='let sources of data_sources'>
+                        <td style="width: 70%;">{{sources.description}}</td>
+                        <td style="width: 30%;"><a href="{{sources.source_url}}">Cick here</a></td>
+                    </tr>
+             
+         
             </table>
        
         </div>
