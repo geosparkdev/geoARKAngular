@@ -18,8 +18,9 @@
 .main_container{
   font-family:"Euphemia UCAS";
   padding:10px;
-  min-height:40vh;
+  min-height:90vh;
   margin-bottom:5px;
+  position:relative;
 }
 
 .indent{
