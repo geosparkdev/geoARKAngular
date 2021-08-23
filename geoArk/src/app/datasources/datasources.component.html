@@ -36,14 +36,12 @@
       
             <table>
                 <tr>
-                <th style="width: 10%;">Field</th>
-                <th style="width: 50%;">Description</th>
-                <th style="width: 40%;"> Source URL</th>
+                <th style="width: 70%;">Description</th>
+                <th style="width: 30%;"> Source URL</th>
                 </tr>
                 <tr *ngFor='let sources of data_sources'>
-                <td style="width: 10%;">{{sources.field}}</td>
-                <td style="width: 50%;">{{sources.description}}</td>
-                <td style="width: 40%;">{{sources.source_url}}</td>
+                <td style="width: 70%;">{{sources.description}}</td>
+                <td style="width: 30%;"><a href="{{sources.source_url}}">Cick here</a></td>
                 </tr>
             </table>
        
