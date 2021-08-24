@@ -346,10 +346,10 @@ Geo-Context and COVID-19 in Missouri
 
                     <div class="aligncenter">
 
-                        <div class='SB_2' *ngIf='current_risk_factor!="Healthresources"'>
+                        <div class='SB_2' *ngIf='current_risk_factor!="healthresources"'>
                             {{current_risk_factor}} Risk Factors
                         </div>
-                        <div class='SB_2' *ngIf='current_risk_factor=="Healthresources"'>
+                        <div class='SB_2' *ngIf='current_risk_factor=="healthresources"'>
                             Health Culture Risk Factors
                         </div>
     
@@ -358,11 +358,11 @@ Geo-Context and COVID-19 in Missouri
                             Total {{current_risk_factor}} risk
                         </div>
     
-                        <div class='SB_4' *ngIf='(current_factor!="total"  && current_risk_factor!="Healthresources")'>
+                        <div class='SB_4' *ngIf='(current_factor!="total"  && current_risk_factor!="healthresources")'>
                             <!-- {{current_factor}} -->
                             {{current_description}}
                         </div>
-                        <div class='SB_4' *ngIf='current_risk_factor=="Healthresources"'>
+                        <div class='SB_4' *ngIf='current_risk_factor=="healthresources"'>
                             <!-- {{current_factor}} -->
                             Total health culture risk
                         </div>
