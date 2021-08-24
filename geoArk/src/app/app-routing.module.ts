@@ -165,7 +165,7 @@ const config = {
 const routes: Routes = [
   {
     path:"",
-    redirectTo: 'GeoArkHome',
+    redirectTo: 'RAPID',
     pathMatch: 'full'
   },
   {
