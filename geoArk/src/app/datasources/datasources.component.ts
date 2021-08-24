@@ -53,7 +53,7 @@ export class DatasourcesComponent implements OnInit {
         else if (risk_factor=='exposure'){
           this.risk_factors.Exposure=1
         }
-        else if (risk_factor=='health resources'){
+        else if (risk_factor=='healthresources'){
           this.risk_factors.Health_resources=1
         }
         else if(risk_factor=='socioeconomic'){
