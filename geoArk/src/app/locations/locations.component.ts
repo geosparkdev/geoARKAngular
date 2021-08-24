@@ -4265,7 +4265,7 @@ getWindrosedata(covid_fips:any){
           },
           {
             r: [Number(this.windrose_data[5])],
-            theta: ["Health Resources",],
+            theta: ["Health Culture",],
             marker: {color: "#FB6D00"},
             showlegend:false,
             type: "barpolar"
