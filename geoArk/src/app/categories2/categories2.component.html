@@ -6,7 +6,7 @@
 
         <div *ngIf='this.task1'>
             Task 1/3:<br>
-            Visualize the risk assessment of risk categories Susceptibility, Transmission, and Socioeconomic. What is the risk total of Boone County?
+            Generate risk assessment that includes Susceptibility, Transmission, and Socioeconomic risk categories and highlight county of choice.
         </div>
         <div class='task_start' *ngIf='this.task1_start' (click)='start_task1("RCT01")'>
             Start Task
@@ -18,7 +18,7 @@
 
         <div *ngIf='this.task2'>
             Task 2/3:<br>
-            Generate a Susceptibility risk assessment and adjust the Rural-Urban Continuum filter to be between 2 and 7. What is the county with the second-to-last, lowest risk value?
+            Generate risk assessment for all risk factors and only include counties that fall in Rural Urban Continuum spectrum between 1 and 3. 
         </div>
         <div class='task_start' *ngIf='this.task2_start' (click)='start_task2("RCT02")'>
             Start Task
@@ -31,7 +31,7 @@
 
         <div *ngIf='this.task3'>
             Task 3/3:<br>
-            Generate a risk assessment with all risk factors and remove the Rural-Urban Continuum filter.
+            User Exploration- What would you like to learn from this dashboard?
         </div>
         <br>
         <div class='task_start' *ngIf='this.task3_start' (click)='start_task3("RCT03")'>

@@ -3385,6 +3385,11 @@ export class Categories2Component implements OnInit {
         this.userid=params.userid;
         console.log(this.userid)
 
+        if (this.userid!=null){
+          this.evaluation=true;
+          this.black_out=true;
+        }
+
       });
 
 
