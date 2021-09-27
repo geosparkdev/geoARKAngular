@@ -34,25 +34,11 @@
             User Exploration- What would you like to learn from this dashboard?
         </div>
         <br>
-        <div class='task_start' *ngIf='this.task3_start' (click)='start_task3("RCT03")'>
+        <div class='task_start' *ngIf='this.task3_start' (click)='start_task3("RCT_EX")'>
             Start Task
         </div>
-        <div class='task_stop' *ngIf='this.task3_stop' (click)='stop_task3("RCT03")'>
+        <div class='task_stop' *ngIf='this.task3_stop' (click)='stop_task3("RCT_EX")'>
             Complete Task
-        </div>
-
-
-
-        <div *ngIf='this.exploration'>
-          Open Exploration:<br>
-        Take a few minutes to explore the dashboard.
-        </div>
-        <div class='task_start' *ngIf='this.exploration_start' (click)='start_exploration("RCT_EX")'>
-            Explore 
-        </div>
-        <div class='task_stop' *ngIf='this.exploration_stop' (click)='stop_exploration("RCT_EX")'>
-            Stop Explore
-        </div>
 
         <div *ngIf='this.survey'>
             You have completed the task analysis for the risk categories dashboard.

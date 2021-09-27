@@ -4158,32 +4158,12 @@ countyView(event){
     this.sendClick(task_id,'end')
     this.task3_stop=false;
     this.task3=false;
-    this.exploration=true;
-    this.exploration_start=true;
-    console.log(task_id);
-    this.black_out=true;
-
-  }
-
-
-  start_exploration(task_id:any){
-    this.sendClick(task_id,'start')
-    this.exploration_start=false;
-    this.exploration_stop=true;
-    console.log(task_id);
-    this.current_task=task_id;
-    this.black_out=false;
-  }
-
-  stop_exploration(task_id:any){
-    this.sendClick(task_id,'end')
-    this.exploration_stop=false;
-    this.exploration=false;
     this.survey=true;
     console.log(task_id);
     this.black_out=true;
 
   }
+
 
   getClickEvent(divname:string){
     console.log(divname)
