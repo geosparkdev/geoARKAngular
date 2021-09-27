@@ -3284,7 +3284,7 @@ export class LocationsComponent implements OnInit {
 
   public survey:boolean=false;
 
-  public userid:any=-1;
+  public userid:any;
 
   public current_task:any='Not Started'
 
@@ -3430,7 +3430,7 @@ export class LocationsComponent implements OnInit {
       console.log('USERIDUSERIDUSERID!***@*#*@#')
       console.log(this.userid)
 
-      if (this.userid!=-1){
+      if (this.userid!=null){
         this.evaluation=true;
         this.black_out=true;
       }
