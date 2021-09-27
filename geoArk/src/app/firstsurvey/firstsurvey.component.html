@@ -13,11 +13,12 @@
     <span class='title'>About the Participant:</span>
     <br>
     <br>
-    1. What type of organization are you a member of?
+    1. What is the focus of your origanization?
     <select id="USQ1" name="USQ1" [(ngModel)]="this.survey.USQ1">
         <option value='-1'>Select an answer...</option>
         <option value="0">Planning</option>
         <option value="1">Academic</option>
+        <option value="2">Other</option>
     </select>
     <br>
     <br>
@@ -26,7 +27,8 @@
         <option value='-1'>Select an answer...</option>
         <option value="0">Health Care</option>
         <option value="1">Government</option>
-        <option value="2">Social Services</option>
+        <option value="2">COVID-19</option>
+        <option value="3">Other</option>
     </select>
     <br>
     <br>
@@ -65,7 +67,7 @@
     <br>
     <br>
     <span class='warning'>
-        Once you click "submit" you will start the evaluation. Please make sure you have 30-45min to complete the evaluation. Sessions cannot be saved.
+        Once you click "submit" you will start the evaluation. Please make sure you have 25 min to complete the evaluation. Sessions cannot be saved.
     </span>
     <div class='aligncenter'>
         <button class="main_button button_red" >Submit & Start Evaluation</button>
