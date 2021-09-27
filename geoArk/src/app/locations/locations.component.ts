@@ -3266,8 +3266,6 @@ export class LocationsComponent implements OnInit {
   public task2:boolean=false;
   public task3:boolean=false;
   public task4:boolean=false;
-  public task5:boolean=false;
-  public task6:boolean=false;
 
   public exploration:boolean=false;
 
@@ -3284,18 +3282,9 @@ export class LocationsComponent implements OnInit {
   public task4_start:boolean=false;
   public task4_stop:boolean=false;
 
-  public task5_start:boolean=false;
-  public task5_stop:boolean=false;
-
-  public task6_start:boolean=false;
-  public task6_stop:boolean=false;
-
-  public exploration_start:boolean=false;
-  public exploration_stop:boolean=false;
-
   public survey:boolean=false;
 
-  public userid:any;
+  public userid:any=-1;
 
   public current_task:any='Not Started'
 
@@ -3441,6 +3430,10 @@ export class LocationsComponent implements OnInit {
       console.log('USERIDUSERIDUSERID!***@*#*@#')
       console.log(this.userid)
 
+      if (this.userid!=-1){
+        this.evaluation=true;
+        this.black_out=true;
+      }
     });
 
     if(this.locationscntyfips!=null && isNaN(this.locationscntyfips)==false){
@@ -3552,72 +3545,12 @@ export class LocationsComponent implements OnInit {
     this.sendClick(task_id,'end')
     this.task4_stop=false;
     this.task4=false;
-    this.task5=true;
-    this.task5_start=true;
-    console.log(task_id);
-    this.black_out=true;
-
-  }
-
-  start_task5(task_id:any){
-    this.sendClick(task_id,'start')
-    this.task5_start=false;
-    this.task5_stop=true;
-    console.log(task_id);
-    this.current_task=task_id;
-    this.black_out=false;
-  }
-
-  stop_task5(task_id:any){
-    this.sendClick(task_id,'end')
-    this.task5_stop=false;
-    this.task5=false;
-    this.task6=true;
-    this.task6_start=true;
-    console.log(task_id);
-    this.black_out=true;
-
-  }
-
-
-  start_task6(task_id:any){
-    this.sendClick(task_id,'start')
-    this.task6_start=false;
-    this.task6_stop=true;
-    console.log(task_id);
-    this.current_task=task_id;
-    this.black_out=false;
-  }
-
-  stop_task6(task_id:any){
-    this.sendClick(task_id,'end')
-    this.task6_stop=false;
-    this.task6=false;
-    this.exploration=true;
-    this.exploration_start=true;
-    console.log(task_id);
-    this.black_out=true;
-
-  }
-
-  start_exploration(task_id:any){
-    this.sendClick(task_id,'start')
-    this.exploration_start=false;
-    this.exploration_stop=true;
-    console.log(task_id);
-    this.current_task=task_id;
-    this.black_out=false;
-  }
-
-  stop_exploration(task_id:any){
-    this.sendClick(task_id,'end')
-    this.exploration_stop=false;
-    this.exploration=false;
     this.survey=true;
     console.log(task_id);
-    this.black_out=false;
+    this.black_out=true;
 
   }
+
 
   getClickEvent(divname:string){
     console.log(divname)
