@@ -3775,7 +3775,7 @@ clickBarsCounty(fips){
 
 
 
-    this.getClickEvent('slider_buttonclick');
+    this.getClickEvent('slider_'+String(changeContext.value)+'_'+String(changeContext.highValue)+'_buttonclick');
 
 
     if(this.filter1.toggle==true){
@@ -4078,10 +4078,12 @@ onOutlineEachFeature(feature, layer: L.Layer) {
 
 // be directed to counties dashbaord with selected county
 countyView(event){
-  let county_fips=Number(event.target.feature.properties.fips);
-  console.log(county_fips)
-  this.router.navigate(['/counties'], { queryParams: { fips: county_fips} })
-
+  
+  if(this.evaluation==false){
+    let county_fips=Number(event.target.feature.properties.fips);
+    console.log(county_fips)
+    this.router.navigate(['/counties'], { queryParams: { fips: county_fips} })
+  }
 
  this.getClickEvent('map_buttonclick');
 }
