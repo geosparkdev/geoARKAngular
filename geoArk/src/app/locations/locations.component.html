@@ -69,14 +69,28 @@ Geo-Context and COVID-19 in Missouri
 
 </div>
 
-<div class='nav_bar'>
+<div class='nav_bar' *ngIf='this.evaluation'>
     <ul class='tabrow'>
-        <li routerLink="/categories" routerLinkActive="active" > Risk Categories</li>
-        <li routerLink="/counties" routerLinkActive="active" class="selected"> Counties</li>
+        <li  class="selected"> Risk Categories</li>
+        <li > Counties</li>
+        <li > Data Sources</li>
+        <li  > How to use</li>
+
+
+    </ul> 
+</div> 
+
+
+<div class='nav_bar' *ngIf='!this.evaluation'>
+    <ul class='tabrow'>
+        <li routerLink="/categories" routerLinkActive="active" class="selected"> Risk Categories</li>
+        <li routerLink="/counties" routerLinkActive="active" > Counties</li>
         <li routerLink="/datasources" routerLinkActive="active" > Data Sources</li>
         <li routerLink="/howtouse" routerLinkActive="active" > How to use</li>
+
+
     </ul> 
-</div>  
+</div> 
 
 
 <div class='main_container'>
