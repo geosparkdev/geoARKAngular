@@ -32,7 +32,7 @@ import { TestComponent } from './test/test.component';
 const routes: Routes = [
   {
     path:"",
-    redirectTo: 'GeoArkHome',
+    redirectTo: 'rapidHome',
     pathMatch: 'full'
   },
   {
