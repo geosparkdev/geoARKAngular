@@ -66,7 +66,7 @@ const routes: Routes = [
   },
 
 
-  /*geoARKData*/
+  /*geoARKData
   {
     path:'geoARKData',
     component: GeoarkdataHomeComponent,
@@ -88,12 +88,12 @@ const routes: Routes = [
   /*{
     path:'predictions',
     component: ModelingComponent,
-  },*/
+  },
 
   {
     path:'geoark',
     component: GeoarkComponent,
-  },
+  },*/
 
 
 
@@ -127,10 +127,6 @@ const routes: Routes = [
     path:'completed',
     component: SurveyfinishedComponent
   },
-  {
-    path:'test',
-    component: TestComponent
-  }
 
 ];
 
