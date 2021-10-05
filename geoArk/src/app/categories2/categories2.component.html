@@ -263,7 +263,7 @@
                 <div class="columns">
                     <div class="column">
                         <div *ngFor='let factors of bar_bars;let i=index'>
-                            <div class='bars_plot'>
+                            <div class='bars_plot' (mouseover)='getClickEvent("riskbarshover")' >
                                 <plotly-plot [data]="factors.data" [layout]="factors.layout"></plotly-plot>
                             </div>
                         

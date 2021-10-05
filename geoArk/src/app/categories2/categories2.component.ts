@@ -3581,6 +3581,7 @@ unselectAll(){
 
 clickBarsCounty(fips){
   this.current_fips=fips.target.value;
+  this.getClickEvent("countyhoverclick");
 
   cat_geoJSON.clearLayers();
   this.map();
@@ -4041,6 +4042,7 @@ clickBarsCounty(fips){
 
 // map functions 
 highlightFeature(e) {
+  this.getClickEvent("mapcountyhover");
   const layer = e.target;
   layer.setStyle({
     weight: 2,
