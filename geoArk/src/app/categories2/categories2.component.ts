@@ -4042,7 +4042,6 @@ clickBarsCounty(fips){
 
 // map functions 
 highlightFeature(e) {
-  this.getClickEvent("mapcountyhover");
   const layer = e.target;
   layer.setStyle({
     weight: 2,
@@ -4084,7 +4083,7 @@ countyView(event){
   if(this.evaluation==false){
     let county_fips=Number(event.target.feature.properties.fips);
     console.log(county_fips)
-    this.router.navigate(['/counties'], { queryParams: { fips: county_fips} })
+  //  this.router.navigate(['/counties'], { queryParams: { fips: county_fips} })
   }
 
  this.getClickEvent('map_buttonclick');

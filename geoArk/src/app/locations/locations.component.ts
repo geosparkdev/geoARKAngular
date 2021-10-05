@@ -4473,7 +4473,6 @@ triggerFactor(factor, index){
 
 // map functions 
   highlightFeature(e) {
-    this.getClickEvent("mapcountyhover");
     const layer = e.target;
     layer.setStyle({
       weight: 2,
