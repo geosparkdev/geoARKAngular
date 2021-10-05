@@ -227,7 +227,7 @@ Geo-Context and COVID-19 in Missouri
                         <br>
                         <br>
                        <span class='HAblue HAbold'>% of MAX Risk Category Risk Score</span> 
-                        <div class='windrose' (click)='getClickEvent("windroseclick")'>
+                        <div class='windrose' (mouseover)='getClickEvent("windrosehover")' (click)='getClickEvent("windroseclick")'>
                             <plotly-plot [data]="windrose.data" [layout]="windrose.data.layout"></plotly-plot>
                         </div>    
 
@@ -348,7 +348,7 @@ Geo-Context and COVID-19 in Missouri
                 
                   
     
-                        <div id="risk_map" class="risk_map"></div>   
+                        <div (mouseover)='getClickEvent("maphover")' id="risk_map" class="risk_map"></div>   
                         <span class='SB_4'>Click on risk factor to visualize on map.<i class="mdi mdi-arrow-right-thick" ></i></span>
 
 
@@ -515,11 +515,11 @@ Geo-Context and COVID-19 in Missouri
         
 
                             </div>
-                            <div class='covid_plot' (click)='getClickEvent("covidcountycasesclick")'>
+                            <div class='covid_plot' (mouseover)='getClickEvent("covidcountycaseshover")' (click)='getClickEvent("covidcountycasesclick")'>
                                 <plotly-plot [data]="covid_county_cases.data" [layout]="covid_county_cases.layout"></plotly-plot>
                             </div>
                     
-                            <div class='covid_plot' (click)='getClickEvent("covidcasesclick")'>
+                            <div class='covid_plot' (mouseover)='getClickEvent("covidcaseshover")' (click)='getClickEvent("covidcasesclick")'>
                                 <plotly-plot [data]="covid_cases.data" [layout]="covid_cases.layout"></plotly-plot>
                             </div>
                         </div>
@@ -559,11 +559,11 @@ Geo-Context and COVID-19 in Missouri
                             </div>
                       
                  
-                            <div class='covid_plot'(click)='getClickEvent("covidcountydeathsclick")'>
+                            <div class='covid_plot' (mouseover)='getClickEvent("covidcountydeathhover")' (click)='getClickEvent("covidcountydeathsclick")'>
                                 <plotly-plot [data]="covid_county_deaths.data" [layout]="covid_county_deaths.layout"></plotly-plot>
                             </div>
     
-                            <div class='covid_plot' (click)='getClickEvent("coviddeathsclick")'>
+                            <div class='covid_plot' (mouseover)='getClickEvent("coviddeathhover")' (click)='getClickEvent("coviddeathsclick")'>
                                 <plotly-plot [data]="covid_deaths.data" [layout]="covid_deaths.layout"></plotly-plot>
                             </div>
                         </div> 
