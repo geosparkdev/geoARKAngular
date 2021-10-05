@@ -20,11 +20,11 @@
             </tr>
             <tr *ngFor="let question of survey;let i = index"> 
                 <td style="width:50%">{{question.Question}}</td>
-                <td align="center"> <input type="radio" name="{{question.ID}}"  value="0" [(ngModel)]="this.survey[i].Answer" required/></td>
-                <td align="center">  <input type="radio" name="{{question.ID}}" value="1" [(ngModel)]="this.survey[i].Answer" required/></td>
+                <td align="center"> <input type="radio" name="{{question.ID}}"  value="1" [(ngModel)]="this.survey[i].Answer" required/></td>
                 <td align="center">  <input type="radio" name="{{question.ID}}" value="2" [(ngModel)]="this.survey[i].Answer" required/></td>
                 <td align="center">  <input type="radio" name="{{question.ID}}" value="3" [(ngModel)]="this.survey[i].Answer" required/></td>
                 <td align="center">  <input type="radio" name="{{question.ID}}" value="4" [(ngModel)]="this.survey[i].Answer" required/></td>
+                <td align="center">  <input type="radio" name="{{question.ID}}" value="5" [(ngModel)]="this.survey[i].Answer" required/></td>
             </tr>
             
         </table>
